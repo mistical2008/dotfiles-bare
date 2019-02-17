@@ -1,0 +1,30 @@
+#
+# /home/evgeniy/.nvidia-settings-rc
+#
+# Configuration file for nvidia-settings - the NVIDIA X Server Settings utility
+# Generated on Wed Oct 24 08:50:36 2018
+#
+
+# ConfigProperties:
+
+RcFileLocale = C
+DisplayStatusBar = Yes
+SliderTextEntries = Yes
+IncludeDisplayNameInConfigFile = Yes
+ShowQuitDialog = Yes
+UpdateRulesOnProfileNameChange = Yes
+Timer = Memory_Used_(GPU_0),Yes,3000
+Timer = Thermal_Monitor_(GPU_0),Yes,1000
+Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
+
+# Attributes:
+
+manjaro:8.0/LogAniso=0
+manjaro:8.0/FSAA=0
+manjaro:8.0/TextureClamping=1
+manjaro:8.0/FXAA=0
+manjaro:8.0/FSAAAppControlled=1
+manjaro:8.0/LogAnisoAppControlled=1
+manjaro:8.0/OpenGLImageSettings=1
+manjaro:8.0/FSAAAppEnhanced=0
+manjaro:8.0/ShowGraphicsVisualIndicator=0
