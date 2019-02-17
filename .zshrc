@@ -1,0 +1,1 @@
+/media/Документы/Mega/02_linux_projects/00_dotfiles/shell/zshrc
