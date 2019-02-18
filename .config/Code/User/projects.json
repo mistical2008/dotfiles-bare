@@ -1,0 +1,44 @@
+[
+  {
+    "name": "gulp4-web-starter-kit",
+    "rootPath": "/media/Документы/Mega/02_web-design/00_Projects/01_gulp4-web-starter-kit",
+    "paths": ["./app", "./dist"],
+    "group": "Personal"
+  },
+  {
+    "name": "loftschool-homework",
+    "rootPath": "/media/Документы/Mega/02_web-design/00_Projects/02_loftschool-homework",
+    "paths": ["./app", "./dist"],
+    "group": "Learn"
+  },
+  {
+    "name": "00_watch_excel_Ilya",
+    "rootPath": "/media/Документы/00_inbox/watch_excel_Ilya",
+    "paths": [],
+    "group": "Work"
+  },
+  {
+    "name": "01_learn-react",
+    "rootPath": "/media/Документы/Mega/01_personal/REACT_crashcourse-2018",
+    "paths": ["./react-app", "./counter-app"],
+    "group": "Learn"
+  },
+  {
+    "name": "04_post-css",
+    "rootPath": "/mnt/12208E29208E143F/Clouds/Mega/02_web-design/01_Practice/04_post-css",
+    "paths": [],
+    "group": "Learn"
+  },
+  {
+    "name": "02_intergram-bot[Alex]",
+    "rootPath": "/mnt/12208E29208E143F/Clouds/Mega/00_work/intergram",
+    "paths": ["./src", "./css", "./db"],
+    "group": "Work"
+  },
+  {
+    "name": "03_intergram-bot_alarius",
+    "rootPath": "/mnt/12208E29208E143F/Clouds/Mega/00_work/intergram_alarius/intergram",
+    "paths": ["./src", "./css", "./db"],
+    "group": "Learn"
+  }
+]

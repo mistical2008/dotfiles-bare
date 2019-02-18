@@ -1,0 +1,114 @@
+{
+  "window.zoomLevel": 0,
+  "window.menuBarVisibility": "default",
+  "workbench.iconTheme": "material-icon-theme",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true,
+    "suppressWelcomeNotice": true
+  },
+  "files.associations": {
+    "*.pug": "jade",
+    "*.css": "postcss"
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.renderIndentGuides": false,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.directory": true
+  },
+  "explorer.confirmDelete": false,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.promptToSaveFilesBeforeCommit": true,
+  "css.lint.float": "warning",
+  "css.lint.emptyRules": "warning",
+  "css.lint.ieHack": "warning",
+  "scss.lint.float": "warning",
+  "scss.lint.hexColorLength": "warning",
+  "scss.lint.ieHack": "warning",
+  "scss.lint.unknownProperties": "warning",
+  "scss.lint.zeroUnits": "warning",
+  "svgviewer.transparencycolor": "#373e42",
+  "html-css-class-completion.includeGlobPattern": "**/*.{css,scss,sass,html}",
+  "css_peek.searchFileExtensions": [".css", ".scss", "sass", ".less"],
+  "terminal.external.linuxExec": "tilix",
+  "terminal.integrated.fontFamily": "TerminessTTF Nerd Font",
+  "terminal.integrated.fontSize": 16,
+  "editor.tabSize": 2,
+  "material-icon-theme.showUpdateMessage": false,
+  "yaml.format.enable": true,
+  "editor.fontLigatures": true,
+  "workbench.colorTheme": "Electron",
+  "scss.lint.argumentsInColorFunction": "error",
+  "terminal.explorerKind": "external",
+  "editor.snippetSuggestions": "inline",
+  "editor.fontFamily": "'Fira Code','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+  "debug.toolBarLocation": "docked",
+  "gitlens.keymap": "chorded",
+  "explorer.confirmDragAndDrop": false,
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  },
+  "emmet.syntaxProfiles": {
+    "postcss": "css"
+  },
+  "breadcrumbs.enabled": true,
+  "markdown.preview.fontSize": 16,
+  "editor.fontSize": 16,
+  "terminal.integrated.lineHeight": 1.3,
+  "gist.oauth_token": "1b5f13001947eaf6ac74d4981f19f18ddae9134e",
+  "colorInfo.languages": [
+    {
+      "selector": "css",
+      "colors": "css"
+    },
+    {
+      "selector": "sass",
+      "colors": "css"
+    },
+    {
+      "selector": "scss",
+      "colors": "css"
+    },
+    {
+      "selector": "less",
+      "colors": "css"
+    },
+    {
+      "selector": "js",
+      "colors": "css"
+    },
+    {
+      "selector": "html",
+      "colors": "css"
+    },
+    {
+      "selector": "svg",
+      "colors": "css"
+    },
+    {
+      "selector": "jsx",
+      "colors": "css"
+    },
+    {
+      "selector": "pug",
+      "colors": "css"
+    },
+    {
+      "selector": "ts",
+      "colors": "css"
+    }
+  ],
+  "color-highlight.markerType": "dot-after",
+  "terminal.integrated.enableBell": true,
+  "eslint.autoFixOnSave": true,
+  "window.titleBarStyle": "native",
+  "faker.locale": "ru",
+  "todohighlight.isEnable": true
+}
