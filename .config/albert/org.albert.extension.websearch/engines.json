@@ -1,0 +1,146 @@
+[
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{1c4fd376-e35e-4db4-b22b-b32e0577711c}.svg",
+        "name": "Behance search",
+        "trigger": "bh ",
+        "url": "https://www.behance.net/search?content=projects&sort=appreciations&time=week&featured_on_behance=true&search=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{a82eaec3-86ad-4f32-8f65-4fe55486fe4a}.png",
+        "name": "Dribbble.com",
+        "trigger": "dr ",
+        "url": "https://dribbble.com/search?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{cd41fda0-765b-4ed3-9e91-01d814f5d58a}.png",
+        "name": "icons8",
+        "trigger": "i8",
+        "url": "https://icons8.com/icon/set/%s/all"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{88facd86-ba85-4bb7-9c8a-e800b6d007f7}.png",
+        "name": "Material icons",
+        "trigger": "mti ",
+        "url": "https://material.io/tools/icons/?search=%s&style=baseline"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{454768b9-fa23-4863-a4af-69b5212335bd}.png",
+        "name": "thenounproject.com",
+        "trigger": "thn ",
+        "url": "https://thenounproject.com/search/?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{10b13a73-0375-4e76-95e9-76641420f71d}.png",
+        "name": "Prodicthunt",
+        "trigger": "ph ",
+        "url": "https://www.producthunt.com/search?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{96be33ef-d273-429d-9561-79af3819e26c}.png",
+        "name": "Google",
+        "trigger": "gg ",
+        "url": "https://www.google.com/search?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{28eaccbb-80f8-4750-8d04-d2266f5d8704}.png",
+        "name": "Youtube",
+        "trigger": "yts ",
+        "url": "https://www.youtube.com/results?search_query=%s"
+    },
+    {
+        "iconPath": ":amazon",
+        "name": "Amazon",
+        "trigger": "ama ",
+        "url": "http://www.amazon.com/s/?field-keywords=%s"
+    },
+    {
+        "iconPath": ":ebay",
+        "name": "Ebay",
+        "trigger": "eb ",
+        "url": "http://www.ebay.com/sch/i.html?_nkw=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{07a95a62-28e8-4d15-a822-e0af8e10d239}.png",
+        "name": "GitHub",
+        "trigger": "gh ",
+        "url": "https://github.com/search?utf8=✓&q=%s"
+    },
+    {
+        "iconPath": ":wolfram",
+        "name": "Wolfram Alpha",
+        "trigger": "=",
+        "url": "https://www.wolframalpha.com/input/?i=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{c0d9ccc7-b8cd-4c55-9740-c4b5f8cd4019}.",
+        "name": "DuckDuckGo",
+        "trigger": "dd ",
+        "url": "https://duckduckgo.com/?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{90ff360e-7b54-4e63-81bb-e2806d8c4cb3}.",
+        "name": "StackOverflow",
+        "trigger": "stof ",
+        "url": "https://stackoverflow.com/search?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{09d8d5b5-7bed-4298-a3ab-d05b3a8b147c}.png",
+        "name": "Manjaro",
+        "trigger": "mjr ",
+        "url": "https://forum.manjaro.org/search?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{0208ce0e-2ceb-484d-aadb-91688c2b32ba}.png",
+        "name": "Npm",
+        "trigger": "npm ",
+        "url": "https://www.npmjs.com/search?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{709cc4e2-10db-4c3f-a75e-5f0d45a994fb}.png",
+        "name": "Font Awesome",
+        "trigger": "fa ",
+        "url": "https://fontawesome.com/icons?d=gallery&q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{41e7ec4c-bb41-45ce-8da7-e164e24e65b5}.png",
+        "name": "Google images",
+        "trigger": "ggi ",
+        "url": "https://www.google.ru/search?q=%s&newwindow=1&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiR5fyurNPbAhXF2ywKHVTVDi8Q_AUICigB&biw=2551&bih=1268"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{c46d365f-18b9-47d9-871a-bad6994779c9}.png",
+        "name": "Can I use",
+        "trigger": "ciu ",
+        "url": "https://caniuse.com/#search=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{15555bf3-79e7-4c19-89a9-bc7e1e26fc4e}.png",
+        "name": "Apple developers search",
+        "trigger": "apple ",
+        "url": "https://developer.apple.com/search/?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{ed5420af-1418-4281-85df-478a7cf6e16c}.png",
+        "name": "Material.io search",
+        "trigger": "mtd ",
+        "url": "https://material.io/search.html?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{8253e447-ab53-4328-95ab-8abaf48db505}.png",
+        "name": "Pinterest",
+        "trigger": "pin ",
+        "url": "https://www.pinterest.ru/search/pins/?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{8497f6d9-ca52-43b0-8247-980d3c6d31b1}.png",
+        "name": "Unsplash",
+        "trigger": "un",
+        "url": "https://unsplash.com/search/photos/%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{a1c522a5-c3d3-4d43-844b-56c56231bd6d}.png",
+        "name": "MDN web docs moz://a",
+        "trigger": "mdn ",
+        "url": "https://developer.mozilla.org/ru/search?q=%s"
+    }
+]
