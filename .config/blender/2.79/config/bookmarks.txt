@@ -1,0 +1,7 @@
+[Bookmarks]
+[Recent]
+/usr/share/fonts/TTF/
+/home/evgeniy/.local/share/fonts/
+/home/evgeniy/Документы/temp/
+/home/evgeniy/Документы/00_inbox/02_3d-test/lowpolywolf/
+/home/evgeniy/Документы/00_inbox/02_3d-test/21-iphonex/
