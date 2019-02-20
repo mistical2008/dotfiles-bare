@@ -199,7 +199,7 @@ fi
 # Configurations
 conf() {
 	case $1 in
-		wacom) sudo nano /home/evgeniy/.config/xsetwacom-gnome-symbiotic/setup.sh  ;;
+		wacom) sudo nano /home/evgeniy/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
 		aliases) nano ~/.bash_aliases && dotfiles-push ;;
 		bmblb) sudoedit /etc/bumblebee/bumblebee.conf  ;;
 		homepage)	olddir=$(pwd) && cd ~/scripts/homepage.py && nano homepage.py && ./homepage.py; cd $olddir ;;
