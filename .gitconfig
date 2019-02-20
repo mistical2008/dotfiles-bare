@@ -1,0 +1,6 @@
+[user]
+	email = etalko@gmail.com
+	name = Evgeniy Talko
+[core]
+	editor = code
+	excludesfile = /home/evgeniy/.gitignore
