@@ -264,6 +264,7 @@ for_window [class="copyq"] floating enable
 for_window [class="megasync"] floating enable
 # for_window [class="Google Play Music Desktop Player"] floating enable
 for_window [class="Com.github.jmoerman.go-for-it"] floating enable
+for_window [name="PlayOnLinux"] floating enable
 
 # Workspace output assigning
 workspace $ws1 output primary

@@ -56,3 +56,6 @@ alias zup=". ~/.zshrc"
 alias sudolist='sudo /usr/sbin/visudo'
 
 alias dotfiles='/usr/bin/git --git-dir=/home/evgeniy/dotfiles/ --work-tree=/home/evgeniy'
+alias dfa="dotfiles add"
+alias dfcm="dotfiles commit -m"
+alias dfs="dotfiles status"
