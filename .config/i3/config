@@ -241,15 +241,15 @@ exec --no-startup-id "setwac-run"
 exec_always --no-startup-id "wal -R -n"
 exec --no-startup-id "blueman-applet &"
 exec_always --no-startup-id "copyq &"
-exec_always --no-startup-id "setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch"
+exec_always --no-startup-id "setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch,misc:typo"
 exec_always --no-startup-id "udiskie &"
 exec_always --no-startup-id "albert &"
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id "dropbox start"
 exec --no-startup-id "megasync &"
+exec "pcloud &"
 exec "telegram-desktop &"
-
 
 # WINDOWS RULES
 for_window [class="^.*"] border pixel 8
@@ -264,7 +264,7 @@ for_window [class="copyq"] floating enable
 for_window [class="megasync"] floating enable
 # for_window [class="Google Play Music Desktop Player"] floating enable
 for_window [class="Com.github.jmoerman.go-for-it"] floating enable
-for_window [name="PlayOnLinux"] floating enable
+for_window [title="PlayOnLinux"] floating enable
 
 # Workspace output assigning
 workspace $ws1 output primary
