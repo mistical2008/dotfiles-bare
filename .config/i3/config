@@ -217,8 +217,8 @@ bindsym XF86AudioPrev exec playerctl previous
 # ---------------------------------------------------------------------
 # DISPLAYS
 # ---------------------------------------------------------------------
-# exec_always --no-startup-id xrandr | grep -q HDMI1 && xrandr --output HDMI2 --off --output HDMI1 --primary --auto --mode 3440x1440 --set "Broadcast RGB" "Full" --pos 1920x0 --rotate normal --output DP1 --off --output eDP1 --mode 1920x1080 --pos 0x360 --set "Broadcast RGB" "Full" --rotate normal --output VIRTUAL1 --off
-exec_always --no-startup-id xrandr | grep -q HDMI1 connected && xrandr --output eDP1 --pos 0x360 --set "Broadcast RGB" "Full" --output HDMI1 --primary --auto --mode 3440x1440 --set "Broadcast RGB" "Full" --right-of eDP1 --output DP1 --off --output HDMI2 --off --output VIRTUAL1 --off
+exec_always --no-startup-id xrandr | grep -q HDMI1 && xrandr --output HDMI2 --off --output HDMI1 --primary --auto --mode 3440x1440 --set "Broadcast RGB" "Full" --pos 1920x0 --rotate normal --output DP1 --off --output eDP1 --mode 1920x1080 --pos 0x360 --set "Broadcast RGB" "Full" --rotate normal --output VIRTUAL1 --off
+# exec_always --no-startup-id xrandr | grep -q HDMI1 connected && xrandr --output eDP1 --mode 1920x1080 --pos 0x360 --set "Broadcast RGB" "Full" --output HDMI1 --primary --auto --mode 3440x1440 --pos 1920x0 --set "Broadcast RGB" "Full" --right-of eDP1 --output DP1 --off --output HDMI2 --off --output VIRTUAL1 --off
 
 # Switch between internal and external display
 bindsym XF86Display exec "~/.config/i3/toggleDisplay"
@@ -272,6 +272,8 @@ for_window [class="megasync"] floating enable
 for_window [class="Com.github.jmoerman.go-for-it"] floating enable
 for_window [title="PlayOnLinux"] floating enable
 for_window [class="Yad" title="yad-calendar"] floating enable
+# for_window [class="Polkit-gnome-authentication-agent-1" title="Аутентифицировать"] resize set 800 0
+for_window [class="Polkit-gnome-authentication-agent-1"] resize set 800 0
 
 # #---Dropdown Windows---# #
 
@@ -282,6 +284,7 @@ for_window [instance="dropdown_*"] sticky enable
 for_window [instance="dropdown_*"] scratchpad show
 for_window [instance="dropdown_tmuxdd"] resize set 1200 550
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300
+for_window [instance="dropdown_update"] resize set 1200 800
 for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
