@@ -274,6 +274,12 @@ for_window [title="PlayOnLinux"] floating enable
 for_window [class="Yad" title="yad-calendar"] floating enable
 # for_window [class="Polkit-gnome-authentication-agent-1" title="Аутентифицировать"] resize set 800 0
 for_window [class="Polkit-gnome-authentication-agent-1"] resize set 800 0
+for_window [instance="Enpass"] floating enable
+for_window [instance="Enpass"] move scratchpad
+for_window [instance="Enpass"] sticky enable
+for_window [instance="Enpass"] scratchpad show
+for_window [instance="Enpass"] resize set 900 700
+for_window [instance="Enpass"] move position center
 
 # #---Dropdown Windows---# #
 
