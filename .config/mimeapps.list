@@ -47,6 +47,7 @@ application/xhtml_xml=google-chrome.desktop
 image/webp=google-chrome.desktop
 x-scheme-handler/ftp=google-chrome.desktop
 x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/ssh=ktelnetservice5.desktop
 
 [Added Associations]
 application/x-trash=org.gnome.gedit.desktop;

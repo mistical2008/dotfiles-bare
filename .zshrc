@@ -1,8 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
-export ZSH="/home/evgeniy/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -11,10 +12,9 @@ export ZSH="/home/evgeniy/.oh-my-zsh"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 # ZSH_THEME="agnoster"
 
-# export TERM="xterm-256color"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $HOME/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -60,8 +60,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $HOME/.oh-my-zsh/plugins/*
+# Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
@@ -87,13 +87,13 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #===========================================================================
 #=========================== WALL SETTINGS =================================
 #===========================================================================
-(cat ~/.cache/wal/sequences &)
+(cat $HOME/.cache/wal/sequences &)
 # Alternative (blocks terminal for 0-3ms)
-# cat ~/.cache/wal/sequences
+# cat $HOME/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
-source ~/.cache/wal/colors-tty.sh
-source ~/.cache/wal/colors.sh
+source $HOME/.cache/wal/colors-tty.sh
+source $HOME/.cache/wal/colors.sh
 
 #===========================================================================
 #=========================== wall settings end =============================
@@ -128,7 +128,7 @@ export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -136,8 +136,8 @@ export LANG=en_US.UTF-8
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias zshconfig="mate $HOME/.zshrc"
+# alias ohmyzsh="mate $HOME/.oh-my-zsh"
 
 #Powerlevel9K Settings
 POWERLEVEL9K_MODE="awesome-patched"
@@ -166,15 +166,15 @@ POWERLEVEL9K_HIDE_BRANCH_ICON=true
 # Bashrc settings (moved)
 # npm to $PATH
 export PATH="$PATH:$HOME/.npm/bin"
-export NVM_DIR="/home/evgeniy/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Custom PATH
 export PATH="$PATH:/mnt/Data/Scripts"
-export PATH="$PATH:/home/evgeniy/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Filmic blender path
-export OCIO=/home/evgeniy/.config/blender/2.79/datafiles/colormanagement/config.ocio
+export OCIO=$HOME/.config/blender/2.79/datafiles/colormanagement/config.ocio
 
 # Wine prefixes
 export W_PREFIXES=$HOME/.PlayOnLinux/wineprefix
@@ -186,8 +186,8 @@ export SUDO_EDITOR=gedit
 export GTK_IM_MODULE="xim"
 
 # Aliases from bash
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f $HOME/.bash_aliases ]; then
+    . $HOME/.bash_aliases
 fi
 
 # Point out to z.sh
@@ -199,27 +199,28 @@ fi
 # Configurations
 conf() {
 	case $1 in
-		wacom) sudo nano /home/evgeniy/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
-		aliases) nano ~/.bash_aliases && dotfiles-push ;;
+		wacom) sudo nano $HOME/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
+		aliases) nano $HOME/.bash_aliases && source $HOME/.zshrc && dfa $HOME/.bash_aliases && dfcm "Updated aliases" && dfp ;;
 		bmblb) sudoedit /etc/bumblebee/bumblebee.conf  ;;
-		homepage)	olddir=$(pwd) && cd ~/scripts/homepage.py && nano homepage.py && ./homepage.py; cd $olddir ;;
+		homepage)	olddir=$(pwd) && cd $HOME/scripts/homepage.py && nano homepage.py && ./homepage.py; cd $olddir ;;
+		mimeapps)	code $HOME/.config/mimeapps.list && dfa $HOME/.config/mimeapps.list && dfcm "Updated mimeapps.list" && dfp ;;
 		pacman)		sudoedit /etc/pacman.conf ;;
 		samba)	sudoedit /etc/samba/smb.conf ;;
 		fstab)	sudoedit /etc/fstab ;;
-		i3)  code /home/evgeniy/.config/i3/config && dotfiles-push ;;
-		compton)  code /home/evgeniy/.config/i3/compton.conf && dotfiles-push ;;
-		polybar)  code /home/evgeniy/.config/i3/polybar.conf && dotfiles-push ;;
-		dunst)  code /home/evgeniy/.config/dunst/dunstrc && dotfiles-push ;;
-		tmux)		code ~/.tmux.conf && dotfiles-push ;;
-		nano)		code ~/.nanorc && dotfiles-push ;;
-		xinit)		code ~/.xinitrc && dotfiles-push ;;
-		xres)	code ~/.Xresources && xrdb ~/.Xresources ;;
-		fonts-u) gedit ~/.config/fontconfig/70-emojione-color.conf && fc-cache -f -v ;;
-		theme2)		code ~/.themes/FlatStudioCustom/gtk-2.0/gtkrc ;;
-		theme3)		code ~/.themes/FlatStudioCustom/gtk-3.0/gtk.css ;;
-		gtk2)		code ~/.gtkrc-2.0 ;;
-		gtk3)		code ~/.config/gtk-3.0/settings.ini ;;
-		zsh)		code ~/.zshrc && source ~/.zshrc && dotfiles-push ;;
+		i3)  code $HOME/.config/i3/config && dfa $HOME/.config/i3/config && dfcm "Updated i3 config" && dfp ;;
+		compton)  code $HOME/.config/i3/compton.conf && dfa $HOME/.config/i3/compton.conf && dfcm "Updated compton.conf" && dfp ;;
+		polybar)  code $HOME/.config/i3/polybar.conf && dfa $HOME/.config/i3/polybar.conf && dfcm "Updated polybar.conf" && dfp ;;
+		dunst)  code $HOME/.config/dunst/dunstrc && dfa $HOME/.config/dunst/dunstrc && dfcm "Updated dunstrc" && dfp ;;
+		tmux)		code $HOME/.tmux.conf && dfa $HOME/.tmux.conf && dfcm "Updated tmux.conf" && dfp ;;
+		nano)		code $HOME/.nanorc && dfa $HOME/.nanorc && dfcm "Updated nanorc" && dfp ;;
+		xinit)		code $HOME/.xinitrc && dfa $HOME/.xinitrc && dfcm "Updated xinitrc" && dfp ;;
+		xres)	code $HOME/.Xresources && xrdb $HOME/.Xresources ;;
+		fonts-u) gedit $HOME/.config/fontconfig/70-emojione-color.conf && fc-cache -f -v ;;
+		theme2)		code $HOME/.themes/FlatStudioCustom/gtk-2.0/gtkrc ;;
+		theme3)		code $HOME/.themes/FlatStudioCustom/gtk-3.0/gtk.css ;;
+		gtk2)		code $HOME/.gtkrc-2.0 ;;
+		gtk3)		code $HOME/.config/gtk-3.0/settings.ini ;;
+		zsh)		code $HOME/.zshrc && source $HOME/.zshrc && dfa $HOME/.zshrcs && dfcm "Updated zshrc" && dfp ;;
 		hosts)		sudoedit /etc/hosts ;;
 		vhosts)		sudoedit /etc/httpd/conf/extra/httpd-vhosts.conf ;;
 		httpd)		sudoedit /etc/httpd/conf/httpd.conf ;;
