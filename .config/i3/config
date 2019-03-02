@@ -256,8 +256,8 @@ exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id "dropbox start"
 exec --no-startup-id "megasync &"
-exec "pcloud &"
-exec "telegram-desktop &"
+exec --no-startup-id "pcloud &"
+exec --no-startup-id "telegram-desktop &"
 
 # WINDOWS RULES
 for_window [class="^.*"] border pixel 6
