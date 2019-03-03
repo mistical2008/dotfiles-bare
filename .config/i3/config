@@ -244,7 +244,7 @@ exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 exec --no-startup-id xautolock -detectsleep -time 1 -locker "betterlockscreen -l dimblur" -notify 30 -notifier "notify-send  -u crytical -t 29000 -- 'LOCKING screen in 30 seconds'"
 exec --no-startup-id "xss-lock -- betterlockscreen -l dimblur"
 exec_always --no-startup-id "compton -b --config ~/.config/i3/compton.conf"
-exec_always --no-startup-id "~/.config/i3/launch-polybar.sh"
+exec_always "~/.config/i3/launch-polybar.sh"
 exec --no-startup-id "setwac-run"
 exec_always --no-startup-id "wal -R -n"
 exec --no-startup-id "blueman-applet &"
@@ -268,6 +268,7 @@ for_window [window_role="dialog"] border pixel 0
 for_window [title="Nitrogen"] floating enabled
 for_window [class="albert"] border pixel 0
 for_window [class="albert"] floating enable
+for_window [class="albert"] move position center, move up 350px # Hack for right positioning Ablert with dual monitor setup
 for_window [class="albert" title="Settings — Albert"] move position center
 for_window [class="copyq"] floating enable
 for_window [class="megasync"] floating enable
