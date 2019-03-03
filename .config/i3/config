@@ -268,6 +268,7 @@ for_window [window_role="dialog"] border pixel 0
 for_window [title="Nitrogen"] floating enabled
 for_window [class="albert"] border pixel 0
 for_window [class="albert"] floating enable
+for_window [class="albert" title="Settings — Albert"] move position center
 for_window [class="copyq"] floating enable
 for_window [class="megasync"] floating enable
 # for_window [class="Google Play Music Desktop Player"] floating enable
