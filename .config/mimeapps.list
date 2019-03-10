@@ -110,3 +110,4 @@ application/x-ms-dos-executable=wine.desktop;
 application/x-cd-image=gnome-disk-image-mounter.desktop;
 application/x-vmware-vm=org.gnome.gedit.desktop;
 x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
+application/x-msi=wine.desktop;wine-extension-vbs.desktop;
