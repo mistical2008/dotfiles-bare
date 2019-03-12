@@ -4090,7 +4090,7 @@ metadata-network-access=1
 #pidfile=
 
 # Show advanced options (boolean)
-#advanced=0
+advanced=1
 
 # Interface interaction (boolean)
 #interact=1
@@ -4105,7 +4105,7 @@ metadata-network-access=1
 #extraintf=
 
 # Control interfaces (string)
-#control=
+control=notify
 
 # Mouse wheel vertical axis control (integer)
 #hotkeys-y-wheel-mode=0
@@ -4201,49 +4201,49 @@ metadata-network-access=1
 #global-key-jump-extrashort=
 
 # Very short backwards jump (string)
-#key-jump-extrashort=Shift+Left
+key-jump-extrashort=Shift+j
 
 # Very short forward jump (string)
 #global-key-jump+extrashort=
 
 # Very short forward jump (string)
-#key-jump+extrashort=Shift+Right
+key-jump+extrashort=Shift+l
 
 # Short backwards jump (string)
 #global-key-jump-short=
 
 # Short backwards jump (string)
-#key-jump-short=Alt+Left
+key-jump-short=Alt+j
 
 # Short forward jump (string)
 #global-key-jump+short=
 
 # Short forward jump (string)
-#key-jump+short=Alt+Right
+key-jump+short=Alt+l
 
 # Medium backwards jump (string)
 #global-key-jump-medium=
 
 # Medium backwards jump (string)
-#key-jump-medium=Ctrl+Left
+key-jump-medium=Ctrl+j
 
 # Medium forward jump (string)
 #global-key-jump+medium=
 
 # Medium forward jump (string)
-#key-jump+medium=Ctrl+Right
+key-jump+medium=Ctrl+l
 
 # Long backwards jump (string)
 #global-key-jump-long=
 
 # Long backwards jump (string)
-#key-jump-long=Ctrl+Alt+Left
+key-jump-long=Ctrl+Alt+j
 
 # Long forward jump (string)
 #global-key-jump+long=
 
 # Long forward jump (string)
-#key-jump+long=Ctrl+Alt+Right
+key-jump+long=Ctrl+Alt+l
 
 # Next frame (string)
 #global-key-frame-next=
@@ -4261,25 +4261,25 @@ metadata-network-access=1
 #global-key-nav-up=
 
 # Navigate up (string)
-#key-nav-up=Up
+key-nav-up=l
 
 # Navigate down (string)
 #global-key-nav-down=
 
 # Navigate down (string)
-#key-nav-down=Down
+key-nav-down=k
 
 # Navigate left (string)
 #global-key-nav-left=
 
 # Navigate left (string)
-#key-nav-left=Left
+key-nav-left=j
 
 # Navigate right (string)
 #global-key-nav-right=
 
 # Navigate right (string)
-#key-nav-right=Right
+key-nav-right=;
 
 # Go to the DVD menu (string)
 #global-key-disc-menu=
@@ -4357,7 +4357,7 @@ metadata-network-access=1
 #global-key-subsync-marksub=
 
 # Subtitle sync / bookmark subtitle timestamp (string)
-#key-subsync-marksub=Shift+j
+key-subsync-marksub=
 
 # Subtitle sync / synchronize audio & subtitle timestamps (string)
 #global-key-subsync-apply=
@@ -4387,13 +4387,13 @@ metadata-network-access=1
 #global-key-audiodelay-up=
 
 # Audio delay up (string)
-#key-audiodelay-up=k
+key-audiodelay-up=
 
 # Audio delay down (string)
 #global-key-audiodelay-down=
 
 # Audio delay down (string)
-#key-audiodelay-down=j
+key-audiodelay-down=
 
 # Cycle audio track (string)
 #global-key-audio-track=
@@ -4585,7 +4585,7 @@ metadata-network-access=1
 #global-key-loop=
 
 # Normal/Loop/Repeat (string)
-#key-loop=l
+key-loop=
 
 # Shrink the viewpoint field of view (360°) (string)
 #global-key-viewpoint-fov-in=

@@ -40,5 +40,11 @@
     "rootPath": "/mnt/12208E29208E143F/Clouds/Mega/00_work/intergram_alarius/intergram",
     "paths": ["./src", "./css", "./db"],
     "group": "Learn"
+  },
+  {
+    "name": "05_htmlacademy_base-2016",
+    "rootPath": "/home/evgeniy/Документы/Mega/01_personal/FRONTEND_html-academy_base-course",
+    "paths": ["./materials", "./materials/barbershop", "./materials/sedona", "./materials/samples"],
+    "group": "Learn"
   }
 ]

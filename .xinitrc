@@ -66,8 +66,6 @@ get_session(){
 	xset r rate 500 33
 	unclutter --timeout 1 &
 	setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch
-	# xautolock -corners --00 -time 10 -locker slock -notify 5 &
-	# compton -f -b --config ~/.config/i3/compton.conf &
 	echo "dbus-launch ${dbus_args[*]}"
 }
 

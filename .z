@@ -25,7 +25,6 @@
 /home/evgeniy/.config/albert|8|1550516809
 /mnt/12208E29208E143F/Clouds/Mega/00_work/intergram|288|1543166538
 /usr/lib|3|1540049744
-/mnt/12208E29208E143F/Clouds/Mega/01_personal/FRONTEND_html-academy_base-course/barbershop/work|33|1550603899
 /home/evgeniy/.local/share/gnome-shell/extensions|2|1539612883
 /mnt/12208E29208E143F/Clouds/Mega/02_linux_projects/11_figma-plugin-manager/app|2|1539967634
 /dev/vfio|21|1538796455
@@ -40,12 +39,14 @@
 /home/evgeniy/.config/Code/User|11|1550517289
 /etc/modules-load.d|34|1540751650
 /etc/X11|5|1550692111
+/mnt/12208E29208E143F/Clouds/Mega/01_personal|2|1551432117
 /media/Scripts|34|1539328875
 /usr/share/themes|13|1539155642
 /|1|1538482301
 /etc/systemd/system|2|1540969318
 /home/evgeniy/.local/share/applications|87|1551267629
 /home/evgeniy/.config/autostart|3|1539534053
+/mnt/12208E29208E143F/Clouds/Mega/01_personal/FRONTEND_html-academy_base-course/materials|20|1551535508
 /mnt/12208E29208E143F/Clouds/Mega/02_linux_projects|11|1540707531
 /home/evgeniy/.config/Code|3|1550517025
 /mnt/12208E29208E143F/Clouds/Mega/00_work|9|1542620420
@@ -57,6 +58,7 @@
 /home/evgeniy/Игры/DiRT-Rally|8|1551005535
 /home/evgeniy/.config/udev-rules|32|1539588574
 /home/evgeniy/.oh-my-zsh|37|1549201843
+/mnt/Downloads/app_win|3|1551631859
 /home/evgeniy/Загрузки/app_linux|9|1540976251
 /home/evgeniy/.config/blender|7|1550516992
 /run/user|2|1539701781
@@ -66,7 +68,7 @@
 /mnt/12208E29208E143F/Clouds/Mega/02_linux_projects/15_i3-themes/Themes|2|1547577754
 /mnt/12208E29208E143F/Clouds/Mega/02_linux_projects/11_figma-plugin-manager/dist|4|1539967702
 /home/evgeniy/Игры/DMC|4|1551004944
-/mnt/12208E29208E143F/Clouds/Mega/01_personal/FRONTEND_html-academy_base-course|51|1550604874
+/mnt/12208E29208E143F/Clouds/Mega/01_personal/FRONTEND_html-academy_base-course|83|1551538945
 /mnt/12208E29208E143F/Clouds/Mega/01_personal/NODE_02_ruvds-manual|53|1542099401
 /mnt/Downloads/app_linux|19|1539761101
 /home/evgeniy/.config/blender/2.79|6|1550516930
@@ -99,7 +101,6 @@
 /mnt/12208E29208E143F/Clouds/Mega/02_linux_projects/08_wacom-profile-daemon|6|1540211796
 /home/evgeniy/.local/share/flatpak|8|1551268582
 /etc/modprobe.d|31|1540751663
-/mnt/12208E29208E143F/Clouds/Mega/01_personal/FRONTEND_html-academy_base-course/barbershop|6|1550603307
 /mnt/12208E29208E143F/Clouds/Mega/02_linux_projects/10_xsetwacom-gnome-symbiotic|176|1540971173
 /home/evgeniy/.config/i3/rofi/themes|8|1547969284
 /home/test|1|1550693109
@@ -114,7 +115,7 @@
 /usr/lib/modprobe.d|5|1540751713
 /mnt/12208E29208E143F/Clouds/Mega/02_linux_projects/13_notion/notion-app|10|1541401744
 /usr/share|2|1547915893
-/usr/share/applications|70|1551268007
+/usr/share/applications|80|1551507643
 /srv/nfs/1TB|15|1538730516
 /mnt/12208E29208E143F/Clouds/Mega/02_web-design/03_Graphics/03_Icons/awesome-iconjar|2|1549390943
 /etc/udev|2|1540877804
@@ -123,6 +124,6 @@
 /mnt/12208E29208E143F/Clouds/Mega/00_work/intergram_alarius/intergram|6|1542621959
 /home/evgeniy/Игры/dmc_devil_may_cry-copy|5|1551005026
 /home/evgeniy/.themes|2|1539155538
-/home/evgeniy/.config/i3|21|1550698018
+/home/evgeniy/.config/i3|29|1551354624
 /mnt/12208E29208E143F/Clouds/Mega/02_linux_projects/11_figma-plugin-manager|16|1539967711
 /mnt/12208E29208E143F/Clouds/Mega/01_personal/REACT_crashcourse-2018|16|1542353130

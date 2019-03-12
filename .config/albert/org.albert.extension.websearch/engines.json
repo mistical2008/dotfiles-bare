@@ -48,6 +48,12 @@
         "url": "https://www.youtube.com/results?search_query=%s"
     },
     {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{7cd7d633-ea53-4aa5-95c6-ded7f41911ee}.png",
+        "name": "Youtube history search",
+        "trigger": "yth",
+        "url": "https://www.youtube.com/feed/history?query=%s"
+    },
+    {
         "iconPath": ":amazon",
         "name": "Amazon",
         "trigger": "ama ",
@@ -132,7 +138,7 @@
         "url": "https://www.pinterest.ru/search/pins/?q=%s"
     },
     {
-        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{8497f6d9-ca52-43b0-8247-980d3c6d31b1}.png",
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{a771d8f5-1dc3-4705-b73c-3dff57d223d5}.png",
         "name": "Unsplash",
         "trigger": "un",
         "url": "https://unsplash.com/search/photos/%s"

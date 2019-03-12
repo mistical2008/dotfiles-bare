@@ -240,7 +240,7 @@ bindsym $mod+Shift+XF86Display exec "xrandr --auto"
 # AUTOSTART
 exec_always --no-startup-id "setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch,misc:typo"
 exec_always --no-startup-id "nitrogen --restore"
-exec_always "~/.config/i3/launch-polybar.sh"
+exec_always --no-startup-id"~/.config/i3/launch-polybar.sh"
 exec --no-startup-id "blueman-applet &"
 exec_always --no-startup-id "wal -R -n"
 # exec --no-startup-id "gnome-settings-daemon &"

@@ -62,7 +62,6 @@
   "markdown.preview.fontSize": 16,
   "editor.fontSize": 16,
   "terminal.integrated.lineHeight": 1.3,
-  "gist.oauth_token": "1b5f13001947eaf6ac74d4981f19f18ddae9134e",
   "colorInfo.languages": [
     {
       "selector": "css",
@@ -108,7 +107,7 @@
   "color-highlight.markerType": "dot-after",
   "terminal.integrated.enableBell": true,
   "eslint.autoFixOnSave": true,
-  "window.titleBarStyle": "native",
+  "window.titleBarStyle": "custom",
   "faker.locale": "ru",
   "todohighlight.isEnable": true
 }
