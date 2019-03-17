@@ -185,6 +185,8 @@ export SUDO_EDITOR=gedit
 #export TERMINAL=/usr/bin/gnome-terminal
 export GTK_IM_MODULE="xim"
 
+export MON_PRIMARY=`xrandr | grep -w "connected primary" | awk '{print $1}'`
+
 # Aliases from bash
 if [ -f $HOME/.bash_aliases ]; then
     . $HOME/.bash_aliases
@@ -220,7 +222,7 @@ conf() {
 		theme3)		code $HOME/.themes/FlatStudioCustom/gtk-3.0/gtk.css ;;
 		gtk2)		code $HOME/.gtkrc-2.0 ;;
 		gtk3)		code $HOME/.config/gtk-3.0/settings.ini ;;
-		zsh)		code $HOME/.zshrc && source $HOME/.zshrc && dfa $HOME/.zshrcs && dfcm "Updated zshrc" && dfp ;;
+		zsh)		code $HOME/.zshrc && source $HOME/.zshrc && dfa $HOME/.zshrc && dfcm "Updated zshrc" && dfp ;;
 		hosts)		sudoedit /etc/hosts ;;
 		vhosts)		sudoedit /etc/httpd/conf/extra/httpd-vhosts.conf ;;
 		httpd)		sudoedit /etc/httpd/conf/httpd.conf ;;
