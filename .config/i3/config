@@ -285,6 +285,11 @@ for_window [instance="Enpass"] resize set 900 700
 for_window [instance="Enpass"] move position center
 for_window [class="Tor Browser"] floating enable
 for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
+for_window [class="Google-chrome" instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] move scratchpad
+for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] sticky enable
+for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] scratchpad show
+for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] resize set 900 700
+for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] move position center
 for_window [instance="dropdown_*"] exec notify-send "Yupee! Yupee! Yupee! Yupee!"
 
 
