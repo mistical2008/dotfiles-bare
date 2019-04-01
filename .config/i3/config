@@ -286,10 +286,10 @@ for_window [instance="Enpass"] move position center
 for_window [class="Tor Browser"] floating enable
 for_window [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
 for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] move scratchpad
-for_window [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] sticky enable
-for_window [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] scratchpad show
-for_window [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] resize set 900 700
-for_window [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] move position center
+for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] sticky enable
+for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] scratchpad show
+for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] resize set 900 700
+for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] move position center
 
 for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] floating enable
 for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move scratchpad
