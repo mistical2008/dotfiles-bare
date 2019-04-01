@@ -290,6 +290,13 @@ for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi
 for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] scratchpad show
 for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] resize set 900 700
 for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] move position center
+
+for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] floating enable
+for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move scratchpad
+for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] sticky enable
+for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] scratchpad show
+for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] resize set 600 1000
+for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move position center
 for_window [instance="dropdown_*"] exec notify-send "Yupee! Yupee! Yupee! Yupee!"
 
 
