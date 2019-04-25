@@ -65,19 +65,19 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  npm
-  node
+	git
+	npm
+	node
 	yarn
 	pip
-  colored-man-pages
-  extract
-  tmux
+	colored-man-pages
+	extract
+	tmux
 	vscode
-  github
-  gitignore
-  archlinux
-  zsh-autosuggestions
+	github
+	gitignore
+	archlinux
+	zsh-autosuggestions
 )
 
 # Source to ...
@@ -167,11 +167,12 @@ POWERLEVEL9K_HIDE_BRANCH_ICON=true
 # npm to $PATH
 export PATH="$PATH:$HOME/.npm/bin"
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Custom PATH
 export PATH="$PATH:/mnt/Data/Scripts"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 
 # Filmic blender path
 export OCIO=$HOME/.config/blender/2.79/datafiles/colormanagement/config.ocio
@@ -185,50 +186,55 @@ export SUDO_EDITOR=gedit
 #export TERMINAL=/usr/bin/gnome-terminal
 export GTK_IM_MODULE="xim"
 
-export MON_PRIMARY=`xrandr | grep -w "connected primary" | awk '{print $1}'`
+export MON_PRIMARY=$(xrandr | grep -w "connected primary" | awk '{print $1}')
 
 # Aliases from bash
 if [ -f $HOME/.bash_aliases ]; then
-    . $HOME/.bash_aliases
+	. $HOME/.bash_aliases
 fi
 
 # Point out to z.sh
 . /media/Scripts/z.sh
-
 
 ## FUNCTIONS
 
 # Configurations
 conf() {
 	case $1 in
-		wacom) sudo nano $HOME/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
-		aliases) code -w $HOME/.bash_aliases && source $HOME/.zshrc && dfa $HOME/.bash_aliases && dfcm "Updated aliases" && dfp ;;
-		bmblb) sudoedit /etc/bumblebee/bumblebee.conf  ;;
-		homepage)	olddir=$(pwd) && cd $HOME/scripts/homepage.py && nano homepage.py && ./homepage.py; cd $olddir ;;
-		mimeapps)	code -w $HOME/.config/mimeapps.list && dfa $HOME/.config/mimeapps.list && dfcm "Updated mimeapps.list" && dfp ;;
-		pacman)		sudoedit /etc/pacman.conf ;;
-		samba)	sudoedit /etc/samba/smb.conf ;;
-		fstab)	sudoedit /etc/fstab ;;
-		i3)  code -w $HOME/.config/i3/config && dfa $HOME/.config/i3/config && dfcm "Updated i3 config" && dfp ;;
-		compton)  code -w $HOME/.config/i3/compton.conf && dfa $HOME/.config/i3/compton.conf && dfcm "Updated compton.conf" && dfp ;;
-		polybar)  code -w $HOME/.config/i3/polybar.conf && dfa $HOME/.config/i3/polybar.conf && dfcm "Updated polybar.conf" && dfp ;;
-		dunst)  code -w $HOME/.config/dunst/dunstrc && dfa $HOME/.config/dunst/dunstrc && dfcm "Updated dunstrc" && dfp ;;
-		tmux)		code -w $HOME/.tmux.conf && dfa $HOME/.tmux.conf && dfcm "Updated tmux.conf" && dfp ;;
-		nano)		code -w $HOME/.nanorc && dfa $HOME/.nanorc && dfcm "Updated nanorc" && dfp ;;
-		xinit)		code -w $HOME/.xinitrc && dfa $HOME/.xinitrc && dfcm "Updated xinitrc" && dfp ;;
-		xres)	code -w $HOME/.Xresources && xrdb $HOME/.Xresources ;;
-		fonts-u) code -w $HOME/.config/fontconfig/70-emojione-color.conf && fc-cache -f -v ;;
-		theme2)		code -w $HOME/.themes/FlatStudioCustom/gtk-2.0/gtkrc ;;
-		theme3)		code -w $HOME/.themes/FlatStudioCustom/gtk-3.0/gtk.css ;;
-		gtk2)		code -w $HOME/.gtkrc-2.0 ;;
-		gtk3)		code -w $HOME/.config/gtk-3.0/settings.ini ;;
-		zsh)		code -w $HOME/.zshrc && source $HOME/.zshrc && dfa $HOME/.zshrc && dfcm "Updated zshrc" && dfp ;;
-		hosts)		sudoedit /etc/hosts ;;
-		vhosts)		sudoedit /etc/httpd/conf/extra/httpd-vhosts.conf ;;
-		httpd)		sudoedit /etc/httpd/conf/httpd.conf ;;
-		*)			echo "Unknown application: $1" ;;
+	wacom) sudo nano $HOME/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
+	aliases) code -w $HOME/.bash_aliases && source $HOME/.zshrc && dfa $HOME/.bash_aliases && dfcm "Updated aliases" && dfp ;;
+	bmblb) sudoedit /etc/bumblebee/bumblebee.conf ;;
+	homepage)
+		olddir=$(pwd) && cd $HOME/scripts/homepage.py && nano homepage.py && ./homepage.py
+		cd $olddir
+		;;
+	mimeapps) code -w $HOME/.config/mimeapps.list && dfa $HOME/.config/mimeapps.list && dfcm "Updated mimeapps.list" && dfp ;;
+	pacman) sudoedit /etc/pacman.conf ;;
+	samba) sudoedit /etc/samba/smb.conf ;;
+	fstab) sudoedit /etc/fstab ;;
+	i3) code -w $HOME/.config/i3/config && dfa $HOME/.config/i3/config && dfcm "Updated i3 config" && dfp ;;
+	compton) code -w $HOME/.config/i3/compton.conf && dfa $HOME/.config/i3/compton.conf && dfcm "Updated compton.conf" && dfp ;;
+	polybar) code -w $HOME/.config/i3/polybar.conf && dfa $HOME/.config/i3/polybar.conf && dfcm "Updated polybar.conf" && dfp ;;
+	dunst) code -w $HOME/.config/dunst/dunstrc && dfa $HOME/.config/dunst/dunstrc && dfcm "Updated dunstrc" && dfp ;;
+	tmux) code -w $HOME/.tmux.conf && dfa $HOME/.tmux.conf && dfcm "Updated tmux.conf" && dfp ;;
+	nano) code -w $HOME/.nanorc && dfa $HOME/.nanorc && dfcm "Updated nanorc" && dfp ;;
+	xinit) code -w $HOME/.xinitrc && dfa $HOME/.xinitrc && dfcm "Updated xinitrc" && dfp ;;
+	xres) code -w $HOME/.Xresources && xrdb $HOME/.Xresources ;;
+	fonts-u) code -w $HOME/.config/fontconfig/70-emojione-color.conf && fc-cache -f -v ;;
+	theme2) code -w $HOME/.themes/FlatStudioCustom/gtk-2.0/gtkrc ;;
+	theme3) code -w $HOME/.themes/FlatStudioCustom/gtk-3.0/gtk.css ;;
+	gtk2) code -w $HOME/.gtkrc-2.0 ;;
+	gtk3) code -w $HOME/.config/gtk-3.0/settings.ini ;;
+	zsh) code -w $HOME/.zshrc && source $HOME/.zshrc && dfa $HOME/.zshrc && dfcm "Updated zshrc" && dfp ;;
+	hosts) sudoedit /etc/hosts ;;
+	vhosts) sudoedit /etc/httpd/conf/extra/httpd-vhosts.conf ;;
+	httpd) sudoedit /etc/httpd/conf/httpd.conf ;;
+	*) echo "Unknown application: $1" ;;
 	esac
 }
 
 # Other functions
-function open() { xdg-open $1 &> /dev/null &disown; }
+function open() {
+	xdg-open $1 &>/dev/null &
+	disown
+}
