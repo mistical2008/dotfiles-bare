@@ -228,8 +228,8 @@ exec_always --no-startup-id xrandr | grep -q HDMI1 && xrandr --output HDMI2 --of
 # exec_always --no-startup-id xrandr | grep -q HDMI1 connected && xrandr --output eDP1 --mode 1920x1080 --pos 0x360 --set "Broadcast RGB" "Full" --output HDMI1 --primary --auto --mode 3440x1440 --pos 1920x0 --set "Broadcast RGB" "Full" --right-of eDP1 --output DP1 --off --output HDMI2 --off --output VIRTUAL1 --off
 
 # Switch between internal and external display
-bindsym XF86Display exec "~/.config/i3/toggleDisplay" # exec $wall-restore
-bindsym $mod+P exec "~/.config/i3/toggleDisplay" # exec $wall-restore
+bindsym XF86Display exec "~/.config/i3/toggleDisplay"
+bindsym $mod+P exec "~/.config/i3/toggleDisplay"
 
 # Fallback to available display if the current active display gets disconnected
 exec --no-startup-id "~/.config/i3/fallbackToConnectedDisplay"
