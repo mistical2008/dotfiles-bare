@@ -80,7 +80,7 @@ bindsym $mod+minus scratchpad show
 #Define vars
 #wallpaper
 set $wall nitorgen
-set $wall-restore "nitrogen --restore &"
+set $wall-restore "--no-startup-id nitrogen --restore &"
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -244,15 +244,15 @@ bindsym $mod+Shift+XF86Display exec "xrandr --auto"
 
 # AUTOSTART
 exec_always --no-startup-id "setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch,misc:typo"
-exec_always --no-startup-id "nitrogen --restore &"
 exec_always --no-startup-id"~/.config/i3/launch-polybar.sh"
 exec --no-startup-id "blueman-applet &"
-exec_always --no-startup-id "wal -R -n"
 # exec --no-startup-id "gnome-settings-daemon &"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &"
 exec --no-startup-id xautolock -detectsleep -time 10 -locker "betterlockscreen -l dimblur" -notify 30 -notifier "notify-send  -u crytical -t 29000 -- 'LOCKING screen in 30 seconds'"
 exec --no-startup-id "xss-lock -- betterlockscreen -l dimblur"
 exec_always --no-startup-id "compton -b --config ~/.config/i3/compton.conf"
+exec_always --no-startup-id "nitrogen --restore &"
+exec_always --no-startup-id "wal -R -n"
 exec --no-startup-id "setwac-run"
 exec --no-startup-id "copyq &"
 exec --no-startup-id "udiskie &"
