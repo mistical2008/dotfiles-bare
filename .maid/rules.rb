@@ -21,6 +21,19 @@
 # * Read the README, tutorial, and documentation at https://github.com/benjaminoakes/maid#maid
 # * Ask me a question over email (hello@benjaminoakes.com) or Twitter (@benjaminoakes)
 # * Check out how others are using Maid in [the Maid wiki](https://github.com/benjaminoakes/maid/wiki)
+
+# folders
+folders = {
+  downloads: "~/Загрузки",
+  tg: "Telegram Desktop",
+  images: "~/Изображения",
+  video: "~/Видео",
+  music: "~/Музыка",
+  books: "~/Документы/Mega/Книги/Книг/00_inbox",
+  projects: "~/Документы/Mega/00_projects"
+}
+
+# FILETLYPES
 BOOKS = [
   'epub',
   'fb2',
@@ -141,42 +154,42 @@ Maid.rules do
   #     end
   #   end
   # end
-  watch "~/Загрузки/Telegram Desktop" do
+  watch "#{folders[:downloads]}/#{folders[:tg]}" do
     rule "Move books from Telegram folder" do
-      [
-        'epub',
-        'fb2',
-        'pdf',
-        'mobi'
-      ].each do |ext|
-        move(dir("~/Загрузки/Telegram Desktop/*.#{ext}"), "~/Документы/Mega/Книги/Книг/00_inbox")
+      BOOKS.each do |ext|
+        move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir("#{folders[:books]}"))
       end
     end
     rule "Move music from Telegram folder" do
       AUDIO.each do |ext|
-        puts ext
-        move(dir("~/Загрузки/Telegram Desktop/*.#{ext}"), "~/Музыка/telegram")
+        move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir("#{folders[:music]}/telegram"))
       end
     end
-  end
-
-  watch "~/Изображения" do
-    rule "Move screenshots into \'Screenshots\' folder" do
-      IMAGES.each do |ext|
-        ["Снимок экрана","Screenshot"].each do |screenshot|
-          move(dir("~/Изображения/#{screenshot}*.#{ext}"), "~/Изображения/screenshots")
+    rule 'Trash an old TG files' do
+      dir("#{folders[:downloads]}/#{folders[:tg]}/*").each do |path|
+        if 1.week.since?(last_accessed(path))
+          trash(path)
         end
       end
     end
   end
 
-  watch "~/Загрузки" do
+  watch "~/Изображения" do
+    rule "Move screenshots to the \'Screenshots\' folder" do
+      IMAGES.each do |ext|
+        ["Снимок экрана","Screenshot"].each do |screenshot|
+          move(dir("#{folders[:images]}/#{screenshot}*.#{ext}"), mkdir("#{folders[:images]}/screenshots"))
+        end
+      end
+    end
+  end
+  watch "#{folders[:downloads]}" do
     rule "Move *.torrent files to torrent folder" do
-      move(dir("~/Загрузки/*.torrent"), "~/Загрузки/torrents")
+        move(dir("#{folders[:downloads]}/*.torrent"), mkdir("#{folders[:downloads]}/torrents"))
     end
     rule "Move *.iso img to img_iso folder" do
       IMG.each do |ext|
-        move(dir("~/Загрузки/*.#{ext}"), "~/Загрузки/img_iso")
+        move(dir("#{folders[:downloads]}/*.#{ext}"), mkdir("#{folders[:downloads]}/img_iso"))
       end
     end
   end
