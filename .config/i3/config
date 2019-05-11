@@ -305,12 +305,12 @@ for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] resize set 600 1100
 for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move position center
 for_window [instance="dropdown_*"] exec notify-send "Yupee! Yupee! Yupee! Yupee!"
 
-for_window [class="qBittorrent"] floating enable
-for_window [class="qBittorrent"] move scratchpad
-for_window [class="qBittorrent"] sticky enable
-for_window [class="qBittorrent"] scratchpad show
-for_window [class="qBittorrent"] resize set 700 1100
-for_window [class="qBittorrent"] move position center
+for_window [class="qbittorrent"] floating enable
+for_window [class="qbittorrent"] move scratchpad
+for_window [class="qbittorrent"] sticky enable
+for_window [class="qbittorrent"] scratchpad show
+for_window [class="qbittorrent"] resize set 700 1100
+for_window [class="qbittorrent"] move position center
 
 
 # #---Dropdown Windows---# #
