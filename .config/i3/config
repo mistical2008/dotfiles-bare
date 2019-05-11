@@ -263,7 +263,7 @@ exec --no-startup-id "dropbox start &"
 exec --no-startup-id "megasync &"
 exec --no-startup-id "pcloud &"
 exec --no-startup-id "telegram-desktop &"
-exec --no-startup-id "maid daemon &"
+exec "maid daemon &"
 
 # WINDOWS RULES
 for_window [class="^.*"] border pixel 6
@@ -304,6 +304,13 @@ for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] scratchpad show
 for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] resize set 600 1100
 for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move position center
 for_window [instance="dropdown_*"] exec notify-send "Yupee! Yupee! Yupee! Yupee!"
+
+for_window [class="qBittorrent"] floating enable
+for_window [class="qBittorrent"] move scratchpad
+for_window [class="qBittorrent"] sticky enable
+for_window [class="qBittorrent"] scratchpad show
+for_window [class="qBittorrent"] resize set 700 1100
+for_window [class="qBittorrent"] move position center
 
 
 # #---Dropdown Windows---# #
