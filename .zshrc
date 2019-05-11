@@ -10,7 +10,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="muse"
+# ZSH_THEME="muse"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -59,6 +60,12 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Source to ...
+source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $HOME/.oh-my-zsh/plugins/*
 # Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
@@ -79,12 +86,6 @@ plugins=(
 	archlinux
 	zsh-autosuggestions
 )
-
-# Source to ...
-source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
 #===========================================================================
 #=========================== WALL SETTINGS =================================
@@ -144,17 +145,26 @@ export LANG=en_US.UTF-8
 #Powerlevel9K Settings
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(nvm time)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="white"
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="020"
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_TIME_BACKGROUND="black"
 POWERLEVEL9K_TIME_FOREGROUND="249"
+POWERLEVEL9K_DIR_BACKGROUND="046"
+POWERLEVEL9K_DIR_FOREGROUND="006"
+POWERLEVEL9K_VCS_BACKGROUND="black"
+POWERLEVEL9K_VCS_FOREGROUND="010"
+POWERLEVEL9K_STATUS_BACKGROUND="black"
+POWERLEVEL9K_STATUS_FOREGROUND="009"
+POWERLEVEL9K_DIR_WRITABLE_BACKGROUND="black"
+POWERLEVEL9K_DIR_WRITABLE_FOREGROUND="009"
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 POWERLEVEL9K_COLOR_SCHEME='dark'
-# POWERLEVEL9K_VCS_GIT_ICON='\uE1AA'
-# POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uE1AA'
-POWERLEVEL9K_HIDE_BRANCH_ICON=true
+POWERLEVEL9K_HIDE_BRANCH_ICON=false
+
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 # POWERLEVEL9K_MODE='awesome-patched'
 # POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
@@ -241,3 +251,4 @@ function open() {
 	xdg-open $1 &>/dev/null &
 	disown
 }
+source ~/.purepower
