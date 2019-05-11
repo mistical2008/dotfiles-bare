@@ -140,7 +140,7 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate $HOME/.oh-my-zsh"
 
 #Powerlevel9K Settings
-POWERLEVEL9K_MODE="awesome-patched"
+POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
