@@ -90,7 +90,8 @@ plugins=(
 #===========================================================================
 #=========================== WALL SETTINGS =================================
 #===========================================================================
-(cat $HOME/.cache/wal/sequences &)
+# (cat $HOME/.cache/wal/sequences &)
+(cat $HOME/.config/wpg/sequences &)
 # Alternative (blocks terminal for 0-3ms)
 # cat $HOME/.cache/wal/sequences
 
