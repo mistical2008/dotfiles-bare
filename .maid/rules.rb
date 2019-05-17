@@ -174,7 +174,7 @@ Maid.rules do
     end
   end
 
-  watch "~/Изображения" do
+  watch "#{folders[:images]}" do
     rule "Move screenshots to the \'Screenshots\' folder" do
       IMAGES.each do |ext|
         ["Снимок экрана","Screenshot"].each do |screenshot|
