@@ -84,7 +84,7 @@ plugins=(
 	github
 	gitignore
 	archlinux
-	zsh-autosuggestions
+	# zsh-autosuggestions
 )
 
 #===========================================================================
