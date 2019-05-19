@@ -245,7 +245,7 @@ bindsym $mod+Shift+XF86Display exec "xrandr --auto"
 
 # AUTOSTART
 exec_always --no-startup-id "setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch,misc:typo"
-exec_always --no-startup-id"~/.config/i3/launch-polybar.sh"
+exec_always --no-startup-id "~/.config/i3/launch-polybar.sh"
 exec --no-startup-id "blueman-applet &"
 # exec --no-startup-id "gnome-settings-daemon &"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &"
@@ -264,6 +264,7 @@ exec --no-startup-id "dropbox start &"
 exec --no-startup-id "megasync &"
 exec --no-startup-id "pcloud &"
 exec --no-startup-id "telegram-desktop &"
+exec --no-startup-id "unclutter --timeout 1 &"
 exec "maid daemon &"
 
 # WINDOWS RULES
