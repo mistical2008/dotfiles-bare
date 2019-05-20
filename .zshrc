@@ -227,7 +227,7 @@ conf() {
 	fstab) sudoedit /etc/fstab ;;
 	i3) code -w $HOME/.config/i3/config && dfa $HOME/.config/i3/config && dfcm "Updated i3 config" && dfp ;;
 	maid) code -w $HOME/.maid/rules.rb && dfa $HOME/.maid/rules.rb && dfcm "Updated maid config" && dfp ;;
-	todo) code -w $HOME/.config/todo/config && dfa $HOME/.config/todo/config && dfcm "Updated maid config" && dfp ;;
+	todo) code -w $HOME/.config/todo/config && dfa $HOME/.config/todo/config && dfcm "Updated todo.txt config" && dfp ;;
 	compton) code -w $HOME/.config/i3/compton.conf && dfa $HOME/.config/i3/compton.conf && dfcm "Updated compton.conf" && dfp ;;
 	polybar) code -w $HOME/.config/i3/polybar.conf && dfa $HOME/.config/i3/polybar.conf && dfcm "Updated polybar.conf" && dfp ;;
 	dunst) code -w $HOME/.config/dunst/dunstrc && dfa $HOME/.config/dunst/dunstrc && dfcm "Updated dunstrc" && dfp ;;
