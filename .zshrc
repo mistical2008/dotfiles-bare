@@ -234,7 +234,7 @@ conf() {
 	tmux) code -w $HOME/.tmux.conf && dfa $HOME/.tmux.conf && dfcm "Updated tmux.conf" && dfp ;;
 	nano) code -w $HOME/.nanorc && dfa $HOME/.nanorc && dfcm "Updated nanorc" && dfp ;;
 	xinit) code -w $HOME/.xinitrc && dfa $HOME/.xinitrc && dfcm "Updated xinitrc" && dfp ;;
-	xres) code -w $HOME/.Xresources && xrdb $HOME/.Xresources ;;
+	xres) code -w $HOME/.Xresources && xrdb $HOME/.Xresources && dfa $HOME/.Xresources && dfcm "Updated .Xresources" && dfp ;;
 	fonts-u) code -w $HOME/.config/fontconfig/70-emojione-color.conf && fc-cache -f -v ;;
 	theme2) code -w $HOME/.themes/FlatStudioCustom/gtk-2.0/gtkrc ;;
 	theme3) code -w $HOME/.themes/FlatStudioCustom/gtk-3.0/gtk.css ;;
