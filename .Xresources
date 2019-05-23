@@ -1,0 +1,76 @@
+!#if __has_include(".extend.Xresources")
+!#include ".extend.Xresources"
+!#include ".cache/wal/colors.Xresources"
+!#endif
+
+! ^ The above lines are no comments!
+! Leave them as they are if a file ~/.extend.Xresources is being used on your system.
+! config can be added there or also here below.
+! For comments use "!"
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+XTerm*background: #2b2b2b
+XTerm*foreground: #e7e7e7
+XTerm*pointerColor: #16A085
+XTerm*faceName: Fixed
+XTerm*faceSize: 11
+
+!##### THIS FILE IS BEING CURRENTLY MANAGED BY URXVTCONFIG #####
+!##### CHANGES DONE TO THIS FILE MANUALLY MAY AFFECT THE FUNCTIONALITY ######
+!##### PROCEED WITH CAUTION! #####
+
+URxvt*scrollBar:         false
+URxvt*scrollBar_right:   true
+
+! прокручивать по отношению к буферу (прокрутка мышью или Shift+Page Up)
+URxvt*scrollWithBuffer:     true
+
+URxvt.secondaryWheel:       1
+
+URxvt*transparent:false
+
+URxvt*depth:                32
+!URxvt.background: [10]Background
+
+#define font2         RobotoMono Nerd Font Mono
+#define font1         Source Code Pro
+#define font3         Arimo Nerd Font
+#define font4         NotoSansMono Nerd Font
+
+URxvt.letterSpace: 0
+URxvt.font:           xft:font1:pixelsize=18, xft:font2:pixelsize=16:minspace=false, xft:font3:pixelsize=16,xft:font4:pixelsize=16
+URxvt.boldFont:       xft:font1:bold:pixelsize=18, xft:font2:pixelsize=16:minspace=False,xft:font3:pixelsize=16,xft:font4:pixelsize=16
+URxvt.italicFont:     xft:font1:italic:pixelsize=18, xft:font2:pixelsize=16:minspace=False,xft:font3:pixelsize=16,xft:font4:pixelsize=16
+URxvt.boldItalicFont: xft:font1:bold:italic:pixelsize=18, xft:font2:pixelsize=16:minspace=False, xft:font3:pixelsize=16, xft:font4:pixelsize=16
+
+!URxvt.font:                 xft:RobotoMono Nerd Font Mono:pixelsize=20:minspace=False, xft:DejaVu Sans:pixelsize=18
+!URxvt.boldFont:             xft:NotoSansMono Nerd Font:pixelsize=20:minspace=False, xft:DejaVu Sans:pixelsize=18
+
+*antialias:                 true
+*autohint:                  true
+
+URxvt.perl-ext-common:      default,fullscreen,matcher,tabbed,resize-font,clipboard,keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keyboard-select.clipboard: true
+URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.url-launcher:         Browser?
+URxvt*underlineURLs:        true
+URxvt.matcher.button:       1
+URxvt.tabbed.tabbar-fg: 4
+URxvt.tabbed.tabbar-bg: background
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: background
+
+!####################################################################
+!##### DUNST COLORS #################################################
+!####################################################################
+Dunst.background: background
+Dunst.foreground: foreground
