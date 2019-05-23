@@ -31,10 +31,9 @@ URxvt*scrollBar_right:   true
 
 ! прокручивать по отношению к буферу (прокрутка мышью или Shift+Page Up)
 URxvt*scrollWithBuffer:     true
-
 URxvt.secondaryWheel:       1
-
 URxvt*transparent:false
+URxvt.urgentOnBell: true
 
 URxvt*depth:                32
 !URxvt.background: [10]Background
@@ -45,6 +44,7 @@ URxvt*depth:                32
 #define font4         NotoSansMono Nerd Font
 
 URxvt.letterSpace: 0
+URxvt.lineSpace: 0
 URxvt.font:           xft:font1:pixelsize=18, xft:font2:pixelsize=16:minspace=false, xft:font3:pixelsize=16,xft:font4:pixelsize=16
 URxvt.boldFont:       xft:font1:bold:pixelsize=18, xft:font2:pixelsize=16:minspace=False,xft:font3:pixelsize=16,xft:font4:pixelsize=16
 URxvt.italicFont:     xft:font1:italic:pixelsize=18, xft:font2:pixelsize=16:minspace=False,xft:font3:pixelsize=16,xft:font4:pixelsize=16
