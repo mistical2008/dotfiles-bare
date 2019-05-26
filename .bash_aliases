@@ -69,7 +69,53 @@ alias inbox="inbox.txt"
 alias later="later.txt"
 alias today="today.txt"
 alias week="week.txt"
+alias tasks='git grep -EI "TODO|FIXME"'
 
+## FUNCTIONS
+# Configurations
+conf() {
+  case $1 in
+  wacom) sudo nano $HOME/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
+  aliases) code -w $HOME/.bash_aliases && source $HOME/.zshrc && dfa $HOME/.bash_aliases && dfcm "Updated aliases" && dfp ;;
+  bmblb) sudoedit /etc/bumblebee/bumblebee.conf ;;
+  homepage)
+    olddir=$(pwd) && cd $HOME/scripts/homepage.py && nano homepage.py && ./homepage.py
+    cd $olddir
+    ;;
+  mimeapps) code -w $HOME/.config/mimeapps.list && dfa $HOME/.config/mimeapps.list && dfcm "Updated mimeapps.list" && dfp ;;
+  pacman) sudoedit /etc/pacman.conf ;;
+  samba) sudoedit /etc/samba/smb.conf ;;
+  fstab) sudoedit /etc/fstab ;;
+  i3) code -w $HOME/.config/i3/config && dfa $HOME/.config/i3/config && dfcm "Updated i3 config" && dfp ;;
+  maid) code -w $HOME/.maid/rules.rb && dfa $HOME/.maid/rules.rb && dfcm "Updated maid config" && dfp ;;
+  todo) code -w $HOME/.config/todo/config && dfa $HOME/.config/todo/config && dfcm "Updated todo.txt config" && dfp ;;
+  compton) code -w $HOME/.config/i3/compton.conf && dfa $HOME/.config/i3/compton.conf && dfcm "Updated compton.conf" && dfp ;;
+  polybar) code -w $HOME/.config/i3/polybar.conf && dfa $HOME/.config/i3/polybar.conf && dfcm "Updated polybar.conf" && dfp ;;
+  dunst) code -w $HOME/.config/dunst/dunstrc && dfa $HOME/.config/dunst/dunstrc && dfcm "Updated dunstrc" && dfp ;;
+  tmux) code -w $HOME/.tmux.conf && dfa $HOME/.tmux.conf && dfcm "Updated tmux.conf" && dfp ;;
+  nano) code -w $HOME/.nanorc && dfa $HOME/.nanorc && dfcm "Updated nanorc" && dfp ;;
+  xinit) code -w $HOME/.xinitrc && dfa $HOME/.xinitrc && dfcm "Updated xinitrc" && dfp ;;
+  xres) code -w $HOME/.Xresources && xrdb $HOME/.Xresources && dfa $HOME/.Xresources && dfcm "Updated .Xresources" && dfp ;;
+  fonts-u) code -w $HOME/.config/fontconfig/70-emojione-color.conf && fc-cache -f -v ;;
+  theme2) code -w $HOME/.themes/FlatStudioCustom/gtk-2.0/gtkrc ;;
+  theme3) code -w $HOME/.themes/FlatStudioCustom/gtk-3.0/gtk.css ;;
+  gtk2) code -w $HOME/.gtkrc-2.0 ;;
+  gtk3) code -w $HOME/.config/gtk-3.0/settings.ini ;;
+  zsh) code -w $HOME/.zshrc && source $HOME/.zshrc && dfa $HOME/.zshrc && dfcm "Updated zshrc" && dfp ;;
+  hosts) sudoedit /etc/hosts ;;
+  vhosts) sudoedit /etc/httpd/conf/extra/httpd-vhosts.conf ;;
+  httpd) sudoedit /etc/httpd/conf/httpd.conf ;;
+  *) echo "Unknown application: $1" ;;
+  esac
+}
+
+# Other functions
+function open() {
+  xdg-open $1 &>/dev/null &
+  disown
+}
+
+# Download site
 dls() {
   wget --random-wait -r -p -e robots=off -U mozilla $1
 }
