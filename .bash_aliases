@@ -69,3 +69,7 @@ alias inbox="inbox.txt"
 alias later="later.txt"
 alias today="today.txt"
 alias week="week.txt"
+
+dls(site) {
+  wget --random-wait -r -p -e robots=off -U mozilla $site
+}
