@@ -105,6 +105,7 @@ conf() {
   hosts) sudoedit /etc/hosts ;;
   vhosts) sudoedit /etc/httpd/conf/extra/httpd-vhosts.conf ;;
   httpd) sudoedit /etc/httpd/conf/httpd.conf ;;
+  mux) code -w $HOME/.config/tmuxinator/$2.yml ;;
   *) echo "Unknown application: $1" ;;
   esac
 }
