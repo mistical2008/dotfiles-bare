@@ -70,6 +70,7 @@ alias later="later.txt"
 alias today="today.txt"
 alias week="week.txt"
 alias tasks='git grep -EI "TODO|FIXME"'
+alias mux='tmuxinator'
 
 ## FUNCTIONS
 # Configurations
