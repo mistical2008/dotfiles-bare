@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python2
 import sys, os, re, subprocess
 
 """ TODO.TXT Group VIew
@@ -25,7 +25,7 @@ HIGHLIGHTS = (('(A)', bcolors.OKBLUE),
 COLUMN_W = 40
 SPLIT_COLUMNS = True
 TERM_W = int(os.popen('stty size', 'r').read().split()[1])
-TODOSH_DIR = '~/bin'
+TODOSH_DIR = '/usr/bin/'
 
 def main(argv):
 	contexts = []
