@@ -64,11 +64,8 @@ alias dfch="dotfiles checkout"
 alias get_keys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'"
 alias sys_sounds="cd /usr/share/sounds/"
 alias pipupg="pip install --user --upgrade"
-alias todo="todo.sh -d ~/.config/todo/config"
-alias inbox="inbox.txt"
-alias later="later.txt"
-alias today="today.txt"
-alias week="week.txt"
+alias todo="todo.sh -d ~/.config/todo/config -t"
+alias inbox="addto inbox.txt"
 alias tasks='git grep -EI "TODO|FIXME"'
 alias mux='tmuxinator'
 
