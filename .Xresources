@@ -50,30 +50,29 @@ URxvt.boldFont:       xft:font1:bold:pixelsize=18, xft:font2:pixelsize=16:minspa
 URxvt.italicFont:     xft:font1:italic:pixelsize=18, xft:font2:pixelsize=16:minspace=False,xft:font3:pixelsize=16,xft:font4:pixelsize=16
 URxvt.boldItalicFont: xft:font1:bold:italic:pixelsize=18, xft:font2:pixelsize=16:minspace=False, xft:font3:pixelsize=16, xft:font4:pixelsize=16
 
-!URxvt.font:                 xft:RobotoMono Nerd Font Mono:pixelsize=20:minspace=False, xft:DejaVu Sans:pixelsize=18
-!URxvt.boldFont:             xft:NotoSansMono Nerd Font:pixelsize=20:minspace=False, xft:DejaVu Sans:pixelsize=18
-
 *antialias:                 true
 *autohint:                  true
 
-URxvt.perl-ext-common:      default,fullscreen,matcher,tabbed,resize-font,clipboard,keyboard-select
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.perl-ext-common:           default,fullscreen,matcher,tabbed,resize-font,clipboard,keyboard-select
+URxvt.keysym.M-Escape:           perl:keyboard-select:activate
+URxvt.keysym.M-s:                perl:keyboard-select:search
 URxvt.keyboard-select.clipboard: true
 
 URxvt.keysym.F11: perl:fullscreen:switch
-URxvt.keysym.Control-Up:   \033[1;5A
-URxvt.keysym.Control-Down:    \033[1;5B
-URxvt.keysym.Control-Left:    \033[1;5D
-URxvt.keysym.Control-Right:    \033[1;5C
+URxvt.keysym.Control-Up:          \033[1;5A
+URxvt.keysym.Control-Down:        \033[1;5B
+URxvt.keysym.Control-Left:        \033[1;5D
+URxvt.keysym.Control-Right:       \033[1;5C
+URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
+URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
 
 URxvt.url-launcher:         Browser?
 URxvt*underlineURLs:        true
 URxvt.matcher.button:       1
-URxvt.tabbed.tabbar-fg: 4
-URxvt.tabbed.tabbar-bg: background
-URxvt.tabbed.tab-fg: 3
-URxvt.tabbed.tab-bg: background
+URxvt.tabbed.tabbar-fg:     4
+URxvt.tabbed.tabbar-bg:     background
+URxvt.tabbed.tab-fg:        3
+URxvt.tabbed.tab-bg:        background
 
 !####################################################################
 !##### DUNST COLORS #################################################
