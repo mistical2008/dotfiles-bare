@@ -85,9 +85,9 @@ set $wall-restore "--no-startup-id nitrogen --restore &"
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "web"
+set $ws1 "primary"
 set $ws2 "media"
-set $ws3 "design"
+set $ws3 "ref"
 set $ws4 "code"
 set $ws5 "conf"
 set $ws6 "chats"
@@ -335,7 +335,7 @@ for_window [urgent=latest] focus
 # Workspace output assigning
 workspace $ws1 output primary
 workspace $ws2 output secondary
-workspace $ws3 output primary
+workspace $ws3 output secondary
 workspace $ws4 output primary
 workspace $ws5 output primary
 workspace $ws6 output secondary
