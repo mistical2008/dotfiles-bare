@@ -69,10 +69,12 @@ URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
 URxvt.url-launcher:         Browser?
 URxvt*underlineURLs:        true
 URxvt.matcher.button:       1
-URxvt.tabbed.tabbar-fg:     4
-URxvt.tabbed.tabbar-bg:     background
-URxvt.tabbed.tab-fg:        3
-URxvt.tabbed.tab-bg:        background
+URxvt.tabbed.tabbar-fg:     2
+URxvt.tabbed.tabbar-bg:     3
+URxvt.tabbed.tab-fg:        2
+URxvt.tabbed.tab-bg:        3
+
+URxvt.bell-command:         aplay /usr/share/sounds/elementary/stereo/bell.wav
 
 !####################################################################
 !##### DUNST COLORS #################################################
