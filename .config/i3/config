@@ -193,8 +193,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color           $text-col
 # }
 
 # Lock screen
-#bindsym $mod+shift+x exec betterlockscreen -l dimblur
-bindsym $mod+shift+x exec /mnt/Data/Scripts/bl-set-wal.sh
+bindsym $mod+shift+x exec betterlockscreen -l dimblur
 
 # Lock on suspend:
 exec --no-startup-id "xss-lock -- betterlockscreen -l dimblur"
@@ -269,6 +268,7 @@ exec --no-startup-id "pcloud &"
 exec --no-startup-id "telegram-desktop &"
 exec --no-startup-id "unclutter --timeout 3 &"
 exec "maid daemon &"
+exec --no-startup-id "/mnt/Data/Scripts/bl-set-wal.sh"
 
 # WINDOWS RULES
 for_window [class="^.*"] border pixel 6
