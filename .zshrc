@@ -64,7 +64,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $HOME/.oh-my-zsh/plugins/*
@@ -114,12 +113,6 @@ source $HOME/.cache/wal/colors.sh
 # setopt INTERACTIVE_COMMENTS
 # поддержка $(cmd) в $PS1 etc.
 # setopt PROMPT_SUBST
-
-export MANPATH="/usr/local/man:$MANPATH"
-# You may need to manually set your language environment
-#export LANG=ru_RU.UTF-8
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -176,7 +169,6 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 # POWERLEVEL9K_SHOW_CHANGESET=true
 # POWERLEVEL9K_CHANGESET_HASH_LENGTH=6З
 
-# Bashrc settings (moved)
 # npm to $PATH
 export PATH="$PATH:$HOME/.npm/bin"
 export NVM_DIR="$HOME/.nvm"
@@ -194,19 +186,29 @@ export OCIO=$HOME/.config/blender/2.79/datafiles/colormanagement/config.ocio
 export W_PREFIXES=$HOME/.PlayOnLinux/wineprefix
 
 # Variables
-export SUDO_EDITOR=gedit
+export SUDO_EDITOR=vim
 #export VISUAL=code
 #export TERMINAL=/usr/bin/gnome-terminal
 export GTK_IM_MODULE="xim"
-
 export MON_PRIMARY=$(xrandr | grep -w "connected primary" | awk '{print $1}')
+export MANPATH="/usr/local/man:$MANPATH"
+export EDITOR="vim"
+# You may need to manually set your language environment
+#export LANG=ru_RU.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Aliases from bash
 if [ -f $HOME/.bash_aliases ]; then
-	. $HOME/.bash_aliases
+	source $HOME/.bash_aliases
 fi
 
 # Point out to z.sh
-. /media/Scripts/z.sh
+if [ -f /media/Scripts/z.sh ]; then
+	source /media/Scripts/z.sh
+fi
 
-source ~/.purepower
+# Points out to the purepower oh-my-zsh theme
+if [ -f ~/.purepower ]; then
+	source ~/.purepower
+fi
