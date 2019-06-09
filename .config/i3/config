@@ -14,7 +14,6 @@ bindsym $mod+Shift+q kill
 # Custom bindings
 bindsym $mod+d exec rofi -theme /home/evgeniy/.config/i3/rofi/themes/sidetab.rasi -show drun
 bindsym $mod+control+p exec copyq show
-bindsym $mod+f exec ranger
 bindsym $mod+c exec code
 bindsym $mod+n exec code
 bindsym $mod+t exec telegram-desktop
@@ -45,10 +44,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+apostrophe split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+slash split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
