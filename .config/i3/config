@@ -239,7 +239,7 @@ exec --no-startup-id "~/.config/i3/fallbackToConnectedDisplay"
 
 # Emergency: Turn off builtin display
 # (Sometimes the display is active but still dead after waking up from suspend)
-bindsym $mod+XF86Display exec "xrandr --output eDP-1 --off"
+# bindsym $mod+XF86Display exec "xrandr --output eDP-1 --off"
 
 # Emergency: Turn on all connected displays
 bindsym $mod+Shift+XF86Display exec "xrandr --auto"
@@ -266,7 +266,7 @@ exec --no-startup-id "dropbox start &"
 exec --no-startup-id "megasync &"
 exec --no-startup-id "pcloud &"
 exec --no-startup-id "telegram-desktop &"
-exec --no-startup-id "unclutter --timeout 1 &"
+exec --no-startup-id "unclutter --timeout 3 &"
 exec "maid daemon &"
 
 # WINDOWS RULES
