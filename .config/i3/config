@@ -15,7 +15,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -theme /home/evgeniy/.config/i3/rofi/themes/sidetab.rasi -show drun
 bindsym $mod+control+p exec copyq show
 bindsym $mod+c exec code
-bindsym $mod+n exec code
+bindsym $mod+n exec /mnt/12208E29208E143F/Clouds/Mega/02_linux_projects/13_notion/notion-app/notion-app
 bindsym $mod+t exec telegram-desktop
 bindsym Print exec gnome-screenshot -i
 
