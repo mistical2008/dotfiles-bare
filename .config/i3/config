@@ -268,7 +268,6 @@ exec --no-startup-id "pcloud &"
 exec --no-startup-id "telegram-desktop &"
 exec --no-startup-id "unclutter --timeout 3 &"
 exec "maid daemon &"
-exec --no-startup-id "/mnt/Data/Scripts/bl-set-wal.sh"
 
 # WINDOWS RULES
 for_window [class="^.*"] border pixel 6
