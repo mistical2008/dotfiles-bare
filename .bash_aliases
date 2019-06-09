@@ -69,6 +69,7 @@ alias todo="todo.sh -d ~/.config/todo/config -t"
 alias inbox="addto inbox.txt"
 alias tasks='git grep -EI "TODO|FIXME"'
 alias mux='tmuxinator'
+alias wpg='wpg && bl-set-wal.sh'
 
 ## FUNCTIONS
 # Configurations
