@@ -193,7 +193,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color           $text-col
 # }
 
 # Lock screen
-bindsym $mod+shift+x exec betterlockscreen -l dimblur
+#bindsym $mod+shift+x exec betterlockscreen -l dimblur
+bindsym $mod+shift+x exec /mnt/Data/Scripts/bl-set-wal.sh
 
 # Lock on suspend:
 exec --no-startup-id "xss-lock -- betterlockscreen -l dimblur"
