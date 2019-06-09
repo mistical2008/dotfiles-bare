@@ -70,6 +70,7 @@ alias inbox="addto inbox.txt"
 alias tasks='git grep -EI "TODO|FIXME"'
 alias mux='tmuxinator'
 alias wpg='wpg && bl-set-wal.sh'
+alias nitrogen='nitrogen --save && bl-set-wal-nitr.sh'
 
 ## FUNCTIONS
 # Configurations
