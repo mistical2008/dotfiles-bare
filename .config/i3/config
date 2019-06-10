@@ -267,7 +267,7 @@ exec --no-startup-id "megasync &"
 exec --no-startup-id "pcloud &"
 exec --no-startup-id "telegram-desktop &"
 exec --no-startup-id "unclutter --timeout 3 &"
-exec_always "maid-run.sh"
+exec_always ./maid-run.sh
 
 # WINDOWS RULES
 for_window [class="^.*"] border pixel 6
