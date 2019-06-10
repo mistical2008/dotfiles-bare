@@ -8,6 +8,7 @@ userresources="/home/evgeniy/.Xresources"
 usermodmap="/home/evgeniy/.Xmodmap"
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+maidsh="/mnt/Data/Scripts/maid-run.sh"
 # walxinitcolors=$HOME/.cache/wal/colors.Xresources
 
 # merge in defaults and keymaps
@@ -32,14 +33,20 @@ if [ -f "$usermodmap" ]; then
 	xmodmap "$usermodmap"
 fi
 
+if [ -f "$maidsh" ]; then
+	bash $maidsh
+fi
 # start some nice programs
-
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
 	for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
 		[ -x "$f" ] && . "$f"
 	done
 	unset f
 fi
+
+#User settings
+xset r rate 500 33
+setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch
 
 get_session() {
 	local dbus_args=(--sh-syntax --exit-with-session)
@@ -66,7 +73,3 @@ get_session() {
 }
 
 exec $(get_session)
-
-# User settings
-# xset r rate 500 33
-# setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch
