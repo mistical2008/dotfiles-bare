@@ -177,7 +177,7 @@ export NVM_DIR="$HOME/.nvm"
 # Custom PATH
 export PATH="$PATH:/mnt/Data/Scripts"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
+export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # Filmic blender path
 export OCIO=$HOME/.config/blender/2.79/datafiles/colormanagement/config.ocio
