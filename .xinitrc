@@ -4,8 +4,8 @@
 #
 # Executed by startx (run your window manager from here)
 
-userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
+userresources="/home/evgeniy/.Xresources"
+usermodmap="/home/evgeniy/.Xmodmap"
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 # walxinitcolors=$HOME/.cache/wal/colors.Xresources
@@ -25,7 +25,7 @@ fi
 # fi
 
 if [ -f "$userresources" ]; then
-	xrdb -merge "$userresources"
+	xrdb -merge $userresources
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -68,5 +68,5 @@ get_session() {
 exec $(get_session)
 
 # User settings
-xset r rate 500 33
-setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch
+# xset r rate 500 33
+# setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch
