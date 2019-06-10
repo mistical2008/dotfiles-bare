@@ -246,7 +246,6 @@ bindsym $mod+Shift+XF86Display exec "xrandr --auto"
 
 
 # AUTOSTART
-exec_always --no-startup-id "setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch,misc:typo"
 exec --no-startup-id "blueman-applet &"
 # exec --no-startup-id "gnome-settings-daemon &"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &"
@@ -254,7 +253,7 @@ exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 exec --no-startup-id "xss-lock -- betterlockscreen -l dimblur"
 exec_always --no-startup-id "compton -b --config ~/.config/i3/compton.conf"
 exec_always --no-startup-id "nitrogen --restore &"
-exec_always --no-startup-id "wal -R -n"
+# exec_always --no-startup-id "wal -R -n"
 exec_always --no-startup-id "~/.config/i3/launch-polybar.sh"
 exec --no-startup-id "setwac-run"
 exec --no-startup-id "copyq &"
@@ -267,7 +266,8 @@ exec --no-startup-id "megasync &"
 exec --no-startup-id "pcloud &"
 exec --no-startup-id "telegram-desktop &"
 exec --no-startup-id "unclutter --timeout 3 &"
-# exec_always --no-startup-id "maid-run.sh"
+exec_always --no-startup-id "setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch,misc:typo"
+# exec_always --no-startup-id "/mnt/Data/Scripts/maid-run.sh"
 
 # WINDOWS RULES
 for_window [class="^.*"] border pixel 6
