@@ -1,20 +1,45 @@
 ##########################################################################################
-###                                    SET VARIABLES                                                ###
+###                                    SET KEYS                                        ###
 ##########################################################################################
-# Keys:
+# Nav:
 set $LEFT h
 set $DOWN j
 set $UP k
 set $RIGHT l
 
+# Modifier:
 set $mod Mod4
 font pango:Inter UI Regular, FontAwesome 14 # Установка шрифта для рамок окна
 floating_modifier $mod
 
+##########################################################################################
+###                                    WORKSPASES                                      ###
+##########################################################################################
+# Define names for default workspaces for which we configure key bindings later on.
+set $ws1 "primary"
+set $ws2 "media"
+set $ws3 "ref"
+set $ws4 "code"
+set $ws5 "conf"
+set $ws6 "chats"
+set $ws7 "plan"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+##########################################################################################
+###                                    PROGRAMS                                        ###
+##########################################################################################
+# Wallpaper
+set $wall nitorgen
+set $wall-restore "--no-startup-id nitrogen --restore &"
+
+##########################################################################################
+###                                    KEYBINDINGS                                     ###
+##########################################################################################
 # start a terminal
 # bindsym $mod+Return exec tilix --window-style=borderless
 bindsym $mod+Return exec urxvt
-# bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -87,24 +112,6 @@ bindsym $mod+minus scratchpad show
 # Show the sup-mail scratchpad window, if any.
 # bindsym mod4+s [title="^Sup ::"] scratchpad show
 
-#Define vars
-#wallpaper
-set $wall nitorgen
-set $wall-restore "--no-startup-id nitrogen --restore &"
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "primary"
-set $ws2 "media"
-set $ws3 "ref"
-set $ws4 "code"
-set $ws5 "conf"
-set $ws6 "chats"
-set $ws7 "plan"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -167,6 +174,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+##########################################################################################
+###                                    COLORS                                          ###
+##########################################################################################
 set_from_resource        $bg-color                 i3wm.color4     #2f343f
 set_from_resource        $inactive-bg-color        i3wm.color4     #2f343f
 set_from_resource        $text-color               i3wm.foreground #f3f4f5
@@ -182,8 +192,9 @@ client.unfocused        $inactive-bg-color  $inactive-bg-color         $inactive
 client.focused_inactive $inactive-bg-color  $inactive-bg-color         $inactive-text-color    $indicator
 client.urgent           $urgent-bg-color    $urgent-bg-color           $text-color             $indicator
 
-#
-
+##########################################################################################
+###                                        BAR                                         ###
+##########################################################################################
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # bar {
@@ -227,15 +238,13 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# ---------------------------------------------------------------------
-# DISPLAYS
-# ---------------------------------------------------------------------
+##########################################################################################
+###                                    MONITORS                                        ###
+##########################################################################################
 # exec_always --no-startup-id xrandr --output DP1 --off --output eDP1 --mode 1920x1080 --pos 0x360 --set "Broadcast RGB" "Full" --rotate normal --output VIRTUAL1 --off
 # exec_always --no-startup-id xrandr | grep -q HDMI1 connected && xrandr --output HDMI2 --off --output HDMI1 --primary --auto --mode 3440x1440 --set "Broadcast RGB" "Full" --pos 1920x0 --rotate normal
 # exec_always --no-startup-id xrandr --output HDMI2 --off --output VIRTUAL1 --off
-
 exec_always --no-startup-id xrandr | grep -q HDMI1 && xrandr --output HDMI2 --off --output HDMI1 --primary --auto --mode 3440x1440 --set "Broadcast RGB" "Full" --pos 1920x0 --rotate normal --output DP1 --off --output eDP1 --mode 1920x1080 --pos 0x360 --set "Broadcast RGB" "Full" --rotate normal --output VIRTUAL1 --off
-
 # exec_always --no-startup-id xrandr | grep -q HDMI1 && xrandr --output HDMI2 --off --output HDMI1 --primary --auto --mode 3440x1440 +vsync --set "Broadcast RGB" "Full" --right-of eDP1 --rotate normal --output DP1 --off --output eDP1 --mode 1920x1080 +vsync --pos 0x360 --set "Broadcast RGB" "Full" --rotate normal --output VIRTUAL1 --off
 # exec_always --no-startup-id xrandr | grep -q HDMI1 connected && xrandr --output eDP1 --mode 1920x1080 --pos 0x360 --set "Broadcast RGB" "Full" --output HDMI1 --primary --auto --mode 3440x1440 --pos 1920x0 --set "Broadcast RGB" "Full" --right-of eDP1 --output DP1 --off --output HDMI2 --off --output VIRTUAL1 --off
 
