@@ -56,7 +56,7 @@ URxvt.boldItalicFont: xft:font1:bold:italic:pixelsize=18, xft:font2:pixelsize=16
 *antialias:                 true
 *autohint:                  true
 
-URxvt.perl-ext-common:           default,fullscreen,matcher,tabbed,resize-font,clipboard
+URxvt.perl-ext-common:           default,fullscreen,matcher,resize-font,clipboard
 URxvt.keysym.M-Escape:           perl:keyboard-select:activate
 URxvt.keysym.M-s:                perl:keyboard-select:search
 URxvt.keyboard-select.clipboard: true
@@ -72,11 +72,11 @@ URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
 URxvt.url-launcher:         xdg-open
 URxvt*underlineURLs:        true
 URxvt.matcher.button:       1
-URxvt.tabbed.tabbar-fg:     2
-URxvt.tabbed.tabbar-bg:     0
-URxvt.tabbed.tab-fg:        3
-URxvt.tabbed.tab-bg:        0
-URxvt.bell-command:         aplay /usr/share/sounds/elementary/stereo/bell.wav
+!URxvt.tabbed.tabbar-fg:     2
+!URxvt.tabbed.tabbar-bg:     0
+!URxvt.tabbed.tab-fg:        3
+!URxvt.tabbed.tab-bg:        0
+URxvt.bell-command:         mpv /usr/share/sounds/elementary/stereo/bell.wav
 
 !####################################################################
 !##### DUNST COLORS #################################################
