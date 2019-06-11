@@ -40,18 +40,18 @@ root: ~/
 # attach: false
 
 windows:
-        - planning:
-                  layout: tiled
-                  panes:
-                          - all-tasks:
-                                    - echo All tasks
-                                    - watch -c todo.sh ls
-                          - week:
-                                    - echo Today
-                                    - watch -c todo.sh listpri B
-                          - today:
-                                    - echo Week
-                                    - watch -c todo.sh listpri C
-                          - done:
-                                    - echo Complited
-                                    - watch -c todo.sh lf done
+  - planning:
+        layout: tiled
+        panes:
+            - all-tasks:
+                   - echo All tasks
+                   - watch -c todo.sh ls
+            - week:
+                   - echo Today
+                   - watch -c todo.sh listpri B
+            - today:
+                   - echo Week
+                   - watch -c todo.sh listpri C
+            - done:
+                   - echo Complited
+                   - watch -c todo.sh lf done
