@@ -1,3 +1,12 @@
+##########################################################################################
+###                                    SET VARIABLES                                                ###
+##########################################################################################
+# Keys:
+set $LEFT h
+set $DOWN j
+set $UP k
+set $RIGHT l
+
 set $mod Mod4
 font pango:Inter UI Regular, FontAwesome 14 # Установка шрифта для рамок окна
 floating_modifier $mod
@@ -20,10 +29,10 @@ bindsym $mod+t exec telegram-desktop
 bindsym Print exec gnome-screenshot -i
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+$LEFT focus left
+bindsym $mod+$DOWN focus down
+bindsym $mod+$UP focus up
+bindsym $mod+$RIGHT focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -32,10 +41,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+$LEFT move left
+bindsym $mod+Shift+$DOWN move down
+bindsym $mod+Shift+$UP move up
+bindsym $mod+Shift+$RIGHT move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -139,10 +148,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym $LEFT resize shrink width 10 px or 10 ppt
+        bindsym $DOWN resize grow height 10 px or 10 ppt
+        bindsym $UP resize shrink height 10 px or 10 ppt
+        bindsym $RIGHT resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -335,12 +344,12 @@ for_window [instance="dropdown_*"] move position center
 for_window [urgent=latest] focus
 
 # Workspace output assigning
-workspace $ws1 output primary
-workspace $ws2 output secondary
-workspace $ws3 output secondary
-workspace $ws4 output primary
-workspace $ws5 output primary
-workspace $ws6 output secondary
+workspace $ws1 output HDMI1
+workspace $ws2 output eDP1
+workspace $ws3 output eDP1
+workspace $ws4 output eDP1
+workspace $ws5 output eDP1
+workspace $ws6 output eDP1
 
 # Apps assigning for ws
 assign [class="TelegramDesktop"] $ws6
