@@ -41,17 +41,16 @@ root: ~/
 
 windows:
   - planning:
-        layout: tiled
+        #layout: tiled
+        layout: [312x61] [layout 411c,312x61,0,0{99x61,0,0,1,108x61,100,0[108x37,100,0,2,108x23,100,38,4],103x61,209,0,3}] @1 (active)
         panes:
-            - all-tasks:
-                   - echo All tasks
-                   - watch -c todo.sh ls
-            - week:
-                   - echo Today
-                   - watch -c todo.sh listpri B
             - today:
-                   - echo Week
-                   - watch -c todo.sh listpri C
+              - echo Today
+              - watch -c todo.sh listpri A-B
             - done:
-                   - echo Complited
-                   - watch -c todo.sh lf done
+             - echo Complited
+             - watch -c todo.sh lf done
+            - week:
+              - echo Week
+              - watch -c todo.sh listpri C 
+            - cmd:
