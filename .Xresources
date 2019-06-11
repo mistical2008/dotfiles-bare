@@ -32,8 +32,8 @@ URxvt*scrollBar_right:   true
 ! прокручивать по отношению к буферу (прокрутка мышью или Shift+Page Up)
 URxvt*scrollWithBuffer:     true
 URxvt.secondaryWheel:       1
-URxvt*transparent:false
-URxvt.urgentOnBell: true
+URxvt*transparent:          false
+URxvt.urgentOnBell:         false
 
 URxvt*depth:                32
 !URxvt.background: [10]Background
