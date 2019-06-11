@@ -61,9 +61,17 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Source to ...
-source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ -f $ZSH/oh-my-zsh.sh ]; then
+	source $ZSH/oh-my-zsh.sh
+fi
+
+if [ -f $ZSH/oh-my-zsh.sh ]; then
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+if [ -f $ZSH/oh-my-zsh.sh ]; then
+	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $HOME/.oh-my-zsh/plugins/*
@@ -204,11 +212,11 @@ if [ -f $HOME/.bash_aliases ]; then
 fi
 
 # Point out to z.sh
-# if [ -f /media/Scripts/z.sh ]; then
-# source /media/Scripts/z.sh
-# fi
+if [ -f /media/Scripts/z.sh ]; then
+	source /media/Scripts/z.sh
+fi
 
 # Points out to the purepower oh-my-zsh theme
-# if [ -f ~/.purepower ]; then
-# 	source ~/.purepower
-# fi
+if [ -f ~/.purepower ]; then
+	source ~/.purepower
+fi
