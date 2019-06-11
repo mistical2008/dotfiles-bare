@@ -204,11 +204,11 @@ if [ -f $HOME/.bash_aliases ]; then
 fi
 
 # Point out to z.sh
-if [ -f /media/Scripts/z.sh ]; then
-	source /media/Scripts/z.sh
-fi
+# if [ -f /media/Scripts/z.sh ]; then
+# source /media/Scripts/z.sh
+# fi
 
 # Points out to the purepower oh-my-zsh theme
-if [ -f ~/.purepower ]; then
-	source ~/.purepower
-fi
+# if [ -f ~/.purepower ]; then
+# 	source ~/.purepower
+# fi
