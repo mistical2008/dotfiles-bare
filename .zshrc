@@ -19,6 +19,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
+bindkey "5C" forward-word
+bindkey "5D" backward-word
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
