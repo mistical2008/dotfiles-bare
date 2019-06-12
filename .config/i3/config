@@ -355,9 +355,10 @@ for_window [urgent=latest] focus
 workspace $ws1 output HDMI1
 workspace $ws2 output eDP1
 workspace $ws3 output eDP1
-workspace $ws4 output eDP1
-workspace $ws5 output eDP1
-workspace $ws6 output eDP1
+workspace $ws4 output HDMI1
+workspace $ws6 output HDMI1
+workspace $ws7 output HDMI1
+workspace $ws8 output HDMI1
 
 # Apps assigning for ws
 assign [class="TelegramDesktop"] $ws6
