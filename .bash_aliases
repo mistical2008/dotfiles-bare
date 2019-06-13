@@ -79,7 +79,7 @@ conf() {
   case $1 in
   wacom) sudoedit $HOME/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
   intel) sudoedit /etc/X11/mhwd.d/intel.conf ;;
-  nvidia) sudoedit /etc/bumlblebee/xorg.conf.nvidia ;;
+  nvidia) sudoedit /etc/bumblebee/xorg.conf.nvidia ;;
   aliases) vim $HOME/.bash_aliases && source $HOME/.zshrc && dfa $HOME/.bash_aliases && dfcm "Updated aliases" && dfp ;;
   bmblb) sudoedit /etc/bumblebee/bumblebee.conf ;;
   homepage) olddir=$(pwd) && cd $HOME/scripts/homepage.py && nano homepage.py && ./homepage.py cd $olddir ;;
