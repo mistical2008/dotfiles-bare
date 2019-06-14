@@ -51,6 +51,8 @@ alias rmbadtr='find /var/cache/pacman/pkg/ -iname *.part -exec rm {} \;'
 alias pacsize="pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h"
 alias setwac-run='~/.config/xsetwacom-gnome-symbiotic/setup.sh'
 alias zup=". ~/.zshrc"
+alias zup='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`;
+cd "$LASTDIR"'
 
 # Configs
 alias sudolist='sudo /usr/sbin/visudo'
