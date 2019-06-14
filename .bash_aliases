@@ -73,6 +73,7 @@ alias mux='tmuxinator'
 alias wpg='wpg && bl-set-wal.sh'
 alias nitrogen='nitrogen --save && bl-set-wal-nitr.sh'
 alias tuijam-fix='stty -ixon'
+alias tuijam='stty -ixon; tuijam'
 
 ## FUNCTIONS
 # Configurations
