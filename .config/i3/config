@@ -363,3 +363,4 @@ workspace $ws8 output HDMI1
 # Apps assigning for ws
 assign [class="TelegramDesktop"] $ws6
 assign [class="Google Play Music Desktop Player"] $ws2
+assign [title="tuijam"] $ws2
