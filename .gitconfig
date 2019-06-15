@@ -2,5 +2,5 @@
 	email = etalko@gmail.com
 	name = Evgeniy Talko
 [core]
-	editor = code
+	editor = vim
 	excludesfile = /home/evgeniy/.gitignore
