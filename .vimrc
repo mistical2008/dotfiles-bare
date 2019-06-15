@@ -101,6 +101,6 @@ let g:hybrid_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 "colorscheme Tomorrow-Night
-colorscheme Tomorrow-Night
+colorscheme gruvbox
 hi Normal ctermbg=none
 
