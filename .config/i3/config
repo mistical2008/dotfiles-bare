@@ -330,7 +330,7 @@ for_window [instance="qbittorrent"] floating enable
 for_window [instance="qbittorrent"] move scratchpad
 for_window [instance="qbittorrent"] sticky enable
 for_window [instance="qbittorrent"] scratchpad show
-for_window [instance="qbittorrent"] resize set  1700 460
+for_window [instance="qbittorrent"] resize set  1700 760
 for_window [instance="qbittorrent"] move position center
 
 
