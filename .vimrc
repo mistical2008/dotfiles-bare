@@ -6,12 +6,16 @@ filetype off
 
 " TODO: Load plugins here (pathogen or vundle)
 call plug#begin()
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-sensible'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/html5.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'vim-ruby/vim-ruby'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'jasonshell/vim-svg-indent'
@@ -26,6 +30,7 @@ Plug 'skammer/vim-css-color'
 "Plug 'roxma/vim-hug-neovim-rpc'
 "Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'shime/vim-livedown'
 call plug#end()
 
 " Deoplete settings
