@@ -83,6 +83,7 @@ conf() {
   case $1 in
   wacom) sudoedit $HOME/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
   intel) sudoedit /etc/X11/mhwd.d/intel.conf ;;
+  vim) vim $HOME/.vimrc && dfa $HOME/.vimrc && dfcm "Updated .vimrc" && dfp ;;
   lightdm) sudoedit /etc/lightdm/lightdm.conf ;;
   nvidia) sudoedit /etc/bumblebee/xorg.conf.nvidia ;;
   aliases) vim $HOME/.bash_aliases && source $HOME/.zshrc && dfa $HOME/.bash_aliases && dfcm "Updated aliases" && dfp ;;
