@@ -24,12 +24,8 @@ Plug 'stephpy/vim-yaml'
 Plug 'elzr/vim-json'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'skammer/vim-css-color'
-"Plug 'Shougo/deoplete.nvim'
-"Plug 'carlitux/deoplete-ternjs'
-"Plug 'roxma/nvim-yarp'
-"Plug 'roxma/vim-hug-neovim-rpc'
-"Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'w0rp/ale'
 Plug 'shime/vim-livedown'
 call plug#end()
 
@@ -180,3 +176,7 @@ let g:javascript_conceal_super                = "Ω"
 let g:javascript_conceal_arrow_function       = "⇒"
 let g:javascript_conceal_noarg_arrow_function = "🞅"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
+
+"Load help tags
+packloadall
+silent! helptags ALL
