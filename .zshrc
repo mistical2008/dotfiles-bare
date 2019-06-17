@@ -209,7 +209,7 @@ export EDITOR="vim"
 #export LANG=ru_RU.UTF-8
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-#export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 
 # Fish syntax
 # set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
