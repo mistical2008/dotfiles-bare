@@ -303,7 +303,7 @@ for_window [class="megasync"] floating enable
 for_window [class="Com.github.jmoerman.go-for-it"] floating enable
 for_window [title="PlayOnLinux"] floating enable
 for_window [class="Yad" title="yad-calendar"] floating enable
-for_window [class="Polkit-gnome-authentication-agent-1" title="Аутентифицировать"] resize set 500 0
+for_window [class="Polkit-gnome-authentication-agent-1" title="Аутентифицировать"] resize set 800 400
 for_window [instance="Enpass"] floating enable
 for_window [instance="Enpass"] move scratchpad
 for_window [instance="Enpass"] sticky enable
