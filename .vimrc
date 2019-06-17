@@ -1,6 +1,7 @@
 
 " Don't try to be vi compatible
 set nocompatible
+set guifont=Source\ Code\ Pro\ 15
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
@@ -26,6 +27,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'skammer/vim-css-color'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale'
+Plug 'junegunn/fzf.vim'
 Plug 'shime/vim-livedown'
 call plug#end()
 
@@ -157,6 +159,18 @@ let g:javascript_conceal_super                = "Ω"
 let g:javascript_conceal_arrow_function       = "⇒"
 let g:javascript_conceal_noarg_arrow_function = "🞅"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
+
+" Replacing default Ale indicators
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+" Set Ale fixer (Eslint)
+let g:ale_fixers['javascript'] = ['eslint']
+" Fix files automatically on save
+let g:ale_fix_on_save = 1
+
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>h :History<CR>
 
 "Load help tags
 packloadall
