@@ -27,7 +27,9 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'skammer/vim-css-color'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'shime/vim-livedown'
 call plug#end()
 
@@ -139,9 +141,9 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
+let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
 
@@ -157,20 +159,24 @@ let g:javascript_conceal_prototype            = "¶"
 let g:javascript_conceal_static               = "•"
 let g:javascript_conceal_super                = "Ω"
 let g:javascript_conceal_arrow_function       = "⇒"
-let g:javascript_conceal_noarg_arrow_function = "🞅"
-let g:javascript_conceal_underscore_arrow_function = "🞅"
+let g:javascript_conceal_noarg_arrow_function = "⭘"
+let g:javascript_conceal_underscore_arrow_function = "⭘"
 
 " Replacing default Ale indicators
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
 " Set Ale fixer (Eslint)
-let g:ale_fixers['javascript'] = ['eslint']
+let b:ale_fixers = ['prettier', 'eslint']
+let b:ale_linters = {'css': ['stylelint']
 " Fix files automatically on save
 let g:ale_fix_on_save = 1
 
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
+
+nnoremap <Leader>t :BTags<CR>
+nnoremap <Leader>T :Tags<CR>
 
 "Load help tags
 packloadall
