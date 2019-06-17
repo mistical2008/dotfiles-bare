@@ -44,10 +44,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 	unset f
 fi
 
-#User settings
-xset r rate 500 33
-setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch
-
 get_session() {
 	local dbus_args=(--sh-syntax --exit-with-session)
 	case $1 in
@@ -72,4 +68,7 @@ get_session() {
 	echo "dbus-launch ${dbus_args[*]}"
 }
 
+xset r rate 500 33
+setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch
+/usr/local/bin/hotplug_monitor.sh &
 exec $(get_session)
