@@ -264,7 +264,7 @@ bindsym $mod+Shift+XF86Display exec "xrandr --auto"
 
 
 # AUTOSTART
-exec "/usr/local/bin/hotplug_monitor.sh &"
+#exec "/usr/local/bin/hotplug_monitor.sh &"
 exec --no-startup-id "blueman-applet &"
 # exec --no-startup-id "gnome-settings-daemon &"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &"
