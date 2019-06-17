@@ -44,7 +44,7 @@
   "material-icon-theme.showUpdateMessage": false,
   "yaml.format.enable": true,
   "editor.fontLigatures": true,
-  "workbench.colorTheme": "Electron",
+  "workbench.colorTheme": "Gruvbox Dark (Hard)",
   "scss.lint.argumentsInColorFunction": "error",
   "terminal.explorerKind": "external",
   "editor.snippetSuggestions": "inline",
@@ -106,8 +106,29 @@
   ],
   "color-highlight.markerType": "dot-after",
   "terminal.integrated.enableBell": true,
-  "eslint.autoFixOnSave": true,
   "window.titleBarStyle": "custom",
   "faker.locale": "ru",
-  "todohighlight.isEnable": true
+  "todohighlight.isEnable": true,
+  "editor.formatOnSave": true,
+  // Turn off format on save for JS. We will do this via eslint
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  //tell the ESlint plugin to run on save
+  "eslint.autoFixOnSave": true,
+  "prettier.disableLanguages": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  }
 }
