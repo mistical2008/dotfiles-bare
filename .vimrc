@@ -163,11 +163,11 @@ let g:javascript_conceal_underscore_arrow_function = "⭘"
 " Replacing default Ale indicators
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
+let airline#extensions#ale#error_symbol = ''
+let airline#extensions#ale#warning_symbol = ''
 " Set Ale fixer (Eslint)
-let b:ale_fixers = {\
-  'javascript': ['prettier_eslint']}
-let b:ale_linters\
-  'css': ['stylelint']}
+let b:ale_fixers = {'javascript': ['prettier_eslint']}
+let b:ale_linters={'css': ['stylelint']}
 " Fix files automatically on save
 let g:ale_fix_on_save = 1
 
