@@ -12,21 +12,17 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-sensible'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'pangloss/vim-javascript'
 Plug 'sheerun/vim-polyglot'
-Plug 'othree/html5.vim'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'vim-ruby/vim-ruby'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'jasonshell/vim-svg-indent'
-Plug 'vim-scripts/svg.vim'
-Plug 'stephpy/vim-yaml'
-Plug 'elzr/vim-json'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'skammer/vim-css-color'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'SirVer/ultisnips'
+" Markdown
+Plug 'reedes/vim-pencil'
+Plug 'nelstrom/vim-markdown-folding'
+" Linting
 Plug 'w0rp/ale'
+" Fuzzy search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
