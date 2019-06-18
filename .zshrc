@@ -228,3 +228,5 @@ fi
 if [ -f ~/.purepower ]; then
 	source ~/.purepower
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
