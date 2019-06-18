@@ -68,7 +68,7 @@ get_session() {
 	echo "dbus-launch ${dbus_args[*]}"
 }
 
+exec $(get_sessio)
 xset r rate 500 33
 setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch
-/usr/local/bin/hotplug_monitor.sh &
-exec $(get_session)
+/usr/local/bin/hotplug_monitor-2.sh &
