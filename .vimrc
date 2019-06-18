@@ -166,7 +166,7 @@ let g:javascript_conceal_underscore_arrow_function = "⭘"
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 " Set Ale fixer (Eslint)
-let b:ale_fixers = ['prettier', 'eslint']
+let b:ale_fixers = {'javascript': ['eslint']}
 let b:ale_linters = {'css': ['stylelint']}
 " Fix files automatically on save
 let g:ale_fix_on_save = 1
