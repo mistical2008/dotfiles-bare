@@ -178,6 +178,9 @@ nnoremap <Leader>h :History<CR>
 nnoremap <Leader>t :BTags<CR>
 nnoremap <Leader>T :Tags<CR>
 
+nmap <silent> [c <Plug>(ale_previous_wrap)
+nmap <silent> ]c <Plug>(ale_next_wrap)
+
 "Load help tags
 packloadall
 silent! helptags ALL
