@@ -34,6 +34,8 @@ syntax on
 
 " For plugins to load correctly
 filetype plugin indent on
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 set mouse=a
 
