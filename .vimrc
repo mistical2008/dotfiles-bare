@@ -166,8 +166,8 @@ let g:ale_sign_warning = ''
 let airline#extensions#ale#error_symbol = ''
 let airline#extensions#ale#warning_symbol = ''
 " Set Ale fixer (Eslint)
-let b:ale_fixers = {'javascript': ['prettier_eslint']}
-let b:ale_linters={'css': ['stylelint']}
+let b:ale_fixers = {'javascript': ['prettier'], 'css': ['prettier'}
+let b:ale_linters={'css': ['stylelint'], 'html': ['prettier','stylelint']}
 " Fix files automatically on save
 let g:ale_fix_on_save = 1
 
