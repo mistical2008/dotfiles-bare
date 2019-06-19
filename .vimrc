@@ -252,5 +252,5 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 " Limelight mappings
-nmap <Leader>ge <Plug>(GoyoEnter)
-xmap <Leader>gl <Plug>(GoyoLeave)
+nmap <Leader>ll <Plug>(Limelight)
+xmap <Leader>ll <Plug>(Limelight)
