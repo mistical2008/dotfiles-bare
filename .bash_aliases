@@ -76,7 +76,7 @@ alias wpg='wpg && bl-set-wal.sh'
 alias nitrogen='nitrogen --save && bl-set-wal-nitr.sh'
 alias tuijam-fix='stty -ixon'
 alias tuijam='stty -ixon; tuijam'
-alias pacfzf='pacman -Slq | fzf -m --preview "pacman -Si {1}" | xargs -r sudo pacman -S'
+alias yayfz='yay -Slq | fzf -m --preview "yay -Si {1}" | xargs -r sudo yay -S'
 
 ## FUNCTIONS
 # Configurations
