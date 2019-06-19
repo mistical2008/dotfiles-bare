@@ -116,8 +116,7 @@ conf() {
   vhosts) sudoedit /etc/httpd/conf/extra/httpd-vhosts.conf ;;
   httpd) sudoedit /etc/httpd/conf/httpd.conf ;;
   mux) vim $HOME/.config/tmuxinator/$2.yml && dfa $HOME/.config/tmuxinator/$2.yml && dfcm "Updated the tmuxinator $2" && dfp ;;
-  psd) vim $HOME/.config/psd/psd.conf && dfa $HOME/.config/psd/psd.conf && dfcm
-    "Updated the profile-sync-daemons config" && dfp ;;
+  psd) vim $HOME/.config/psd/psd.conf && dfa $HOME/.config/psd/psd.conf && dfcm "Updated the profile-sync-daemons config" && dfp ;;
   *) echo "Unknown application: $1" ;;
   esac
 }
