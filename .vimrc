@@ -20,6 +20,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': '*', 'do': { -> coc#util#
 " Markdown
 Plug 'reedes/vim-pencil'
 Plug 'nelstrom/vim-markdown-folding'
+Plug 'vimwiki/vimwiki'
 " Linting
 Plug 'w0rp/ale'
 " Fuzzy search
@@ -184,3 +185,20 @@ nmap <silent> ]c <Plug>(ale_next_wrap)
 "Load help tags
 packloadall
 silent! helptags ALL
+" Coc-snippets
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+" Set vimwiki syntax to markdown
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+ \ 'syntax': 'markdown', 'ext': '.md'}]
