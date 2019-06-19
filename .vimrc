@@ -250,3 +250,7 @@ let g:limelight_priority = -1
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" Limelight mappings
+nmap <Leader>ge <Plug>(GoyoEnter)
+xmap <Leader>gl <Plug>(GoyoLeave)
