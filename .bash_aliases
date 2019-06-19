@@ -76,7 +76,7 @@ alias wpg='wpg && bl-set-wal.sh'
 alias nitrogen='nitrogen --save && bl-set-wal-nitr.sh'
 alias tuijam-fix='stty -ixon'
 alias tuijam='stty -ixon; tuijam'
-alias yafz='yay -Slq | fzf -m --preview "yay -Si {1}" | xargs -r sudo yay -S'
+alias yafz='yay -Slq | fzf -m --preview "yay -Si {1}" | xargs -r yay -S'
 alias yafzl='yay -Ql | awk "{print $2}" | fzf --preview "cat {}" | xclip -i -selection clipboar'
 
 ## FUNCTIONS
