@@ -21,15 +21,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': '*', 'do': { -> coc#util#
 Plug 'reedes/vim-pencil'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'vimwiki/vimwiki'
+Plug 'suan/vim-instant-markdown'
 " Linting
 Plug 'w0rp/ale'
 " Fuzzy search
 Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
+" Ctags
 Plug 'ludovicchabant/vim-gutentags'
-"Plug 'shime/vim-livedown'
-Plug 'suan/vim-instant-markdown'
-Plug 'limelight.vim'
+" Zen writing
+Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 call plug#end()
 
