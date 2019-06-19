@@ -211,22 +211,13 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 
-# Fish syntax
-# set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
-
 # Aliases from bash
-if [ -f $HOME/.bash_aliases ]; then
-	source $HOME/.bash_aliases
-fi
+[ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 
 # Point out to z.sh
-if [ -f /media/Scripts/z.sh ]; then
-	source /media/Scripts/z.sh
-fi
+[ -f /media/Scripts/z.sh ] && source /media/Scripts/z.sh
 
 # Points out to the purepower oh-my-zsh theme
-if [ -f ~/.purepower ]; then
-	source ~/.purepower
-fi
+[ -f ~/.purepower ] && source ~/.purepower
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
