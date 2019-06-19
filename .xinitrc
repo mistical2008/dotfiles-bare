@@ -33,9 +33,10 @@ if [ -f "$usermodmap" ]; then
 	xmodmap "$usermodmap"
 fi
 
-if [ -f "$maidsh" ]; then
-	bash $maidsh
-fi
+#if [ -f "$maidsh" ]; then
+#	bash $maidsh
+#fi
+
 # start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
 	for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
@@ -68,7 +69,8 @@ get_session() {
 	echo "dbus-launch ${dbus_args[*]}"
 }
 
-exec $(get_sessio)
+#/usr/local/bin/hotplug_monitor-2.sh &
+autorandr widescreen
 xset r rate 500 33
-setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch
-/usr/local/bin/hotplug_monitor-2.sh &
+setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch,misc:typo
+exec $(get_session)
