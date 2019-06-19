@@ -29,6 +29,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 "Plug 'shime/vim-livedown'
 Plug 'suan/vim-instant-markdown'
+Plug 'limelight.vim'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " Turn on syntax highlighting
