@@ -167,7 +167,10 @@ let g:ale_sign_warning = ''
 let airline#extensions#ale#error_symbol = ''
 let airline#extensions#ale#warning_symbol = ''
 " Set Ale fixer (Eslint)
-let b:ale_fixers = {'javascript': ['prettier'], 'css': ['prettier']}
+let b:ale_fixers = {
+ \ 'javascript': ['prettier'],
+ \ 'css': ['prettier']
+ \ }
 let b:ale_linters={'css': ['stylelint'], 'html': ['prettier','stylelint']}
 " Fix files automatically on save
 let g:ale_fix_on_save = 1
@@ -200,5 +203,5 @@ endfunction
 let g:coc_snippet_next = '<tab>'
 
 " Set vimwiki syntax to markdown
-let g:vimwiki_list = [{'path': '~/vimwiki/',
+let g:vimwiki_list = [{'path': '~/03_Drafts',
  \ 'syntax': 'markdown', 'ext': '.md'}]
