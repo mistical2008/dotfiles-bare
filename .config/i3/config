@@ -213,10 +213,10 @@ client.urgent           $urgent-bg-color    $urgent-bg-color           $text-col
 # }
 
 # Lock screen
-bindsym $mod+shift+x exec betterlockscreen -l dimblur
-
+#bindsym $mod+shift+x exec betterlockscreen -l dimblur
+bindsym $mod+shift+x exec light-locker-command -l
 # Lock on suspend:
-exec --no-startup-id "xss-lock -- betterlockscreen -l dimblur"
+#exec --no-startup-id "xss-lock -- betterlockscreen -l dimblur"
 
 
 # Pulse Audio controls
