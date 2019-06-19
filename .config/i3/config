@@ -285,7 +285,7 @@ exec --no-startup-id "megasync &"
 exec --no-startup-id "pcloud &"
 exec --no-startup-id "telegram-desktop &"
 exec --no-startup-id "unclutter --timeout 3 &"
-#exec_always --no-startup-id "setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch,misc:typo"
+exec_always --no-startup-id "setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch,misc:typo"
 exec --no-startup-id "nm-applet &"
 
 # WINDOWS RULES
