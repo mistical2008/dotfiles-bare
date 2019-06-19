@@ -27,7 +27,8 @@ Plug 'w0rp/ale'
 Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'shime/vim-livedown'
+"Plug 'shime/vim-livedown'
+Plug 'suan/vim-instant-markdown'
 call plug#end()
 
 " Turn on syntax highlighting
@@ -205,3 +206,15 @@ let g:coc_snippet_next = '<tab>'
 " Set vimwiki syntax to markdown
 let g:vimwiki_list = [{'path': '~/03_Drafts',
  \ 'syntax': 'markdown', 'ext': '.md'}]
+" vimwiki with markdown support
+let g:vimwiki_ext2syntax = {'.md': 'markdown',
+                          \ '.markdown': 'markdown',
+                          \ '.mdown': 'markdown',
+                          \ '.wiki': 'media'
+                          \ }
+" helppage -> :h vimwiki-syntax 
+
+" vim-instant-markdown - Instant Markdown previews from Vim
+" https://github.com/suan/vim-instant-markdown
+let g:instant_markdown_autostart = 0 " disable autostart
+map <leader>md :InstantMarkdownPreview<CR>
