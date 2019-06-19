@@ -133,10 +133,9 @@ set t_Co=256
 set background=dark
 let g:hybrid_termcolors=256
 let g:hybrid_termtrans=1
-" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-" in ~/.vim/colors/ and uncomment:
-"colorscheme Tomorrow-Night
 colorscheme gruvbox
+" Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
+let g:gruvbox_contrast_light='hard'
 hi Normal ctermbg=none
 
 " Add support for powerline fonts
