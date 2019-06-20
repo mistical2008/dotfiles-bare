@@ -56,7 +56,6 @@ cd "$LASTDIR"'
 
 # Configs
 alias sudolist='sudo /usr/sbin/visudo'
-
 alias dotfiles='/usr/bin/git --git-dir=/home/evgeniy/.dotfiles/ --work-tree=/home/evgeniy'
 alias dfa="dotfiles add"
 alias dfcm="dotfiles commit -m"
@@ -107,6 +106,7 @@ conf() {
   tmux) vim $HOME/.tmux.conf && dfa $HOME/.tmux.conf && dfcm "Updated the tmux.conf" && dfp ;;
   nano) vim $HOME/.nanorc && dfa $HOME/.nanorc && dfcm "Updated the nanorc" && dfp ;;
   xinit) vim $HOME/.xinitrc && dfa $HOME/.xinitrc && dfcm "Updated the xinitrc" && dfp ;;
+  xprofile) vim $HOME/.xprofile && dfa $HOME/.xprofile && dfcm "Updated the.xprofile" && dfp ;;
   xres) vim $HOME/.Xresources && xrdb $HOME/.Xresources && dfa $HOME/.Xresources && dfcm "Updated the .Xresources" && dfp ;;
   fonts-u) vim $HOME/.config/fontconfig/70-emojione-color.conf && fc-cache -f -v ;;
   theme2) vim $HOME/.themes/FlatStudioCustom/gtk-2.0/gtkrc ;;
