@@ -1,0 +1,10 @@
+polybar|error: Disabling module "battery" (reason: No suitable way to get current charge state)
+polybar|warn:  Ignoring restack of i3 window (not needed when `override-redirect = false`)
+polybar|error: tray: Failed to put tray above 0x1000002 in the stack (XCB_MATCH (8))
+Polybar launched...
+polybar|error: Disabling module "battery" (reason: No suitable way to get current charge state)
+polybar|warn:  Ignoring restack of i3 window (not needed when `override-redirect = false`)
+polybar|warn:  Termination signal received, shutting down...
+polybar|warn:  Termination signal received, shutting down...
+polybar|warn:  module/i3: Attempting to reconnect socket (reason: Unexpected EOF while reading header)
+polybar|warn:  module/i3: Attempting to reconnect socket (reason: Unexpected EOF while reading header)

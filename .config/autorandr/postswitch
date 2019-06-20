@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+#polybar-msg cmd restart;
+#nitrogen --restore &
+~/.config/i3/launch-polybar.sh > /dev/null 2&> /home/$USER/.config/i3/polybar-reload.log
+
