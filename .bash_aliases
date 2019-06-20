@@ -78,6 +78,7 @@ alias tuijam-fix='stty -ixon'
 alias tuijam='stty -ixon; tuijam'
 alias yafz='yay -Slq | fzf -m --preview "yay -Si {1}" | xargs -r yay -S;'
 alias yafzl='yay -Ql | awk "{print $2}" | fzf --preview "cat {}" | xclip -i -selection clipboar'
+alias fzcl='fzf | xclip -i -sel clip'
 
 ## FUNCTIONS
 # Configurations
