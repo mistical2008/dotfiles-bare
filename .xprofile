@@ -1,0 +1,6 @@
+#!/bin/sh
+autorandr 2mon
+# xrandr | grep -q HDMI1 && xrandr --output HDMI2 --off --output HDMI1 --primary --auto --mode 3440x1440 --set "Broadcast RGB" "Full" --pos 1920x0 --rotate normal --output DP1 --off --output eDP1 --mode 1920x1080 --pos 0x360 --set "Broadcast RGB" "Full" --rotate normal --output VIRTUAL1 --off
+xset r rate 500 33 &
+setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch,misc:typo &
+light-locker &
