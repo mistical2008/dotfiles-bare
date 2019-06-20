@@ -88,7 +88,7 @@ conf() {
   lightdm) sudoedit /etc/lightdm/lightdm.conf ;;
   nvidia) sudoedit /etc/bumblebee/xorg.conf.nvidia ;;
   aliases) vim $HOME/.bash_aliases && source $HOME/.zshrc && dfa $HOME/.bash_aliases && dfcm "Updated aliases" && dfp ;;
-  arps) vim $HOME/.config/atorandr/postswitch && dfa $HOME/.config/atorandr/postswitch && dfcm "Updated atorandr postswitch" && dfp ;;
+  arps) vim $HOME/.config/autorandr/postswitch && dfa $HOME/.config/autorandr/postswitch && dfcm "Updated autorandr postswitch" && dfp ;;
   bmblb) sudoedit /etc/bumblebee/bumblebee.conf ;;
   homepage) olddir=$(pwd) && cd $HOME/scripts/homepage.py && nano homepage.py && ./homepage.py cd $olddir ;;
   mimeapps) vim $HOME/.config/mimeapps.list && dfa $HOME/.config/mimeapps.list && dfcm "Updated mimeapps.list" && dfp ;;
