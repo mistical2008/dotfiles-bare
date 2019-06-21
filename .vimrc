@@ -38,8 +38,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 " Launch Ranger from Vim.
 Plug 'francoiscabrol/ranger.vim'
+" vim.snippets
+Plug 'honza/vim-snippets'
 call plug#end()
-
 " Turn on syntax highlighting
 syntax on
 
