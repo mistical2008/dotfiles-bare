@@ -77,6 +77,8 @@ alias tuijam='stty -ixon; tuijam'
 alias yafz='yay -Slq | fzf -m --preview "yay -Si {1}" | xargs -r yay -S;'
 alias yafzl='yay -Ql | awk "{print $2}" | fzf --preview "cat {}" | xclip -i -selection clipboar'
 alias fzcp='fzf | xclip -i -sel clip'
+alias kbtglg='grep "grp:.*toggle" /usr/share/X11/xkb/rules/base.lst | fzf'
+alias kbtgl3='grep "lv3:.*toggle" /usr/share/X11/xkb/rules/base.lst | fzf'
 
 ## FUNCTIONS
 # Configurations
