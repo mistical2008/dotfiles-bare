@@ -238,3 +238,4 @@ autocmd! User GoyoLeave Limelight!
 " Limelight mappings
 nmap <Leader>ll <Plug>(Limelight)
 xmap <Leader>ll <Plug>(Limelight)
+map <C-a> <esc>ggVG<CR>
