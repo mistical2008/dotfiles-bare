@@ -10,4 +10,4 @@ autorandr 2mon
 xset r rate 500 33 &
 light-locker &
 setxkbmap -layout us,ru 
-setxkbmap -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo'
+#setxkbmap -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo'
