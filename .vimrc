@@ -40,6 +40,8 @@ Plug 'tpope/vim-surround'
 Plug 'francoiscabrol/ranger.vim'
 " vim.snippets
 Plug 'honza/vim-snippets'
+" vim todo and fixme highlighting
+Plug 'sakshamgupta05/vim-todo-highlight'
 call plug#end()
 " Turn on syntax highlighting
 syntax on
