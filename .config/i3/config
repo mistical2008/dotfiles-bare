@@ -177,17 +177,19 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # focus mouse on(yes) or off(no)
-mode "mouse-focusing" {
-        bindsym $UP focus_follows_mouse yes
-        bindsym $DOWN focus_follows_mouse no
+# mode "mouse-focusing" {
+        #bindsym $UP focus_follows_mouse yes
+        #bindsym $DOWN focus_follows_mouse no
+        # bindsym $mod+shift+y mode mouse yes
+        # bindsym $mod+shift+n focus follows_mouse no
 
         # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
+        # bindsym Return mode "default"
+        # bindsym Escape mode "default"
+        # bindsym $mod+r mode "default"
+# }
 
-bindsym $mod+shift+m mode "mouse-focusing"
+# bindsym $mod+shift+m mode "mouse-focusing"
 
 ##########################################################################################
 ###                                    COLORS                                          ###
