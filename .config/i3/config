@@ -12,6 +12,8 @@ set $mod Mod4
 font pango:Inter UI Regular, FontAwesome 14 # Установка шрифта для рамок окна
 floating_modifier $mod
 
+# Mouse following focus yes|no
+focus_follows_mouse no
 ##########################################################################################
 ###                                    WORKSPASES                                      ###
 ##########################################################################################
@@ -173,6 +175,19 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# focus mouse on(yes) or off(no)
+mode "mouse-focusing" {
+        bindsym $UP focus_follows_mouse yes
+        bindsym $DOWN focus_follows_mouse no
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+shift+m mode "mouse-focusing"
 
 ##########################################################################################
 ###                                    COLORS                                          ###
