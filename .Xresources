@@ -41,8 +41,8 @@ URxvt*depth:                32
 !URxvt.background: [10]Background
 
 #define font1         Source Code Pro
+#define font2         RobotoMono Nerd Font Mono
 #define font3         Arimo Nerd Font
-#define font2         Fira Code
 #define font4         NotoSansMono Nerd Font
 
 URxvt.letterSpace: 0
