@@ -43,6 +43,8 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'honza/vim-snippets'
 " vim todo and fixme highlighting
 Plug 'sakshamgupta05/vim-todo-highlight'
+" vim-devicons
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 " Turn on syntax highlighting
 syntax on
