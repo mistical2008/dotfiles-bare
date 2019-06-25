@@ -40,7 +40,7 @@ URxvt.urgentOnBell:         false
 URxvt*depth:                32
 !URxvt.background: [10]Background
 
-#define font2         RobotoMono Nerd Font Mono
+#define font2         Fira Code
 #define font1         Source Code Pro
 #define font3         Arimo Nerd Font
 #define font4         NotoSansMono Nerd Font
