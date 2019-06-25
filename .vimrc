@@ -2,7 +2,7 @@
 " Don't try to be vi compatible
 set nocompatible
 " set guifont=Source\ Code\ Pro\ 17
-set guifont=Fira\ Code\ 17
+set guifont=Source\ Code\ Pro:h17
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
@@ -165,18 +165,18 @@ let g:airline_symbols.dirty='⚡'
 
 " vim-javascript gliphs
 " https://github.com/pangloss/vim-javascript
-let g:javascript_conceal_function             = "ƒ"
-let g:javascript_conceal_null                 = "ø"
-let g:javascript_conceal_this                 = "@"
-let g:javascript_conceal_return               = "⇚"
-let g:javascript_conceal_undefined            = "¿"
-let g:javascript_conceal_NaN                  = "ℕ"
-let g:javascript_conceal_prototype            = "¶"
-let g:javascript_conceal_static               = "•"
-let g:javascript_conceal_super                = "Ω"
+"let g:javascript_conceal_function             = "ƒ"
+"let g:javascript_conceal_null                 = "ø"
+"let g:javascript_conceal_this                 = "@"
+"let g:javascript_conceal_return               = "⇚"
+"let g:javascript_conceal_undefined            = "¿"
+"let g:javascript_conceal_NaN                  = "ℕ"
+"let g:javascript_conceal_prototype            = "¶"
+"let g:javascript_conceal_static               = "•"
+"let g:javascript_conceal_super                = "Ω"
 let g:javascript_conceal_arrow_function       = "⇒"
-let g:javascript_conceal_noarg_arrow_function = "⭘"
-let g:javascript_conceal_underscore_arrow_function = "⭘"
+"let g:javascript_conceal_noarg_arrow_function = "⭘"
+"let g:javascript_conceal_underscore_arrow_function = "⭘"
 
 " Replacing default Ale indicators
 let g:ale_sign_error = ''
