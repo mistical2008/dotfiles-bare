@@ -46,7 +46,7 @@ Plug 'sakshamgupta05/vim-todo-highlight'
 " vim-devicons
 Plug 'ryanoasis/vim-devicons'
 " indentline
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 " Turn on syntax highlighting
 syntax on
@@ -246,3 +246,6 @@ autocmd! User GoyoLeave Limelight!
 nmap <Leader>ll <Plug>(Limelight)
 xmap <Leader>ll <Plug>(Limelight)
 map <C-a> <esc>ggVG<CR>
+
+" Indentline settings
+let g:indentLine_char = '┆'
