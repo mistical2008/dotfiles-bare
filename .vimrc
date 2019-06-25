@@ -1,7 +1,7 @@
 
 " Don't try to be vi compatible
 set nocompatible
-set guifont=Source\ Code\ Pro\ 15
+set guifont=Source\ Code\ Pro\ 17
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
