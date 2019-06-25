@@ -79,7 +79,7 @@ alias yafzl='yay -Ql | awk "{print $2}" | fzf --preview "cat {}" | tr -d "\n" | 
 alias fzcp='fzf | tr -d "\n" | xclip -i -sel clip'
 alias kbtglg='grep "grp:.*toggle" /usr/share/X11/xkb/rules/base.lst | fzf'
 alias kbtgl3='grep "lv3:.*toggle" /usr/share/X11/xkb/rules/base.lst | fzf'
-alias getpwd='echo $PWD | xclip -i -selection clipboard | tr -d "\n"'
+alias getpwd='echo $PWD | tr -d "\n" | xclip -i -selection clipboard'
 
 ## FUNCTIONS
 # Configurations
