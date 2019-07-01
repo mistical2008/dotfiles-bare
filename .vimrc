@@ -55,7 +55,7 @@ syntax on
 filetype plugin indent on
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-
+set relativenumber
 set mouse=a
 
 " TODO: Pick a leader key
