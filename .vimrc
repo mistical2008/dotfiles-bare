@@ -57,6 +57,9 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 set relativenumber
 set mouse=a
+set noswapfile "noswap files
+set hidden "Allow switching buffers without writing to disk
+let g:netrw_liststyle=3 "Tree style
 
 " TODO: Pick a leader key
 " let mapleader = ","
