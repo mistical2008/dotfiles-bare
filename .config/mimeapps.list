@@ -6,7 +6,7 @@ x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 inode/directory=org.gnome.Nautilus.desktop
 x-scheme-handler/mailspring=mailspring.desktop
-x-scheme-handler/mailto=mailspring.desktop
+x-scheme-handler/mailto=google-chrome.desktop
 application/pdf=evince.desktop
 image/png=org.gnome.gThumb.desktop
 text/calendar=org.gnome.Calendar.desktop
@@ -48,6 +48,8 @@ image/webp=google-chrome.desktop
 x-scheme-handler/ftp=google-chrome.desktop
 x-scheme-handler/webcal=google-chrome.desktop
 x-scheme-handler/ssh=ktelnetservice5.desktop
+application-x-lifeographdiary=/tmp/makepkg/lifeograph/src/build/lifeograph.desktop
+image/jpg=org.gnome.gThumb.desktop
 
 [Added Associations]
 application/x-trash=org.gnome.gedit.desktop;
@@ -111,3 +113,5 @@ application/x-cd-image=gnome-disk-image-mounter.desktop;
 application/x-vmware-vm=org.gnome.gedit.desktop;
 x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
 application/x-msi=wine.desktop;wine-extension-vbs.desktop;
+application/x-wine-extension-ini=visual-studio-code.desktop;
+application/x-fictionbook+xml=okularApplication_fb.desktop;
