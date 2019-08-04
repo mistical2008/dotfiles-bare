@@ -1,5 +1,7 @@
 [Bookmarks]
 [Recent]
+/home/evgeniy/Музыка/
+/home/evgeniy/Изображения/wallpapers/
 /usr/share/fonts/TTF/
 /home/evgeniy/.local/share/fonts/
 /home/evgeniy/Документы/temp/
