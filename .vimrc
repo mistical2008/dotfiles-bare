@@ -224,7 +224,7 @@ let g:coc_snippet_next = '<tab>'
 
 " Set vimwiki syntax to markdown
 let g:vimwiki_list = [{'path': '~/03_Drafts',
- \ 'syntax': 'markdown', 'ext': '.md'}]
+ \ 'syntax': 'markdown', 'ext': '.md', 'diary_rel_path': '02_journal/'}]
 " vimwiki with markdown support
 let g:vimwiki_ext2syntax = {'.md': 'markdown',
                           \ '.markdown': 'markdown',
@@ -252,3 +252,4 @@ map <C-a> <esc>ggVG<CR>
 
 " Indentline settings
 let g:indentLine_char = '┆'
+
