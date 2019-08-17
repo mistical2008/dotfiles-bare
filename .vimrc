@@ -228,7 +228,7 @@ let wiki_main = {}
 let wiki_main.path = '~/03_Drafts'
 let wiki_main.index = '00_main'
 let wiki_main.diary_rel_path = '02_journal/'
-let wiki_main.diary_index = '00_main'
+" let wiki_main.diary_index = '00_main'
 let wiki_main.syntax = 'markdown'
 let wiki_main.ext = '.md'
 " Projects:
