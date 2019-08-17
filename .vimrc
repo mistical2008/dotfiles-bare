@@ -226,6 +226,7 @@ let g:coc_snippet_next = '<tab>'
 " Main:
 let wiki_main = {}
 let wiki_main.path = '~/03_Drafts'
+let wiki_main.index = '00_main'
 let wiki_main.diary_rel_path = '02_journal/'
 let wiki_main.diary_index = '00_main'
 let wiki_main.syntax = 'markdown'
@@ -233,12 +234,14 @@ let wiki_main.ext = '.md'
 " Projects:
 let wiki_proj = {}
 let wiki_proj.path = '~/03_Drafts/02_projects'
+let wiki_proj.index = '00_main'
 let wiki_proj.syntax = 'markdown'
 let wiki_proj.ext = '.md'
 " let wiki_proj.nested_syntaxes = {'python': 'python', 'javascript'}
 " DB:
 let wiki_db = {}
 let wiki_db.path = '~/03_Drafts/04_db'
+let wiki_db.index = '00_main'
 let wiki_db.syntax = 'markdown'
 let wiki_db.ext = '.md'
 let g:vimwiki_list = [wiki_main, wiki_proj, wiki_db]
