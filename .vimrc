@@ -47,7 +47,6 @@ Plug 'sakshamgupta05/vim-todo-highlight'
 Plug 'ryanoasis/vim-devicons'
 " indentline
 Plug 'Yggdroot/indentLine'
-Plug 'tbabej/knowledge'
 call plug#end()
 " Turn on syntax highlighting
 syntax on
