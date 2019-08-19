@@ -255,7 +255,7 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown',
                           \ '.wiki': 'media'
                           \ }
 let g:vimwiki_dir_link = '00_main'
-autocmd FileType vimwiki set ft=markdown
+" autocmd FileType vimwiki set ft=markdown
 " helppage -> :h vimwiki-syntax 
 
 " vim-instant-markdown - Instant Markdown previews from Vim
