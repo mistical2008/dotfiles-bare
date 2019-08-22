@@ -294,5 +294,5 @@ augroup END
 nmap <C-Up> [e
 nmap <C-Down> ]e
 " Bubble single lines
-nmap <C-Up> [egv
-nmap <C-Down> ]egv
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
