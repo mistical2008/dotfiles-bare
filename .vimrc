@@ -5,6 +5,7 @@ set nocompatible
 set guifont=Source\ Code\ Pro:h17
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
+set vb t_vb=
 
 " TODO: Load plugins here (pathogen or vundle)
 call plug#begin()
@@ -82,7 +83,7 @@ set encoding=utf-8
 
 " Whitespace
 set wrap
-set textwidth=79
+set textwidth=89
 set formatoptions=tcqrn1
 set tabstop=2
 set shiftwidth=2
@@ -288,3 +289,10 @@ augroup ProjectDrawer
   autocmd!
   autocmd VimEnter * :Vexplore
 augroup END
+
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble single lines
+nmap <C-Up> [egv
+nmap <C-Down> ]egv
