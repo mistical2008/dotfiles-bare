@@ -296,3 +296,7 @@ nmap <C-Down> ]e
 " Bubble single lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+
+" AUTOCMDS:
+" JSON syntax highlight comments
+autocmd FileType json syntax match Comment +\/\/.\+$+
