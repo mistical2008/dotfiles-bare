@@ -228,27 +228,33 @@ let g:coc_snippet_next = '<tab>'
 " Main:
 let wiki_main = {}
 let wiki_main.path = '~/03_Drafts'
-" let wiki_main.index = '00_main'
-let wiki_main.diary_rel_path = '02_journal/'
+let wiki_main.index = '00_main'
+let wiki_main.diary_rel_path = '03_journal/'
 let wiki_main.diary_index = '00_main'
 let wiki_main.syntax = 'markdown'
 let wiki_main.ext = '.md'
+let automatic_nested_syntaxes = 1
 " Projects:
 let wiki_proj = {}
 let wiki_proj.path = '~/03_Drafts/02_projects'
 let wiki_proj.index = '00_main'
+let wiki_proj.diary_rel_path = './../03_journal/'
+let wiki_proj.diary_index = '00_main'
 let wiki_proj.syntax = 'markdown'
 let wiki_proj.ext = '.md'
+let automatic_nested_syntaxes = 1
 " let wiki_proj.nested_syntaxes = {'python': 'python', 'javascript'}
 " DB:
 let wiki_db = {}
 let wiki_db.path = '~/03_Drafts/04_db'
 let wiki_db.index = '00_main'
+let wiki_db.diary_rel_path = './../03_journal/'
+let wiki_db.diary_index = '00_main'
 let wiki_db.syntax = 'markdown'
 let wiki_db.ext = '.md'
 let g:vimwiki_list = [wiki_main, wiki_proj, wiki_db]
-" let g:vimwiki_list = [{'path': '~/03_Drafts',
- " \ 'syntax': 'markdown', 'ext': '.md', 'diary_rel_path': '02_journal/', 'diary_index': '00_main'}]
+let automatic_nested_syntaxes = 1
+
 " vimwiki with markdown support
 let g:vimwiki_ext2syntax = {'.md': 'markdown',
                           \ '.markdown': 'markdown',
@@ -300,3 +306,4 @@ vmap <C-Down> ]egv
 " AUTOCMDS:
 " JSON syntax highlight comments
 autocmd FileType json syntax match Comment +\/\/.\+$+
+autocmd BufWritePost ~/03_Drafts/03_journal/[0-9]{4}\-[0-9]{2}\-[0-9]{2}.md :VimwikiDiaryGenerateLinks <afile>
