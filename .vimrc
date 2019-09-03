@@ -306,4 +306,4 @@ vmap <C-Down> ]egv
 " AUTOCMDS:
 " JSON syntax highlight comments
 autocmd FileType json syntax match Comment +\/\/.\+$+
-autocmd BufWritePost ~/03_Drafts/03_journal/[0-9]{4}\-[0-9]{2}\-[0-9]{2}.md :VimwikiDiaryGenerateLinks <afile>
+" autocmd BufWritePost ~/03_Drafts/03_journal/[0-9]{4}\-[0-9]{2}\-[0-9]{2}.md :VimwikiDiaryGenerateLinks <afile>
