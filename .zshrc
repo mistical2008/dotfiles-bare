@@ -212,3 +212,4 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 [ -f ~/.purepower ] && source ~/.purepower
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /home/evgeniy/.config/cani/completions/_cani.zsh ] && source /home/evgeniy/.config/cani/completions/_cani.zsh
