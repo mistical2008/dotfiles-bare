@@ -86,6 +86,7 @@ alias getpwd='echo $PWD | tr -d "\n" | xclip -i -selection clipboard'
 conf() {
   case $1 in
   wacom) sudoedit $HOME/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
+  tuijam) vim $HOME/.config/tuijam/config.yaml ;;
   intel) sudoedit /etc/X11/mhwd.d/intel.conf ;;
   vim) vim $HOME/.vimrc && dfa $HOME/.vimrc && dfcm "Updated .vimrc" && dfp ;;
   lightdm) sudoedit /etc/lightdm/lightdm.conf ;;
