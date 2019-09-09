@@ -233,7 +233,8 @@ let wiki_main.diary_rel_path = '03_journal/'
 let wiki_main.diary_index = '00_main'
 let wiki_main.syntax = 'markdown'
 let wiki_main.ext = '.md'
-let automatic_nested_syntaxes = 1
+let wiki_main.auto_tags = 1
+let wiki_main.automatic_nested_syntaxes = 1
 " Projects:
 let wiki_proj = {}
 let wiki_proj.path = '~/03_Drafts/02_projects'
@@ -242,7 +243,7 @@ let wiki_proj.diary_rel_path = './../03_journal/'
 let wiki_proj.diary_index = '00_main'
 let wiki_proj.syntax = 'markdown'
 let wiki_proj.ext = '.md'
-let automatic_nested_syntaxes = 1
+let wiki_proj.automatic_nested_syntaxes = 1
 " let wiki_proj.nested_syntaxes = {'python': 'python', 'javascript'}
 " DB:
 let wiki_db = {}
@@ -252,8 +253,8 @@ let wiki_db.diary_rel_path = './../03_journal/'
 let wiki_db.diary_index = '00_main'
 let wiki_db.syntax = 'markdown'
 let wiki_db.ext = '.md'
+let wiki_db.automatic_nested_syntaxes = 1
 let g:vimwiki_list = [wiki_main, wiki_proj, wiki_db]
-let automatic_nested_syntaxes = 1
 
 " vimwiki with markdown support
 let g:vimwiki_ext2syntax = {'.md': 'markdown',
