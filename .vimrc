@@ -49,6 +49,7 @@ Plug 'ryanoasis/vim-devicons'
 " indentline
 Plug 'Yggdroot/indentLine'
 Plug 'chazy/dirsettings'
+Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 call plug#end()
 " Turn on syntax highlighting
 syntax on
