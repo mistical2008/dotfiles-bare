@@ -48,9 +48,10 @@ windows:
             - watch -c todo.sh listpri A-B
         - done:
             - echo Complited
-            - watch -c todo.sh lf done
+            - watch -c todo.sh xp -o 1
         - cmd:
-            -  # Just plain cli
+            - echo Complited graph
+            - watch -c todo.sh graph
         - week:
-            - echo Week
-            - watch -c todo.sh listpri C
+            - echo Edit todo.txt
+            - todo.sh edit 
