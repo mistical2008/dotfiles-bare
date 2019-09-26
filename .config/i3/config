@@ -48,9 +48,10 @@ bindsym $mod+Shift+q kill
 # inner-gaps=15
 
 # Custom bindings
-bindsym $mod+d exec rofi -theme /home/evgeniy/.config/i3/rofi/themes/sidetab.rasi -show drun
+# bindsym $mod+d exec rofi -theme /home/evgeniy/.config/i3/rofi/themes/sidetab.rasi -show drun
+bindsym $mod+d exec rofi -no-lazy-grab -show drun -theme themes/appsmenu.rasi
 bindsym $mod+control+p exec copyq show
-bindsym $mod+c exec code
+bindsym $mod+c exec urxvt -e vim
 bindsym $mod+n exec /mnt/12208E29208E143F/Clouds/Mega/02_linux_projects/13_notion/notion-app/notion-app
 bindsym $mod+t exec telegram-desktop
 bindsym Print exec gnome-screenshot -i
@@ -305,7 +306,7 @@ exec --no-startup-id "pcloud &"
 exec --no-startup-id "telegram-desktop &"
 exec --no-startup-id "unclutter --timeout 3 &"
 exec --no-startup-id "nm-applet &"
-exec_always --no-startup-id "syncthingtray --wait"
+exec --no-startup-id "syncthingtray --wait"
 
 # WINDOWS RULES
 for_window [class="^.*"] border pixel 6
