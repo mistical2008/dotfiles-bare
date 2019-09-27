@@ -106,6 +106,7 @@ conf() {
   compton) vim $HOME/.config/i3/compton.conf && dfa $HOME/.config/i3/compton.conf && dfcm "Updated the compton.conf" && dfp ;;
   polybar) vim $HOME/.config/i3/polybar.conf && dfa $HOME/.config/i3/polybar.conf && dfcm "Updated the polybar.conf" && dfp ;;
   dunst) vim $HOME/.config/dunst/dunstrc && dfa $HOME/.config/dunst/dunstrc && dfcm "Updated the dunstrc" && dfp ;;
+  rofi) vim $HOME/.config/rofi/config.rasi && $HOME/.config/rofi/config.rasi && dfcm "Updated the rofi config" && dfp ;;
   tmux) vim $HOME/.tmux.conf && dfa $HOME/.tmux.conf && dfcm "Updated the tmux.conf" && dfp ;;
   nano) vim $HOME/.nanorc && dfa $HOME/.nanorc && dfcm "Updated the nanorc" && dfp ;;
   xinit) vim $HOME/.xinitrc && dfa $HOME/.xinitrc && dfcm "Updated the xinitrc" && dfp ;;
