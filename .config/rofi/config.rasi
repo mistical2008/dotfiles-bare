@@ -1,0 +1,19 @@
+configuration {
+  show:               "combi";
+  modi:               "combi,calc,keys";
+  combi-modi:         "drun,run,ssh,window";
+  window-format:      "{w} {c}: {t}";
+  show-icons:         true;
+  icon-theme:         "Paper";
+  matching:           "fuzzy";
+  cycle:              true;
+  hide-scrollbar:     true;
+  disable-history:    false;
+  display-drun:       "app: ";
+  display-run:       "$: ";
+  display-window:     "win: ";
+  display-ssh:        "ssh: ";
+  display-calc:       "calc: ";
+  columns: 2;
+}
+@import "/home/evgeniy/.config/rofi/themes/appsmenu.rasi"
