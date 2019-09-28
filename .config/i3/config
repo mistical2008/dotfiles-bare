@@ -287,7 +287,7 @@ exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 #exec_always --no-startup-id "compton -b --config ~/.config/i3/compton.conf"
 exec_always --no-startup-id "nitrogen --restore; sleep 1; compton -b --config ~/.config/i3/compton.conf"
 exec_always --no-startup-id "wal -R -n"
-exec_always --no-startup-id "~/.config/i3/launch-polybar-n.sh &"
+exec_always --no-startup-id "~/.config/i3/launch-polybar.sh &"
 # exec --no-startup-id "setwac-run"
 exec --no-startup-id "copyq &"
 exec --no-startup-id "udiskie &"
