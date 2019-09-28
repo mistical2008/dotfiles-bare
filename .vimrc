@@ -1,4 +1,4 @@
-
+scriptencoding utf-8
 " Don't try to be vi compatible
 set nocompatible
 " set guifont=Source\ Code\ Pro\ 17
@@ -6,17 +6,21 @@ set guifont=Source\ Code\ Pro:h17
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 set vb t_vb=
+set autoread                    " Reload files changed outside vim
+set clipboard=unnamedplus       " Use system clipboard as default register
+set nowrap 		                " Don't visually wrap lines
 
 " TODO: Load plugins here (pathogen or vundle)
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'majutsushi/tagbar', {'on' : 'LdTagbar'}
 Plug 'tpope/vim-sensible'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'godlygeek/tabular'
-Plug 'skammer/vim-css-color'
+Plug 'ap/vim-css-color'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': '*', 'do': { -> coc#util#install()}}
 "Plug 'SirVer/ultisnips'
 " Markdown
@@ -62,6 +66,7 @@ set relativenumber
 set mouse=a
 set noswapfile "noswap files
 set hidden "Allow switching buffers without writing to disk
+set cmdheight=2
 let g:netrw_liststyle=3 "Tree style
 
 " TODO: Pick a leader key
@@ -102,14 +107,8 @@ runtime! macros/matchit.vim
 nnoremap j gj
 nnoremap k gk
 
-" Allow hidden buffers
-set hidden
-
 " Rendering
 set ttyfast
-
-" Status bar
-set laststatus=2
 
 " Last line
 set showmode
@@ -151,6 +150,22 @@ colorscheme gruvbox
 " Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
 let g:gruvbox_contrast_light='hard'
 hi Normal ctermbg=none
+
+" ============================= Airline =======================================
+let g:airline_theme = 'nord'        " Nord color scheme for the status bar
+let g:airline_solarized_bg = 'dark' " Use Nord Dark
+let g:airline_inactive_collapse = 1 " Collapse status bar for inactive windows
+let g:airline_powerline_fonts = 1   " Use Powerline font for special symbols
+set noshowmode                      " Disable default status bar
+set laststatus=2                    " Always show status bar
+" Extensions used:
+"   Branch    - Show the current git branch
+"   Tabline   - Enable top bar to show tabs and buffers
+"   Syntastic - Show errors and warnings from Syntastic on the status bar
+"   Tagbar    - Show the current function on the status bar
+let g:airline_extensions = ['branch', 'tabline', 'ycm', 'tagbar', ]
+" Label the tabs/buffers which allows for the tab navigation commands
+let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " Add support for powerline fonts
 let g:airline_powerline_fonts = 1
@@ -208,6 +223,13 @@ nnoremap <Leader>T :Tags<CR>
 nmap <silent> [c <Plug>(ale_previous_wrap)
 nmap <silent> ]c <Plug>(ale_next_wrap)
 
+" Store undo history in a file for persistent undo
+if has('persistent_undo')
+    silent !mkdir ~/.vim/backups > /dev/null 2>&1
+    set undodir=~/.vim/backups
+    set undofile
+endif
+
 "Load help tags
 packloadall
 silent! helptags ALL
@@ -236,6 +258,7 @@ let wiki_main.syntax = 'markdown'
 let wiki_main.ext = '.md'
 let wiki_main.auto_tags = 1
 let wiki_main.automatic_nested_syntaxes = 1
+let wiki_main.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/customwiki2html.sh'
 " Projects:
 let wiki_proj = {}
 let wiki_proj.path = '~/03_Drafts/02_projects'
@@ -245,6 +268,7 @@ let wiki_proj.diary_index = '00_main'
 let wiki_proj.syntax = 'markdown'
 let wiki_proj.ext = '.md'
 let wiki_proj.automatic_nested_syntaxes = 1
+let wiki_proj.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/customwiki2html.sh'
 " let wiki_proj.nested_syntaxes = {'python': 'python', 'javascript'}
 " DB:
 let wiki_db = {}
@@ -255,7 +279,9 @@ let wiki_db.diary_index = '00_main'
 let wiki_db.syntax = 'markdown'
 let wiki_db.ext = '.md'
 let wiki_db.automatic_nested_syntaxes = 1
-let g:vimwiki_list = [wiki_main, wiki_proj, wiki_db]
+let wiki_db.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/customwiki2html.sh'
+
+let g:vimwiki_list = [wiki_main, wiki_proj, wiki_db, ]
 
 " vimwiki with markdown support
 let g:vimwiki_ext2syntax = {'.md': 'markdown',
@@ -264,6 +290,8 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown',
                           \ '.wiki': 'media'
                           \ }
 let g:vimwiki_dir_link = '00_main'
+" let g:vimwiki_customwiki2html='$HOME/.vim/autoload/vimwiki/customwiki2html.sh'
+" let g:vimwiki_customwiki2html=$HOME.'/.vim/autoload/vimwiki/wiki2html.sh'
 " autocmd FileType vimwiki set ft=markdown
 " helppage -> :h vimwiki-syntax 
 
@@ -309,7 +337,12 @@ vmap <C-Down> ]egv
 " JSON syntax highlight comments
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " autocmd BufWritePost ~/03_Drafts/03_journal/[0-9]{4}\-[0-9]{2}\-[0-9]{2}.md :VimwikiDiaryGenerateLinks <afile>
-augroup SetTodoSyntax
-  au!
-  autocmd BufRead,BufNewFile ~/03_Drafts/01_tasks/*.txt set syntax=todo
-augroup END
+" augroup SetTodoSyntax
+"   au!
+"   autocmd BufRead,BufNewFile ~/03_Drafts/01_tasks/*.txt set filetype todo
+" augroup END
+autocmd BufRead,BufNewFile ~/03_Drafts/01_tasks/*.txt set syntax=todo
+
+" Use todo#Complete as the omni complete function for todo files
+au filetype todo setlocal omnifunc=todo#Complete
+let g:Todo_txt_prefix_creation_date=1
