@@ -52,6 +52,7 @@ alias pacsize="pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, 
 alias setwac-run='~/.config/xsetwacom-gnome-symbiotic/setup.sh'
 alias zup=". ~/.zshrc"
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias b='buku --suggest'
 
 # Configs
 alias sudolist='sudo /usr/sbin/visudo'
@@ -65,7 +66,7 @@ alias get_keys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keyvim /
 alias sys_sounds="cd /usr/share/sounds/"
 alias pipupg="pip install --user --upgrade"
 alias t="todo.sh -d ~/.config/todo/config -t"
-alias tinbox="todo lf inbox"
+alias today="t listpri B"
 alias tdone="todo lf done"
 alias tinbadd="todo addto inbox.txt"
 alias tasks='git grep -EI "TODO|FIXME"'
