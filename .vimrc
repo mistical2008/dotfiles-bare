@@ -324,9 +324,13 @@ map <leader>md :InstantMarkdownPreview<CR>
 " LimeLight color
 let g:limelight_conceal_ctermfg=244
 
+function GoyoLeaveFix()
+  Limelight!
+  silent! source $MYVIMRC
+endfunction
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight! silent! source $MYVIMRC
+autocmd! User GoyoLeave call GoyoLeaveFix
 
 " Limelight mappings
 nmap <Leader>ll <Plug>(Limelight)
