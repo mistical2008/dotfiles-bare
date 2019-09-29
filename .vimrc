@@ -326,7 +326,7 @@ let g:limelight_conceal_ctermfg=244
 
 function GoyoLeaveFix()
   Limelight!
-  silent! source $MYVIMRC
+  source $MYVIMRC
 endfunction
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
