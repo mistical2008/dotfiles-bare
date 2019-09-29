@@ -168,11 +168,9 @@ let g:airline_extensions = ['branch', 'tabline', 'ycm', 'tagbar', ]
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " Add support for powerline fonts
-let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-
 " powerline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
