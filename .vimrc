@@ -326,7 +326,7 @@ map <leader>md :InstantMarkdownPreview<CR>
 
 function GoyoLeaveFix()
   Limelight!
-  execute source $MYVIMRC
+  execute "source" $MYVIMRC
   " colorscheme gruvbox 
   " silent! AirlineTheme base16_bright  " Nord color scheme for the status bar
   " :AirlineRefresh
