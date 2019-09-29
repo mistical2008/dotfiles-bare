@@ -226,7 +226,7 @@ nmap <silent> [c <Plug>(ale_previous_wrap)
 nmap <silent> ]c <Plug>(ale_next_wrap)
 
 
-================================ FZF ==================================
+" ================================ FZF ==================================
 
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>fg :GitFiles<CR>
