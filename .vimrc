@@ -2,7 +2,7 @@ scriptencoding utf-8
 " Don't try to be vi compatible
 set nocompatible
 " set guifont=Source\ Code\ Pro\ 17
-set guifont=Source\ Code\ Pro \Light:h17
+set guifont=Source\ Code\ Pro\ Light:h17
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 set vb t_vb=
