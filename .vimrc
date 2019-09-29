@@ -327,7 +327,8 @@ let g:limelight_conceal_ctermfg=244
 function GoyoLeaveFix()
   Limelight!
   silent! source $MYVIMRC
-  setlocal colorscheme=gruvbox 
+  colorscheme gruvbox 
+  let g:airline_theme = 'base16_bright'  " Nord color scheme for the status bar
 endfunction
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
