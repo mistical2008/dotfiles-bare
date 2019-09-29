@@ -76,7 +76,7 @@ endif
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'majutsushi/tagbar', {'on' : 'LdTagbar'}
+Plug 'majutsushi/tagbar', {'on' : 'LdTagbar'}
 Plug 'tpope/vim-sensible'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -226,7 +226,7 @@ nmap <silent> [c <Plug>(ale_previous_wrap)
 nmap <silent> ]c <Plug>(ale_next_wrap)
 
 
-" ================================ FZF ==================================
+================================ FZF ==================================
 
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>fg :GitFiles<CR>
@@ -322,13 +322,13 @@ map <leader>md :InstantMarkdownPreview<CR>
 
 " ============================= Distraction free viewing ========================
 " LimeLight color
-let g:limelight_conceal_ctermfg=244
+" let g:limelight_conceal_ctermfg=244
 
 function GoyoLeaveFix()
   Limelight!
   silent! source $MYVIMRC
   " colorscheme gruvbox 
-  let g:airline_theme = 'base16_bright'  " Nord color scheme for the status bar
+  AirlineTheme base16_bright  " Nord color scheme for the status bar
 endfunction
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
