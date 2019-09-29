@@ -39,6 +39,13 @@ set visualbell
 " Encoding
 set encoding=utf-8
 
+" Rendering
+set ttyfast
+
+" Last line
+set showmode
+set showcmd
+
 " Whitespace
 set wrap
 set textwidth=89
@@ -115,13 +122,6 @@ call plug#end()
 nnoremap j gj
 nnoremap k gk
 
-" Rendering
-set ttyfast
-
-" Last line
-set showmode
-set showcmd
-
 " Searching
 nnoremap / /\v
 vnoremap / /\v
@@ -160,7 +160,7 @@ let g:gruvbox_contrast_light='hard'
 hi Normal ctermbg=none
 
 " ============================= Airline =======================================
-let g:airline_theme = 'nord'        " Nord color scheme for the status bar
+let g:airline_theme = 'simple'        " Nord color scheme for the status bar
 let g:airline_solarized_bg = 'dark' " Use Nord Dark
 let g:airline_inactive_collapse = 1 " Collapse status bar for inactive windows
 let g:airline_powerline_fonts = 1   " Use Powerline font for special symbols
@@ -179,7 +179,7 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-" powerline symbols
+" " powerline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
