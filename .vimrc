@@ -163,7 +163,7 @@ set cursorline
 
 " ============================= Airline =======================================
 
-let g:airline_theme = 'base16_bright'  " Nord color scheme for the status bar
+let g:airline_theme = 'base16_chalk'  " Nord color scheme for the status bar
 let g:airline_inactive_collapse = 1    " Collapse status bar for inactive windows
 let g:airline_powerline_fonts = 1      " Use Powerline font for special symbols
 set noshowmode                         " Disable default status bar
@@ -329,6 +329,7 @@ function GoyoLeaveFix()
   silent! source $MYVIMRC
   " colorscheme gruvbox 
   " silent! AirlineTheme base16_bright  " Nord color scheme for the status bar
+  silent! AirlineRefresh
 endfunction
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
