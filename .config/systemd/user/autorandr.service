@@ -1,0 +1,9 @@
+[Unit]
+Description=Autorandr service for launching dual monitor
+
+[Service]
+ExecStart=/usr/bin/autorandr 2mon
+
+[Install]
+WantedBy=default.target
+
