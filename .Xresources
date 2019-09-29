@@ -37,7 +37,7 @@ URxvt.secondaryWheel:       1
 URxvt*transparent:          false
 URxvt.urgentOnBell:         false
 
-URxvt*depth:                32
+URxvt*depth:                24
 !URxvt.background: [10]Background
 
 #define font1         Source Code Pro
