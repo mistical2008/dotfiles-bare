@@ -10,54 +10,6 @@ set autoread                    " Reload files changed outside vim
 set clipboard=unnamedplus       " Use system clipboard as default register
 set nowrap 		                " Don't visually wrap lines
 
-" TODO: Load plugins here (pathogen or vundle)
-call plug#begin()
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Plug 'majutsushi/tagbar', {'on' : 'LdTagbar'}
-Plug 'tpope/vim-sensible'
-Plug 'mattn/emmet-vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'godlygeek/tabular'
-Plug 'ap/vim-css-color'
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': '*', 'do': { -> coc#util#install()}}
-"Plug 'SirVer/ultisnips'
-" Markdown
-Plug 'reedes/vim-pencil'
-Plug 'nelstrom/vim-markdown-folding'
-Plug 'vimwiki/vimwiki'
-Plug 'suan/vim-instant-markdown'
-" Linting
-Plug 'w0rp/ale'
-" Fuzzy search
-Plug '/usr/bin/fzf'
-Plug 'junegunn/fzf.vim'
-" Ctags
-Plug 'ludovicchabant/vim-gutentags'
-" Zen writing
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-" Toggle comments in various ways.
-Plug 'tpope/vim-commentary'
-" Surround text with quotes, parenthesis, brackets, and more.
-Plug 'tpope/vim-surround'
-" Launch Ranger from Vim.
-Plug 'francoiscabrol/ranger.vim'
-" vim.snippets
-Plug 'honza/vim-snippets'
-" vim todo and fixme highlighting
-Plug 'sakshamgupta05/vim-todo-highlight'
-" vim-devicons
-Plug 'ryanoasis/vim-devicons'
-" indentline
-Plug 'Yggdroot/indentLine'
-Plug 'chazy/dirsettings'
-Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
-call plug#end()
-" Turn on syntax highlighting
-syntax on
-
 " For plugins to load correctly
 filetype plugin indent on
 filetype plugin on
@@ -102,6 +54,62 @@ set scrolloff=3
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
+
+" Turn on syntax highlighting
+syntax on
+
+" Plug section:
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'majutsushi/tagbar', {'on' : 'LdTagbar'}
+Plug 'tpope/vim-sensible'
+Plug 'mattn/emmet-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'godlygeek/tabular'
+Plug 'ap/vim-css-color'
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': '*', 'do': { -> coc#util#install()}}
+"Plug 'SirVer/ultisnips'
+" Markdown
+Plug 'reedes/vim-pencil'
+Plug 'nelstrom/vim-markdown-folding'
+Plug 'vimwiki/vimwiki'
+Plug 'suan/vim-instant-markdown'
+" Linting
+Plug 'w0rp/ale'
+" Fuzzy search
+Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf.vim'
+" Ctags
+Plug 'ludovicchabant/vim-gutentags'
+" Zen writing
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+" Toggle comments in various ways.
+Plug 'tpope/vim-commentary'
+" Surround text with quotes, parenthesis, brackets, and more.
+Plug 'tpope/vim-surround'
+" Launch Ranger from Vim.
+Plug 'francoiscabrol/ranger.vim'
+" vim.snippets
+Plug 'honza/vim-snippets'
+" vim todo and fixme highlighting
+Plug 'sakshamgupta05/vim-todo-highlight'
+" vim-devicons
+Plug 'ryanoasis/vim-devicons'
+" indentline
+Plug 'Yggdroot/indentLine'
+Plug 'chazy/dirsettings'
+Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
+call plug#end()
+
 
 " Move up/down editor lines
 nnoremap j gj
@@ -249,6 +257,7 @@ let g:coc_snippet_next = '<tab>'
 " Main:
 let wiki_main = {}
 let wiki_main.path = '~/03_Drafts'
+let wiki_main.path_html = '~/03_Drafts/html'
 let wiki_main.index = '00_main'
 let wiki_main.diary_rel_path = '03_journal/'
 let wiki_main.diary_index = '00_main'
@@ -260,6 +269,7 @@ let wiki_main.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/cu
 " Projects:
 let wiki_proj = {}
 let wiki_proj.path = '~/03_Drafts/02_projects'
+let wiki_proj.path_html = '~/03_Drafts/02_projects/html'
 let wiki_proj.index = '00_main'
 let wiki_proj.diary_rel_path = './../03_journal/'
 let wiki_proj.diary_index = '00_main'
@@ -271,10 +281,11 @@ let wiki_proj.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/cu
 " DB:
 let wiki_db = {}
 let wiki_db.path = '~/03_Drafts/04_db'
+let wiki_db.path_html = '~/03_Drafts/04_db/html'
 let wiki_db.index = '00_main'
 let wiki_db.diary_rel_path = './../03_journal/'
 let wiki_db.diary_index = '00_main'
-let wiki_db.syntax = 'markdown'
+" let wiki_db.syntax = 'markdown'
 let wiki_db.ext = '.md'
 let wiki_db.automatic_nested_syntaxes = 1
 let wiki_db.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/customwiki2html.sh'
