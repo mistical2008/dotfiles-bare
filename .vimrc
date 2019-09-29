@@ -2,7 +2,7 @@ scriptencoding utf-8
 " Don't try to be vi compatible
 set nocompatible
 " set guifont=Source\ Code\ Pro\ 17
-set guifont=Source\ Code\ Pro:h17
+set guifont=Source\ Code\ Pro \Light:h17
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 set vb t_vb=
@@ -14,7 +14,7 @@ set nowrap 		                " Don't visually wrap lines
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'majutsushi/tagbar', {'on' : 'LdTagbar'}
+" Plug 'majutsushi/tagbar', {'on' : 'LdTagbar'}
 Plug 'tpope/vim-sensible'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
