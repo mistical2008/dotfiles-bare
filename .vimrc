@@ -330,11 +330,12 @@ function GoyoLeaveFix()
 endfunction
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave call GoyoLeaveFix
+autocmd! User GoyoLeave call GoyoLeaveFix()
 
 " Limelight mappings
-nmap <Leader>ll <Plug>(Limelight)
-xmap <Leader>ll <Plug>(Limelight)
+nmap <Leader>ll<Plug>(Limelight)
+xmap <Leader>ll<Plug>(Limelight)
+
 map <C-a> <esc>ggVG<CR>
 
 " Indentline settings
