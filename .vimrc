@@ -326,10 +326,10 @@ map <leader>md :InstantMarkdownPreview<CR>
 
 function GoyoLeaveFix()
   Limelight!
-  silent! source $MYVIMRC
+  execute source $MYVIMRC
   " colorscheme gruvbox 
   " silent! AirlineTheme base16_bright  " Nord color scheme for the status bar
-  :AirlineRefresh
+  " :AirlineRefresh
 endfunction
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
