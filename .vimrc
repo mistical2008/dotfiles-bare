@@ -65,7 +65,8 @@ runtime! macros/matchit.vim
 " Turn on syntax highlighting
 syntax on
 
-" Plug section:
+" ============================== Plug ===================================
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -158,14 +159,15 @@ colorscheme gruvbox
 " Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
 let g:gruvbox_contrast_light='hard'
 hi Normal ctermbg=none
+set cursorline
 
 " ============================= Airline =======================================
-let g:airline_theme = 'simple'        " Nord color scheme for the status bar
-let g:airline_solarized_bg = 'dark' " Use Nord Dark
-let g:airline_inactive_collapse = 1 " Collapse status bar for inactive windows
-let g:airline_powerline_fonts = 1   " Use Powerline font for special symbols
-set noshowmode                      " Disable default status bar
-set laststatus=2                    " Always show status bar
+
+let g:airline_theme = 'base16_bright'  " Nord color scheme for the status bar
+let g:airline_inactive_collapse = 1    " Collapse status bar for inactive windows
+let g:airline_powerline_fonts = 1      " Use Powerline font for special symbols
+set noshowmode                         " Disable default status bar
+set laststatus=2                       " Always show status bar
 " Extensions used:
 "   Branch    - Show the current git branch
 "   Tabline   - Enable top bar to show tabs and buffers
@@ -205,6 +207,8 @@ let g:javascript_conceal_arrow_function       = "⇒"
 "let g:javascript_conceal_noarg_arrow_function = "⭘"
 "let g:javascript_conceal_underscore_arrow_function = "⭘"
 
+" =================================== Ale =====================================
+
 " Replacing default Ale indicators
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
@@ -218,16 +222,21 @@ let b:ale_fixers = {
 let b:ale_linters={'css': ['stylelint'], 'html': ['prettier','stylelint']}
 " Fix files automatically on save
 let g:ale_fix_on_save = 1
+nmap <silent> [c <Plug>(ale_previous_wrap)
+nmap <silent> ]c <Plug>(ale_next_wrap)
+
+
+" ================================ FZF ==================================
 
 nnoremap <C-p> :Files<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>h :History<CR>
+nnoremap <Leader>fg :GitFiles<CR>
+nnoremap <Leader>fb :Buffers<CR>
+nnoremap <Leader>fh :History<CR>
+nnoremap <Leader>fc :Commands<CR>
+nnoremap <Leader>fm :Maps<CR>
 
 nnoremap <Leader>t :BTags<CR>
 nnoremap <Leader>T :Tags<CR>
-
-nmap <silent> [c <Plug>(ale_previous_wrap)
-nmap <silent> ]c <Plug>(ale_next_wrap)
 
 " Store undo history in a file for persistent undo
 if has('persistent_undo')
@@ -239,7 +248,9 @@ endif
 "Load help tags
 packloadall
 silent! helptags ALL
-" Coc-snippets
+
+" ================================ Coc-snippets ===========================
+"
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -253,7 +264,7 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-" Vimwiki: define wikies
+" ================================== Vimwiki ===============================
 " Main:
 let wiki_main = {}
 let wiki_main.path = '~/03_Drafts'
@@ -309,12 +320,13 @@ let g:vimwiki_dir_link = '00_main'
 let g:instant_markdown_autostart = 0 " disable autostart
 map <leader>md :InstantMarkdownPreview<CR>
 
+" ============================= Distraction free viewing ========================
 " LimeLight color
 let g:limelight_conceal_ctermfg=244
 
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+autocmd! User GoyoLeave Limelight! silent! source $MYVIMRC
 
 " Limelight mappings
 nmap <Leader>ll <Plug>(Limelight)
@@ -324,7 +336,7 @@ map <C-a> <esc>ggVG<CR>
 " Indentline settings
 let g:indentLine_char = '┆'
 
-" Netrw settings like NERDtree
+" ======================= Netrw settings like NERDtree ==========================
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
