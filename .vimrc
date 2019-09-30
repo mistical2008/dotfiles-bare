@@ -1,4 +1,6 @@
 scriptencoding utf-8
+set encoding=utf-8
+set fileencoding=utf-8
 " Don't try to be vi compatible
 set nocompatible
 " set guifont=Source\ Code\ Pro\ 17
@@ -35,9 +37,6 @@ set ruler
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
-
-" Encoding
-set encoding=utf-8
 
 " Rendering
 set ttyfast
@@ -157,7 +156,7 @@ let g:hybrid_termcolors=256
 let g:hybrid_termtrans=1
 colorscheme gruvbox
 " Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
-let g:gruvbox_contrast_light='hard'
+let g:gruvbox_contrast_light='soft'
 hi Normal ctermbg=none
 set cursorline
 
@@ -296,12 +295,12 @@ let wiki_db.path_html = '~/03_Drafts/04_db/html'
 let wiki_db.index = '00_main'
 let wiki_db.diary_rel_path = './../03_journal/'
 let wiki_db.diary_index = '00_main'
-" let wiki_db.syntax = 'markdown'
+let wiki_db.syntax = 'markdown'
 let wiki_db.ext = '.md'
 let wiki_db.automatic_nested_syntaxes = 1
 let wiki_db.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/customwiki2html.sh'
 
-let g:vimwiki_list = [wiki_main, wiki_proj, wiki_db, ]
+let g:vimwiki_list = [wiki_main, wiki_proj, wiki_db]
 
 " vimwiki with markdown support
 let g:vimwiki_ext2syntax = {'.md': 'markdown',
@@ -322,22 +321,24 @@ map <leader>md :InstantMarkdownPreview<CR>
 
 " ============================= Distraction free viewing ========================
 " LimeLight color
-" let g:limelight_conceal_ctermfg=244
+let g:limelight_conceal_ctermfg = 245
+let g:limelight_conceal_guifg = '#eee999'
 
-function GoyoLeaveFix()
-  Limelight!
-  execute "source" $MYVIMRC
-  " colorscheme gruvbox 
-  " silent! AirlineTheme base16_bright  " Nord color scheme for the status bar
-  " :AirlineRefresh
-endfunction
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave call GoyoLeaveFix()
+" autocmd User GoyoLeave GoyoAfter()
+" function! GoyoAfter()
+"   Limelight!
+"   set background = dark
+"   colorscheme gruvbox
+" endfunction
+autocmd User GoyoLeave Limelight!
+" autocmd! User GoyoLeave Limelight! | source $MYVIMRC
+" autocmd! User GoyoLeave source $MYVIMRC | Limelight!
 
 " Limelight mappings
-nmap <Leader>ll <Plug>(Limelight)
-xmap <Leader>ll <Plug>(Limelight)
+nmap <Leader>ll <Plug>(Limelight!!)
+xmap <Leader>ll <Plug>(Limelight!!)
 
 map <C-a> <esc>ggVG<CR>
 
