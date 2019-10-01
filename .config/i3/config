@@ -239,11 +239,9 @@ bindsym $mod+shift+x exec light-locker-command -l
 
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && mpv /usr/share/sounds/sonar/stereo/audio-volume-change.* --audio-device=pulse/alsa_output.pci-0000_00_03.0.hdmi-stereo #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && mpv /usr/share/sounds/sonar/stereo/audio-volume-change.* --audio-device=pulse/alsa_output.pci-0000_00_03.0.hdmi-stereo #decrease sound volume
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && aplay /usr/share/sounds/sonar/stereo/audio-volume-change.* #increase sound volume
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && aplay /usr/share/sounds/sonar/stereo/audio-volume-change.* #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id /mnt/Data/Scripts/util-set-vol.sh +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id /mnt/Data/Scripts/util-set-vol.sh -5%
+bindsym XF86AudioMute exec --no-startup-id /mnt/Data/Scripts/util-set-vol.sh mute # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
