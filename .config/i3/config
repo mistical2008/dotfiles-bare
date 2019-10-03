@@ -284,7 +284,6 @@ bindsym $mod+Shift+XF86Display exec "xrandr --auto"
 #exec "/usr/local/bin/hotplug_monitor-2.sh &"
 exec --no-startup-id "blueman-applet &"
 #exec_always "setxkbmap -layout us,ru -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo'"
-exec_always --no-startup-id "setxkbmap -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo'"
 # exec --no-startup-id "gnome-settings-daemon &"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &"
 #exec --no-startup-id xautolock -detectsleep -time 10 -locker "betterlockscreen -l dimblur" -notify 30 -notifier "notify-send  -u crytical -t 29000 -- 'LOCKING screen in 30 seconds'"
@@ -307,6 +306,8 @@ exec --no-startup-id "unclutter --timeout 3 &"
 exec --no-startup-id "nm-applet &"
 exec --no-startup-id "syncthingtray --wait"
 exec --no-startup-id "/mnt/Data/Scripts/todo_today.sh &"
+exec_always --no-startup-id "setxkbmap -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo'"
+exec_always xrdb --merge ~/.Xresoureces 
 
 # WINDOWS RULES
 for_window [class="^.*"] border pixel 4
