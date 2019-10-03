@@ -7,7 +7,7 @@ set nocompatible
 set guifont=Source\ Code\ Pro\ Light:h17
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
-set vb t_vb=
+set vb t_vb= " No horrible visual flash on bell
 set autoread                    " Reload files changed outside vim
 set clipboard=unnamedplus       " Use system clipboard as default register
 set nowrap 		                " Don't visually wrap lines
@@ -56,7 +56,7 @@ set expandtab
 set noshiftround
 
 " Cursor motion
-set scrolloff=3
+set scrolloff=4
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
@@ -65,7 +65,6 @@ runtime! macros/matchit.vim
 syntax on
 
 " ============================== Plug ===================================
-
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -159,9 +158,9 @@ colorscheme gruvbox
 let g:gruvbox_contrast_light='soft'
 hi Normal ctermbg=none
 set cursorline
+hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
 
 " ============================= Airline =======================================
-
 let g:airline_theme = 'base16_chalk'  " Nord color scheme for the status bar
 let g:airline_inactive_collapse = 1    " Collapse status bar for inactive windows
 let g:airline_powerline_fonts = 1      " Use Powerline font for special symbols
@@ -206,8 +205,17 @@ let g:javascript_conceal_arrow_function       = "⇒"
 "let g:javascript_conceal_noarg_arrow_function = "⭘"
 "let g:javascript_conceal_underscore_arrow_function = "⭘"
 
-" =================================== Ale =====================================
+" ============================== Tagbar =======================================
+let g:tagbar_compact = 1        " Disable help message
+let g:tagbar_singleclick = 1    " Single click to navigate to tag definition
+let g:tagbar_sort = 0           " Show tags in the same order as the source
+let g:tagbar_width = 30         " Reduce Tagbar split width to 30 columns
+let g:tagbar_autoshowtag = 1    " Expand folds to show current tag
+let g:tagbar_map_togglefold = "<SPACE>"
+" Automatically open Tagbar on C/C++ source files
+"autocmd FileType c,cpp,h nested :TagbarOpen
 
+" =================================== Ale =====================================
 " Replacing default Ale indicators
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
@@ -226,7 +234,6 @@ nmap <silent> ]c <Plug>(ale_next_wrap)
 
 
 " ================================ FZF ==================================
-
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>fg :GitFiles<CR>
 nnoremap <Leader>fb :Buffers<CR>
@@ -249,7 +256,6 @@ packloadall
 silent! helptags ALL
 
 " ================================ Coc-snippets ===========================
-"
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -362,6 +368,12 @@ nmap <C-Down> ]e
 " Bubble single lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+
+"Window navigation"
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
 
 " AUTOCMDS:
 " JSON syntax highlight comments
