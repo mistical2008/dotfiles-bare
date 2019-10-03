@@ -14,6 +14,13 @@ floating_modifier $mod
 
 # Mouse following focus yes|no
 focus_follows_mouse no
+
+##########################################################################################
+###                              Window rules variables                               ###
+#########################################################################################
+set $center move position center
+
+
 ##########################################################################################
 ###                                    WORKSPASES                                      ###
 ##########################################################################################
@@ -310,7 +317,7 @@ for_window [window_role="dialog"] border pixel 0
 for_window [title="Nitrogen"] floating enabled
 for_window [class="albert"] border pixel 0
 for_window [class="albert"] floating enable
-for_window [class="albert"] move position center, move up 350px # Hack for right positioning Ablert with dual monitor setup
+for_window [class="albert"] move position center
 for_window [class="albert" title="Settings — Albert"] move position center
 for_window [class="copyq"] floating enable
 for_window [class="megasync"] floating enable
@@ -319,39 +326,25 @@ for_window [class="Com.github.jmoerman.go-for-it"] floating enable
 for_window [title="PlayOnLinux"] floating enable
 for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [class="Polkit-gnome-authentication-agent-1" title="Аутентифицировать"] resize set 800 400
-for_window [instance="Enpass"] floating enable
-for_window [instance="Enpass"] move scratchpad
-for_window [instance="Enpass"] sticky enable
-for_window [instance="Enpass"] scratchpad show
-for_window [instance="Enpass"] resize set 900 700
-for_window [instance="Enpass"] move position center
+# for_window [instance="Enpass"] floating enable
+for_window [instance="Enpass"] floating enable, move scratchpad, sticky enable, scratchpad show, resize set 900 700, move position senter
+# for_window [instance="Enpass"] move scratchpad
+# for_window [instance="Enpass"] sticky enable
+# for_window [instance="Enpass"] scratchpad show
+# for_window [instance="Enpass"] resize set 900 700
+# for_window [instance="Enpass"] move position center
 for_window [class="Tor Browser"] floating enable
 for_window [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
-for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] move scratchpad
-for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] sticky enable
-for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] scratchpad show
-for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] resize set 900 700
-for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] move position center
-
-for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] floating enable
-for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move scratchpad
-for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] sticky enable
-for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] scratchpad show
-for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] resize set 600 1100
-for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move position center
+for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] move scratchpad, sticky enable, scratchpad show, resize set 900 700, move position center
+# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] floating enable
+# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move scratchpad
+# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] sticky enable
+# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] scratchpad show
+# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] resize set 600 1100
+# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move position center
 for_window [instance="dropdown_*"] exec notify-send "Yupee! Yupee! Yupee! Yupee!"
-
-for_window [instance="qbittorrent"] floating enable
-for_window [instance="qbittorrent"] move scratchpad
-for_window [instance="qbittorrent"] sticky enable
-for_window [instance="qbittorrent"] scratchpad show
-for_window [instance="qbittorrent"] resize set  1700 760
-for_window [instance="qbittorrent"] move position center
-
-
-for_window [class="Peek"] floating enable
-for_window [class="Peek"] resize set  1200 860
-for_window [class="Peek"] move position center
+for_window [instance="qbittorrent"] floating enable, move scratchpad, sticky enable, scratchpad show, resize set  1700 760, move position center
+for_window [class="Peek"] floating enable, resize set  1200 860, move position center
 
 # #---Dropdown Windows---# #
 
@@ -359,6 +352,7 @@ for_window [class="Peek"] move position center
 for_window [instance="dropdown_*"] floating enable
 for_window [instance="dropdown_*"] move scratchpad
 for_window [instance="dropdown_*"] sticky enable
+for_window [instance="dropdown_*"] move position center
 for_window [instance="dropdown_*"] scratchpad show
 for_window [instance="dropdown_tmuxdd"] resize set 1200 550
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300
@@ -366,7 +360,6 @@ for_window [instance="dropdown_todo"] resize set 1200 700
 for_window [instance="dropdown_update"] resize set 1200 800
 for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
-for_window [instance="dropdown_*"] move position center
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
