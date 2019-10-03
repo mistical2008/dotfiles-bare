@@ -329,11 +329,6 @@ for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [class="Polkit-gnome-authentication-agent-1" title="Аутентифицировать"] resize set 800 400
 # for_window [instance="Enpass"] floating enable
 for_window [instance="Enpass"] floating enable, move scratchpad, sticky enable, scratchpad show, resize set 900 700, move position senter
-# for_window [instance="Enpass"] move scratchpad
-# for_window [instance="Enpass"] sticky enable
-# for_window [instance="Enpass"] scratchpad show
-# for_window [instance="Enpass"] resize set 900 700
-# for_window [instance="Enpass"] move position center
 for_window [class="Tor Browser"] floating enable
 for_window [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
 for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] move scratchpad, sticky enable, scratchpad show, resize set 900 700, move position center
