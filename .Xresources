@@ -28,8 +28,9 @@ XTerm*selectToClipboard: true
 !##### CHANGES DONE TO THIS FILE MANUALLY MAY AFFECT THE FUNCTIONALITY ######
 !##### PROCEED WITH CAUTION! #####
 
+URxvt*termName:         rxvt-unicode-256color
 URxvt*scrollBar:         false
-URxvt*scrollBar_right:   true
+!URxvt*scrollBar_right:   true
 
 ! прокручивать по отношению к буферу (прокрутка мышью или Shift+Page Up)
 URxvt*scrollWithBuffer:     true
@@ -63,6 +64,7 @@ URxvt.perl-ext-common:           default,fullscreen,matcher,resize-font
 URxvt.keysym.F11: perl:fullscreen:switch
 ! Normal copy-paste keybindings without perls
 URxvt.iso14755:                   false
+URxvt*iso14755_52:                false
 URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
 URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
 !Xterm escape codes, word by word movement
@@ -74,6 +76,10 @@ URxvt.keysym.Control-Up:          \033[1;5A
 URxvt.keysym.Shift-Control-Up:    \033[1;6A
 URxvt.keysym.Control-Down:        \033[1;5B
 URxvt.keysym.Shift-Control-Down:  \033[1;6B
+
+! BORDER
+URxvt*borderWidth:      0
+URxvt*internalBorder:   0
 
 URxvt.url-launcher:         xdg-open
 URxvt*underlineURLs:        true
