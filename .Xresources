@@ -78,8 +78,8 @@ URxvt.keysym.Control-Down:        \033[1;5B
 URxvt.keysym.Shift-Control-Down:  \033[1;6B
 
 ! BORDER
-URxvt*borderWidth:      0
-URxvt*internalBorder:   0
+URxvt*borderWidth:      1
+URxvt*internalBorder:   1
 
 URxvt.url-launcher:         xdg-open
 URxvt*underlineURLs:        true
