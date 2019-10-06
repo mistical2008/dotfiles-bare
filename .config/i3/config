@@ -59,8 +59,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec rofi -no-lazy-grab -show combi -theme themes/appsmenu.rasi
 bindsym $mod+d exec rofi -no-lazy-grab -show combi
 bindsym $mod+control+p exec copyq show
-bindsym $mod+c exec urxvt -e vim
-bindsym $mod+n exec /mnt/12208E29208E143F/Clouds/Mega/02_linux_projects/13_notion/notion-app/notion-app
+bindsym $mod+v exec urxvt -e vim
 bindsym $mod+t exec telegram-desktop
 bindsym Print exec gnome-screenshot -i
 
@@ -81,6 +80,9 @@ bindsym $mod+Shift+$LEFT move left
 bindsym $mod+Shift+$DOWN move down
 bindsym $mod+Shift+$UP move up
 bindsym $mod+Shift+$RIGHT move right
+
+# center window
+bindsym $mod+c exec i3-msg $center
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -119,9 +121,6 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
-
-# Show the sup-mail scratchpad window, if any.
-# bindsym mod4+s [title="^Sup ::"] scratchpad show
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -318,8 +317,8 @@ for_window [window_role="dialog"] border pixel 0
 for_window [title="Nitrogen"] floating enabled
 for_window [class="albert"] border pixel 0
 for_window [class="albert"] floating enable
-for_window [class="albert"] move position center
-for_window [class="albert" title="Settings — Albert"] move position center
+for_window [class="albert"] $center
+for_window [class="albert" title="Settings — Albert"] $center
 for_window [class="copyq"] floating enable
 for_window [class="megasync"] floating enable
 # for_window [class="Google Play Music Desktop Player"] floating enable
@@ -331,16 +330,16 @@ for_window [class="Polkit-gnome-authentication-agent-1" title="Аутентиф�
 for_window [instance="Enpass"] floating enable, move scratchpad, sticky enable, scratchpad show, resize set 900 700, move position senter
 for_window [class="Tor Browser"] floating enable
 for_window [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
-for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] move scratchpad, sticky enable, scratchpad show, resize set 900 700, move position center
+for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] move scratchpad, sticky enable, scratchpad show, resize set 900 700, $center
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] floating enable
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move scratchpad
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] sticky enable
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] scratchpad show
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] resize set 600 1100
-# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move position center
+# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] $center
 for_window [instance="dropdown_*"] exec notify-send "Yupee! Yupee! Yupee! Yupee!"
-for_window [instance="qbittorrent"] floating enable, move scratchpad, sticky enable, scratchpad show, resize set  1700 760, move position center
-for_window [class="Peek"] floating enable, resize set  1200 860, move position center
+for_window [instance="qbittorrent"] floating enable, move scratchpad, sticky enable, scratchpad show, resize set  1700 760, $center
+for_window [class="Peek"] floating enable, resize set  1200 860, $center
 
 # #---Dropdown Windows---# #
 
@@ -348,7 +347,7 @@ for_window [class="Peek"] floating enable, resize set  1200 860, move position c
 for_window [instance="dropdown_*"] floating enable
 for_window [instance="dropdown_*"] move scratchpad
 for_window [instance="dropdown_*"] sticky enable
-for_window [instance="dropdown_*"] move position center
+for_window [instance="dropdown_*"] $center
 for_window [instance="dropdown_*"] scratchpad show
 for_window [instance="dropdown_tmuxdd"] resize set 1200 550
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300
