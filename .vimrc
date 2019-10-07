@@ -1,12 +1,11 @@
 scriptencoding utf-8
 set encoding=utf-8
+set termencoding=utf-8
 set fileencoding=utf-8
 " Don't try to be vi compatible
 set nocompatible
 " set guifont=Source\ Code\ Pro\ 17
 set guifont=Source\ Code\ Pro\ Light:h17
-" Helps force plugins to load correctly when it is turned back on below
-filetype off
 set vb t_vb= " No horrible visual flash on bell
 
 " Search down into subfolders
@@ -19,15 +18,23 @@ set wildmenu
 set clipboard=unnamedplus       " Use system clipboard as default register
 set nowrap 		                " Don't visually wrap lines
 
-" For plugins to load correctly
+" Helps force plugins to load correctly when it is turned back on below
+filetype off
 filetype plugin indent on
 filetype plugin on
+
 set omnifunc=syntaxcomplete#Complete
 set relativenumber
 set mouse=a
 set noswapfile "noswap files
 set hidden "Allow switching buffers without writing to disk
 set cmdheight=2
+
+" :vsplit открывает окна справа
+set splitright
+
+s :split открывает окна снизу
+set splitbelow
 
 " TODO: Pick a leader key
 " let mapleader = ","
@@ -80,7 +87,10 @@ endif
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags' " Ctags
+Plug 'majutsushi/tagbar'  " Build tags based on ctags
+Plug 'mtscout6/vim-tagbar-css' " Add css support to tagbar
+Plug 'dyng/ctrlsf.vim' " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text
 Plug 'tpope/vim-sensible'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -94,34 +104,24 @@ Plug 'reedes/vim-pencil'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'vimwiki/vimwiki'
 Plug 'suan/vim-instant-markdown'
-" Linting
-Plug 'w0rp/ale'
+Plug 'w0rp/ale' " Linting
 " Fuzzy search
 Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
-" Ctags
-Plug 'ludovicchabant/vim-gutentags'
 " Zen writing
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
-" Toggle comments in various ways.
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary' " Toggle comments in various ways.
 " Surround text with quotes, parenthesis, brackets, and more.
 Plug 'tpope/vim-surround'
-" Launch Ranger from Vim.
-Plug 'francoiscabrol/ranger.vim'
-" vim.snippets
-Plug 'honza/vim-snippets'
-" vim todo and fixme highlighting
-Plug 'sakshamgupta05/vim-todo-highlight'
-" vim-devicons
-Plug 'ryanoasis/vim-devicons'
-" indentline
-Plug 'Yggdroot/indentLine'
+Plug 'francoiscabrol/ranger.vim' " Launch Ranger from Vim.
+Plug 'honza/vim-snippets' " vim.snippets
+Plug 'sakshamgupta05/vim-todo-highlight' " vim todo and fixme highlighting
+Plug 'ryanoasis/vim-devicons' " vim-devicons
+Plug 'Yggdroot/indentLine' " indentline
 Plug 'chazy/dirsettings'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
-" Autoread files changed outside of vim
-Plug 'djoshea/vim-autoread'
+Plug 'djoshea/vim-autoread' " Autoread files changed outside of vim
 call plug#end()
 
 
@@ -166,7 +166,7 @@ colorscheme gruvbox
 let g:gruvbox_contrast_light='soft'
 hi Normal ctermbg=none
 set cursorline
-hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
+" hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
 
 " ============================= Airline =======================================
 let g:airline_theme = 'base16_chalk'  " Nord color scheme for the status bar
