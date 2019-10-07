@@ -33,7 +33,7 @@ set cmdheight=2
 " :vsplit открывает окна справа
 set splitright
 
-s :split открывает окна снизу
+" :split открывает окна снизу
 set splitbelow
 
 " TODO: Pick a leader key
