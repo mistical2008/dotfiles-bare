@@ -221,6 +221,7 @@ let g:tagbar_sort = 0           " Show tags in the same order as the source
 let g:tagbar_width = 30         " Reduce Tagbar split width to 30 columns
 let g:tagbar_autoshowtag = 1    " Expand folds to show current tag
 let g:tagbar_map_togglefold = "<SPACE>"
+nmap <F8> :TagbarToggle<CR>
 " Automatically open Tagbar on C/C++ source files
 "autocmd FileType c,cpp,h nested :TagbarOpen
 
