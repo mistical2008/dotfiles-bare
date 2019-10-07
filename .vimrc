@@ -8,7 +8,14 @@ set guifont=Source\ Code\ Pro\ Light:h17
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 set vb t_vb= " No horrible visual flash on bell
-set autoread                    " Reload files changed outside vim
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+set wildmenu
+" set autoread                    " Reload files changed outside vim
+" au CursorHold * checktime       " check one time after 4s of inactivity in normal mode
+
 set clipboard=unnamedplus       " Use system clipboard as default register
 set nowrap 		                " Don't visually wrap lines
 
@@ -21,7 +28,6 @@ set mouse=a
 set noswapfile "noswap files
 set hidden "Allow switching buffers without writing to disk
 set cmdheight=2
-let g:netrw_liststyle=3 "Tree style
 
 " TODO: Pick a leader key
 " let mapleader = ","
@@ -114,6 +120,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 Plug 'chazy/dirsettings'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
+" Autoread files changed outside of vim
+Plug 'djoshea/vim-autoread'
 call plug#end()
 
 
@@ -166,6 +174,7 @@ let g:airline_inactive_collapse = 1    " Collapse status bar for inactive window
 let g:airline_powerline_fonts = 1      " Use Powerline font for special symbols
 set noshowmode                         " Disable default status bar
 set laststatus=2                       " Always show status bar
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " Extensions used:
 "   Branch    - Show the current git branch
 "   Tabline   - Enable top bar to show tabs and buffers
@@ -343,20 +352,23 @@ autocmd User GoyoLeave Limelight!
 " autocmd! User GoyoLeave source $MYVIMRC | Limelight!
 
 " Limelight mappings
-nmap <Leader>ll <Plug>(Limelight!!)
-xmap <Leader>ll <Plug>(Limelight!!)
+nmap <Leader>ll <Plug>(Limelight)
+xmap <Leader>ll <Plug>(Limelight)
 
+" Adopting Ctrl+A selection to vim (Select all)
 map <C-a> <esc>ggVG<CR>
 
 " Indentline settings
 let g:indentLine_char = '┆'
 
 " ======================= Netrw settings like NERDtree ==========================
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
+let g:netrw_banner = 0       " disable annoying banner
+let g:netrw_browse_split = 4 " open in prior window
+let g:netrw_altv = 1         " open splits to the right
+let g:netrw_liststyle = 3    " tree view
+let g:netrw_winsize = 25     " windowsize
+let g:netrw_list_hide = netrw_gitignore#Hide()
+let g:netrw_list_hide .= ',\(^\|\s\s\)\zs\.\S\+'
 augroup ProjectDrawer
   autocmd!
   autocmd VimEnter * :Vexplore
@@ -388,3 +400,9 @@ autocmd BufRead,BufNewFile ~/03_Drafts/01_tasks/*.txt set syntax=todo
 " Use todo#Complete as the omni complete function for todo files
 au filetype todo setlocal omnifunc=todo#Complete
 let g:Todo_txt_prefix_creation_date=1
+
+" ============================ Custom commands ==================================
+" Close all buffers but this one:
+" command AllBufClose :%bd|e
+command! BufOnly execute "%bd|e#|bd#"
+command! BO execute "%bd|e#|bd#"
