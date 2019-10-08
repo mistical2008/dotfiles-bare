@@ -164,6 +164,7 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 " Color scheme (terminal)
 set t_Co=256
 set background=dark
+set termguicolors
 let g:hybrid_termcolors=256
 let g:hybrid_termtrans=1
 colorscheme gruvbox
