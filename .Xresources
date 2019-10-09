@@ -46,7 +46,7 @@ URxvt*depth:                24
 #define font3         Droid Sans Mono
 #define font4         NotoSansMono Nerd Font
 
-URxvt.letterSpace: -1
+URxvt.letterSpace: 1
 URxvt.lineSpace: 0
 URxvt.font:           xft:font1:size=14, xft:font2:size=14:minspace=false, xft:font3:size=14,xft:font4:size=14
 URxvt.boldFont:       xft:font1:bold:size=14, xft:font2:size=14:minspace=False,xft:font3:size=14,xft:font4:size=14
