@@ -48,10 +48,10 @@ URxvt*depth:                24
 
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
-URxvt.font:           xft:font1:size=14, xft:font2:size=14:minspace=false, xft:font3:size=14,xft:font4:size=14
-URxvt.boldFont:       xft:font1:bold:size=14, xft:font2:size=14:minspace=False,xft:font3:size=14,xft:font4:size=14
-URxvt.italicFont:     xft:font1:italic:size=14, xft:font2:size=14:minspace=False,xft:font3:size=14,xft:font4:size=14
-URxvt.boldItalicFont: xft:font1:bold:italic:size=14, xft:font2:size=14:minspace=False, xft:font3:size=14, xft:font4:size=14
+URxvt.font:           xft:font1:size=14, xft:font2:size=14:minspace=false, xft:font3:size=14:minspace=false,xft:font4:size=14:minspace=false
+URxvt.boldFont:       xft:font1:bold:size=14, xft:font2:size=14:minspace=False,xft:font3:size=14:minspace=false,xft:font4:size=14:minspace=false
+URxvt.italicFont:     xft:font1:italic:size=14, xft:font2:size=14:minspace=False,xft:font3:size=14:minspace=false,xft:font4:size=14:minspace=false
+URxvt.boldItalicFont: xft:font1:bold:italic:size=14, xft:font2:size=14:minspace=False, xft:font3:size=14:minspace=false, xft:font4:size=14:minspace=false
 
 *antialias:                 true
 *autohint:                  true
