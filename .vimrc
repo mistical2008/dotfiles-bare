@@ -231,6 +231,8 @@ let g:tagbar_type_html = {
 \ 'kinds' : [
 \ 'i:identifiers',
 \ 'c:classes',
+\ 'J:script',
+\ 'a:anchor'
 \ ],
 \ }
 nmap <F8> :TagbarToggle<CR>
