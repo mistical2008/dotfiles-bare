@@ -19,7 +19,7 @@ set clipboard=unnamedplus       " Use system clipboard as default register
 set nowrap 		                " Don't visually wrap lines
 
 " Helps force plugins to load correctly when it is turned back on below
-filetype off
+filetype on
 filetype plugin indent on
 filetype plugin on
 
@@ -168,7 +168,7 @@ let g:hybrid_termcolors=256
 let g:hybrid_termtrans=1
 colorscheme gruvbox
 " Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
-let g:gruvbox_contrast_light='soft'
+let g:gruvbox_contrast_light='medium'
 hi Normal ctermbg=none
 set cursorline
 " hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
@@ -226,14 +226,51 @@ let g:tagbar_sort = 0           " Show tags in the same order as the source
 let g:tagbar_width = 30         " Reduce Tagbar split width to 30 columns
 let g:tagbar_autoshowtag = 1    " Expand folds to show current tag
 let g:tagbar_map_togglefold = "<SPACE>"
+
 let g:tagbar_type_html = {
-\ 'ctagstype' : 'html',
-\ 'kinds' : [
-\ 'i:identifiers',
-\ 'c:classes',
-\ 'J:script',
-\ 'a:anchor'
-\ ],
+    \ 'kinds' : [
+        \ 'C:stylesheets',
+        \ 'a:named anchors',
+        \ 'h:H1 headings',
+        \ 'i:H2 headings',
+        \ 'j:H3 headings',
+        \ 'I:Identifiers',
+        \ 'c:classes',
+        \ 'J:scripts'
+    \ ],
+\ }
+let g:tagbar_type_css = {
+\ 'ctagstype' : 'Css',
+    \ 'kinds'     : [
+        \ 'c:classes',
+        \ 'i:identities',
+        \ 'm:medias',
+        \ 's:selectors'
+    \ ]
+\ }
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : '/usr/bin/markdown2ctags',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
 \ }
 nmap <F8> :TagbarToggle<CR>
 " Automatically open Tagbar on C/C++ source files
@@ -305,6 +342,7 @@ let wiki_main.syntax = 'markdown'
 let wiki_main.ext = '.md'
 let wiki_main.auto_tags = 1
 let wiki_main.automatic_nested_syntaxes = 1
+let wiki_main.auto_diary_index =  1
 let wiki_main.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/customwiki2html.sh'
 " Projects:
 let wiki_proj = {}
@@ -315,7 +353,9 @@ let wiki_proj.diary_rel_path = './../03_journal/'
 let wiki_proj.diary_index = '00_main'
 let wiki_proj.syntax = 'markdown'
 let wiki_proj.ext = '.md'
+let wiki_proj.auto_tags = 1
 let wiki_proj.automatic_nested_syntaxes = 1
+let wiki_proj.auto_diary_index =  1
 let wiki_proj.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/customwiki2html.sh'
 " let wiki_proj.nested_syntaxes = {'python': 'python', 'javascript'}
 " DB:
@@ -327,7 +367,9 @@ let wiki_db.diary_rel_path = './../03_journal/'
 let wiki_db.diary_index = '00_main'
 let wiki_db.syntax = 'markdown'
 let wiki_db.ext = '.md'
+let wiki_db.auto_tags = 1
 let wiki_db.automatic_nested_syntaxes = 1
+let wiki_db.auto_diary_index =  1
 let wiki_db.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/customwiki2html.sh'
 
 let g:vimwiki_list = [wiki_main, wiki_proj, wiki_db]
@@ -389,6 +431,39 @@ augroup ProjectDrawer
   autocmd VimEnter * :Vexplore
 augroup END
 
+
+" ================================= Custom mappings =====================================
+" Change dir to the current working file for current window
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+" Tabs
+" ----
+nmap <C-t>  :tabnew <CR>
+nmap tj     :tabnext <CR>
+nmap tk     :tabprev <CR>
+nmap te     :Texplore <CR>
+
+" if has('gui_macvim')
+"   nmap <D-1>	:tabn1 <CR>
+"   nmap <D-2>	:tabn2 <CR>
+"   nmap <D-3>	:tabn3 <CR>
+"   nmap <D-4>	:tabn4 <CR>
+"   nmap <D-5>	:tabn5 <CR>
+"   nmap <D-6>	:tabn6 <CR>
+"   nmap <D-7>	:tabn7 <CR>
+"   nmap <D-8>	:tabn8 <CR>
+"   nmap <D-9>	:tabn9 <CR>
+" else
+  noremap <C-1> :tabn1<CR>
+  noremap <C-2> :tabn2<CR>
+  noremap <C-3> :tabn3<CR>
+  noremap <C-4> :tabn4<CR>
+  noremap <C-5> :tabn5<CR>
+  noremap <C-6> :tabn6<CR>
+  noremap <C-7> :tabn7<CR>
+  noremap <C-8> :tabn8<CR>
+  noremap <C-9> :tabn9<CR>
+" endif
+
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
@@ -397,20 +472,19 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
 "Window navigation"
-nnoremap <C-H> <C-W>h
-nnoremap <C-L> <C-W>l
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
 
 " AUTOCMDS:
 " JSON syntax highlight comments
 autocmd FileType json syntax match Comment +\/\/.\+$+
-" autocmd BufWritePost ~/03_Drafts/03_journal/[0-9]{4}\-[0-9]{2}\-[0-9]{2}.md :VimwikiDiaryGenerateLinks <afile>
 " augroup SetTodoSyntax
 "   au!
 "   autocmd BufRead,BufNewFile ~/03_Drafts/01_tasks/*.txt set filetype todo
 " augroup END
-autocmd BufRead,BufNewFile ~/03_Drafts/01_tasks/*.txt set syntax=todo
+autocmd BufRead,BufNewFile,BufReadPost ~/03_Drafts/01_tasks/*.txt set syntax=todo
 
 " Use todo#Complete as the omni complete function for todo files
 au filetype todo setlocal omnifunc=todo#Complete
@@ -421,3 +495,32 @@ let g:Todo_txt_prefix_creation_date=1
 " command AllBufClose :%bd|e
 command! BufOnly execute "%bd|e#|bd#"
 command! BO execute "%bd|e#|bd#"
+
+" ============================ Custom functions =================================
+" Set tabstop, softtabstop and shiftwidth to the same value
+command! -nargs=* Stab call Stab()
+function! Stab()
+  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+  if l:tabstop > 0
+    let &l:sts = l:tabstop
+    let &l:ts = l:tabstop
+    let &l:sw = l:tabstop
+  endif
+  call SummarizeTabs()
+endfunction
+nmap <C-S-Tab> :call SummarizeTabs() <CR>
+function! SummarizeTabs()
+  try
+    echohl ModeMsg
+    echon 'tabstop='.&l:ts
+    echon ' shiftwidth='.&l:sw
+    echon ' softtabstop='.&l:sts
+    if &l:et
+      echon ' expandtab'
+    else
+      echon ' noexpandtab'
+    endif
+  finally
+    echohl None
+  endtry
+endfunction
