@@ -30,7 +30,8 @@ folders = {
   video: "~/Видео",
   music: "~/Музыка",
   books: "~/Документы/Mega/Книги/Книг/00_inbox",
-  projects: "~/Документы/Mega/00_projects"
+  projects: "~/Документы/Mega/00_projects",
+  calls: "~/01_Library/06_audio-records",
 }
 
 # FILETLYPES
@@ -183,6 +184,7 @@ Maid.rules do
       end
     end
   end
+
   watch "#{folders[:downloads]}" do
     rule "Move *.torrent files to torrent folder" do
         move(dir("#{folders[:downloads]}/*.torrent"), mkdir("#{folders[:downloads]}/torrents"))
@@ -190,6 +192,21 @@ Maid.rules do
     rule "Move *.iso img to img_iso folder" do
       IMG.each do |ext|
         move(dir("#{folders[:downloads]}/*.#{ext}"), mkdir("#{folders[:downloads]}/img_iso"))
+      end
+    end
+  end
+  watch "#{folders[:downloads]}" do
+    rule "Move *.torrent files to torrent folder" do
+        move(dir("#{folders[:downloads]}/*.torrent"), mkdir("#{folders[:downloads]}/torrents"))
+    end
+  end
+end
+
+watch "#{folders[:calls]}" do
+  rule 'Trash an old calls' do
+    dir("#{folders[:calls]}/**/call_rec/*").each do |path|
+      if 3.week.since?(created_at(path))
+        trash(path)
       end
     end
   end
