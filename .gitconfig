@@ -4,3 +4,15 @@
 [core]
 	editor = vim
 	excludesfile = /home/evgeniy/.gitignore
+
+[url "git@bitbucket.org:"]
+  insteadOf = bb:
+
+[url "git@github.com:"]
+  insteadOf = gh:
+
+[alias]
+  undo = reset --soft HEAD^
+  amend = commit --amend --no-edit
+  log-line = log --oneline --graph --decorate
+
