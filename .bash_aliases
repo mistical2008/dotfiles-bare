@@ -92,6 +92,7 @@ conf() {
   tuijam) vim $HOME/.config/tuijam/config.yaml ;;
   intel) sudoedit /etc/X11/mhwd.d/intel.conf ;;
   vim) vim $HOME/.vimrc && dfa $HOME/.vimrc && dfcm "Updated .vimrc" && dfp ;;
+  mutt) vim $HOME/.muttrc && dfa $HOME/.muttrc && dfcm "Updated .vimrc" && dfp ;;
   lightdm) sudoedit /etc/lightdm/lightdm.conf ;;
   nvidia) sudoedit /etc/bumblebee/xorg.conf.nvidia ;;
   aliases) vim $HOME/.bash_aliases && source $HOME/.zshrc && dfa $HOME/.bash_aliases && dfcm "Updated aliases" && dfp ;;
