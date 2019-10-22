@@ -6,6 +6,15 @@ export TERM="rxvt-unicode-256color"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# source zplug
+. /usr/share/zsh/scripts/zplug/init.zsh
+export ZPLUG_HOME="/usr/share/zsh/scripts/zplug"
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+HIST_STAMPS="mm/dd/yyyy" # variable used in oh-my-zsh/lib/history.zsh
+zplug "robbyrussell/oh-my-zsh", use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings,nvm,grep,git}.zsh"
+# use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings}.zsh"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -61,7 +70,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
-
+#
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -190,13 +199,12 @@ export OCIO=$HOME/.config/blender/2.79/datafiles/colormanagement/config.ocio
 export W_PREFIXES=$HOME/.PlayOnLinux/wineprefix
 
 # Variables
-export SUDO_EDITOR=vim
-#export VISUAL=code
-#export TERMINAL=/usr/bin/gnome-terminal
+function _get_editor { echo $(which vim) || echo $(which vi) || echo $(which nano)}
+export SUDO_EDITOR="$(_get_editor)"
+export EDITOR="$(_get_editor)"
 export GTK_IM_MODULE="xim"
 export MON_PRIMARY=$(xrandr | grep -w "connected primary" | awk '{print $1}')
 export MANPATH="/usr/local/man:$MANPATH"
-export EDITOR="vim"
 # You may need to manually set your language environment
 #export LANG=ru_RU.UTF-8
 export LC_ALL=en_US.UTF-8
