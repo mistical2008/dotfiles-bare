@@ -200,14 +200,16 @@ Maid.rules do
         move(dir("#{folders[:downloads]}/*.torrent"), mkdir("#{folders[:downloads]}/torrents"))
     end
   end
-end
 
-watch "#{folders[:calls]}" do
-  rule 'Trash an old calls' do
-    dir("#{folders[:calls]}/**/call_rec/*").each do |path|
-      if 3.week.since?(created_at(path))
-        trash(path)
+  watch "#{folders[:calls]}" do
+    rule 'Trash an old calls' do
+      dir("#{folders[:calls]}/**/call_rec/*").each do |path|
+        if 3.week.since?(created_at(path))
+          trash(path)
+        end
       end
     end
   end
+
 end
+
