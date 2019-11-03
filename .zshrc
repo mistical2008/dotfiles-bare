@@ -12,7 +12,7 @@ export ZPLUG_HOME="/usr/share/zsh/scripts/zplug"
 # zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 HIST_STAMPS="mm/dd/yyyy" # variable used in oh-my-zsh/lib/history.zsh
-zplug "robbyrussell/oh-my-zsh", use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings,nvm,grep,git}.zsh"
+zplug "robbyrussell/oh-my-zsh", use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings,nvm,grep}.zsh"
 # use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings}.zsh"
 
 # Set name of the theme to load --- if set to "random", it will
