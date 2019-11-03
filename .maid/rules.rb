@@ -203,7 +203,7 @@ Maid.rules do
 
   watch "#{folders[:calls]}" do
     rule 'Trash an old calls' do
-      dir("#{folders[:calls]}/**/call_rec/*").each do |path|
+      dir("#{folders[:calls]}/**/calls/*").each do |path|
         if 3.week.since?(created_at(path))
           trash(path)
         end
