@@ -83,6 +83,9 @@ alias kbtgl3='grep "lv3:.*toggle" /usr/share/X11/xkb/rules/base.lst | fzf'
 alias getpwd='echo $PWD | tr -d "\n" | xclip -i -selection clipboard'
 alias VW='vim +VimwikiUISelect'
 alias diff='diff -y --color'
+alias lynx='lynx -vikeys'
+alias who='who -H'
+alias cmd_bell="echo -e '\a' || (echo -e '\a'; sleep 1; echo -e '\a')"
 
 ## FUNCTIONS
 # Configurations
@@ -128,6 +131,7 @@ conf() {
   httpd) sudoedit /etc/httpd/conf/httpd.conf ;;
   mux) vim $HOME/.config/tmuxinator/$2.yml && dfa $HOME/.config/tmuxinator/$2.yml && dfcm "Updated the tmuxinator $2" && dfp ;;
   psd) vim $HOME/.config/psd/psd.conf && dfa $HOME/.config/psd/psd.conf && dfcm "Updated the profile-sync-daemons config" && dfp ;;
+  git) vim $HOME/.gitconfig && dfa $HOME/.gitconfig && dfcm "gitconfig autocommt" && dfp ;;
   *) echo "Unknown application: $1" ;;
   esac
 }
