@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # source zplug
 . /usr/share/zsh/scripts/zplug/init.zsh
 export ZPLUG_HOME="/usr/share/zsh/scripts/zplug"
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+# zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 HIST_STAMPS="mm/dd/yyyy" # variable used in oh-my-zsh/lib/history.zsh
 zplug "robbyrussell/oh-my-zsh", use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings,nvm,grep,git}.zsh"
