@@ -31,7 +31,7 @@ folders = {
   music: "~/Музыка",
   books: "~/Документы/Mega/Книги/Книг/00_inbox",
   projects: "~/Документы/Mega/00_projects",
-  calls: "~/01_Library/06_audio-records",
+  records: "~/01_Library/06_audio-records",
 }
 
 # FILETLYPES
@@ -201,10 +201,18 @@ Maid.rules do
     end
   end
 
-  watch "#{folders[:calls]}" do
+  watch "#{folders[:records]}" do
     rule 'Trash an old calls' do
-      dir("#{folders[:calls]}/**/calls/*").each do |path|
+      dir("#{folders[:records]}/**/calls/*").each do |path|
         if 3.week.since?(created_at(path))
+          trash(path)
+        end
+      end
+    end
+
+    rule 'Trash an old voice records' do
+      dir("#{folders[:records]}/**/voice/*").each do |path|
+        if 3.month.since?(created_at(path))
           trash(path)
         end
       end
