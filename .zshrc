@@ -30,10 +30,10 @@ zplug "plugins/archlinux", from:oh-my-zsh, lazy:true
 zplug "plugins/docker", from:oh-my-zsh, lazy:true
 zplug "plugins/docker-compose", from:oh-my-zsh, lazy:true
 zplug "plugins/gulp", from:oh-my-zsh, lazy:true
-zplug "plugins/z.sh", from:oh-my-zsh, lazy:true
+# zplug "plugins/z.sh", from:oh-my-zsh, lazy:true
 # enhanced zsh vim mode
 zplug "softmoth/zsh-vim-mode", lazy:true
-# zplug "skywind3000/z.lua", lazy:true
+zplug "skywind3000/z.lua", lazy:true
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
