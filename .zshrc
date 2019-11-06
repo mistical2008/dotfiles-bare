@@ -15,7 +15,9 @@ export ZPLUG_HOME="/usr/share/zsh/scripts/zplug"
 
 HIST_STAMPS="mm/dd/yyyy" # variable used in oh-my-zsh/lib/history.zsh
 zplug "robbyrussell/oh-my-zsh", use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings,nvm,grep}.zsh"
+zplug "plugins/{git,npm,node,yarn,pip,colored-man-pages,extract,tmux,vscode,github,gitignore,archlinux,docker,docker-compose,gulp}", from:oh-my-zsh, lazy:true
 # use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings}.zsh"
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -94,21 +96,21 @@ fi
 # Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-	git
-	npm
-	node
-	yarn
-	pip
-	colored-man-pages
-	extract
-	tmux
-	vscode
-	github
-	gitignore
-	archlinux
+# plugins=(
+	# git
+	# npm
+	# node
+	# yarn
+	# pip
+	# colored-man-pages
+	# extract
+	# tmux
+	# vscode
+	# github
+	# gitignore
+	# archlinux
 	# zsh-autosuggestions
-)
+# )
 
 #===========================================================================
 #=========================== WALL SETTINGS =================================
