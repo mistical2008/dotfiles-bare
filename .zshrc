@@ -12,7 +12,7 @@ export ZPLUG_LOG_LOAD_FAILURE="false"
 source /usr/share/zsh/scripts/zplug/init.zsh
 export ZPLUG_HOME="/usr/share/zsh/scripts/zplug"
 # zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-bindkey -v # turn on vi-mode
+bindkey -v
 
 HIST_STAMPS="mm/dd/yyyy" # variable used in oh-my-zsh/lib/history.zsh
 zplug "robbyrussell/oh-my-zsh", use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings,nvm,grep}.zsh"
