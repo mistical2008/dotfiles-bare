@@ -30,6 +30,7 @@ zplug "plugins/archlinux", from:oh-my-zsh, lazy:true
 zplug "plugins/docker", from:oh-my-zsh, lazy:true
 zplug "plugins/docker-compose", from:oh-my-zsh, lazy:true
 zplug "plugins/gulp", from:oh-my-zsh, lazy:true
+zplug "plugins/z", from:oh-my-zsh, lazy:true
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -231,7 +232,7 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 
 # Point out to z.sh
-[ -f /media/Scripts/z.sh ] && source /media/Scripts/z.sh
+# [ -f /media/Scripts/z.sh ] && source /media/Scripts/z.sh
 
 # Points out to the purepower oh-my-zsh theme
 [ -f ~/.purepower ] && source ~/.purepower
