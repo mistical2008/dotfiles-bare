@@ -15,9 +15,21 @@ export ZPLUG_HOME="/usr/share/zsh/scripts/zplug"
 
 HIST_STAMPS="mm/dd/yyyy" # variable used in oh-my-zsh/lib/history.zsh
 zplug "robbyrussell/oh-my-zsh", use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings,nvm,grep}.zsh"
-zplug use:"plugins/{git,npm,node,yarn,pip,colored-man-pages,extract,tmux,vscode,github,gitignore,archlinux,docker,docker-compose,gulp}", from:oh-my-zsh, as:plugin, lazy:true
-# use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings}.zsh"
-
+zplug "plugins/git", from:oh-my-zsh, lazy:true
+zplug "plugins/npm", from:oh-my-zsh, lazy:true
+zplug "plugins/node", from:oh-my-zsh, lazy:true
+zplug "plugins/yarn", from:oh-my-zsh, lazy:true
+zplug "plugins/pip", from:oh-my-zsh, lazy:true
+zplug "plugins/colored-man-pages", from:oh-my-zsh, lazy:true
+zplug "plugins/extract", from:oh-my-zsh, lazy:true
+zplug "plugins/tmux", from:oh-my-zsh, lazy:true
+zplug "plugins/vscode", from:oh-my-zsh, lazy:true
+zplug "plugins/github", from:oh-my-zsh, lazy:true
+zplug "plugins/gitignore", from:oh-my-zsh, lazy:true
+zplug "plugins/archlinux", from:oh-my-zsh, lazy:true
+zplug "plugins/docker", from:oh-my-zsh, lazy:true
+zplug "plugins/docker-compose", from:oh-my-zsh, lazy:true
+zplug "plugins/gulp", from:oh-my-zsh, lazy:true
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
