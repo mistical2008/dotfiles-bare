@@ -19,6 +19,7 @@ focus_follows_mouse no
 ###                              Window rules variables                               ###
 #########################################################################################
 set $center move position center
+set $move_scratchpad floating enable, move scratchpad, sticky enable, scratchpad show
 
 
 ##########################################################################################
@@ -63,6 +64,9 @@ bindsym $mod+v exec urxvt -e vim
 bindsym $mod+t exec telegram-desktop
 bindsym Print exec gnome-screenshot -i
 
+# Only window zen mode:
+bindsym $mod+z exec /mnt/Data/Scripts/i3zen
+#
 # change focus
 bindsym $mod+$LEFT focus left
 bindsym $mod+$DOWN focus down
@@ -327,10 +331,10 @@ for_window [title="PlayOnLinux"] floating enable
 for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [class="Polkit-gnome-authentication-agent-1" title="Аутентифицировать"] resize set 800 400
 # for_window [instance="Enpass"] floating enable
-for_window [instance="Enpass"] floating enable, move scratchpad, sticky enable, scratchpad show, resize set 900 700, move position senter
+for_window [instance="Enpass"] $move_scratchpad, resize set 900 700, move position senter
 for_window [class="Tor Browser"] floating enable
 for_window [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
-for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] move scratchpad, sticky enable, scratchpad show, resize set 900 700, $center
+for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] $move_scratchpad, resize set 900 700, $center
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] floating enable
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move scratchpad
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] sticky enable
@@ -338,23 +342,33 @@ for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] move scratchpad, st
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] resize set 600 1100
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] $center
 for_window [instance="dropdown_*"] exec notify-send "Yupee! Yupee! Yupee! Yupee!"
-for_window [instance="qbittorrent"] floating enable, move scratchpad, sticky enable, scratchpad show, resize set  1700 760, $center
+for_window [instance="qbittorrent"] $move_scratchpad, resize set  1700 760, $center
 for_window [class="Peek"] floating enable, resize set  1200 860, $center
+for_window [class="Autokey-gtk"] $move_scratchpad, resize set  1200 860, $center
 
 # #---Dropdown Windows---# #
 
 # General dropdown window traits. The order can matter.
-for_window [instance="dropdown_*"] floating enable
-for_window [instance="dropdown_*"] move scratchpad
-for_window [instance="dropdown_*"] sticky enable
-for_window [instance="dropdown_*"] $center
-for_window [instance="dropdown_*"] scratchpad show
+# for_window [instance="dropdown_*"] floating enable
+# for_window [instance="dropdown_*"] move scratchpad
+# for_window [instance="dropdown_*"] sticky enable
+# for_window [instance="dropdown_tmuxdd"] resize set 1200 550
+# for_window [instance="dropdown_dropdowncalc"] resize set 800 300
+# for_window [instance="dropdown_todo"] resize set 1200 700
+# for_window [instance="dropdown_update"] resize set 1200 800
+# for_window [instance="dropdown_tmuxdd"] border pixel 3
+# for_window [instance="dropdown_dropdowncalc"] border pixel 2
+# for_window [instance="dropdown_*"] scratchpad show
+# for_window [instance="dropdown_*"] $center
+
+for_window [instance="dropdown_*"] $move_scratchpad
 for_window [instance="dropdown_tmuxdd"] resize set 1200 550
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300
 for_window [instance="dropdown_todo"] resize set 1200 700
 for_window [instance="dropdown_update"] resize set 1200 800
 for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
+for_window [instance="dropdown_*"] $center
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -371,4 +385,4 @@ workspace $ws8 output HDMI1
 # Apps assigning for ws
 assign [class="TelegramDesktop"] $ws6
 assign [class="Google Play Music Desktop Player"] $ws2
-assign [title="tuijam"] $ws2
+assign [title="*tuijam"] $ws2
