@@ -19,7 +19,7 @@ set clipboard=unnamedplus       " Use system clipboard as default register
 set nowrap 		                " Don't visually wrap lines
 
 " Helps force plugins to load correctly when it is turned back on below
-filetype on
+filetype off
 filetype plugin indent on
 filetype plugin on
 
@@ -60,7 +60,8 @@ set showcmd
 
 " Whitespace
 set wrap
-set textwidth=89
+" TODO: make for a filetpe setting
+" set textwidth=89
 set formatoptions=tcqrn1
 set tabstop=2
 set shiftwidth=2
@@ -76,6 +77,10 @@ runtime! macros/matchit.vim
 
 " Turn on syntax highlighting
 syntax on
+
+" Make manual folds persistent:
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
 " ============================== Plug ===================================
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -127,6 +132,7 @@ Plug 'Yggdroot/indentLine' " indentline
 Plug 'chazy/dirsettings'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 Plug 'djoshea/vim-autoread' " Autoread files changed outside of vim
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 
@@ -228,6 +234,7 @@ let g:tagbar_autoshowtag = 1    " Expand folds to show current tag
 let g:tagbar_map_togglefold = "<SPACE>"
 
 let g:tagbar_type_html = {
+\ 'ctagstype' : 'html',
     \ 'kinds' : [
         \ 'C:stylesheets',
         \ 'a:named anchors',
@@ -239,15 +246,17 @@ let g:tagbar_type_html = {
         \ 'J:scripts'
     \ ],
 \ }
+
 let g:tagbar_type_css = {
-\ 'ctagstype' : 'Css',
+\ 'ctagstype' : 'css',
     \ 'kinds'     : [
         \ 'c:classes',
         \ 'i:identities',
         \ 'm:medias',
         \ 's:selectors'
-    \ ]
+    \ ],
 \ }
+
 let g:tagbar_type_ruby = {
     \ 'kinds' : [
         \ 'm:modules',
@@ -256,7 +265,7 @@ let g:tagbar_type_ruby = {
         \ 'C:contexts',
         \ 'f:methods',
         \ 'F:singleton methods'
-    \ ]
+    \ ],
 \ }
 let g:tagbar_type_markdown = {
     \ 'ctagstype': 'markdown',
@@ -266,12 +275,13 @@ let g:tagbar_type_markdown = {
         \ 's:sections',
         \ 'i:images'
     \ ],
-    \ 'sro' : '|',
+    \ 'sro' : '»',
     \ 'kind2scope' : {
         \ 's' : 'section',
     \ },
     \ 'sort': 0,
 \ }
+
 nmap <F8> :TagbarToggle<CR>
 " Automatically open Tagbar on C/C++ source files
 "autocmd FileType c,cpp,h nested :TagbarOpen
@@ -334,7 +344,7 @@ let g:coc_snippet_next = '<tab>'
 " Main:
 let wiki_main = {}
 let wiki_main.path = '~/03_Drafts'
-let wiki_main.path_html = '~/03_Drafts/html'
+let wiki_main.path_html = '~/03_Drafts/public_html'
 let wiki_main.index = '00_main'
 let wiki_main.diary_rel_path = '03_journal/'
 let wiki_main.diary_index = '00_main'
@@ -347,8 +357,8 @@ let wiki_main.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/cu
 " Projects:
 let wiki_proj = {}
 let wiki_proj.path = '~/03_Drafts/02_projects'
-let wiki_proj.path_html = '~/03_Drafts/02_projects/html'
-let wiki_proj.index = '00_main'
+let wiki_proj.path_html = '~/03_Drafts/02_projects/public_html'
+let wiki_proj.index = '000_main'
 let wiki_proj.diary_rel_path = './../03_journal/'
 let wiki_proj.diary_index = '00_main'
 let wiki_proj.syntax = 'markdown'
@@ -361,7 +371,7 @@ let wiki_proj.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/cu
 " DB:
 let wiki_db = {}
 let wiki_db.path = '~/03_Drafts/04_db'
-let wiki_db.path_html = '~/03_Drafts/04_db/html'
+let wiki_db.path_html = '~/03_Drafts/04_db/public_html'
 let wiki_db.index = '00_main'
 let wiki_db.diary_rel_path = './../03_journal/'
 let wiki_db.diary_index = '00_main'
@@ -381,10 +391,18 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown',
                           \ '.wiki': 'media'
                           \ }
 let g:vimwiki_dir_link = '00_main'
+let g:vimwiki_hl_headers = 1
+let g:vimwiki_folding = 'list'
 " let g:vimwiki_customwiki2html='$HOME/.vim/autoload/vimwiki/customwiki2html.sh'
 " let g:vimwiki_customwiki2html=$HOME.'/.vim/autoload/vimwiki/wiki2html.sh'
 " autocmd FileType vimwiki set ft=markdown
 " helppage -> :h vimwiki-syntax 
+" Set textwidth for the vimwiki and markdown:
+autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+
+" Vimwiki projects variables:
+let g:vwp_todotxt_root = $HOME . '/03_Drafts/01_tasks'
+
 
 " vim-instant-markdown - Instant Markdown previews from Vim
 " https://github.com/suan/vim-instant-markdown
@@ -431,6 +449,8 @@ augroup ProjectDrawer
   autocmd VimEnter * :Vexplore
 augroup END
 
+" =============================== Editorconfig ============================
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
 " ================================= Custom mappings =====================================
 " Change dir to the current working file for current window
@@ -453,15 +473,15 @@ nmap te     :Texplore <CR>
 "   nmap <D-8>	:tabn8 <CR>
 "   nmap <D-9>	:tabn9 <CR>
 " else
-  noremap <C-1> :tabn1<CR>
-  noremap <C-2> :tabn2<CR>
-  noremap <C-3> :tabn3<CR>
-  noremap <C-4> :tabn4<CR>
-  noremap <C-5> :tabn5<CR>
-  noremap <C-6> :tabn6<CR>
-  noremap <C-7> :tabn7<CR>
-  noremap <C-8> :tabn8<CR>
-  noremap <C-9> :tabn9<CR>
+  noremap <A-1> :tabn1<CR>
+  noremap <A-2> :tabn2<CR>
+  noremap <A-3> :tabn3<CR>
+  noremap <A-4> :tabn4<CR>
+  noremap <A-5> :tabn5<CR>
+  noremap <A-6> :tabn6<CR>
+  noremap <A-7> :tabn7<CR>
+  noremap <A-8> :tabn8<CR>
+  noremap <A-9> :tabn9<CR>
 " endif
 
 " Bubble single lines
@@ -477,7 +497,22 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 
-" AUTOCMDS:
+" Edit ~/.vimrc
+nnoremap <Leader>ev :e $MYVIMRC <CR>
+" Source ~/.vimrc
+nnoremap <Leader>sv :so $MYVIMRC <CR>
+
+" Open shrinked bottom terminal
+nnoremap <Leader>bt :ter <CR> <C-w>20-
+
+" Call Synt() for changing syntax
+nnoremap <Leader>st :call Synt()<CR>
+
+"VWP:
+" Create project page
+nnoremap <Leader>pc :call MakeProjectPage()<CR>
+
+" ============================== AUTOCMDS: ======================================
 " JSON syntax highlight comments
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " augroup SetTodoSyntax
@@ -524,3 +559,188 @@ function! SummarizeTabs()
     echohl None
   endtry
 endfunction
+
+" Set syntax
+command! -nargs=* Synt call Synt()
+function! Synt()
+  let l:current_syntax = &l:syntax
+  let l:new_syntax = input('Enter syntax: ')
+  redraw
+  if l:new_syntax != ''
+    execute 'set syntax='.l:new_syntax
+    echom "Previous syntax: '".l:current_syntax."', current: '".&l:syntax."'"
+  else
+    echo "Syntax doesn't changed"
+  endif
+endfunction
+
+" 
+" Vimwiki: Project link creator
+" Set default value for projects directory
+" - Construct ID and date for a project filename
+"   + Parse ID
+"   + Construct New Project ID
+"   + Get a today date
+"   ! Strip dashes from date # Not needed
+"   - Concat ID and date parts with underline symbol and add another one after the date part
+" let g:vwp_projects_path = 'path exists'
+let g:vwp_id_width = exists('g:vwp_id_width') ? g:vwp_id_width : 3
+let g:vwp_todotxt_file = exists('g:vwp_todotxt_file') ? g:vwp_todotxt_file : 'todo.txt'
+let g:vwp_todotxt_root = exists('g:vwp_todotxt_root') ? g:vwp_todotxt_root : $HOME . '/todo'
+let g:vwp_todotxt_path = g:vwp_todotxt_root . '/' . g:vwp_todotxt_file
+
+function SetDefPojectsDir()
+  if !exists('g:vwp_projects_path')
+    let g:vwp_projects_path = $HOME . '/03_Drafts/02_projects/'
+  endif
+endfunction
+" call SetDefPojectsDir()
+
+function SetProjectIndexFile()
+  if !exists('g:vwp_project_index')
+    let g:vwp_project_index = '0_main'
+  endif
+endfunction
+
+function SetProjectsMainIndexFile()
+  if !exists('g:vwp_project_main_index')
+    let g:vwp_project_main_index = '000_main'
+  endif
+endfunction
+
+
+function SetNewProjectsSection()
+  if !exists('g:vwp_new_project_section')
+    let g:vwp_new_project_section = '## Inbox'
+  endif
+endfunction
+
+" Available syntaxes: wiki, markdown, media
+function SetDefSyntax()
+  if !exists('g:vwp_syntax')
+    let g:vwp_syntax = 'wiki'
+  endif
+endfunction
+let g:vwp_syntax = 'markdown'
+
+function GetProjectDirs()
+  call SetDefPojectsDir()
+  let l:dirs = readdir(g:vwp_projects_path)
+  call filter(l:dirs, function('IsProject'))
+  return l:dirs
+endfunction
+
+function GetLastProjectDir()
+  return GetProjectDirs()[-1]
+endfunction
+
+function ConstructNewProjectID()
+  let l:last_proj_dir = GetLastProjectDir()
+  " TODO: rewrite regex for matching id with various length
+  " let l:last_proj_id = matchstr(l:last_proj_dir, '^[0-9]\{3}')
+  let l:last_proj_id = matchstr(l:last_proj_dir, '\v^[0-9]+\ze_')
+  echo l:last_proj_id
+  let l:new_id = str2nr(l:last_proj_id) + 1
+  echo l:new_id
+  return AddLeadingZeroes(l:new_id, len(l:last_proj_id))
+endfunction
+
+function AddLeadingZeroes(string, ...) 
+  let l:string = a:string 
+  let l:size = get(a:, 1, 3)
+  while len(l:string) < l:size 
+    let l:string = "0" . l:string
+  endwhile
+  return l:string
+endfunction
+
+function GetTodayDate()
+  return strftime("%Y%m%d",localtime())
+endfunction
+
+" Match valid project folder name
+function IsProject(id, dirname)
+  " return match(a:dirname, '^[0-9]\{3}_[0-9]\{8}_[a-zA-Z_-]\+$') == 0
+  return match(a:dirname, '\v^[0-9]+_[0-9]{8}_[a-zA-Z_-]+$') == 0
+endfunction
+
+function SetProjectDirName()
+  let l:id = ConstructNewProjectID()
+  let l:date = GetTodayDate()
+  let l:tags = input('Enter tags delimited by dashes: ')
+  let l:name = input('Enter project name in camelCase: ')
+  redraw
+  return l:id.'_'.l:date.'_'.l:tags.'_'.l:name
+endfunction
+
+function MakeProjectPage()
+  call SetDefPojectsDir()
+  call SetProjectIndexFile()
+  call SetProjectsMainIndexFile()
+  call SetNewProjectsSection()
+  
+  let l:current_file_path = expand('%:p')
+  let l:proj_dir_name = SetProjectDirName()
+  let l:proj_main_index_path = g:vwp_projects_path . g:vwp_project_main_index
+  let l:proj_dir_path = g:vwp_projects_path . l:proj_dir_name . '/'
+  let l:proj_full_path = l:proj_dir_path . g:vwp_project_index
+  let l:proj_lnk = LinkConstructor(l:proj_dir_name)
+  if l:current_file_path =~ l:proj_main_index_path
+     let l:current_line_content = getline(line('.'))
+     " if match(l:current_line, '^[\s\t]*$') == 0
+     "  call setline( line('.'), getline(line('.')) . l:proj_lnk )
+     " else
+     "  call append( line('.'), l:proj_lnk ) 
+     " endif
+     " One line append/insert:
+     call append( nextnonblank( line('.') ), l:proj_lnk )
+    " TODO:
+    " - (?) check for blank line
+    " - If not blank add write with append(line('.'))
+    " - Else code below:
+  else
+    let l:append_command = "sed -i '/" . g:vwp_new_project_section . "/a " . l:proj_lnk . "' " . l:proj_main_index_path . ".md"
+    call system(l:append_command)
+  endif
+  call mkdir(l:proj_dir_path)
+  execute('e ' . l:proj_full_path . '.md')
+endfunction
+
+function LinkConstructor(proj_dir_name)
+  call SetProjectIndexFile()
+  let l:dob = g:vwp_list.markdown.descr[0]
+  let l:dcb = g:vwp_list.markdown.descr[1]
+  let l:lob = g:vwp_list.markdown.link[0]
+  let l:lcb = g:vwp_list.markdown.link[1]
+  return "- " . l:dob. input('Enter the project link description: ')  . l:dcb . l:lob .  a:proj_dir_name . "/" . g:vwp_project_index . l:lcb
+  redraw
+endfunction
+
+" TODO: Functions to make (MakeDone, MakeNext, MakePaused, Make abandoned)
+" 
+
+" TODO: 
+" - add vimwiki links syntax.
+" - rewrite g:vwp_list. Include all default settings values.
+let g:vwp_list = {
+      \'markdown' : {
+      \'descr' : ['[', ']'],
+      \'link'  : ['(', ')']
+      \},
+\}
+         
+" Projects and Tasks integration: 
+function s:ReadTodoTxt(path) abort
+  return readfile(a:path)
+endfunction
+
+function ReadProjTodos(path) abort
+  " TODO: implement the filter() function
+  let l:file_content = readfile(a:path) " =~ '\m^\s*-\[\s\]\s+\zs[.*]+'
+  echo l:file_content
+  let l:start_ind = matchstrpos(l:file_content, '\v^#*\s[Tt]asks')[1] + 1
+  " return filter(l:file_content, "v:val =~ '^ *- '")
+  " return filter(l:file_content, "v:val =~ '^#\\{1,6}\\s[Tt]asks'")
+  return l:file_content[l:start_ind:]
+endfunction
+
