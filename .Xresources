@@ -31,6 +31,7 @@ xterm*metaSendsEscape: true
 
 URxvt*termName:         rxvt-unicode-256color
 URxvt*scrollBar:         false
+URxvt.saveLines:        5000
 !URxvt*scrollBar_right:   true
 
 ! прокручивать по отношению к буферу (прокрутка мышью или Shift+Page Up)
