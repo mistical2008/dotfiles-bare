@@ -504,14 +504,17 @@ nnoremap <Leader>sv :so $MYVIMRC <CR>
 
 " Open shrinked bottom terminal
 nnoremap <Leader>bt :ter <CR> <C-w>20-
+" nnoremap <Leader>bt +10sp +ter<CR>
 
 " Call Synt() for changing syntax
 nnoremap <Leader>st :call Synt()<CR>
 
 "VWP:
 " Create project page
-nnoremap <Leader>pc :call MakeProjectPage()<CR>
+nnoremap <Leader>pp :call MakeProjectPage()<CR>
 
+" Create DB page
+nnoremap <Leader>pd :call MakeDBPage()<CR>
 " ============================== AUTOCMDS: ======================================
 " JSON syntax highlight comments
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -664,6 +667,7 @@ function IsProject(id, dirname)
   return match(a:dirname, '\v^[0-9]+_[0-9]{8}_[a-zA-Z_-]+$') == 0
 endfunction
 
+" TODO: unify with the SetDBPageName() with an if condition
 function SetProjectDirName()
   let l:id = ConstructNewProjectID()
   let l:date = GetTodayDate()
@@ -672,6 +676,15 @@ function SetProjectDirName()
   redraw
   return l:id.'_'.l:date.'_'.l:tags.'_'.l:name
 endfunction
+
+function SetDBPageName(...) " find a more elegant way for optional argument
+  let l:prefix = get(a:, 1, "db")
+  let l:tags = input('Enter tags delimited by dashes: ')
+  let l:name = input('Enter Database name in camelCase: ')
+  redraw
+  return l:prefix.'_'.l:tags.'_'.l:name
+endfunction
+
 
 function MakeProjectPage()
   call SetDefPojectsDir()
@@ -706,14 +719,41 @@ function MakeProjectPage()
   execute('e ' . l:proj_full_path . '.md')
 endfunction
 
-function LinkConstructor(proj_dir_name)
-  call SetProjectIndexFile()
+function MakeDBPage()
+  let l:current_file_path = expand('%:p')
+
+  " Set DB path. 
+  let l:db_path = $HOME . '/03_Drafts/04_db/00_main'
+  " Set DB prefix. From global var
+  " Set DB new pages section
+  " SetDBName()
+  let l:db_page_name = SetDBPageName()
+  " LinkConstructor()
+  let l:db_link = LinkConstructor(l:db_page_name, 'db')
+  if l:current_file_path =~ l:db_path
+    call append( nextnonblank( line('.') ), l:db_link )
+  else
+    let l:append_command = "sed -i '/" . "## New" . "/a " . l:db_link . "' " . l:db_path . ".md"
+    call system(l:append_command)
+  endif
+  " Paste to current line in the DB page
+  " OR Paste to default section for a new pages
+endfunction
+
+function LinkConstructor(proj_dir_name, ...)
+  let l:type = get(a:,1,"proj") " TODO: come up with a more elegant approach
   let l:dob = g:vwp_list.markdown.descr[0]
   let l:dcb = g:vwp_list.markdown.descr[1]
   let l:lob = g:vwp_list.markdown.link[0]
   let l:lcb = g:vwp_list.markdown.link[1]
-  return "- " . l:dob. input('Enter the project link description: ')  . l:dcb . l:lob .  a:proj_dir_name . "/" . g:vwp_project_index . l:lcb
-  redraw
+  if l:type ==# "db"
+    return "- " . l:dob. input('Enter the Database link description: ') . l:dcb . l:lob . a:proj_dir_name . l:lcb
+    redraw
+  else
+    call SetProjectIndexFile()
+    return "- " . l:dob. input('Enter the project link description: ')  . l:dcb . l:lob .  a:proj_dir_name . "/" . g:vwp_project_index . l:lcb
+    redraw
+  endif
 endfunction
 
 " TODO: Functions to make (MakeDone, MakeNext, MakePaused, Make abandoned)
@@ -743,4 +783,3 @@ function ReadProjTodos(path) abort
   " return filter(l:file_content, "v:val =~ '^#\\{1,6}\\s[Tt]asks'")
   return l:file_content[l:start_ind:]
 endfunction
-
