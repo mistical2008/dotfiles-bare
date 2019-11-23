@@ -67,6 +67,10 @@ bindsym Print exec gnome-screenshot -i
 # Only window zen mode:
 bindsym $mod+z exec /mnt/Data/Scripts/i3zen
 #
+
+# Toggle polybar:
+bindsym $mod+m exec polybar-msg cmd toggle
+
 # change focus
 bindsym $mod+$LEFT focus left
 bindsym $mod+$DOWN focus down
@@ -284,14 +288,9 @@ bindsym $mod+Shift+XF86Display exec "xrandr --auto"
 
 
 # AUTOSTART
-#exec "/usr/local/bin/hotplug_monitor-2.sh &"
 exec --no-startup-id "blueman-applet &"
-#exec_always "setxkbmap -layout us,ru -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo'"
 # exec --no-startup-id "gnome-settings-daemon &"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &"
-#exec --no-startup-id xautolock -detectsleep -time 10 -locker "betterlockscreen -l dimblur" -notify 30 -notifier "notify-send  -u crytical -t 29000 -- 'LOCKING screen in 30 seconds'"
-#exec --no-startup-id "xss-lock -- betterlockscreen -l dimblur"
-#exec_always --no-startup-id "compton -b --config ~/.config/i3/compton.conf"
 exec_always --no-startup-id "nitrogen --restore; sleep 1; compton -b --config ~/.config/i3/compton.conf --no-fading-openclose"
 exec_always --no-startup-id "wal -R -n"
 exec_always --no-startup-id "~/.config/i3/launch-polybar.sh &"
