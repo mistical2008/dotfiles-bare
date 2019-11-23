@@ -79,8 +79,8 @@ runtime! macros/matchit.vim
 syntax on
 
 " Make manual folds persistent:
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+" autocmd BufWinLeave *.* mkview
+" autocmd BufWinEnter *.* silent loadview
 
 " ============================== Plug ===================================
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -94,8 +94,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ludovicchabant/vim-gutentags' " Ctags
-" Plug 'majutsushi/tagbar'  " Build tags based on ctags
-" Plug 'mtscout6/vim-tagbar-css' " Add css support to tagbar
+Plug 'majutsushi/tagbar'  " Build tags based on ctags
+Plug 'mtscout6/vim-tagbar-css' " Add css support to tagbar
 Plug 'dyng/ctrlsf.vim' " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text
 Plug 'tpope/vim-sensible'
 Plug 'mattn/emmet-vim'
