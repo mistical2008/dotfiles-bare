@@ -17,3 +17,4 @@ configuration {
   columns: 2;
 }
 @import "/home/evgeniy/.config/rofi/themes/appsmenu.rasi"
+
