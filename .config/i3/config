@@ -277,7 +277,7 @@ bindsym XF86Display exec "~/.config/rofi/scripts/monitor_layout.sh"
 bindsym $mod+P exec "~/.config/rofi/scripts/monitor_layout.sh"
 
 # Fallback to available display if the current active display gets disconnected
-exec --no-startup-id "~/.config/i3/fallbackToConnectedDisplay"
+# exec --no-startup-id "~/.config/i3/fallbackToConnectedDisplay"
 
 # Emergency: Turn off builtin display
 # (Sometimes the display is active but still dead after waking up from suspend)
