@@ -251,3 +251,5 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /home/evgeniy/.config/cani/completions/_cani.zsh ] && source /home/evgeniy/.config/cani/completions/_cani.zsh
+
+source ~/03_Drafts/05_finance/myfinance/.bashrc

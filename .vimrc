@@ -78,7 +78,7 @@ runtime! macros/matchit.vim
 " Turn on syntax highlighting
 syntax on
 
-" Make manual folds persistent:
+" " Make manual folds persistent:
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
@@ -112,7 +112,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'SirVer/ultisnips'
 " Markdown
 Plug 'reedes/vim-pencil'
-Plug 'nelstrom/vim-markdown-folding'
+" Plug 'nelstrom/vim-markdown-folding'
 Plug 'vimwiki/vimwiki'
 Plug 'suan/vim-instant-markdown'
 Plug 'w0rp/ale' " Linting
@@ -133,7 +133,10 @@ Plug 'Yggdroot/indentLine' " indentline
 Plug 'chazy/dirsettings'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 Plug 'djoshea/vim-autoread' " Autoread files changed outside of vim
-" Plug 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'https://github.com/mattn/calendar-vim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 call plug#end()
 
 
@@ -233,6 +236,7 @@ let g:tagbar_sort = 0           " Show tags in the same order as the source
 let g:tagbar_width = 30         " Reduce Tagbar split width to 30 columns
 let g:tagbar_autoshowtag = 1    " Expand folds to show current tag
 let g:tagbar_map_togglefold = "<SPACE>"
+let g:tagbar_ctags_bin = '/usr/bin/ctags'
 
 
 let g:tagbar_type_html = {
@@ -250,7 +254,7 @@ let g:tagbar_type_html = {
 \ }
 
 let g:tagbar_type_css = {
-\ 'ctagstype' : 'css',
+\ 'ctagstype' : 'Css',
     \ 'kinds'     : [
         \ 'c:classes',
         \ 'i:identities',
@@ -454,13 +458,15 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown',
                           \ }
 let g:vimwiki_dir_link = '00_main'
 let g:vimwiki_hl_headers = 1
-let g:vimwiki_folding = 'list'
+
+" let g:vimwiki_folding = 'list'
 " let g:vimwiki_customwiki2html='$HOME/.vim/autoload/vimwiki/customwiki2html.sh'
 " let g:vimwiki_customwiki2html=$HOME.'/.vim/autoload/vimwiki/wiki2html.sh'
 " autocmd FileType vimwiki set ft=markdown
 " helppage -> :h vimwiki-syntax 
 " Set textwidth for the vimwiki and markdown:
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+autocmd BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en,ru
 
 " Vimwiki projects variables:
 let g:vwp_todotxt_root = $HOME . '/03_Drafts/01_tasks'
@@ -517,6 +523,10 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 " ================================= Custom mappings =====================================
 " Change dir to the current working file for current window
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Remap ;:
+nnoremap ; :
+nnoremap : ;
 " Tabs
 " ----
 nmap <C-t>  :tabnew <CR>
@@ -577,6 +587,7 @@ nnoremap <Leader>pp :call MakeProjectPage()<CR>
 
 " Create DB page
 nnoremap <Leader>pd :call MakeDBPage()<CR>
+
 " ============================== AUTOCMDS: ======================================
 " JSON syntax highlight comments
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -845,3 +856,24 @@ function ReadProjTodos(path) abort
   " return filter(l:file_content, "v:val =~ '^#\\{1,6}\\s[Tt]asks'")
   return l:file_content[l:start_ind:]
 endfunction
+
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-emmet',
+  \ 'coc-highlight',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-lists',
+  \ 'coc-pairs',
+  \ 'coc-snippets',
+  \ 'coc-svg',
+  \ 'coc-tsserver',
+  \ 'coc-yaml',
+  \ 'coc-yank',
+  \ 'css-snippets',
+  \ 'jest-snippets',
+  \ 'svg-snippets',
+  \ 'vscode-svelte-snippets',
+  \ 'coc-browser',
+  \ 'coc-diagnostic'
+  \]
