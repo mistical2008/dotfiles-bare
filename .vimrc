@@ -137,8 +137,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'https://github.com/mattn/calendar-vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'lyokha/vim-xkbswitch'
 call plug#end()
-
+'
 
 " Move up/down editor lines
 nnoremap j gj
@@ -291,6 +292,15 @@ let g:tagbar_type_markdown = {
 nmap <F8> :TagbarToggle<CR>
 " Automatically open Tagbar on C/C++ source files
 "autocmd FileType c,cpp,h nested :TagbarOpen
+
+" Vim-xkbswitch:
+let g:XkbSwitchEnabled = 1 "Дёргаем рубильник'
+"Если вы используете обычную qwerty, то поменяте mac на win
+set keymap=russian-jcukenwin
+"Язык ввода при старте Вима - Английский
+set iminsert=0
+"Аналогично настраивается режим поиска
+set imsearch=0
 
 " =================================== Ale =====================================
 " Replacing default Ale indicators
