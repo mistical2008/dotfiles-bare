@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-$PBRLOG="/home/$USER/.config/i3/polybar-reload.log"
-echo $(date '+%F %T') >> $PBRLOG
-~/.config/i3/launch-polybar.sh > /dev/null &>> $PBRLOG
-nitrogen --restore &
