@@ -158,12 +158,16 @@ Maid.rules do
   watch "#{folders[:downloads]}/#{folders[:tg]}" do
     rule "Move books from Telegram folder" do
       BOOKS.each do |ext|
-        move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir("#{folders[:books]}"))
+        if 5.minute.since?(last_accessed(ext))
+          move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir("#{folders[:books]}"))
+        end
       end
     end
     rule "Move music from Telegram folder" do
       AUDIO.each do |ext|
-        move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir("#{folders[:music]}/telegram"))
+        if 5.minute.since?(last_accessed(ext))
+          move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir("#{folders[:music]}/telegram"))
+        end
       end
     end
     rule 'Trash an old TG files' do
@@ -194,10 +198,10 @@ Maid.rules do
         move(dir("#{folders[:downloads]}/*.#{ext}"), mkdir("#{folders[:downloads]}/img_iso"))
       end
     end
-  end
-  watch "#{folders[:downloads]}" do
-    rule "Move *.torrent files to torrent folder" do
-        move(dir("#{folders[:downloads]}/*.torrent"), mkdir("#{folders[:downloads]}/torrents"))
+    rule "Move .pkg.tar.xz into app_inux folder"  do
+      dir("#{folders[:downloads]}/*.pkg.tar").each do |path|
+        move(dir(path), mkdir("#{folders[:downloads]}/app_linux/"))
+      end
     end
   end
 
