@@ -187,6 +187,23 @@ Maid.rules do
         end
       end
     end
+    rule "Move screencasts to the \'Screenshots\' folder" do
+      VIDEO.each do |ext|
+        ["Peek"].each do |screencast|
+          move(dir("#{folders[:images]}/#{screencast}*.#{ext}"), mkdir("#{folders[:images]}/screencasts"))
+        end
+      end
+    end
+  end
+
+  watch "#{folders[:images]}/screenshots" do
+    rule "Trash screenshots older than 90 days" do
+      dir("#{folders[:images]}/screen*s/*").each do |path|
+        if 90.days.since?(created_at(path))
+          trash(path)
+        end
+      end
+    end
   end
 
   watch "#{folders[:downloads]}" do
@@ -199,8 +216,12 @@ Maid.rules do
       end
     end
     rule "Move .pkg.tar.xz into app_inux folder"  do
-      dir("#{folders[:downloads]}/*.pkg.tar").each do |path|
-        move(dir(path), mkdir("#{folders[:downloads]}/app_linux/"))
+      dir("#{folders[:downloads]}/*.pkg.tar.xz").each do |path|
+        # filename = File.basename(path).to_s
+        move(path, mkdir("#{folders[:downloads]}/app_linux"))
+        # finalpath = "#{folders[:downloads]}/app_linux/ARCH-#{filename}"
+        # FileUtils.mkdir_p(finalpath)
+        # FileUtils.mv path, finalpath
       end
     end
   end
