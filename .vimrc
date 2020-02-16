@@ -138,8 +138,8 @@ Plug 'https://github.com/mattn/calendar-vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lyokha/vim-xkbswitch'
+Plug '/dbeniamine/cheat.sh-vim'
 call plug#end()
-'
 
 " Move up/down editor lines
 nnoremap j gj

@@ -51,7 +51,7 @@ alias rmbadtr='find /var/cache/pacman/pkg/ -iname *.part -exec rm {} \;'
 alias pacsize="pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h"
 alias setwac-run='~/.config/xsetwacom-gnome-symbiotic/setup.sh'
 alias zup=". ~/.zshrc"
-alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+# alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias b='buku --suggest'
 
 # Configs
@@ -147,4 +147,21 @@ function open() {
 # Download site
 dls() {
   wget --random-wait -r -p -e robots=off -U mozilla $1
+}
+
+
+function ranger {
+    local IFS=$'\t\n'
+    local tempfile="$(mktemp -t tmp.XXXXXX)"
+    local ranger_cmd=(
+        command
+        ranger
+        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
+    )
+    
+   "${ranger_cmd[@]}" "$@"
+    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
+        cd -- "$(cat "$tempfile")" || return
+    fi
+    command rm -f -- "$tempfile" 2>/dev/null
 }

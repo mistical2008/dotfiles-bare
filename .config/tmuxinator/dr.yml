@@ -1,7 +1,7 @@
 # /home/evgeniy/.config/tmuxinator/daily-review.yml
 
 name: daily-review
-root: ~/
+root: ~/03_Drafts/01_tasks
 
 # Optional tmux socket
 # socket_name: foo
@@ -40,7 +40,7 @@ root: ~/
 # attach: false
 
 windows:
-  - planning:
+  - Planning:
       layout: 411c,312x61,0,0{99x61,0,0,1,108x61,100,0[108x37,100,0,2,108x23,100,38,4],103x61,209,0,3}
       panes:
         - today:
@@ -49,9 +49,10 @@ windows:
         - done:
             - echo Complited
             - watch -c todo.sh xp -o 1
-        - cmd:
+        - graph:
             - echo Complited graph
             - watch -c todo.sh graph
-        - week:
+        - edit:
             - echo Edit todo.txt
             - todo.sh edit 
+  - Checklist: vim +Goyo "$HOME/03_Drafts/04_db/db_core-tasks_checklists-daily.md"
