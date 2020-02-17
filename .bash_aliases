@@ -94,6 +94,7 @@ alias btrdf="sudo btrfs filesystem usage"
 # Configurations
 conf() {
   case $1 in
+  ctags) vim $HOME/.ctags.d/cfg.2.ctags && dfa $HOME/.ctags.d/cfg.2.ctags && dfcm "ctags autocommit" && dfp ;;
   wacom) sudoedit $HOME/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
   tuijam) vim $HOME/.config/tuijam/config.yaml ;;
   intel) sudoedit /etc/X11/mhwd.d/intel.conf ;;
