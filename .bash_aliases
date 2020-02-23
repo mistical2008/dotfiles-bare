@@ -90,6 +90,14 @@ alias who='who -H'
 alias cmd_bell="echo -e '\a' || (echo -e '\a'; sleep 1; echo -e '\a')"
 alias btrdf="sudo btrfs filesystem usage"
 alias cheat="cht.sh"
+alias learn:js="cht.sh js/:learn | less"
+alias learn:py="cht.sh python/:learn | less"
+alias learn:rb="cht.sh ruby/:learn | less"
+alias learn:js-ref="cht.sh js learn"
+alias learn:node-ref="cht.sh nodejs learn | less"
+alias learn:py-ref="cht.sh python learn | less"
+alias learn:rb-ref="cht.sh ruby learn | less"
+
 
 ## FUNCTIONS
 # Configurations
