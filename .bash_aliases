@@ -89,6 +89,7 @@ alias lynx='lynx -vikeys'
 alias who='who -H'
 alias cmd_bell="echo -e '\a' || (echo -e '\a'; sleep 1; echo -e '\a')"
 alias btrdf="sudo btrfs filesystem usage"
+alias cheat="cht.sh"
 
 ## FUNCTIONS
 # Configurations
