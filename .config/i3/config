@@ -6,6 +6,7 @@ set $LEFT h
 set $DOWN j
 set $UP k
 set $RIGHT l
+set $TERMINAL $TERMINAL
 
 # Modifier:
 set $mod Mod4
@@ -50,7 +51,7 @@ set $wall-restore "--no-startup-id nitrogen --restore &"
 # start a terminal
 # bindsym $mod+Return exec tilix --window-style=borderless
 # bindsym $mod+Return exec urxvt
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $TERMINAL
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -61,7 +62,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec rofi -no-lazy-grab -show combi -theme themes/appsmenu.rasi
 bindsym $mod+d exec rofi -no-lazy-grab -show combi
 bindsym $mod+control+p exec copyq show
-bindsym $mod+v exec urxvt -e vim
+bindsym $mod+v exec $TERMINAL -e vim
 bindsym $mod+t exec telegram-desktop
 bindsym Print exec gnome-screenshot -i
 
