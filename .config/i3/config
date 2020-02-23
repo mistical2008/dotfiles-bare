@@ -6,7 +6,7 @@ set $LEFT h
 set $DOWN j
 set $UP k
 set $RIGHT l
-set $TERMINAL $TERMINAL
+set $TERMINAL alacritty
 
 # Modifier:
 set $mod Mod4
