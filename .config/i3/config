@@ -49,7 +49,8 @@ set $wall-restore "--no-startup-id nitrogen --restore &"
 ##########################################################################################
 # start a terminal
 # bindsym $mod+Return exec tilix --window-style=borderless
-bindsym $mod+Return exec urxvt
+# bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -273,8 +274,8 @@ bindsym XF86AudioPrev exec playerctl previous
 ###                                    MONITORS                                        ###
 ##########################################################################################
 # Switch between internal and external display
-bindsym XF86Display exec "~/.config/rofi/scripts/monitor_layout.sh; wall-hdmi1.sh"
-bindsym $mod+P exec "~/.config/rofi/scripts/monitor_layout.sh; wall-hdmi1.sh"
+bindsym XF86Display exec "~/.config/rofi/scripts/monitor_layout.sh"
+bindsym $mod+P exec "~/.config/rofi/scripts/monitor_layout.sh"
 
 # Fallback to available display if the current active display gets disconnected
 # exec --no-startup-id "~/.config/i3/fallbackToConnectedDisplay"
