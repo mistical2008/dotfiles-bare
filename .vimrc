@@ -134,7 +134,7 @@ Plug 'chazy/dirsettings'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 Plug 'djoshea/vim-autoread' " Autoread files changed outside of vim
 Plug 'editorconfig/editorconfig-vim'
-Plug 'https://github.com/mattn/calendar-vim'
+Plug '/mattn/calendar-vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lyokha/vim-xkbswitch'
@@ -196,7 +196,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 "   Tabline   - Enable top bar to show tabs and buffers
 "   Syntastic - Show errors and warnings from Syntastic on the status bar
 "   Tagbar    - Show the current function on the status bar
-let g:airline_extensions = ['branch', 'tabline', 'ycm', 'tagbar', ]
+let g:airline_extensions = ['branch', 'tabline',]
 " Label the tabs/buffers which allows for the tab navigation commands
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
@@ -289,7 +289,7 @@ let g:tagbar_type_markdown = {
     \ 'sort': 0,
 \ }
 
-nmap <F8> :TagbarToggle<CR>
+nmap <F8>:TagbarToggle<CR>
 " Automatically open Tagbar on C/C++ source files
 "autocmd FileType c,cpp,h nested :TagbarOpen
 
@@ -867,6 +867,7 @@ function ReadProjTodos(path) abort
   return l:file_content[l:start_ind:]
 endfunction
 
+" Coc-nvim extensions list:
 let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-emmet',
@@ -887,3 +888,7 @@ let g:coc_global_extensions = [
   \ 'coc-browser',
   \ 'coc-diagnostic'
   \]
+
+" vim-ledger settings:
+let g:ledger_detailed_first = 1
+au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
