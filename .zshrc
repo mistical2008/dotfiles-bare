@@ -229,6 +229,8 @@ export W_PREFIXES=$HOME/.PlayOnLinux/wineprefix
 
 # Variables
 function _get_editor { echo $(which vim) || echo $(which vi) || echo $(which nano)}
+function _get_terminal { echo $(which alacritty) || echo $(which urxvt) || echo $(which tilix) || echo $(which gnome-terminal) || echo $(which xterm)}
+export DEF_TERM=$(_get_terminal)
 export SUDO_EDITOR="$(_get_editor)"
 export EDITOR="$(_get_editor)"
 export GTK_IM_MODULE="xim"
