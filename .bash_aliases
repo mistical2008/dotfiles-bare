@@ -98,7 +98,9 @@ alias learn:node-ref="cht.sh nodejs learn | less"
 alias learn:py-ref="cht.sh python learn | less"
 alias learn:rb-ref="cht.sh ruby learn | less"
 alias addtr="vim '$HOME/03_Drafts/05_finance/myfinance/journal.ledger'"
-alias inbox="todo.sh ls -(.)"
+alias tinbox="todo.sh ls -(.)"
+alias tweek="todo.sh listpri c"
+alias tlater="todo.sh listpri d"
 
 
 ## FUNCTIONS
