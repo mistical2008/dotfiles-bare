@@ -42,8 +42,8 @@ set $ws10 "10"
 ###                                    PROGRAMS                                        ###
 ##########################################################################################
 # Wallpaper
-set $wall nitorgen
-set $wall-restore "--no-startup-id nitrogen --restore &"
+# set $wall nitorgen
+# set $wall-restore "--no-startup-id nitrogen --restore &"
 
 ##########################################################################################
 ###                                    KEYBINDINGS                                     ###
@@ -342,7 +342,7 @@ for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] $move_scratchpad, r
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] scratchpad show
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] resize set 600 1100
 # for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] $center
-for_window [instance="dropdown_*"] exec notify-send "Yupee! Yupee! Yupee! Yupee!"
+# for_window [instance="dropdown_*"] exec notify-send "Yupee! Yupee! Yupee! Yupee!"
 for_window [instance="qbittorrent"] $move_scratchpad, resize set  1700 760, $center
 for_window [class="Peek"] floating enable, resize set  1200 860, $center
 for_window [class="Autokey-gtk"] $move_scratchpad, resize set  1200 860, $center
@@ -365,7 +365,8 @@ for_window [class="Autokey-gtk"] $move_scratchpad, resize set  1200 860, $center
 for_window [instance="dropdown_*"] $move_scratchpad
 for_window [instance="dropdown_tmuxdd"] resize set 1200 550
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300
-for_window [instance="dropdown_todo"] resize set 1200 700
+for_window [title="dropdown_todo"] $move_scratchpad
+for_window [title="dropdown_todo"] resize set 1200 700
 for_window [instance="dropdown_update"] resize set 1200 800
 for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
