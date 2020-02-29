@@ -1,23 +1,25 @@
 {
   "dependencies": {
     "JavaScriptSnippets": "https://github.com/xabikos/vscode-javascript.git#master",
-    "coc-css": "^1.2.2",
-    "coc-emmet": "^1.1.3",
+    "coc-browser": ">=1.2.5",
+    "coc-css": ">=1.2.2",
+    "coc-diagnostic": ">=0.2.3",
+    "coc-emmet": ">=1.1.4",
+    "coc-git": ">=1.7.4",
     "coc-highlight": ">=1.2.5",
-    "coc-html": "^1.2.1",
-    "coc-json": ">=1.2.4",
-    "coc-lists": ">=1.3.4",
-    "coc-pairs": ">=1.2.18",
-    "coc-snippets": ">=2.1.13",
-    "coc-svg": "^0.0.13",
-    "coc-tsserver": ">=1.4.8",
-    "coc-yaml": "^1.0.2",
+    "coc-html": ">=1.2.3",
+    "coc-json": ">=1.2.5",
+    "coc-lists": ">=1.3.7",
+    "coc-pairs": ">=1.2.20",
+    "coc-snippets": ">=2.1.19",
+    "coc-svg": ">=0.0.13",
+    "coc-tsserver": ">=1.4.9",
+    "coc-yaml": ">=1.0.3",
     "coc-yank": ">=1.1.3",
     "css-snippets": "https://github.com/joy-yu/vsc-css-snippets.git#master",
+    "expresssnippet": "https://github.com/vladmrnv/ExpressSnippet",
     "jest-snippets": "https://github.com/andys8/vscode-jest-snippets.git#master",
     "svg-snippets": "https://github.com/sidthesloth92/vsc_svg_snippets.git#master",
-    "vscode-svelte-snippets": "https://github.com/fivethree-team/vscode-svelte-snippets.git#master",
-    "coc-browser": ">=1.1.1",
-    "expresssnippet": "https://github.com/vladmrnv/ExpressSnippet"
+    "vscode-svelte-snippets": "https://github.com/fivethree-team/vscode-svelte-snippets.git#master"
   }
 }

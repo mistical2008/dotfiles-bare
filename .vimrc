@@ -5,18 +5,17 @@ set fileencoding=utf-8
 " Don't try to be vi compatible
 set nocompatible
 " set guifont=Source\ Code\ Pro\ 17
-set guifont=Source\ Code\ Pro\ Light:h17
+set guifont=JetBrains\ Mono\ \Regular:h17
 set vb t_vb= " No horrible visual flash on bell
 
 " Search down into subfolders
-" Provides tab-completion for all file-related tasks
 set path+=**
+" Provides tab-completion for all file-related tasks
 set wildmenu
 " set autoread                    " Reload files changed outside vim
 " au CursorHold * checktime       " check one time after 4s of inactivity in normal mode
 
 set clipboard=unnamedplus       " Use system clipboard as default register
-set nowrap 		                " Don't visually wrap lines
 
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
@@ -59,15 +58,16 @@ set showmode
 set showcmd
 
 " Whitespace
-set wrap
+" set wrap
 " TODO: make for a filetpe setting
-" set textwidth=89
+
 set formatoptions=tcqrn1
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
 set noshiftround
+set nowrap 		                " Don't visually wrap lines
 
 " Cursor motion
 set scrolloff=4
@@ -81,6 +81,8 @@ syntax on
 " " Make manual folds persistent:
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
+
+
 
 " ============================== Plug ===================================
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -134,11 +136,11 @@ Plug 'chazy/dirsettings'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 Plug 'djoshea/vim-autoread' " Autoread files changed outside of vim
 Plug 'editorconfig/editorconfig-vim'
-Plug '/mattn/calendar-vim'
+Plug 'mattn/calendar-vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lyokha/vim-xkbswitch'
-Plug '/dbeniamine/cheat.sh-vim'
+Plug 'dbeniamine/cheat.sh-vim'
 call plug#end()
 
 " Move up/down editor lines
@@ -156,9 +158,9 @@ set showmatch
 map <leader><space> :let @/=''<cr> " clear search
 
 " Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
+" inoremap <F1> <ESC>:set invfullscreen<CR>a
+" nnoremap <F1> :set invfullscreen<CR>
+" vnoremap <F1> :set invfullscreen<CR>
 
 " Textmate holdouts
 
@@ -185,7 +187,7 @@ set cursorline
 " hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
 
 " ============================= Airline =======================================
-let g:airline_theme = 'base16_chalk'  " Nord color scheme for the status bar
+let g:airline_theme = 'solarized_flood'  " Nord color scheme for the status bar
 let g:airline_inactive_collapse = 1    " Collapse status bar for inactive windows
 let g:airline_powerline_fonts = 1      " Use Powerline font for special symbols
 set noshowmode                         " Disable default status bar
@@ -209,7 +211,7 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
+let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
@@ -229,6 +231,7 @@ let g:airline_symbols.dirty='⚡'
 let g:javascript_conceal_arrow_function       = "⇒"
 "let g:javascript_conceal_noarg_arrow_function = "⭘"
 "let g:javascript_conceal_underscore_arrow_function = "⭘"
+ 
 
 " ============================== Tagbar =======================================
 let g:tagbar_compact = 1        " Disable help message
@@ -289,7 +292,7 @@ let g:tagbar_type_markdown = {
     \ 'sort': 0,
 \ }
 
-nmap <F8>:TagbarToggle<CR>
+nnoremap <silent> <F8> :TagbarToggle<CR>
 " Automatically open Tagbar on C/C++ source files
 "autocmd FileType c,cpp,h nested :TagbarOpen
 
@@ -475,7 +478,7 @@ let g:vimwiki_hl_headers = 1
 " autocmd FileType vimwiki set ft=markdown
 " helppage -> :h vimwiki-syntax 
 " Set textwidth for the vimwiki and markdown:
-autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+" autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en,ru
 
 " Vimwiki projects variables:
@@ -516,7 +519,7 @@ let g:indentLine_char = '┆'
 
 " ======================= Netrw settings like NERDtree ==========================
 let g:netrw_banner = 0       " disable annoying banner
-let g:netrw_browse_split = 2 " open in prior window
+let g:netrw_browse_split = 4 " open in prior window
 let g:netrw_altv = 1         " open splits to the right
 let g:netrw_liststyle = 3    " tree view
 let g:netrw_winsize = 25     " windowsize
@@ -534,12 +537,24 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 " Change dir to the current working file for current window
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
+" Close tab or buffer if no tabs:
+nnoremap <C-W>q :call CloseTabOrBuffer()<CR>
+
+" Navigate tabs or buffers:
+nnoremap <C-PageUp> :call PrevTabOrBuffer()<CR>
+nnoremap <C-PageDown> :call NexTabOrBuffer()<CR>
+
+" Test mappings:
+nnoremap <C-+> :echo "Hello C-PgUp key"<CR>
+" Toggle netrw explorer:
+nnoremap <Leader>ex :Lexplore <CR>
+
 " Remap ;:
 nnoremap ; :
 nnoremap : ;
 " Tabs
 " ----
-nmap <C-t>  :tabnew <CR>
+nnoremap <C-t> :tabnew <CR>
 nmap tj     :tabnext <CR>
 nmap tk     :tabprev <CR>
 nmap te     :Texplore <CR>
@@ -574,13 +589,13 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
 "Window navigation"
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
 
 " Edit ~/.vimrc
-nnoremap <Leader>ev :e $MYVIMRC <CR>
+nnoremap <Leader>ev :tabnew $MYVIMRC <CR>
 " Source ~/.vimrc
 nnoremap <Leader>sv :so $MYVIMRC <CR>
 
@@ -605,7 +620,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 "   au!
 "   autocmd BufRead,BufNewFile ~/03_Drafts/01_tasks/*.txt set filetype todo
 " augroup END
-autocmd BufRead,BufNewFile,BufReadPost ~/03_Drafts/01_tasks/*.txt set syntax=todo
+autocmd BufRead,BufNewFile,BufReadPost $HOME/03_Drafts/01_tasks/*.txt set filetype=todo
 
 " Use todo#Complete as the omni complete function for todo files
 au filetype todo setlocal omnifunc=todo#Complete
@@ -618,6 +633,42 @@ command! BufOnly execute "%bd|e#|bd#"
 command! BO execute "%bd|e#|bd#"
 
 " ============================ Custom functions =================================
+" Close tab of buffer if no tabs:
+function! CloseTabOrBuffer() abort
+  let l:tabqty = len(gettabinfo())
+  if l:tabqty > 1
+    execute "tabclose"
+  elseif l:tabqty == 1
+    execute "bdel"
+  else
+    return "Some error occured. Buffer/Tab doesn't closed."
+  endif
+endfunction
+
+" Navigate tabs or buffers if no tabs:
+function! NexTabOrBuffer() abort
+  let l:tabqty = len(gettabinfo())
+  if l:tabqty > 1
+    execute "tabnext"
+  elseif l:tabqty == 1
+    execute "bnext"
+  else
+    return "Some error occured. Buffer/Tab doesn't changed."
+  endif
+endfunction
+
+function! PrevTabOrBuffer() abort
+  let l:tabqty = len(gettabinfo())
+  if l:tabqty > 1
+    execute "tabprev"
+  elseif l:tabqty == 1
+    execute "bprev"
+  else
+    return "Some error occured. Buffer/Tab doesn't changed."
+  endif
+endfunction
+
+
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* Stab call Stab()
 function! Stab()
@@ -675,52 +726,52 @@ let g:vwp_todotxt_file = exists('g:vwp_todotxt_file') ? g:vwp_todotxt_file : 'to
 let g:vwp_todotxt_root = exists('g:vwp_todotxt_root') ? g:vwp_todotxt_root : $HOME . '/todo'
 let g:vwp_todotxt_path = g:vwp_todotxt_root . '/' . g:vwp_todotxt_file
 
-function SetDefPojectsDir()
+function! SetDefPojectsDir()
   if !exists('g:vwp_projects_path')
     let g:vwp_projects_path = $HOME . '/03_Drafts/02_projects/'
   endif
 endfunction
 " call SetDefPojectsDir()
 
-function SetProjectIndexFile()
+function! SetProjectIndexFile()
   if !exists('g:vwp_project_index')
     let g:vwp_project_index = '0_main'
   endif
 endfunction
 
-function SetProjectsMainIndexFile()
+function! SetProjectsMainIndexFile()
   if !exists('g:vwp_project_main_index')
     let g:vwp_project_main_index = '000_main'
   endif
 endfunction
 
 
-function SetNewProjectsSection()
+function! SetNewProjectsSection()
   if !exists('g:vwp_new_project_section')
     let g:vwp_new_project_section = '## Inbox'
   endif
 endfunction
 
 " Available syntaxes: wiki, markdown, media
-function SetDefSyntax()
+function! SetDefSyntax()
   if !exists('g:vwp_syntax')
     let g:vwp_syntax = 'wiki'
   endif
 endfunction
 let g:vwp_syntax = 'markdown'
 
-function GetProjectDirs()
+function! GetProjectDirs()
   call SetDefPojectsDir()
   let l:dirs = readdir(g:vwp_projects_path)
   call filter(l:dirs, function('IsProject'))
   return l:dirs
 endfunction
 
-function GetLastProjectDir()
+function! GetLastProjectDir()
   return GetProjectDirs()[-1]
 endfunction
 
-function ConstructNewProjectID()
+function! ConstructNewProjectID()
   let l:last_proj_dir = GetLastProjectDir()
   " TODO: rewrite regex for matching id with various length
   " let l:last_proj_id = matchstr(l:last_proj_dir, '^[0-9]\{3}')
@@ -731,7 +782,7 @@ function ConstructNewProjectID()
   return AddLeadingZeroes(l:new_id, len(l:last_proj_id))
 endfunction
 
-function AddLeadingZeroes(string, ...) 
+function! AddLeadingZeroes(string, ...) 
   let l:string = a:string 
   let l:size = get(a:, 1, 3)
   while len(l:string) < l:size 
@@ -740,18 +791,18 @@ function AddLeadingZeroes(string, ...)
   return l:string
 endfunction
 
-function GetTodayDate()
+function! GetTodayDate()
   return strftime("%Y%m%d",localtime())
 endfunction
 
 " Match valid project folder name
-function IsProject(id, dirname)
+function! IsProject(id, dirname)
   " return match(a:dirname, '^[0-9]\{3}_[0-9]\{8}_[a-zA-Z_-]\+$') == 0
   return match(a:dirname, '\v^[0-9]+_[0-9]{8}_[a-zA-Z_-]+$') == 0
 endfunction
 
 " TODO: unify with the SetDBPageName() with an if condition
-function SetProjectDirName()
+function! SetProjectDirName()
   let l:id = ConstructNewProjectID()
   let l:date = GetTodayDate()
   let l:tags = input('Enter tags delimited by dashes: ')
@@ -760,7 +811,7 @@ function SetProjectDirName()
   return l:id.'_'.l:date.'_'.l:tags.'_'.l:name
 endfunction
 
-function SetDBPageName(...) " find a more elegant way for optional argument
+function! SetDBPageName(...) " find a more elegant way for optional argument
   let l:prefix = get(a:, 1, "db")
   let l:tags = input('Enter tags delimited by dashes: ')
   let l:name = input('Enter Database name in camelCase: ')
@@ -769,7 +820,7 @@ function SetDBPageName(...) " find a more elegant way for optional argument
 endfunction
 
 
-function MakeProjectPage()
+function! MakeProjectPage()
   call SetDefPojectsDir()
   call SetProjectIndexFile()
   call SetProjectsMainIndexFile()
@@ -802,7 +853,7 @@ function MakeProjectPage()
   execute('e ' . l:proj_full_path . '.md')
 endfunction
 
-function MakeDBPage()
+function! MakeDBPage()
   let l:current_file_path = expand('%:p')
 
   " Set DB path. 
@@ -823,7 +874,7 @@ function MakeDBPage()
   " OR Paste to default section for a new pages
 endfunction
 
-function LinkConstructor(proj_dir_name, ...)
+function! LinkConstructor(proj_dir_name, ...)
   let l:type = get(a:,1,"proj") " TODO: come up with a more elegant approach
   let l:dob = g:vwp_list.markdown.descr[0]
   let l:dcb = g:vwp_list.markdown.descr[1]
@@ -853,11 +904,11 @@ let g:vwp_list = {
 \}
          
 " Projects and Tasks integration: 
-function s:ReadTodoTxt(path) abort
+function! s:ReadTodoTxt(path) abort
   return readfile(a:path)
 endfunction
 
-function ReadProjTodos(path) abort
+function! ReadProjTodos(path) abort
   " TODO: implement the filter() function
   let l:file_content = readfile(a:path) " =~ '\m^\s*-\[\s\]\s+\zs[.*]+'
   echo l:file_content
@@ -890,5 +941,8 @@ let g:coc_global_extensions = [
   \]
 
 " vim-ledger settings:
-let g:ledger_detailed_first = 1
-au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
+" let g:ledger_detailed_first = 1
+" au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
+
+" Fixes alacrity mouse issues:
+set ttymouse=sgr
