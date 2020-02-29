@@ -216,10 +216,6 @@ export PATH="$PATH:$HOME/.npm/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
-# Custom PATH
-export PATH="$PATH:/mnt/Data/Scripts"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # Filmic blender path
 export OCIO=$HOME/.config/blender/2.79/datafiles/colormanagement/config.ocio
@@ -230,7 +226,7 @@ export W_PREFIXES=$HOME/.PlayOnLinux/wineprefix
 # Variables
 function _get_editor { echo $(which vim) || echo $(which vi) || echo $(which nano)}
 function _get_terminal { echo $(which alacritty) || echo $(which urxvt) || echo $(which tilix) || echo $(which gnome-terminal) || echo $(which xterm)}
-export DEF_TERM=$(_get_terminal)
+export DEF_TERM="$(_get_terminal)"
 export SUDO_EDITOR="$(_get_editor)"
 export EDITOR="$(_get_editor)"
 export GTK_IM_MODULE="xim"
@@ -255,3 +251,5 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 [ -f /home/evgeniy/.config/cani/completions/_cani.zsh ] && source /home/evgeniy/.config/cani/completions/_cani.zsh
 
 source ~/03_Drafts/05_finance/myfinance/.bashrc
+# If exists ~/.exports source this file:
+[ -f ~/.exports ] && source ~/.exports
