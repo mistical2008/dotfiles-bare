@@ -101,7 +101,7 @@ alias addtr="vim '$HOME/03_Drafts/05_finance/myfinance/journal.ledger'"
 alias tinbox="todo.sh ls -(.)"
 alias tweek="todo.sh listpri c"
 alias tlater="todo.sh listpri d"
-
+alias cltmp="ls -ca $HOME/tmp; rm -r $HOME/tmp/*"
 
 ## FUNCTIONS
 # Configurations
