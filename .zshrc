@@ -211,33 +211,6 @@ POWERLEVEL9K_HIDE_BRANCH_ICON=false
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
-# npm to $PATH
-export PATH="$PATH:$HOME/.npm/bin"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
-
-# Filmic blender path
-export OCIO=$HOME/.config/blender/2.79/datafiles/colormanagement/config.ocio
-
-# Wine prefixes
-export W_PREFIXES=$HOME/.PlayOnLinux/wineprefix
-
-# Variables
-function _get_editor { echo $(which vim) || echo $(which vi) || echo $(which nano)}
-function _get_terminal { echo $(which alacritty) || echo $(which urxvt) || echo $(which tilix) || echo $(which gnome-terminal) || echo $(which xterm)}
-export DEF_TERM="$(_get_terminal)"
-export SUDO_EDITOR="$(_get_editor)"
-export EDITOR="$(_get_editor)"
-export GTK_IM_MODULE="xim"
-export MON_PRIMARY=$(xrandr | grep -w "connected primary" | awk '{print $1}')
-export MANPATH="/usr/local/man:$MANPATH"
-# You may need to manually set your language environment
-#export LANG=ru_RU.UTF-8
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
-
 # Aliases from bash
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 
