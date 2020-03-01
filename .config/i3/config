@@ -28,12 +28,12 @@ set $move_scratchpad floating enable, move scratchpad, sticky enable, scratchpad
 ##########################################################################################
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 "primary"
-set $ws2 "media"
-set $ws3 "ref"
-set $ws4 "code"
+set $ws2 "plan"
+set $ws3 "code"
+set $ws4 "browse"
 set $ws5 "conf"
-set $ws6 "chats"
-set $ws7 "plan"
+set $ws6 "media"
+set $ws7 "chat"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -377,12 +377,13 @@ for_window [urgent=latest] focus
 
 # Workspace output assigning
 workspace $ws1 output HDMI1
-workspace $ws2 output eDP1
-workspace $ws3 output eDP1
+workspace $ws2 output HDMI1
+workspace $ws3 output HDMI1
 workspace $ws4 output HDMI1
+workspace $ws5 output HDMI1
 workspace $ws6 output eDP1
-workspace $ws7 output HDMI1
-workspace $ws8 output HDMI1
+workspace $ws7 output eDP1
+workspace $ws10 output HDMI1
 
 # Apps assigning for ws
 assign [class="TelegramDesktop"] $ws6
