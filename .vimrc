@@ -30,6 +30,10 @@ set noswapfile "noswap files
 set hidden "Allow switching buffers without writing to disk
 set cmdheight=2
 
+" Some servers have issues with backup files
+set nobackup
+set nowritebackup
+
 " :vsplit открывает окна справа
 set splitright
 
