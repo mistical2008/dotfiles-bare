@@ -976,9 +976,6 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ 'coc-yank',
   \ 'css-snippets',
-  \ 'jest-snippets',
-  \ 'svg-snippets',
-  \ 'vscode-svelte-snippets',
   \ 'coc-browser',
   \ 'coc-git',
   \ 'coc-diagnostic'
