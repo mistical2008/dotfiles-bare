@@ -987,4 +987,11 @@ let g:coc_global_extensions = [
 " Fixes alacrity mouse issues:
 set ttymouse=sgr
 
+" let reg_save = @@
 
+" let @@ = "Hello!"
+
+" exec "normal! p"
+
+" let @@ = reg_save
+"
