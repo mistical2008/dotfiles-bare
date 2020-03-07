@@ -9,7 +9,7 @@ set guifont=JetBrains\ Mono\ \Regular:h17
 set vb t_vb= " No horrible visual flash on bell
 
 " Search down into subfolders
-set path+=**
+set path+=.,,**
 " Provides tab-completion for all file-related tasks
 set wildmenu
 " set autoread                    " Reload files changed outside vim
@@ -25,6 +25,7 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 set relativenumber
 set mouse=a
+set mousehide
 set noswapfile "noswap files
 set hidden "Allow switching buffers without writing to disk
 set cmdheight=2
@@ -102,7 +103,7 @@ Plug 'dyng/ctrlsf.vim' " An ack.vim alternative mimics Ctrl-Shift-F on Sublime T
 Plug 'tpope/vim-sensible'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'godlygeek/tabular'
 Plug 'ap/vim-css-color'
 " post install (yarn install | npm install) then load plugin only for editing supported files
@@ -128,10 +129,10 @@ Plug 'tpope/vim-commentary' " Toggle comments in various ways.
 " Surround text with quotes, parenthesis, brackets, and more.
 Plug 'tpope/vim-surround'
 Plug 'francoiscabrol/ranger.vim' " Launch Ranger from Vim.
-Plug 'honza/vim-snippets' " vim.snippets
+" Plug 'honza/vim-snippets' " vim.snippets
 Plug 'sakshamgupta05/vim-todo-highlight' " vim todo and fixme highlighting
 Plug 'ryanoasis/vim-devicons' " vim-devicons
-Plug 'Yggdroot/indentLine' " indentline
+" Plug 'Yggdroot/indentLine' " indentline
 Plug 'chazy/dirsettings'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 Plug 'djoshea/vim-autoread' " Autoread files changed outside of vim
@@ -480,10 +481,44 @@ let g:vimwiki_hl_headers = 1
 " Set textwidth for the vimwiki and markdown:
 " autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en,ru
+autocmd BufRead,BufNewFile *.ejs set ft=mason
+
 
 " Vimwiki projects variables:
 let g:vwp_todotxt_root = $HOME . '/03_Drafts/01_tasks'
 
+" Folding
+    " za = toggle current fold
+    " zR = open all folds
+    " zM = close all folds
+    " From https://github.com/sjl/dotfiles/blob/master/vim/.vimrc
+    function! MyFoldText()
+        let line = getline(v:foldstart)
+        let nucolwidth = &fdc + &number * &numberwidth
+        let windowwidth = winwidth(0) - nucolwidth - 3
+        let foldedlinecount = v:foldend - v:foldstart
+        " expand tabs into spaces
+        let onetab = strpart(' ', 0, &tabstop)
+        let line = substitute(line, '\t', onetab, 'g')
+        let line = strpart(line, 0, windowwidth - 2 - len(foldedlinecount))
+        let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+        return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+    endfunction
+    set foldtext=MyFoldText()
+    " Lines with equal indent form a fold
+    set foldmethod=indent
+    " Maximum nesting of folds
+    " Only available when compiled with the +folding feature
+    set foldnestmax=10
+    " All folds are open
+    " Only available when compiled with the +folding feature
+    set nofoldenable
+    " Folds with a higher level will be closed
+    " Only available when compiled with the +folding feature
+    set foldlevel=1
+    " Remove the extrafills --------
+    " Only available when compiled with the +windows and +folding features
+    set fillchars="fold: "
 
 " vim-instant-markdown - Instant Markdown previews from Vim
 " https://github.com/suan/vim-instant-markdown
@@ -534,20 +569,43 @@ augroup END
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
 " ================================= Custom mappings =====================================
+ " ,s
+     " Shortcut for :%s//
+     nnoremap <leader>s :<C-u>%s//<left>
+     vnoremap <leader>s :s//<left>
+
+ " Move lines
+     " Move one line
+     nnoremap <C-S-k> ddkP
+     nnoremap <C-S-j> ddp
+     " Move selected lines
+     " See http://www.vim.org/scripts/script.php?script_id=1590
+     vnoremap <C-S-k> xkP'[V']
+     vnoremap <C-S-j> xp'[V'] " <Esc><Esc>
+
+     " Clear the search highlight in Normal mode
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 " Change dir to the current working file for current window
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Close tab or buffer if no tabs:
-nnoremap <C-W>q :call CloseTabOrBuffer()<CR>
+nnoremap <leader>cc :call CloseTabOrBuffer()<CR>
 
 " Navigate tabs or buffers:
 nnoremap <C-PageUp> :call PrevTabOrBuffer()<CR>
 nnoremap <C-PageDown> :call NexTabOrBuffer()<CR>
 
 " Test mappings:
-nnoremap <C-+> :echo "Hello C-PgUp key"<CR>
+" nnoremap <C-+> :echo "Hello C-PgUp key"<CR>
+
 " Toggle netrw explorer:
 nnoremap <Leader>ex :Lexplore <CR>
+
+ " Navigate with Ctrl>-hjkl in Insert mode
+ inoremap <C-h> <C-o>h
+ inoremap <C-j> <C-o>j
+ inoremap <C-k> <C-o>k
+ inoremap <C-l> <C-o>l
 
 " Remap ;:
 nnoremap ; :
@@ -559,17 +617,6 @@ nmap tj     :tabnext <CR>
 nmap tk     :tabprev <CR>
 nmap te     :Texplore <CR>
 
-" if has('gui_macvim')
-"   nmap <D-1>	:tabn1 <CR>
-"   nmap <D-2>	:tabn2 <CR>
-"   nmap <D-3>	:tabn3 <CR>
-"   nmap <D-4>	:tabn4 <CR>
-"   nmap <D-5>	:tabn5 <CR>
-"   nmap <D-6>	:tabn6 <CR>
-"   nmap <D-7>	:tabn7 <CR>
-"   nmap <D-8>	:tabn8 <CR>
-"   nmap <D-9>	:tabn9 <CR>
-" else
   noremap <A-1> :tabn1<CR>
   noremap <A-2> :tabn2<CR>
   noremap <A-3> :tabn3<CR>
@@ -579,14 +626,6 @@ nmap te     :Texplore <CR>
   noremap <A-7> :tabn7<CR>
   noremap <A-8> :tabn8<CR>
   noremap <A-9> :tabn9<CR>
-" endif
-
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble single lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
 
 "Window navigation"
 nnoremap <C-h> <C-W>h
@@ -937,6 +976,7 @@ let g:coc_global_extensions = [
   \ 'svg-snippets',
   \ 'vscode-svelte-snippets',
   \ 'coc-browser',
+  \ 'coc-git',
   \ 'coc-diagnostic'
   \]
 
@@ -946,3 +986,5 @@ let g:coc_global_extensions = [
 
 " Fixes alacrity mouse issues:
 set ttymouse=sgr
+
+
