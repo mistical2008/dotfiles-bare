@@ -29,6 +29,7 @@ set mousehide
 set noswapfile "noswap files
 set hidden "Allow switching buffers without writing to disk
 set cmdheight=2
+set signcolumn=yes "Always show the signcolumn,
 
 " Some servers have issues with backup files
 set nobackup
@@ -84,8 +85,8 @@ runtime! macros/matchit.vim
 syntax on
 
 " " Make manual folds persistent:
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+" autocmd BufWinLeave *.* mkview
+" autocmd BufWinEnter *.* silent loadview
 
 
 
@@ -98,8 +99,8 @@ endif
 
 call plug#begin()
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'ludovicchabant/vim-gutentags' " Ctags
 Plug 'majutsushi/tagbar'  " Build tags based on ctags
 Plug 'mtscout6/vim-tagbar-css' " Add css support to tagbar
@@ -109,11 +110,11 @@ Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'sheerun/vim-polyglot'
 Plug 'godlygeek/tabular'
-Plug 'ap/vim-css-color'
+" Plug 'ap/vim-css-color'
 " post install (yarn install | npm install) then load plugin only for editing supported files
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" Plug 'prettier/vim-prettier', {
+  " \ 'do': 'yarn install',
+  " \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'SirVer/ultisnips'
@@ -133,7 +134,7 @@ Plug 'tpope/vim-commentary' " Toggle comments in various ways.
 " Surround text with quotes, parenthesis, brackets, and more.
 Plug 'tpope/vim-surround'
 Plug 'francoiscabrol/ranger.vim' " Launch Ranger from Vim.
-" Plug 'honza/vim-snippets' " vim.snippets
+Plug 'honza/vim-snippets' " vim.snippets
 Plug 'sakshamgupta05/vim-todo-highlight' " vim todo and fixme highlighting
 Plug 'ryanoasis/vim-devicons' " vim-devicons
 " Plug 'Yggdroot/indentLine' " indentline
@@ -147,6 +148,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lyokha/vim-xkbswitch'
 Plug 'dbeniamine/cheat.sh-vim'
 call plug#end()
+
 
 " Move up/down editor lines
 nnoremap j gj
@@ -181,31 +183,32 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
 set t_Co=256
-set background=dark
-let g:hybrid_termcolors=256
-let g:hybrid_termtrans=1
 colorscheme gruvbox
+set background=dark
+" let g:hybrid_termcolors=256
+" let g:hybrid_termtrans=1
 " Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
 let g:gruvbox_contrast_light='medium'
-hi Normal ctermbg=none
+set termguicolors
+" hi Normal ctermbg=none
 set cursorline
 " hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
 
 " ============================= Airline =======================================
-let g:airline_theme = 'solarized_flood'  " Nord color scheme for the status bar
-let g:airline_inactive_collapse = 1    " Collapse status bar for inactive windows
-let g:airline_powerline_fonts = 1      " Use Powerline font for special symbols
-set noshowmode                         " Disable default status bar
-set laststatus=2                       " Always show status bar
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" let g:airline_theme = 'solarized_flood'  " Nord color scheme for the status bar
+" let g:airline_inactive_collapse = 1    " Collapse status bar for inactive windows
+" let g:airline_powerline_fonts = 1      " Use Powerline font for special symbols
+" set noshowmode                         " Disable default status bar
+" set laststatus=2                       " Always show status bar
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " Extensions used:
 "   Branch    - Show the current git branch
 "   Tabline   - Enable top bar to show tabs and buffers
 "   Syntastic - Show errors and warnings from Syntastic on the status bar
 "   Tagbar    - Show the current function on the status bar
-let g:airline_extensions = ['branch', 'tabline',]
+" let g:airline_extensions = ['branch', 'tabline',]
 " Label the tabs/buffers which allows for the tab navigation commands
-let g:airline#extensions#tabline#buffer_idx_mode = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " Add support for powerline fonts
 if !exists('g:airline_symbols')
@@ -380,12 +383,12 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionSync('doHover')
   endif
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -395,13 +398,13 @@ xmap <leader>cf  <Plug>(coc-format-selected)
 nmap <leader>cf  <Plug>(coc-format-selected)
 
 " Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocActionSync('format')
 
 " Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold :call CocActionSync('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR :call CocActionSync('runCommand', 'editor.action.organizeImport')
 
 " " Add status line support, for integration with other plugin, checkout `:h coc-status`
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
@@ -411,6 +414,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Open explorer
+nnoremap <silent> <space>ex  :<C-u>CocCommand explorer<cr>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
@@ -536,15 +541,7 @@ let g:limelight_conceal_guifg = '#eee999'
 
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
-" autocmd User GoyoLeave GoyoAfter()
-" function! GoyoAfter()
-"   Limelight!
-"   set background = dark
-"   colorscheme gruvbox
-" endfunction
 autocmd User GoyoLeave Limelight!
-" autocmd! User GoyoLeave Limelight! | source $MYVIMRC
-" autocmd! User GoyoLeave source $MYVIMRC | Limelight!
 
 " Limelight mappings
 nmap <Leader>ll <Plug>(Limelight)
@@ -564,10 +561,10 @@ let g:netrw_liststyle = 3    " tree view
 let g:netrw_winsize = 25     " windowsize
 let g:netrw_list_hide = netrw_gitignore#Hide()
 let g:netrw_list_hide .= ',\(^\|\s\s\)\zs\.\S\+'
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Vexplore
-augroup END
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :CocCommand explorer
+" augroup END
 
 " =============================== Editorconfig ============================
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
@@ -579,13 +576,13 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
      vnoremap <leader>s :s//<left>
 
  " Move lines
-     " Move one line
-     nnoremap <C-S-k> ddkP
-     nnoremap <C-S-j> ddp
-     " Move selected lines
-     " See http://www.vim.org/scripts/script.php?script_id=1590
-     vnoremap <C-S-k> xkP'[V']
-     vnoremap <C-S-j> xp'[V'] " <Esc><Esc>
+     " " Move one line
+     " nnoremap <C-S-k> ddkP
+     " nnoremap <C-S-j> ddp
+     " " Move selected lines
+     " " See http://www.vim.org/scripts/script.php?script_id=1590
+     " vnoremap <C-S-k> xkP'[V']
+     " vnoremap <C-S-j> xp'[V'] " <Esc><Esc>
 
      " Clear the search highlight in Normal mode
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
@@ -975,7 +972,6 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-yaml',
   \ 'coc-yank',
-  \ 'css-snippets',
   \ 'coc-browser',
   \ 'coc-git',
   \ 'coc-diagnostic'
@@ -998,13 +994,13 @@ set ttymouse=sgr
 
 
 " Safely change work dir to current file pwd:
-let s:default_path = escape(&path, '\ ') " store default value of 'path'
+" let s:default_path = escape(&path, '\ ') " store default value of 'path'
 
-" Always add the current file's directory to the path and tags list if not
-" already there. Add it to the beginning to speed up searches.
-autocmd BufRead *
-      \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
-      \ exec "set path-=".s:tempPath |
-      \ exec "set path-=".s:default_path |
-      \ exec "set path^=".s:tempPath |
-      \ exec "set path^=".s:default_path
+" " Always add the current file's directory to the path and tags list if not
+" " already there. Add it to the beginning to speed up searches.
+" autocmd BufRead *
+"       \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
+"       \ exec "set path-=".s:tempPath |
+"       \ exec "set path-=".s:default_path |
+"       \ exec "set path^=".s:tempPath |
+"       \ exec "set path^=".s:default_path
