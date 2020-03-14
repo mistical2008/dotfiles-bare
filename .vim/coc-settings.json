@@ -1,0 +1,16 @@
+{
+"html.validate.html": true,
+"html.validate.scripts": true,
+"html.validate.styles": true,
+"git.enableGutters": true,
+"coc.preferences.formatOnSaveFiletypes": [
+  "scss",
+  "css",
+  "javascript",
+  "vim",
+  "tex",
+  "html",
+  "Markdown",
+  "python"
+]
+}
