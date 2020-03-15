@@ -53,6 +53,7 @@ alias setwac-run='~/.config/xsetwacom-gnome-symbiotic/setup.sh'
 alias zup=". ~/.zshrc"
 # alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias b='buku --suggest'
+alias toutf8="find . -name '*.txt' -exec iconv --verbose -f cp1251 -t utf-8 -o {} {} \;"
 
 # Configs
 alias sudolist='sudo /usr/sbin/visudo'
