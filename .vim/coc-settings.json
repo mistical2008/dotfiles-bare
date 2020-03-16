@@ -12,5 +12,7 @@
   "html",
   "Markdown",
   "python"
-]
+],
+"prettier.eslintIntegration": true,
+"prettier.stylelintIntegration": true
 }

@@ -99,8 +99,8 @@ endif
 
 call plug#begin()
 Plug 'tpope/vim-fugitive'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'ludovicchabant/vim-gutentags' " Ctags
 Plug 'majutsushi/tagbar'  " Build tags based on ctags
 Plug 'mtscout6/vim-tagbar-css' " Add css support to tagbar
@@ -110,12 +110,9 @@ Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'sheerun/vim-polyglot'
 Plug 'godlygeek/tabular'
-" Plug 'ap/vim-css-color'
-" post install (yarn install | npm install) then load plugin only for editing supported files
 " Plug 'prettier/vim-prettier', {
   " \ 'do': 'yarn install',
   " \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-" Plug 'neoclide/coc.nvim', {'branch': 'release', 'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'SirVer/ultisnips'
 " Markdown
@@ -388,7 +385,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-" autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -398,13 +395,16 @@ xmap <leader>cf  <Plug>(coc-format-selected)
 nmap <leader>cf  <Plug>(coc-format-selected)
 
 " Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocActionSync('format')
+command! -nargs=0 Format :call CocActionAsync('format')
+
+" Use `:Refactor` for refactoring window for current symbos
+command! -nargs=0 Refactor :call CocActionAsync('refactor')
 
 " Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call CocActionSync('fold', <f-args>)
+command! -nargs=? Fold :call CocActionAsync('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
-command! -nargs=0 OR :call CocActionSync('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
 " " Add status line support, for integration with other plugin, checkout `:h coc-status`
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
@@ -412,6 +412,8 @@ command! -nargs=0 OR :call CocActionSync('runCommand', 'editor.action.organizeIm
 " Using CocList
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Open refactor window for symbol under cursor:
+nnoremap <silent> <space>r :Refactor<cr>
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Open explorer
@@ -513,6 +515,7 @@ let g:vwp_todotxt_root = $HOME . '/03_Drafts/01_tasks'
         let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
         return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
     endfunction
+
     set foldtext=MyFoldText()
     " Lines with equal indent form a fold
     set foldmethod=indent
@@ -542,6 +545,7 @@ let g:limelight_conceal_guifg = '#eee999'
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
 autocmd User GoyoLeave Limelight!
+nnoremap <Leader>GG :Goyo<CR>
 
 " Limelight mappings
 nmap <Leader>ll <Plug>(Limelight)
@@ -572,10 +576,12 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 " ================================= Custom mappings =====================================
  " ,s
      " Shortcut for :%s//
-     nnoremap <leader>s :<C-u>%s//<left>
-     vnoremap <leader>s :s//<left>
+     nnoremap <leader>s :<C-u>%s/\v/<left>
+     vnoremap <leader>s :s/\v/<left>
+     nnoremap <leader>ss :<C-u>%s/\v//gc<left><left><left><left>
+     vnoremap <leader>ss :s/\v//gc<left><left><left><left>
 
- " Move lines
+ " Move lnies
      " " Move one line
      " nnoremap <C-S-k> ddkP
      " nnoremap <C-S-j> ddp
@@ -590,7 +596,7 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Close tab or buffer if no tabs:
-nnoremap <leader>cc :call CloseTabOrBuffer()<CR>
+nnoremap <leader>C :call CloseTabOrBuffer()<CR>
 
 " Navigate tabs or buffers:
 nnoremap <C-PageUp> :call PrevTabOrBuffer()<CR>
@@ -1004,3 +1010,18 @@ set ttymouse=sgr
 "       \ exec "set path-=".s:default_path |
 "       \ exec "set path^=".s:tempPath |
 "       \ exec "set path^=".s:default_path
+"
+" CtrlSF set default root for searches:
+let g:ctrlsf_default_root = 'project+fw'
+" Set regex by default:
+let g:ctrlsf_regex_pattern = 1
+
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+
