@@ -31,6 +31,7 @@ zplug "plugins/archlinux", from:oh-my-zsh, lazy:true
 zplug "plugins/docker", from:oh-my-zsh, lazy:true
 zplug "plugins/docker-compose", from:oh-my-zsh, lazy:true
 zplug "plugins/gulp", from:oh-my-zsh, lazy:true
+zplug "plugins/heroku", from:oh-my-zsh, lazy:true
 # zplug "plugins/z.sh", from:oh-my-zsh, lazy:true
 # enhanced zsh vim mode
 zplug "softmoth/zsh-vim-mode", lazy:true
@@ -226,3 +227,25 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 source ~/03_Drafts/05_finance/myfinance/.bashrc
 # If exists ~/.exports source this file:
 [ -f ~/.exports ] && source ~/.exports
+
+# place this after nvm initialization!
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
