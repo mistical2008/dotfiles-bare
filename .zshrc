@@ -1,3 +1,6 @@
+# Time meter (uncomment last and firs lines)
+zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -6,44 +9,62 @@ export TERM="rxvt-unicode-256color"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# source zplug
-export ZPLUG_LOG_LOAD_SUCCESS="false"
-export ZPLUG_LOG_LOAD_FAILURE="false"
-source /usr/share/zsh/scripts/zplug/init.zsh
-export ZPLUG_HOME="/usr/share/zsh/scripts/zplug"
-# zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 bindkey -v
 
+#====================== Plugins: ==============================
+
+
+
+# source zplug
+# export ZPLUG_LOG_LOAD_SUCCESS="true"
+# export ZPLUG_LOG_LOAD_FAILURE="false"
+# source /usr/share/zsh/scripts/zplug/init.zsh
+# export ZPLUG_HOME="/usr/share/zsh/scripts/zplug"
+# zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
 HIST_STAMPS="mm/dd/yyyy" # variable used in oh-my-zsh/lib/history.zsh
-zplug "robbyrussell/oh-my-zsh", use:"$ZSH/lib/{clipboard,completion,directories,history,termsupport,key-bindings,nvm,grep}.zsh"
-zplug "plugins/git", from:oh-my-zsh, lazy:true
-zplug "plugins/npm", from:oh-my-zsh, lazy:true
-zplug "plugins/node", from:oh-my-zsh, lazy:true
-zplug "plugins/yarn", from:oh-my-zsh, lazy:true
-zplug "plugins/pip", from:oh-my-zsh, lazy:true
-zplug "plugins/colored-man-pages", from:oh-my-zsh, lazy:true
-zplug "plugins/extract", from:oh-my-zsh, lazy:true
-zplug "plugins/tmux", from:oh-my-zsh, lazy:true
-zplug "plugins/vscode", from:oh-my-zsh, lazy:true
-zplug "plugins/github", from:oh-my-zsh, lazy:true
-zplug "plugins/gitignore", from:oh-my-zsh, lazy:true
-zplug "plugins/archlinux", from:oh-my-zsh, lazy:true
-zplug "plugins/docker", from:oh-my-zsh, lazy:true
-zplug "plugins/docker-compose", from:oh-my-zsh, lazy:true
-zplug "plugins/gulp", from:oh-my-zsh, lazy:true
-zplug "plugins/heroku", from:oh-my-zsh, lazy:true
-# zplug "plugins/z.sh", from:oh-my-zsh, lazy:true
-# enhanced zsh vim mode
-zplug "softmoth/zsh-vim-mode", lazy:true
-zplug "skywind3000/z.lua"
+# zplug "$ZSH", from:local, use:"$ZSH/lib/{clipboard,git,history,termsupport,history,termsupport,key-bindings,nvm,grep}.zsh"
+# zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/npm", from:oh-my-zsh, if:"(( $+commands[git] ))"
+# zplug "plugins/systemadmin", from:oh-my-zsh, if:"(( $+commands[git] ))"
+# zplug "plugins/node", from:oh-my-zsh, if:"(( $+commands[git] ))"
+# zplug "plugins/yarn", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/pip", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/colored-man-pages", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/extract", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/tmux", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/vscode", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/github", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/gitignore", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/archlinux", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/docker", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/docker-compose", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/gulp", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# zplug "plugins/heroku", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+# # zplug "plugins/z.sh", from:oh-my-zsh, if:"(( $+commands[git] ))", lazy:true
+
+# # enhanced zsh vim mode
+# zplug "softmoth/zsh-vim-mode", lazy:true
+# zplug "skywind3000/z.lua"
+
+# Install plugins if there are plugins that have not been installed
+# if ! zplug check --verbose; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
+
+# Then, source plugins and add commands to $PATH
+# zplug load --verbose
 
 # vi-mode settings:
-MODE_INDICATOR_VIINS='%F{15}<%F{8}INSERT<%f'
-MODE_INDICATOR_VICMD='%F{10}<%F{2}NORMAL<%f'
-MODE_INDICATOR_REPLACE='%F{9}<%F{1}REPLACE<%f'
-MODE_INDICATOR_SEARCH='%F{13}<%F{5}SEARCH<%f'
-MODE_INDICATOR_VISUAL='%F{12}<%F{4}VISUAL<%f'
-MODE_INDICATOR_VLINE='%F{12}<%F{4}V-LINE<%f'
+# MODE_INDICATOR_VIINS='%F{15}<%F{8}INSERT<%f'
+# MODE_INDICATOR_VICMD='%F{10}<%F{2}NORMAL<%f'
+# MODE_INDICATOR_REPLACE='%F{9}<%F{1}REPLACE<%f'
+# MODE_INDICATOR_SEARCH='%F{13}<%F{5}SEARCH<%f'
+# MODE_INDICATOR_VISUAL='%F{12}<%F{4}VISUAL<%f'
+# MODE_INDICATOR_VLINE='%F{12}<%F{4}V-LINE<%f'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -51,7 +72,7 @@ MODE_INDICATOR_VLINE='%F{12}<%F{4}V-LINE<%f'
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 # ZSH_THEME="muse"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -189,32 +210,37 @@ source $HOME/.cache/wal/colors.sh
 # alias ohmyzsh="mate $HOME/.oh-my-zsh"
 
 #Powerlevel9K Settings
-POWERLEVEL9K_MODE="nerdfont-complete"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(nvm time)
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="020"
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_TIME_BACKGROUND="black"
-POWERLEVEL9K_TIME_FOREGROUND="249"
-POWERLEVEL9K_DIR_BACKGROUND="046"
-POWERLEVEL9K_DIR_FOREGROUND="006"
-POWERLEVEL9K_VCS_BACKGROUND="black"
-POWERLEVEL9K_VCS_FOREGROUND="010"
-POWERLEVEL9K_STATUS_BACKGROUND="black"
-POWERLEVEL9K_STATUS_FOREGROUND="009"
-POWERLEVEL9K_DIR_WRITABLE_BACKGROUND="black"
-POWERLEVEL9K_DIR_WRITABLE_FOREGROUND="009"
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_COLOR_SCHEME='dark'
-POWERLEVEL9K_HIDE_BRANCH_ICON=false
+# POWERLEVEL9K_MODE="nerdfont-complete"
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir dir_writable vcs)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(nvm time)
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+# POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="020"
+# POWERLEVEL9K_STATUS_VERBOSE=false
+# POWERLEVEL9K_TIME_BACKGROUND="black"
+# POWERLEVEL9K_TIME_FOREGROUND="249"
+# POWERLEVEL9K_DIR_BACKGROUND="046"
+# POWERLEVEL9K_DIR_FOREGROUND="006"
+# POWERLEVEL9K_VCS_BACKGROUND="black"
+# POWERLEVEL9K_VCS_FOREGROUND="010"
+# POWERLEVEL9K_STATUS_BACKGROUND="black"
+# POWERLEVEL9K_STATUS_FOREGROUND="009"
+# POWERLEVEL9K_DIR_WRITABLE_BACKGROUND="black"
+# POWERLEVEL9K_DIR_WRITABLE_FOREGROUND="009"
+# POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
+# POWERLEVEL9K_COLOR_SCHEME='dark'
+# POWERLEVEL9K_HIDE_BRANCH_ICON=false
 
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 # Aliases from bash
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 
+[ -f $HOME/.oh-my-zsh/plugins/gitignore/gitignore.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/gitignore/gitignore.plugin.zsh
+[ -f $HOME/.oh-my-zsh/plugins/node/node.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/node/node.plugin.zsh
+[ -f $HOME/.oh-my-zsh/plugins/rsync/rsync.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/rsync/rsync.plugin.zsh
+[ -f $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep ] && source $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep
+#
 # Point out to z.sh
 # [ -f /media/Scripts/z.sh ] && source /media/Scripts/z.sh
 
@@ -249,3 +275,6 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# Time meter (uncomment last and firs lines)
+# zprof
