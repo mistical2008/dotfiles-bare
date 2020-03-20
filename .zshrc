@@ -1,5 +1,5 @@
 # Time meter (uncomment last and firs lines)
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -14,13 +14,6 @@ bindkey -v
 #====================== Plugins: ==============================
 
 
-
-# source zplug
-# export ZPLUG_LOG_LOAD_SUCCESS="true"
-# export ZPLUG_LOG_LOAD_FAILURE="false"
-# source /usr/share/zsh/scripts/zplug/init.zsh
-# export ZPLUG_HOME="/usr/share/zsh/scripts/zplug"
-# zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 HIST_STAMPS="mm/dd/yyyy" # variable used in oh-my-zsh/lib/history.zsh
 # zplug "$ZSH", from:local, use:"$ZSH/lib/{clipboard,git,history,termsupport,history,termsupport,key-bindings,nvm,grep}.zsh"
@@ -47,24 +40,13 @@ HIST_STAMPS="mm/dd/yyyy" # variable used in oh-my-zsh/lib/history.zsh
 # zplug "softmoth/zsh-vim-mode", lazy:true
 # zplug "skywind3000/z.lua"
 
-# Install plugins if there are plugins that have not been installed
-# if ! zplug check --verbose; then
-#     printf "Install? [y/N]: "
-#     if read -q; then
-#         echo; zplug install
-#     fi
-# fi
-
-# Then, source plugins and add commands to $PATH
-# zplug load --verbose
-
 # vi-mode settings:
-# MODE_INDICATOR_VIINS='%F{15}<%F{8}INSERT<%f'
-# MODE_INDICATOR_VICMD='%F{10}<%F{2}NORMAL<%f'
-# MODE_INDICATOR_REPLACE='%F{9}<%F{1}REPLACE<%f'
-# MODE_INDICATOR_SEARCH='%F{13}<%F{5}SEARCH<%f'
-# MODE_INDICATOR_VISUAL='%F{12}<%F{4}VISUAL<%f'
-# MODE_INDICATOR_VLINE='%F{12}<%F{4}V-LINE<%f'
+MODE_INDICATOR_VIINS='%F{15}<%F{8}INSERT<%f'
+MODE_INDICATOR_VICMD='%F{10}<%F{2}NORMAL<%f'
+MODE_INDICATOR_REPLACE='%F{9}<%F{1}REPLACE<%f'
+MODE_INDICATOR_SEARCH='%F{13}<%F{5}SEARCH<%f'
+MODE_INDICATOR_VISUAL='%F{12}<%F{4}VISUAL<%f'
+MODE_INDICATOR_VLINE='%F{12}<%F{4}V-LINE<%f'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
