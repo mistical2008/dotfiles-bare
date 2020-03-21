@@ -23,7 +23,7 @@ XTerm*faceName: Fixed
 XTerm*faceSize: 11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
-XTerm*termName: screen-256color
+/* XTerm*termName: screen-256color */
 xterm*metaSendsEscape: true
 
 !##### THIS FILE IS BEING CURRENTLY MANAGED BY URXVTCONFIG #####
