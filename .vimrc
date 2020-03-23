@@ -574,6 +574,9 @@ let g:netrw_list_hide .= ',\(^\|\s\s\)\zs\.\S\+'
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
 " ================================= Custom mappings =====================================
+" Source current file. Usefull for testing custom plugins
+nnoremap <Leader>sop :source %<CR>
+
  " ,s
      " Shortcut for :%s//
      nnoremap <leader>s :<C-u>%s/\v/<left>
