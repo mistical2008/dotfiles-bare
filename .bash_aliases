@@ -111,7 +111,7 @@ conf() {
   ctags) vim $HOME/.ctags.d/cfg.2.ctags && dfa $HOME/.ctags.d/cfg.2.ctags && dfcm "ctags autocommit" && dfp ;;
   wacom) sudoedit $HOME/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
   tuijam) vim $HOME/.config/tuijam/config.yaml && dfa $HOME/.config/tuijam/config.yaml && dfcm "tuijam autocommit" && dfp;;
-  esp) vim $HOME/.config/espanso && dfa $HOME/.config/espanso && dfcm "Espanso autocommit" && dfp ;;
+  esp) vim $HOME/.config/espanso/default.yml && dfa $HOME/.config/espanso/default.yml && dfcm "Espanso autocommit" && dfp ;;
   intel) sudoedit /etc/X11/mhwd.d/intel.conf ;;
   vim) vim $HOME/.vimrc && dfa $HOME/.vimrc && dfcm "Updated .vimrc" && dfp ;;
   mutt) vim $HOME/.muttrc && dfa $HOME/.muttrc && dfcm "Updated .vimrc" && dfp ;;
