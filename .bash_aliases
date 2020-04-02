@@ -54,6 +54,7 @@ alias zup=". ~/.zshrc"
 # alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias b='buku --suggest'
 alias toutf8="find . -name '*.txt' -exec iconv --verbose -f cp1251 -t utf-8 -o {} {} \;"
+alias nnn_upd_plugs="curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh"
 
 # Configs
 alias sudolist='sudo /usr/sbin/visudo'
