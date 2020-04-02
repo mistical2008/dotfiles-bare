@@ -19,10 +19,13 @@ function _get_editor { echo $(which vim) || echo $(which vi) || echo $(which nan
 function _get_terminal { echo $(which alacritty) || echo $(which urxvt) || echo $(which tilix) || echo $(which gnome-terminal) || echo $(which xterm)}
 export DEF_TERM="$(_get_terminal)"
 export SUDO_EDITOR="$(_get_editor)"
+export VISUAL="$(_get_editor)"
 export EDITOR="$(_get_editor)"
 export GTK_IM_MODULE="xim"
 export MON_PRIMARY=$(xrandr | grep -w "connected primary" | awk '{print $1}')
 export MANPATH="/usr/local/man:$MANPATH"
+export TERMINAL="tilix"
+export BROWSER="firefox"
 
 # You may need to manually set your language environment
 #export LANG=ru_RU.UTF-8
@@ -31,3 +34,6 @@ export LANG=en_US.UTF-8
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 export CYLONDEST="$HOME/tmp"
 # export TERM=screen-256color
+
+# NNN settings:
+export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb;u:getplugs;i:-imgview;k:kdekonnect;mi:-mediainfo'
