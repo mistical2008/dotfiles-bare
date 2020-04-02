@@ -147,6 +147,7 @@ conf() {
   gtk2) vim $HOME/.gtkrc-2.0 ;;
   gtk3) vim $HOME/.config/gtk-3.0/settings.ini ;;
   zsh) vim $HOME/.zshrc && source $HOME/.zshrc && dfa $HOME/.zshrc && dfcm "Updated the zshrc" && dfp ;;
+  exp) vim $HOME/.exports && source $HOME/.exports && dfa $HOME/.exports && dfcm "Updated the .exports" && dfp ;;
   hosts) sudoedit /etc/hosts ;;
   vhosts) sudoedit /etc/httpd/conf/extra/httpd-vhosts.conf ;;
   httpd) sudoedit /etc/httpd/conf/httpd.conf ;;
