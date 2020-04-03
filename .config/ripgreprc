@@ -1,0 +1,16 @@
+
+$ cat $HOME/.ripgreprc
+# Don't let ripgrep vomit really long lines to my terminal, and show a preview.
+--max-columns=150
+--max-columns-preview
+
+# Add my 'web' type.
+--type-add
+web:*.{html,css,js}*
+doc:*.{pdf,txt,md,rst}*
+
+# Using glob patterns to include/exclude files or folders
+--glob=!git/*
+
+# Because who cares about case!?
+--smart-case
