@@ -36,7 +36,7 @@ export CYLONDEST="$HOME/tmp"
 # export TERM=screen-256color
 
 # NNN settings:
-export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb;u:getplugs;i:-imgview;k:kdekonnect;p:-mediainfo'
+export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb;u:getplugs;i:-imgview;k:kdekonnect;d:-mediainfo'
 
 # RipGrep settings path:
 RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
