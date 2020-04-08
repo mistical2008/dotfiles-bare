@@ -1,5 +1,5 @@
 scriptencoding utf-8
-set encoding=utf-8
+" set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 " Don't try to be vi compatible
@@ -14,10 +14,13 @@ set path+=.,,**
 set wildmenu
 " set autoread                    " Reload files changed outside vim
 " au CursorHold * checktime       " check one time after 4s of inactivity in normal mode
+set shell=/usr/bin/zsh
 
 set clipboard=unnamedplus       " Use system clipboard as default register
 
 " Helps force plugins to load correctly when it is turned back on below
+set fileformat=unix
+set fileformats=unix,dos
 filetype off
 filetype plugin indent on
 filetype plugin on
@@ -105,7 +108,7 @@ Plug 'ludovicchabant/vim-gutentags' " Ctags
 Plug 'majutsushi/tagbar'  " Build tags based on ctags
 Plug 'mtscout6/vim-tagbar-css' " Add css support to tagbar
 Plug 'dyng/ctrlsf.vim' " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text
-Plug 'tpope/vim-sensible'
+" Plug 'tpope/vim-sensible'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'sheerun/vim-polyglot'
@@ -144,8 +147,11 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lyokha/vim-xkbswitch'
 Plug 'dbeniamine/cheat.sh-vim'
+" Plug 'kkoomen/vim-doge'  " https://vimawesome.com/plugin/doge#table-of-contents
 call plug#end()
 
+" " Gundo settings:
+" g:gundo_prefer_python3=1
 
 " Move up/down editor lines
 nnoremap j gj
@@ -335,9 +341,13 @@ nnoremap <Leader>fb :Buffers<CR>
 nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>fc :Commands<CR>
 nnoremap <Leader>fm :Maps<CR>
+nnoremap <Leader>fr :CtrlPMRUFiles<CR>
+nnoremap <Leader>fu :CtrlPUndo<CR>
 
 nnoremap <Leader>t :BTags<CR>
 nnoremap <Leader>T :Tags<CR>
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " Store undo history in a file for persistent undo
 if has('persistent_undo')
@@ -351,6 +361,13 @@ packloadall
 silent! helptags ALL
 
 " ================================ Coc-snippets ===========================
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -372,6 +389,16 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -430,7 +457,8 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
+" Coc-yank list
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 " ================================== Vimwiki ===============================
 " Main:
 let wiki_main = {}
@@ -531,6 +559,8 @@ let g:vwp_todotxt_root = $HOME . '/03_Drafts/01_tasks'
     " Remove the extrafills --------
     " Only available when compiled with the +windows and +folding features
     set fillchars="fold: "
+    " space open/closes folds
+    nnoremap <space> za
 
 " vim-instant-markdown - Instant Markdown previews from Vim
 " https://github.com/suan/vim-instant-markdown
@@ -649,7 +679,7 @@ nnoremap <Leader>ev :tabnew $MYVIMRC <CR>
 nnoremap <Leader>sv :so $MYVIMRC <CR>
 
 " Open shrinked bottom terminal
-nnoremap <Leader>bt :ter <CR> <C-w>20-
+nnoremap <Leader>bt :ter ++rows=10<CR>
 " nnoremap <Leader>bt +10sp +ter<CR>
 
 " Call Synt() for changing syntax
@@ -1028,3 +1058,48 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
+" =======================================
+" Custom vim functions:
+" ======================================
+" Comment Block:
+" TODO: Rewrite with dict as arguments storage
+function CommentBlock(comment, ...)
+  let introducer = a:0 >= 1 ? a:1 : "//"
+  let box_char = a:0 >= 2 ? a:2 : "*"
+  let width = a:0 >= 3 ? a:3 : strlen(a:comment) + 10
+  let indent = ( width / 2 ) - ( strlen(a:comment) / 2)
+
+  " Build the comment box and put the comment inside it...
+  return introducer . repeat(box_char, width) . "\<CR>"
+  \ .    introducer . repeat(" ", indent) . a:comment         . "\<CR>"
+  \ .    introducer . repeat(box_char, width) . "\<CR>"
+endfunction
+
+imap <silent> /// <C-R>=CommentBlock(input("Enter comment: "), "//", "=", 80)<CR>
+imap <silent> ### <C-R>=CommentBlock(input("Enter comment: "), "#", "=", 80)<CR>
+imap <silent> """ <C-R>=CommentBlock(input("Enter comment: "), "\"", "=", 80)<CR>
+
+" Highlight column more then 80 cols:
+highlight ColorColumn ctermbg=235
+call matchadd('ColorColumn', '\%81v', 100)
+" set colorcolumn=81
+
+" Blink cursor on next search result:
+function HLNext(blinktime)
+  let [bufnum, lnum, col, off] = getpos('.')
+  let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+  let target_pat = '\c\%#'.@/
+  let blinks = 1
+  for n in range(1, blinks)
+    let l:hlt = matchadd('DiffChange', target_pat, 101)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime / (2 * blinks) * 1000) . 'm'
+    call matchdelete(l:hlt)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime / (2 * blinks) * 1000) . 'm'
+  endfor
+endfunction
+
+nnoremap <silent> n n:call HLNext(0.4)<CR>
+nnoremap <silent> N N:call HLNext(0.4)<CR>
+" vim:foldmethod=marker:foldlevel=0
