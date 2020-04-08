@@ -227,10 +227,10 @@ vicd()
     cd "$dst"
 }
 
-# zshexit() {
-#         if [[ -n $VIFM_SERVER_NAME ]] {
-#                 vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd \"$PWD\""
-#         }
-# }
+zshexit() {
+        if [[ -n $VIFM_SERVER_NAME ]] {
+                vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd \"$PWD\""
+        }
+}
 
 
