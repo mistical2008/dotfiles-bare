@@ -19,8 +19,10 @@ focus_follows_mouse no
 ##########################################################################################
 ###                              Window rules variables                               ###
 #########################################################################################
+# Variables:{{{
 set $center move position center
 set $move_scratchpad floating enable, move scratchpad, sticky enable, scratchpad show
+# }}}
 
 
 ##########################################################################################
@@ -312,6 +314,7 @@ exec --no-startup-id "copyq &"
 exec --no-startup-id "albert &"
 exec --no-startup-id "/usr/lib/geoclue-2.0/demos/agent &"
 exec --no-startup-id "redshift-gtk &"
+exec --no-startup-id "qbittorrent &"
 
 # WINDOWS RULES
 for_window [class="^.*"] border pixel 4
@@ -390,3 +393,5 @@ workspace $ws10 output HDMI1
 assign [class="TelegramDesktop"] $ws7
 assign [class="Google Play Music Desktop Player"] $ws6
 assign [title="*tuijam"] $ws6
+
+# vim:foldmethod=marker:foldlevel=0
