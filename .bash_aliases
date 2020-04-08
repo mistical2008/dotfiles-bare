@@ -52,6 +52,7 @@ alias zup=". ~/.zshrc"
 alias b='buku --suggest'
 # alias toutf8="find . -name '*.txt' -exec iconv --verbose -f cp1251 -t utf-8 -o {} {} \;"
 alias nnn_upd_plugs="curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh"
+alias vifm="vifmrun"
 
 # Configs
 alias sudolist='sudo /usr/sbin/visudo'
@@ -214,3 +215,22 @@ n ()
             rm -f "$NNN_TMPFILE" > /dev/null
     fi
 }
+
+# Vifm: set shell working directory after leaving Vifm
+vicd()
+{
+    local dst="$(command vifm --choose-dir - "$@")"
+    if [ -z "$dst" ]; then
+        echo 'Directory picking cancelled/failed'
+        return 1
+    fi
+    cd "$dst"
+}
+
+zshexit() {
+        if [[ -n $VIFM_SERVER_NAME ]] {
+                vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd \"$PWD\""
+        }
+}
+
+
