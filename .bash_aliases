@@ -128,6 +128,7 @@ conf() {
   maid) vim $HOME/.maid/rules.rb && dfa $HOME/.maid/rules.rb && dfcm "Updated the maid config" && dfp ;;
   todo) vim $HOME/.config/todo/config && dfa $HOME/.config/todo/config && dfcm "Updated the todo.txt config" && dfp ;;
   ranger) vim $HOME/.config/ranger/rc.conf && dfa $HOME/.config/ranger/rc.conf && dfcm "Updated the ranger config" && dfp ;;
+  vifm) vim $HOME/.config/vifm/vifmrc && dfa $HOME/.config/vifm/vifmrc && dfcm "Updated the vifm config" && dfp ;;
   compton) vim $HOME/.config/i3/compton.conf && dfa $HOME/.config/i3/compton.conf && dfcm "Updated the compton.conf" && dfp ;;
   polybar) vim $HOME/.config/i3/polybar.conf && dfa $HOME/.config/i3/polybar.conf && dfcm "Updated the polybar.conf" && dfp ;;
   dunst) vim $HOME/.config/dunst/dunstrc && dfa $HOME/.config/dunst/dunstrc && dfcm "Updated the dunstrc" && dfp ;;
