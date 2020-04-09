@@ -522,10 +522,10 @@ nnoremap <f8> :delete<cr>
 "================================================================================
 
 " Custom coomands:
-command link ln -s %d/%f %D
 
 " Custom mappings:
 nnoremap ; :
+vnoremap ; :
 
 
 
