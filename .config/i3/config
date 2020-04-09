@@ -22,7 +22,7 @@ focus_follows_mouse no
 ###                              Window rules variables                               ###
 #########################################################################################
 set $center move position center
-set $notifications move position top right
+set $notifications move down 30
 set $move_scratchpad floating enable, move scratchpad, sticky enable, scratchpad show
 # }}}
 # Workspaces: {{{
@@ -331,7 +331,9 @@ for_window [class="albert"] border pixel 0
 for_window [class="albert"] floating enable
 for_window [class="albert"] $center
 for_window [class="MEGAsync"] floating enable
-for_window [class="megasync"] $notifications
+for_window [class="MEGAsync"] border pixel 0
+for_window [class="MEGAsync"] $notifications
+for_window [class="dropbox"] $notifications
 for_window [class="albert" title="Settings — Albert"] $center
 for_window [class="copyq"] floating enable
 # for_window [class="Google Play Music Desktop Player"] floating enable
