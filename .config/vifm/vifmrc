@@ -182,6 +182,10 @@ fileviewer *.pdf
         \ vifmimg clear
         " \ pdftotext -nopgbrk %c -
 
+" fileviewer *.epub
+"         \ vifmimg epubpreview %px %py %pw %ph %c
+"         \ %pc
+"         \ vifmimg clear
 
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
