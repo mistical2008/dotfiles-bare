@@ -22,6 +22,7 @@ focus_follows_mouse no
 ###                              Window rules variables                               ###
 #########################################################################################
 set $center move position center
+set $notifications move position top right
 set $move_scratchpad floating enable, move scratchpad, sticky enable, scratchpad show
 # }}}
 # Workspaces: {{{
@@ -326,12 +327,13 @@ for_window [window_role="pop-up"] border pixel 0
 for_window [window_role="dialog"] floating enable
 for_window [window_role="dialog"] border pixel 0
 for_window [title="Nitrogen"] floating enable
-for_window [class="albert"] floating enable
 for_window [class="albert"] border pixel 0
+for_window [class="albert"] floating enable
 for_window [class="albert"] $center
+for_window [class="MEGAsync"] floating enable
+for_window [class="megasync"] $notifications
 for_window [class="albert" title="Settings — Albert"] $center
 for_window [class="copyq"] floating enable
-for_window [class="megasync"] floating enable
 # for_window [class="Google Play Music Desktop Player"] floating enable
 for_window [class="Com.github.jmoerman.go-for-it"] floating enable
 for_window [title="PlayOnLinux"] floating enable
