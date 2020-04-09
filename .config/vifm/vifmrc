@@ -257,6 +257,10 @@ fileviewer *.gif
         \ vifmimg gifpreview %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
+fileviewer *.svg
+        \ vifmimg svgpreview %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
 " OpenRaster
 filextype *.ora
