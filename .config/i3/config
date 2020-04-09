@@ -317,7 +317,7 @@ exec_always xrdb --merge ~/.Xresoureces
 exec --no-startup-id "copyq &"
 exec --no-startup-id "albert &"
 # exec --no-startup-id "/usr/lib/geoclue-2.0/demos/agent &"
-# exec --no-startup-id "redshift-gtk &"
+exec --no-startup-id "redshift-gtk &"
 exec --no-startup-id "qbittorrent &"
 # }}}
 # Windows rules: {{{
