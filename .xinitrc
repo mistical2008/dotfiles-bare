@@ -48,6 +48,7 @@ fi
 # Make sure this is before the 'exec' command or it won't be sourced.
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 get_session() {
 	local dbus_args=(--sh-syntax --exit-with-session)
