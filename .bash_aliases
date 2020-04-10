@@ -132,7 +132,7 @@ conf() {
   ranger) vim $HOME/.config/ranger/rc.conf && dfa $HOME/.config/ranger/rc.conf && dfcm "Updated the ranger config" && dfp ;;
   vifm) vim $HOME/.config/vifm/vifmrc && dfa $HOME/.config/vifm/vifmrc && dfcm "Updated the vifm config" && dfp ;;
   compton) vim $HOME/.config/compton/compton.conf && dfa $HOME/.config/compton/compton.conf && dfcm "Updated the compton.conf" && dfp ;;
-  polybar) vim $HOME/.config/polybar/polybar.conf && dfa $HOME/.config/i3/polybar.conf && dfcm "Updated the polybar.conf" && dfp ;;
+  polybar) vim $HOME/.config/polybar/polybar.conf && dfa $HOME/.config/polybar/polybar.conf && dfcm "Updated the polybar.conf" && dfp ;;
   dunst) vim $HOME/.config/dunst/dunstrc && dfa $HOME/.config/dunst/dunstrc && dfcm "Updated the dunstrc" && dfp ;;
   rofi) vim $HOME/.config/rofi/config.rasi && $HOME/.config/rofi/config.rasi && dfcm "Updated the rofi config" && dfp ;;
   tmux) vim $HOME/.tmux.conf && dfa $HOME/.tmux.conf && dfcm "Updated the tmux.conf" && dfp ;;
