@@ -96,5 +96,5 @@ URxvt.bell-command:         mpv /usr/share/sounds/elementary/stereo/bell.wav
 !####################################################################
 !##### DUNST COLORS #################################################
 !####################################################################
-Dunst.background: background
-Dunst.foreground: foreground
+dunst.Colors.background: background
+dunst.Colors.foreground: foreground
