@@ -40,3 +40,6 @@ export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb
 
 # RipGrep settings path:
 RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
+
+# Qt:
+QT_STYLE_OVERIDE="GTK+"
