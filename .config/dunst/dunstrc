@@ -1,6 +1,8 @@
 [colors]
-background = "#acab53"
-foreground = "#0b0b0b"
+# background = "#acab53"
+# foreground = "#0b0b0b"
+foreground = "Dunst.background"
+background = "#e1e1e1"
 
 [global]
     ### Display ###
@@ -33,14 +35,14 @@ foreground = "#0b0b0b"
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-5+40"
+    geometry = "450x5-5+40"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
-    shrink = no
+    shrink = yes
 
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
@@ -58,17 +60,17 @@ foreground = "#0b0b0b"
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 16
+    padding = 24
 
     # Horizontal padding.
-    horizontal_padding = 16
+    horizontal_padding = 24
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
     frame_width = 1
 
     # Defines color of the frame around the notification window.
-    #frame_color = "#aaaaaa"
+    frame_color = "#aaaaaa"
 
     # Define a color for the separator.
     # possible values are:
@@ -134,6 +136,9 @@ foreground = "#0b0b0b"
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
     alignment = left
+
+    # Corner radius:
+    corner_radius = 8
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
