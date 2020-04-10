@@ -342,7 +342,7 @@ for_window [class="copyq"] floating enable
 for_window [class="Com.github.jmoerman.go-for-it"] floating enable
 for_window [title="PlayOnLinux"] floating enable
 for_window [class="Yad" title="yad-calendar"] floating enable
-for_window [class="polkit-gnome-authentication-agent-1"] resize set 600 400
+for_window [class="Polkit-gnome-authentication-agent-1"] floating enable, resize set 600 400
 for_window [instance="Enpass"] $move_scratchpad, resize set 900 700, move position senter
 for_window [class="Tor Browser"] floating enable
 for_window [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
@@ -350,6 +350,7 @@ for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] $move_scratchpad, r
 for_window [instance="qbittorrent"] $move_scratchpad, resize set  1700 760, $center
 for_window [class="Peek"] floating enable, resize set  1200 860, $center
 for_window [class="Autokey-gtk"] $move_scratchpad, resize set  1200 860, $center
+for_window [class="Pavucontrol"] $move_scratchpad, resize set 717 739, $center
 
 # #---Dropdown Windows---# #
 
