@@ -1,13 +1,13 @@
 #!/bin/sh
 
 # Remove polybar-reload-log if strings > 60:
-$PBRLOG="/home/$USER/.config/i3/polybar-reload.log"
-$PBRLOGLEN=$(cat $PBRLOG | wc -l)
-if [ $PBRLOGLEN > 60];then rm -rf $PBRLOG;fi
+PBRLOG="/home/$USER/.config/polybar/polybar-reload.log"
+PBRLOGLEN=$(cat < "$PBRLOG" | wc -l)
+[ "$PBRLOGLEN" -ge 60 ] && rm -rf "$PBRLOG"
 
 # Launch some things on startx:
 autorandr 2mon
 xset r rate 500 33 &
 light-locker &
-setxkbmap -layout us,ru 
-#setxkbmap -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo'
+# setxkbmap -layout us,ru 
+setxkbmap -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo'
