@@ -55,6 +55,8 @@ alias nnn_upd_plugs="curl -Ls https://raw.githubusercontent.com/jarun/nnn/master
 alias vifm="vifmrun"
 
 # Configs
+alias set_qt4="qtconfig-qt4"
+alias set_qt5="qt5ct"
 alias sudolist='sudo /usr/sbin/visudo'
 alias dotfiles='/usr/bin/git --git-dir=/home/evgeniy/.dotfiles/ --work-tree=/home/evgeniy'
 alias dfa="dotfiles add"
