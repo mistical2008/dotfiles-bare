@@ -24,6 +24,13 @@ focus_follows_mouse no
 set $center move position center
 set $notifications move down 30
 set $move_scratchpad floating enable, move scratchpad, sticky enable, scratchpad show
+
+##########################################################################################
+###                                    PROGRAMS                                        ###
+##########################################################################################
+# Wallpaper
+# set $wall nitorgen
+# set $wall-restore "--no-startup-id nitrogen --restore &"
 # }}}
 # Workspaces: {{{
 ##########################################################################################
@@ -56,13 +63,6 @@ assign [class="TelegramDesktop"] $ws7
 assign [class="Google Play Music Desktop Player"] $ws6
 assign [title="*tuijam"] $ws6
 # }}}
-##########################################################################################
-###                                    PROGRAMS                                        ###
-##########################################################################################
-# Wallpaper
-# set $wall nitorgen
-# set $wall-restore "--no-startup-id nitrogen --restore &"
-
 # Keybindings: {{{
 ##########################################################################################
 ###                                    KEYBINDINGS                                     ###
