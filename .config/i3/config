@@ -340,19 +340,11 @@ for_window [class="copyq"] floating enable
 for_window [class="Com.github.jmoerman.go-for-it"] floating enable
 for_window [title="PlayOnLinux"] floating enable
 for_window [class="Yad" title="yad-calendar"] floating enable
-for_window [class="Polkit-gnome-authentication-agent-1" title="Аутентифицировать"] resize set 800 400
-# for_window [instance="Enpass"] floating enable
+for_window [class="polkit-gnome-authentication-agent-1"] resize set 600 400
 for_window [instance="Enpass"] $move_scratchpad, resize set 900 700, move position senter
 for_window [class="Tor Browser"] floating enable
 for_window [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
 for_window [instance="crx_bfnjdjecapmjdnihgjjcolenfimejnim"] $move_scratchpad, resize set 900 700, $center
-# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] floating enable
-# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] move scratchpad
-# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] sticky enable
-# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] scratchpad show
-# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] resize set 600 1100
-# for_window [instance="crx_bndkkhfklhgjdkhaanponjjmknlflhhp"] $center
-# for_window [instance="dropdown_*"] exec notify-send "Yupee! Yupee! Yupee! Yupee!"
 for_window [instance="qbittorrent"] $move_scratchpad, resize set  1700 760, $center
 for_window [class="Peek"] floating enable, resize set  1200 860, $center
 for_window [class="Autokey-gtk"] $move_scratchpad, resize set  1200 860, $center
