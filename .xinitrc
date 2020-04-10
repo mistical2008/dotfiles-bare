@@ -74,8 +74,4 @@ get_session() {
 	echo "dbus-launch ${dbus_args[*]}"
 }
 
-#/usr/local/bin/hotplug_monitor-2.sh &
-#autorandr widescreen
-#xset r rate 500 33
-#setxkbmap us,ru -option grp:shifts_toggle,lv3:ralt_switch,misc:typo
 exec $(get_session)
