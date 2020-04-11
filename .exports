@@ -39,7 +39,12 @@ export CYLONDEST="$HOME/tmp"
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb;u:getplugs;i:-imgview;k:kdekonnect;d:-mediainfo'
 
 # RipGrep settings path:
-RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 
 # Qt:
-QT_STYLE_OVERIDE="GTK+"
+export QT_STYLE_OVERIDE="GTK+"
+
+# Todo.txt pom action log path:
+
+export POMODORO_LOG_FILE="/home/evgeniy/03_Drafts/01_tasks/pomodoro_log.txt"
+
