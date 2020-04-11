@@ -33,6 +33,13 @@ bspc config border_width 4
 bspc config window_gap 10
 
 # Autostart:
+killall redshift-gtk;
+killall sxhkd;
+killall compton;
+killall syncthingtray;
+killall copyq;
+killall albert;
+sleep 0.5
 xrdb --merge ~/.Xresoureces &
 sxhkd &
 blueman-applet &
@@ -60,5 +67,5 @@ qbittorrent &
 /usr/libexec/gnome-settings-daemon-localeexec &
 dconf write /org/gnome/settings-daemon/plugins/cursor/active false &
 
-bspc rule -a Albert state=floating manage=on layer=above border_width=0
-bspc rule -a MEGAsync state=floating manage=on layer=above follow=on border_width=0
+bspc rule -a albert state=floating manage=on layer=above border=off
+bspc rule -a MEGAsync state=floating manage=on layer=above follow=on border=off
