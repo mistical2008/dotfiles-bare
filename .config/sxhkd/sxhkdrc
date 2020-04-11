@@ -1,0 +1,81 @@
+super + Return
+        tilix
+
+super + shift + r
+        bspc wm -r
+
+super + {h, j, k, l}
+        bspc node -f {west,south,north,east}
+
+super + shift + {h,j,k,l}
+        bspc node -s {west,south,north,east}
+
+super + shift + {0-9}
+        bspc node -d {0-9} && bspunhide
+
+# Send window to desktop and swap to desktop
+super + control + {0-9}
+  bspc node -d {0-9} && bspunhide && bspc desktop -f {0-9}
+
+super + control + {0-9}
+        bspc node -d {0-9} && bspunhide && bspc desktop -f {0-9}
+
+super + {0-9}
+        bspc desktop --focus {0-9}
+
+super + shift + q
+        xdo close
+
+super + f
+        bspcfullscreen
+
+super + space
+        bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+
+super + control + p
+        copyq show
+
+Print
+        gnome-screenshot -i
+
+super + m
+        polybar-msg cmd toggle
+
+super + shift + x
+        light-locker-command -l
+
+XF86AudioRaiseVolume
+			"/mnt/Data/Scripts/util-set-vol.sh" +5%
+XF86AudioLowerVolume
+			"/mnt/Data/Scripts/util-set-vol.sh" -5%
+XF86AudioMute
+			"/mnt/Data/Scripts/util-set-vol.sh" mute # mute sound
+
+# Sreen brightness controls
+XF86MonBrightnessUp
+			xbacklight -inc 20 # increase screen brightness
+XF86MonBrightnessDown
+			xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+# XF86TouchpadToggle
+# 			/some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+XF86AudioPlay
+			playerctl play-pause
+XF86AudioNext
+			playerctl next
+XF86AudioPrev
+			playerctl previous
+
+##########################################################################################
+###                                    MONITORS                                        ###
+##########################################################################################
+# Switch between internal and external display
+XF86Display
+			"$HOME/.config/rofi/scripts/monitor_layout.sh"
+super + p
+			"$HOME/.config/rofi/scripts/monitor_layout.sh"
+
+# vim:ft=sh
