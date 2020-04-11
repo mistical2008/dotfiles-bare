@@ -27,7 +27,7 @@ super + shift + q
         xdo close
 
 super + f
-        bspcfullscreen
+        bspcfullscreen.sh
 
 super + space
         bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
