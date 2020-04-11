@@ -40,7 +40,7 @@ gnome-settings-daemon &
 setxkbmap -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo' &
 nitrogen --restore; sleep 1; compton -b --config ~/.config/compton/compton.conf &
 wal -R -n &
-$HOME/.config/polybar/launch-polybar-bspwm.sh
+$HOME/.config/polybar/launch-polybar.sh
 setwac-run &
 udiskie &
 dropbox start &
