@@ -129,6 +129,8 @@ conf() {
   samba) sudoedit /etc/samba/smb.conf ;;
   fstab) sudoedit /etc/fstab ;;
   i3) vim $HOME/.config/i3/config && dfa $HOME/.config/i3/config && dfcm "Updated the i3 config" && dfp ;;
+  bspwm) vim $HOME/.config/bspwm/bspwmrc && dfa $HOME/.config/bspwm/bspwmrc && dfcm "Updated the bspwm config" && dfp ;;
+  sxhkd) vim $HOME/.config/sxhkd/sxhkdrc && dfa $HOME/.config/sxhkd/sxhkdrc && dfcm "Updated the sxhkd config" && dfp ;;
   maid) vim $HOME/.maid/rules.rb && dfa $HOME/.maid/rules.rb && dfcm "Updated the maid config" && dfp ;;
   todo) vim $HOME/.config/todo/config && dfa $HOME/.config/todo/config && dfcm "Updated the todo.txt config" && dfp ;;
   ranger) vim $HOME/.config/ranger/rc.conf && dfa $HOME/.config/ranger/rc.conf && dfcm "Updated the ranger config" && dfp ;;
