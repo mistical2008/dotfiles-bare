@@ -46,15 +46,31 @@ alt + {_,shift} + Tab
 super + shift + q
         xdo close
 
+# Fullscreen:
 super + f
   bspc node --state \~fullscreen && polybar-msg cmd toggle
-        # bspc node focused.tiled -t fullscreen || bspc node focused.fullscreen -t tiled
 
+# Toggle floating:
 super + shift + t
-        bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+  bspc query --nodes -n focused.tiled && state=floating || state=tiled; \
+	bspc node --state \~$state
+        # bspc node --state \~floating
+
+# Hide current window:
+super + minus
+  bspc node -g hidden
+
+# super + control + minus
+#   /mnt/Data/Scripts/bsphide.sh
+    # bspc node {,$(bspc query -N | tail -n1)} -g hidden=on
+
+# Unhide all windows:
+super + shift + minus
+  /mnt/Data/Scripts/bspunhide.sh
+  # bspc node {,$(bspc query -N -n .hidden | tail -n1)} -g hidden=off
 
 # Toogle pseudo tiling of window
-super + p
+super + z
 	bspc node --state \~pseudo_tiled
 
 # Show clipboard:
