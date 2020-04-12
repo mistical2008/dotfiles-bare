@@ -70,5 +70,25 @@ qbittorrent &
 /usr/libexec/gnome-settings-daemon-localeexec &
 dconf write /org/gnome/settings-daemon/plugins/cursor/active false &
 
-bspc rule -a albert state=floating manage=on layer=above border=off
+# Dektops:
+bspc desktop -n "primary"
+bspc desktop -n "plan"
+bspc desktop -n "code"
+bspc desktop -n "browse"
+bspc desktop -n "conf"
+bspc desktop -n "media"
+bspc desktop -n "chat"
+bspc desktop -n "8"
+bspc desktop -n "9"
+bspc desktop -n  "10"
+
+# Window rules:
+bspc rule -a albert state=floating manage=on layer=above border=off center
 bspc rule -a MEGAsync state=floating manage=on layer=above follow=on border=off
+bspc rule -a copyq state=floating manage=on layer=above follow=on
+bspc rule -a qbittorrent state=floating manage=on layer=above follow=on
+bspc rule -a "Tor Browser" state=floating manage=on layer=above follow=on
+bspc rule -a Nitrogen state=floating manage=on layer=above follow=on
+bspc rule -a Peek state=floating manage=on layer=above follow=on border=off rectangle=1200x860
+bspc rule -a Pavucontrol state=floating manage=on layer=above follow=on rectangle=717x739
+
