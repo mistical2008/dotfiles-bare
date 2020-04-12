@@ -13,7 +13,7 @@ super + {_,shift + }{h,j,k,l}
 	bspc node --{focus,swap} {west,south,north,east}
 
 super + shift + {1-9,0}
-   bspc node --to-desktopd ^{1-9,10} && bspunhide.sh
+   bspc node --to-desktop ^{1-9,10} && bspunhide.sh
 
 # Send window to desktop and swap to desktop
 super + control + {1-9,0}
@@ -51,7 +51,7 @@ super + f
   bspc node --state /~fullscreen
         # bspc node focused.tiled -t fullscreen || bspc node focused.fullscreen -t tiled
 
-super + space
+super + shift + t
         bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
 
 # Toogle pseudo tiling of window
