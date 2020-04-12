@@ -14,13 +14,14 @@ bspc monitor eDP1 -d 6 7
 ###---Global Settings---###
 bspc config automatic_scheme alternate
 bspc config initial_polarity second_child
-bspc config pointer_modifier lock
+bspc config pointer_modifier mod4 # super key
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
 bspc config pointer_action3 resize_corner
-bspc config click_to_focus none
 
-bspc config focus_follows_pointer true
+bspc config pointer_follows_focus true
+bspc config pointer_follows_monitor true
+# bspc config focus_follows_pointer true
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 bspc config merge_overlapping_monitors true
