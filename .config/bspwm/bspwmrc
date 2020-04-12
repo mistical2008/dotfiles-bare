@@ -43,16 +43,7 @@ bspc config window_gap 10
 "$BSPWM_CONFIG/autostart" &
 
 # Dektops:
-# bspc desktop -n "primary"
-# bspc desktop -n "plan"
-# bspc desktop -n "code"
-# bspc desktop -n "browse"
-# bspc desktop -n "conf"
-# bspc desktop -n "media"
-# bspc desktop -n "chat"
-# bspc desktop -n "8"
-# bspc desktop -n "9"
-# bspc desktop -n  "10"
+bspc monitor --reset-desktops primary plan code browse conf media chat 8 9 10
 
 # Window rules:
 bspc rule -a albert state=floating manage=on layer=above border=off center
