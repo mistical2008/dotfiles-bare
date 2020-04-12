@@ -1,38 +1,64 @@
 super + Return
-        tilix
+   tilix
 
 super + shift + r
-        bspc wm -r
+   bspc wm -r
 
-super + {h, j, k, l}
-        bspc node -f {west,south,north,east}
+# Navigate layouts
+super + {_,shift + }space
+	bspc desktop --layout {next,prev}
 
-super + shift + {h,j,k,l}
-        bspc node -s {west,south,north,east}
+# Focus/swap windows by direction
+super + {_,shift + }{h,j,k,l}
+	bspc node --{focus,swap} {west,south,north,east}
 
-super + shift + {0-9}
-        bspc node -d {0-9} && bspunhide.sh
+super + shift + {1-9,0}
+   bspc node --to-desktopd ^{1-9,10} && bspunhide.sh
 
 # Send window to desktop and swap to desktop
-super + control + {0-9}
-  bspc node -d {0-9} && bspunhide.sh && bspc desktop -f {0-9}
+super + control + {1-9,0}
+   bspc node --to-desktop ^{1-9,10} --focus && bspunhide.sh
 
-super + control + {0-9}
-        bspc node -d {0-9} && bspunhide.sh && bspc desktop -f {0-9}
+# Expand tiled space
+super + alt + {h,j,k,l}
+	bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
 
-super + {0-9}
-        bspc desktop --focus {0-9}
+# Contract tiled space
+super + alt + shift + {h,j,k,l}
+	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+
+# Focus desktop by index:
+super + {1-9,0}
+  bspc desktop --focus ^{1-9,10}
+
+# Focus next/previous desktop
+super + {_,shift} + Tab
+	bspc desktop --focus {prev,next}.occupied
+
+# Focus left/right occupied desktop
+super + {Left,Right}
+	bspc desktop --focus {prev,next}.occupied
+
+# Focus next/previous window
+alt + {_,shift} + Tab
+	bspc node --focus {prev,next}
 
 super + shift + q
         xdo close
 
 super + f
-        # bspfullscreen.sh
-        bspc node focused.tiled -t fullscreen || bspc node focused.fullscreen -t tiled
+  # bspfullscreen.sh
+  bspc node --state /~fullscreen
+        # bspc node focused.tiled -t fullscreen || bspc node focused.fullscreen -t tiled
 
 super + space
         bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
 
+# Toogle pseudo tiling of window
+super + p
+	bspc node --state \~pseudo_tiled
+
+# Show clipboard:
 super + control + p
         copyq show
 
@@ -63,12 +89,12 @@ XF86MonBrightnessDown
 # 			/some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-XF86AudioPlay
-			playerctl play-pause
-XF86AudioNext
-			playerctl next
-XF86AudioPrev
-			playerctl previous
+XF86Audio{Play,Next,Prev}
+			playerctl {play-pause,next,previous}
+# XF86AudioNext
+# 			playerctl next
+# XF86AudioPrev
+# 			playerctl previous
 
 ##########################################################################################
 ###                                    MONITORS                                        ###
