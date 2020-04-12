@@ -47,8 +47,7 @@ super + shift + q
         xdo close
 
 super + f
-  # bspfullscreen.sh
-  bspc node --state /~fullscreen
+  bspc node --state \~fullscreen && polybar-msg cmd toggle
         # bspc node focused.tiled -t fullscreen || bspc node focused.fullscreen -t tiled
 
 super + shift + t
