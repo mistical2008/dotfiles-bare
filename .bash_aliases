@@ -130,6 +130,7 @@ conf() {
   fstab) sudoedit /etc/fstab ;;
   i3) vim $HOME/.config/i3/config && dfa $HOME/.config/i3/config && dfcm "Updated the i3 config" && dfp ;;
   bspwm) vim $HOME/.config/bspwm/bspwmrc && dfa $HOME/.config/bspwm/bspwmrc && dfcm "Updated the bspwm config" && dfp ;;
+  bsp_as) vim $HOME/.config/bspwm/autostart && dfa $HOME/.config/bspwm/autostart && dfcm "Updated the bspwm autostart config" && dfp ;;
   sxhkd) vim $HOME/.config/sxhkd/sxhkdrc && killall -SIGUSR1 sxhkd && dfa $HOME/.config/sxhkd/sxhkdrc && dfcm "Updated the sxhkd config" && dfp ;;
   maid) vim $HOME/.maid/rules.rb && dfa $HOME/.maid/rules.rb && dfcm "Updated the maid config" && dfp ;;
   todo) vim $HOME/.config/todo/config && dfa $HOME/.config/todo/config && dfcm "Updated the todo.txt config" && dfp ;;
