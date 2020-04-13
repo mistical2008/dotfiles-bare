@@ -51,7 +51,7 @@ super + f
   bspc node --state \~fullscreen && polybar-msg cmd toggle
 
 # Toggle floating:
-super + shift + t
+super + t
   bspc query --nodes -n focused.tiled && state=floating || state=tiled; \
 	bspc node --state \~$state
         # bspc node --state \~floating
@@ -70,7 +70,7 @@ super + shift + minus
   # bspc node {,$(bspc query -N -n .hidden | tail -n1)} -g hidden=off
 
 # Toogle pseudo tiling of window
-super + z
+super + shift + t
 	bspc node --state \~pseudo_tiled
 
 # Show clipboard:
