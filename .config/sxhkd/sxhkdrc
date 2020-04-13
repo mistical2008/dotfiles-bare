@@ -36,12 +36,14 @@ super + {_,shift} + Tab
 	bspc desktop --focus {prev,next}.occupied
 
 # Focus left/right occupied desktop
-super + {Left,Right}
+super + {bracketleft,bracketright}
 	bspc desktop --focus {prev,next}.occupied
 
 # Focus next/previous window
 alt + {_,shift} + Tab
 	bspc node --focus {prev,next}
+
+#
 
 super + shift + q
         xdo close
@@ -119,5 +121,9 @@ XF86Display
 			"$HOME/.config/rofi/scripts/monitor_layout.sh"
 super + p
 			"$HOME/.config/rofi/scripts/monitor_layout.sh"
+
+# make sxhkd reload its configuration files:
+super + alt + Escape
+    pkill -USR1 -x sxhkd
 
 # vim:ft=sh
