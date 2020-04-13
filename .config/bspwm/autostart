@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+
+#================================================================================
+#                             Launch only at startup
+#================================================================================
+
+# TODO: add a function for operate on pgrep and run
+# Launch composite manager:
+pgrep -u $USER compton >/dev/null || \
+    compton -b --config ~/.config/compton/compton.conf &
+
+# Night light:
+pgrep -u $USER redshift-gtk >/dev/null || \
+    redshift-gtk &
+
+# Keybindings daemon:
+pgrep -u $USER sxhkd >/dev/null || \
+    sxhkd &
+
+# Synthing:
+pgrep -u $USER syncthingtray >/dev/null || \
+    syncthingtray --wait &
+
+# Clipboard:
+pgrep -u $USER copyq >/dev/null || \
+    copyq &
+
+# Launcher:
+pgrep -u $USER albert >/dev/null || \
+    albert &
+
+# Bluetooth manager:
+pgrep -u $USER blueman-applet >/dev/null || \
+    blueman-applet &
+
+# Clouds:
+pgrep -u $USER dropbox >/dev/null || \
+    dropbox start &
+
+pgrep -u $USER megasync >/dev/null || \
+    megasync &
+
+pgrep -u $USER pcloud >/dev/null || \
+    pcloud &
+
+# Telegram:
+pgrep -u $USER telegram >/dev/null || \
+    telegram-desktop &
+
+# Networks manager:
+pgrep -u $USER nm-applet >/dev/null || \
+    nm-applet &
+
+# Torrent client:
+pgrep -u $USER qbittorrent >/dev/null || \
+    qbittorrent &
+
+#================================================================================
+#                                launch everytime
+#================================================================================
+
+# Appearance and keyboard:
+xrdb --merge ~/.Xresoureces;
+sleep 1;
+wal -R -n;
+sleep 1;
+setxkbmap -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo' &
+
+# Set volume to 30%
+amixer -q sset Master 30%
+
+# Gnome services:
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+/usr/libexec/gnome-settings-daemon-localeexec &
+dconf write /org/gnome/settings-daemon/plugins/cursor/active false &
+nitrogen --restore; sleep 1; 
+$HOME/.config/polybar/launch-polybar.sh
+setwac-run &
+udiskie &
+unclutter --timeout 3 &
+# /usr/lib/geoclue-2.0/demos/agent &
+killall dropdown_todo && /mnt/Data/Scripts/todo_today.sh &
