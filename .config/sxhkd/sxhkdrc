@@ -8,13 +8,9 @@ super + shift + r
 super + {_,shift + }space
 	bspc desktop --layout {next,prev}
 
-# Focus/swap windows by direction
-super + {_,shift + }{h,j,k,l}
-	bspc node --{focus,swap} {west,south,north,east}
-
-# Move window to node in direction:
-super + control +{h,j,k,l}
-	bspc node --to-node {west,south,north,east}
+# Focus/swap/move windows by direction
+super + {_,control +,shift + }{h,j,k,l}
+	bspc node --{focus,swap,to-node} {west,south,north,east}
 
 super + shift + {1-9,0}
    bspc node --to-desktop ^{1-9,10} && bspunhide.sh
@@ -36,19 +32,22 @@ super + {1-9,0}
   bspc desktop --focus ^{1-9,10}
 
 # Focus next/previous desktop
-super + {_,shift} + Tab
-	bspc desktop --focus {prev,next}.occupied
-
-# Focus left/right occupied desktop
 super + {bracketleft,bracketright}
 	bspc desktop --focus {prev,next}.occupied
 
 # Focus next/previous window
-alt + {_,shift} + Tab
+super + {comma,period}
 	bspc node --focus {prev,next}
 
-#
+# Focus next/previous window with the same class:
+super + shift + {comma,period}
+  bspc node {prev,next}.same_class --focus
 
+# Focus next/previous window for the current desktop:
+super + control + {comma,period}
+  bspc node {prev,next}.local --focus
+
+# Close current window:
 super + shift + q
         xdo close
 
@@ -60,7 +59,10 @@ super + f
 super + t
   bspc query --nodes -n focused.tiled && state=floating || state=tiled; \
 	bspc node --state \~$state
-        # bspc node --state \~floating
+
+# Fucus floating window:
+super + control +  space
+  bspc node last.floating --focus
 
 # Hide current window:
 super + minus
@@ -129,5 +131,10 @@ super + p
 # make sxhkd reload its configuration files:
 super + alt + Escape
     pkill -USR1 -x sxhkd
+
+
+#================================================================================
+#                                Test keybindings:
+#================================================================================
 
 # vim:ft=sh
