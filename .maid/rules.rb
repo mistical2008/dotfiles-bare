@@ -182,14 +182,14 @@ Maid.rules do
   watch "#{folders[:images]}" do
     rule "Move screenshots to the \'Screenshots\' folder" do
       IMAGES.each do |ext|
-        ["Снимок экрана","Screenshot"].each do |screenshot|
+        ["Снимок экрана","Screenshot", "screenshot"].each do |screenshot|
           move(dir("#{folders[:images]}/#{screenshot}*.#{ext}"), mkdir("#{folders[:images]}/screenshots"))
         end
       end
     end
     rule "Move screencasts to the \'Screenshots\' folder" do
       VIDEO.each do |ext|
-        ["Peek"].each do |screencast|
+        ["Peek", "Screencast", "screencast"].each do |screencast|
           move(dir("#{folders[:images]}/#{screencast}*.#{ext}"), mkdir("#{folders[:images]}/screencasts"))
         end
       end
