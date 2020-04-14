@@ -182,7 +182,9 @@ fileviewer *.pdf
         " \ vifmimg clear
         \ pdftotext -nopgbrk %c -
 
-fileviewer *.epub
+filextype *.epub,*.mobi,*.fb2 okular %c %i
+" filextype *.epub,mobi,fb2 epr %c
+fileviewer *.epub,*.mobi,*.fb2
         \ vifmimg epubpreview %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
