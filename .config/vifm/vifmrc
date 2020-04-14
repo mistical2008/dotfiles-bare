@@ -177,10 +177,10 @@ command! reload :write | restart
 " fileviewer *.pdf pdftotext -nopgbrk %c -
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
 fileviewer *.pdf
-        \ vifmimg epubpreview %px %py %pw %ph %c
-        \ %pc
-        \ vifmimg clear
-        " \ pdftotext -nopgbrk %c -
+        " \ vifmimg epubpreview %px %py %pw %ph %c
+        " \ %pc
+        " \ vifmimg clear
+        \ pdftotext -nopgbrk %c -
 
 fileviewer *.epub
         \ vifmimg epubpreview %px %py %pw %ph %c
