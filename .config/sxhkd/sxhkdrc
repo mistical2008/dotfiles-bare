@@ -12,6 +12,11 @@ super + {_,shift + }space
 super + {_,control +,shift + }{h,j,k,l}
 	bspc node --{focus,swap,to-node} {west,south,north,east}
 
+# swap the current node and the biggest node
+super + g
+	bspc node -s biggest.local
+
+# Move window to desktop by index:
 super + shift + {1-9,0}
    bspc node --to-desktop ^{1-9,10} && bspunhide.sh
 
@@ -49,7 +54,11 @@ super + control + {comma,period}
 
 # Close current window:
 super + shift + q
-        xdo close
+   xdo close
+
+# # preselect the direction
+super + {left,down,up,right}
+	bspc node -p {west,south,north,east}
 
 # Fullscreen:
 super + f
@@ -68,9 +77,9 @@ super + control +  space
 super + minus
   bspc node -g hidden
 
-# super + control + minus
-#   /mnt/Data/Scripts/bsphide.sh
-    # bspc node {,$(bspc query -N | tail -n1)} -g hidden=on
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # Unhide all windows:
 super + shift + minus
