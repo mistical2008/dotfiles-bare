@@ -472,9 +472,9 @@ if has('win')
     nnoremap yf :!echo %"c:gs!\!/! %i | clip<cr>
 elseif executable('xclip')
     " Yank current directory path into the clipboard
-    nnoremap yd :!echo %d | xclip %i<cr>
+    nnoremap yd :!echo %d | xclip -sel -clip %i<cr>
     " Yank current file path into the clipboard
-    nnoremap yf :!echo %c:p | xclip %i<cr>
+    nnoremap yf :!echo %c:p | xclip -sel -clip %i<cr>
 elseif executable('xsel')
     " Yank current directory path into primary and selection clipboards
     nnoremap yd :!echo -n %d | xsel --input --primary %i &&
@@ -490,7 +490,7 @@ nnoremap cc cw<c-u>
 nnoremap A cw
 
 " Open console in current directory
-nnoremap ,t :!xterm &<cr>
+nnoremap ,t :!alacritty &<cr>
 
 " Open editor to edit vifmrc and apply settings after returning to vifm
 nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
