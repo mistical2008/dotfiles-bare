@@ -14,7 +14,7 @@ super + {_,control +,shift + }{h,j,k,l}
 
 # swap the current node and the biggest node
 super + g
-	bspc node -s biggest.local
+	bspc node --swap biggest.local
 
 # Move window to desktop by index:
 super + shift + {1-9,0}
@@ -30,19 +30,29 @@ super + alt + {h,j,k,l}
 
 # Contract tiled space
 super + alt + shift + {h,j,k,l}
-	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10};
 
 # Focus desktop by index:
 super + {1-9,0}
-  bspc desktop --focus ^{1-9,10}
+  bspc desktop --focus ^{1-9,10};
 
-# Focus next/previous desktop
+# Focus next/previous desktop:
 super + {bracketleft,bracketright}
-	bspc desktop --focus {prev,next}.occupied
+	bspc desktop --focus {prev,next};
+
+# Focus next/previous occupied desktop:
+super + shift + {bracketleft,bracketright}
+	bspc desktop --focus {prev,next}.occupied;
+
+# focus the older or newer desktop in the focus history:
+super + control + {bracketleft,bracketright}
+	bspc wm -h off; \
+	bspc desktop {older,newer} --focus; \
+	bspc wm -h on
 
 # Focus next/previous window
 super + {comma,period}
-	bspc node --focus {prev,next}
+	bspc node {prev,next} --focus 
 
 # Focus next/previous window with the same class:
 super + shift + {comma,period}
@@ -69,9 +79,13 @@ super + t
   bspc query --nodes -n focused.tiled && state=floating || state=tiled; \
 	bspc node --state \~$state
 
-# Fucus floating window:
+# Focus floating window:
 super + control +  space
   bspc node last.floating --focus
+
+# Focus last desktop:
+# super + {bracketleft,bracketright}
+#   bspc desktop {older,newer} --focus
 
 # Hide current window:
 super + minus
