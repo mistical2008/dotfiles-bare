@@ -177,15 +177,21 @@ command! reload :write | restart
 " fileviewer *.pdf pdftotext -nopgbrk %c -
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
 fileviewer *.pdf
-        " \ vifmimg epubpreview %px %py %pw %ph %c
-        " \ %pc
-        " \ vifmimg clear
-        \ pdftotext -nopgbrk %c -
+        \ vifmimg pdf %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+        " \ pdftotext -nopgbrk %c -
 
 filextype *.epub,*.mobi,*.fb2 okular %c %i
 " filextype *.epub,mobi,fb2 epr %c
 fileviewer *.epub,*.mobi,*.fb2
-        \ vifmimg epubpreview %px %py %pw %ph %c
+        \ vifmimg epub %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+" Fonts
+fileviewer *.otf,*.ttf,*.woff
+        \ vifmimg font %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
 
@@ -216,7 +222,7 @@ fileviewer *.flac soxi
 filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
          \*.as[fx]
-        \ {View using mplayer}
+        \ {View usng smplayer}
         \ smplayer %f &,
         \ {View using ffplay}
         \ ffplay -fs -autoexit %f,
@@ -225,7 +231,7 @@ filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
           \*.as[fx]
-        \ vifmimg videopreview %px %py %pw %ph %c 
+        \ vifmimg video %px %py %pw %ph %c 
         \ %pc 
         \ vifmimg clear
         " \ ffprobe -pretty %c 2>&1
