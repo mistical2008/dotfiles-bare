@@ -6,8 +6,8 @@ export BSPWM_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/bspwm"
 # Clear all rules:
 bspc rule -r "*"
 
-bspc monitor HDMI1 -d 1 2 3 4 5 8 10
-bspc monitor eDP1 -d 6 7
+bspc monitor HDMI1 -d 1 2 3 4 5 6 7
+bspc monitor eDP1 -d 8
 
 # autostart
 
@@ -41,7 +41,7 @@ bspc config border_width 4
 bspc config window_gap 10
 
 # Dektops:
-bspc monitor --reset-desktops primary plan code browse conf media chats 8 9 10
+bspc monitor --reset-desktops primary plan code conf media chats 7
 
 # Window rules:
 bspc rule -a albert state=floating layer=above border=off follow=on focus=on
@@ -53,7 +53,7 @@ bspc rule -a Nitrogen state=floating layer=above
 bspc rule -a Peek state=floating layer=above border=off rectangle=1200x860 follow=on focus=on
 bspc rule -a Pavucontrol state=floating layer=above rectangle=717x739 follow=on focus=on
 bspc rule -a dropdown_todo state=floating layer=above rectangle=1200x700
-bspc rule -a telegram-desktop desktop="chats" 
+bspc rule -a telegram-desktop desktop="^6" 
 
 # Autostart
 "$BSPWM_CONFIG/autostart" &
