@@ -27,9 +27,8 @@ filetype plugin on
 
 set omnifunc=syntaxcomplete#Complete
 
-set relativenumber
 "Toggle relative numbering, and set to absolute on loss of focus or insert mode
-set rnu
+set relativenumber
 function! ToggleNumbersOn()
     set nu!
     set rnu
@@ -42,6 +41,12 @@ autocmd FocusLost * call ToggleRelativeOn()
 autocmd FocusGained * call ToggleRelativeOn()
 autocmd InsertEnter * call ToggleRelativeOn()
 autocmd InsertLeave * call ToggleRelativeOn()
+
+" Auto resize Vim splits to active split
+set winwidth=104
+set winheight=5
+set winminheight=5
+set winheight=999
 
 set mouse=a
 set mousehide
@@ -603,7 +608,7 @@ nmap <Leader>ll <Plug>(Limelight)
 xmap <Leader>ll <Plug>(Limelight)
 
 " Adopting Ctrl+A selection to vim (Select all)
-map <C-a> <esc>ggVG<CR>
+map <leader>a <esc>ggVG<CR>
 
 " Indentline settings
 let g:indentLine_char = '┆'
@@ -722,9 +727,6 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 "   autocmd BufRead,BufNewFile ~/03_Drafts/01_tasks/*.txt set filetype todo
 " augroup END
 autocmd BufRead,BufNewFile,BufReadPost $HOME/03_Drafts/01_tasks/*.txt set filetype=todo
-
-autocmd FocusGained * set relativenumber
-autocmd FocusLost * set norelativenumber
 
 " Use todo#Complete as the omni complete function for todo files
 au filetype todo setlocal omnifunc=todo#Complete
