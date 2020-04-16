@@ -26,7 +26,23 @@ filetype plugin indent on
 filetype plugin on
 
 set omnifunc=syntaxcomplete#Complete
+
 set relativenumber
+"Toggle relative numbering, and set to absolute on loss of focus or insert mode
+set rnu
+function! ToggleNumbersOn()
+    set nu!
+    set rnu
+endfunction
+function! ToggleRelativeOn()
+    set rnu!
+    set nu
+endfunction
+autocmd FocusLost * call ToggleRelativeOn()
+autocmd FocusGained * call ToggleRelativeOn()
+autocmd InsertEnter * call ToggleRelativeOn()
+autocmd InsertLeave * call ToggleRelativeOn()
+
 set mouse=a
 set mousehide
 set noswapfile "noswap files
@@ -48,7 +64,7 @@ set splitbelow
 " let mapleader = ","
 
 " Security
-set modelines=0
+set modelines=1
 
 " Show line numbers
 set number
@@ -147,11 +163,16 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lyokha/vim-xkbswitch'
 Plug 'dbeniamine/cheat.sh-vim'
+Plug 'vifm/vifm.vim'
 " Plug 'kkoomen/vim-doge'  " https://vimawesome.com/plugin/doge#table-of-contents
 call plug#end()
 
-" " Gundo settings:
-" g:gundo_prefer_python3=1
+" Vifm mappings:
+nnoremap <leader>vo :Vifm<CR>
+nnoremap <leader>vd :DiffVifm<CR>
+nnoremap <leader>vt :TabVifm<CR>
+nnoremap <leader>vs :SplitVifm<CR>
+nnoremap <leader>vv :VsplitVifm<CR>
 
 " Move up/down editor lines
 nnoremap j gj
@@ -544,9 +565,9 @@ let g:vwp_todotxt_root = $HOME . '/03_Drafts/01_tasks'
         return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
     endfunction
 
-    set foldtext=MyFoldText()
-    " Lines with equal indent form a fold
-    set foldmethod=indent
+    " set foldtext=MyFoldText()
+    " Folds by markers:
+    set foldmethod=marker
     " Maximum nesting of folds
     " Only available when compiled with the +folding feature
     set foldnestmax=10
@@ -569,8 +590,8 @@ map <leader>md :InstantMarkdownPreview<CR>
 
 " ============================= Distraction free viewing ========================
 " LimeLight color
-let g:limelight_conceal_ctermfg = 245
-let g:limelight_conceal_guifg = '#eee999'
+" let g:limelight_conceal_ctermfg = 245
+" let g:limelight_conceal_guifg = '#eee999'
 
 " LimeLight and Goyo.vim integration
 autocmd! User GoyoEnter Limelight
@@ -609,10 +630,11 @@ nnoremap <Leader>sop :source %<CR>
 
  " ,s
      " Shortcut for :%s//
-     nnoremap <leader>s :<C-u>%s/\v/<left>
-     vnoremap <leader>s :s/\v/<left>
-     nnoremap <leader>ss :<C-u>%s/\v//gc<left><left><left><left>
-     vnoremap <leader>ss :s/\v//gc<left><left><left><left>
+     nnoremap <leader>s :s/\v/<left>
+     nnoremap <leader>ss :%s/\v/<left>
+     nnoremap <leader>S :s/\v//gc<left><left><left><left>
+     nnoremap <leader>SS :%s/\v//gc<left><left><left><left>
+     vnoremap <leader>ss :<C-u>%s/\v//gc<left><left><left><left>
 
  " Move lnies
      " " Move one line
@@ -679,7 +701,7 @@ nnoremap <Leader>ev :tabnew $MYVIMRC <CR>
 nnoremap <Leader>sv :so $MYVIMRC <CR>
 
 " Open shrinked bottom terminal
-nnoremap <Leader>bt :ter ++rows=10<CR>
+nnoremap <silent> <Leader>bt :ter ++rows=10<CR>
 " nnoremap <Leader>bt +10sp +ter<CR>
 
 " Call Synt() for changing syntax
@@ -700,6 +722,9 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 "   autocmd BufRead,BufNewFile ~/03_Drafts/01_tasks/*.txt set filetype todo
 " augroup END
 autocmd BufRead,BufNewFile,BufReadPost $HOME/03_Drafts/01_tasks/*.txt set filetype=todo
+
+autocmd FocusGained * set relativenumber
+autocmd FocusLost * set norelativenumber
 
 " Use todo#Complete as the omni complete function for todo files
 au filetype todo setlocal omnifunc=todo#Complete
