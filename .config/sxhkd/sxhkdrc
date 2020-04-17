@@ -87,9 +87,10 @@ super + control +  space
 # super + {bracketleft,bracketright}
 #   bspc desktop {older,newer} --focus
 
-# Hide current window:
+# Toggle all floating visibillity:
 super + minus
-  bspc node -g hidden
+  /mnt/Data/Scripts/bspc-floating-hide-toggle.sh
+  # bspc node -g hidden
 
 # move a floating window
 super + {Left,Down,Up,Right}
