@@ -5,7 +5,7 @@ window:
   # setting is ignored.
   dimensions:
     columns: 110
-    lines: 80
+    lines: 33
 
   # Window padding (changes require restart)
   #
@@ -226,7 +226,7 @@ font:
   #unfocused_hollow: true
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: true
 
 # Shell
 #
@@ -310,7 +310,7 @@ mouse:
     #   - (Linux/BSD) xdg-open
     #   - (Windows) explorer
     launcher:
-     program: xdg-open
+      program: xdg-open
     #  args: []
 
     # URL modifiers
