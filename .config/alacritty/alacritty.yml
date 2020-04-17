@@ -5,7 +5,7 @@ window:
   # setting is ignored.
   dimensions:
     columns: 110
-    lines: 33
+    lines: 80
 
   # Window padding (changes require restart)
   #
