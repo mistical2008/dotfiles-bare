@@ -270,7 +270,7 @@ fileviewer *.gif
         \ %pc
         \ vifmimg clear
 fileviewer *.svg
-        \ vifmimg svgpreview %px %py %pw %ph %c
+        \ vifmimg svg %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
 
