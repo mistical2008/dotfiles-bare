@@ -1,5 +1,5 @@
 super + Return
-   tilix
+   alacritty
 
 super + shift + r
    bspc wm -r
