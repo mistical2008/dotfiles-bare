@@ -8,6 +8,11 @@ super + shift + r
 super + {_,shift + }space
 	bspc desktop --layout {next,prev}
 
+# Preselect window direction:
+# super + control + shift + {h,j,k,l}
+super + n; {h,j,k,l}
+  bspc node --presel-dir \~{west,south,north,east}
+
 # Focus/swap/move windows by direction
 super + {_,control +,shift + }{h,j,k,l}
 	bspc node --{focus,swap,to-node} {west,south,north,east}
