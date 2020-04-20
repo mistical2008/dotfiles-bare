@@ -1,9 +1,7 @@
 #!/bin/sh
 
 # Remove polybar-reload-log if strings > 60:
-PBRLOG="/home/$USER/.config/polybar/polybar-reload.log"
-PBRLOGLEN=$(cat < "$PBRLOG" | wc -l)
-[ "$PBRLOGLEN" -ge 60 ] && rm -rf "$PBRLOG"
+/mnt/Data/Scripts/polybar-clean-log.sh
 
 # Launch some things on startx:
 autorandr 2mon
