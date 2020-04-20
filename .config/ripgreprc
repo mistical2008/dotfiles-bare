@@ -7,7 +7,7 @@ $ cat $HOME/.ripgreprc
 # Add my 'web' type.
 --type-add
 web:*.{html,css,js}*
-doc:*.{pdf,txt,md,rst}*
+# doc:*.{pdf,txt,md,rst}*
 
 # Using glob patterns to include/exclude files or folders
 --glob=!git/*
