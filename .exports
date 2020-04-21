@@ -48,3 +48,5 @@ export QT_STYLE_OVERIDE="GTK+"
 
 export POMODORO_LOG_FILE="/home/evgeniy/03_Drafts/01_tasks/pomodoro_log.txt"
 
+# GPG
+export GNUPGHOME="$HOME/.local/share/gnupg"
