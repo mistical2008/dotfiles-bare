@@ -56,6 +56,7 @@ bspc rule -a dropdown_todo state=floating layer=above rectangle=1200x700
 bspc rule -a telegram-desktop desktop="^6" 
 bspc rule -a tuijam state=floating layer=above rectangle=800x600
 bspc rule -a ktouch state=floating layer=above rectangle=1000x700
+# bspc rule -a Zathura state=floating layer=above rectangle=1200x1400
 
 # Autostart
 "$BSPWM_CONFIG/autostart" &
