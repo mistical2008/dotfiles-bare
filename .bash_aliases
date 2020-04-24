@@ -112,6 +112,7 @@ alias cltmp="ls -ca $HOME/tmp; rm -r $HOME/tmp/*"
 # Configurations
 conf() {
   case $1 in
+  ffadb) vi $HOME/.mozilla/firefox/f4nkcylv.default/storage/permanent/chrome/userContent.css && dfa $HOME/.mozilla/firefox/f4nkcylv.default/storage/permanent/chrome/userContent.css && dfcm "Firefox userContent.css autocommit" && dfp ;;
   ctags) vim $HOME/.ctags.d/cfg.2.ctags && dfa $HOME/.ctags.d/cfg.2.ctags && dfcm "ctags autocommit" && dfp ;;
   wacom) sudoedit $HOME/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
   tuijam) vim $HOME/.config/tuijam/config.yaml && dfa $HOME/.config/tuijam/config.yaml && dfcm "tuijam autocommit" && dfp;;
