@@ -41,6 +41,8 @@ autocmd FocusLost * call ToggleRelativeOn()
 autocmd FocusGained * call ToggleRelativeOn()
 autocmd InsertEnter * call ToggleRelativeOn()
 autocmd InsertLeave * call ToggleRelativeOn()
+autocmd CmdlineEnter * call ToggleRelativeOn()
+autocmd CmdlineLeave * call ToggleRelativeOn()
 
 " Auto resize Vim splits to active split
 set winwidth=104
@@ -87,10 +89,6 @@ set ttyfast
 set showmode
 set showcmd
 
-" Whitespace
-" set wrap
-" TODO: make for a filetpe setting
-
 set formatoptions=tcqrn1
 set tabstop=2
 set shiftwidth=2
@@ -122,9 +120,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
+Plug 'sorin-ionescu/vim-htmlvalidator', {'for': ['html', 'javascript', 'mason']}
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'ludovicchabant/vim-gutentags' " Ctags
 Plug 'majutsushi/tagbar'  " Build tags based on ctags
 Plug 'mtscout6/vim-tagbar-css' " Add css support to tagbar
@@ -140,7 +140,7 @@ Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'SirVer/ultisnips'
 " Markdown
-Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-pencil', {'for': 'markdown'}
 " Plug 'nelstrom/vim-markdown-folding'
 Plug 'vimwiki/vimwiki'
 Plug 'suan/vim-instant-markdown'
@@ -154,7 +154,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary' " Toggle comments in various ways.
 " Surround text with quotes, parenthesis, brackets, and more.
 Plug 'tpope/vim-surround'
-Plug 'francoiscabrol/ranger.vim' " Launch Ranger from Vim.
+" Plug 'francoiscabrol/ranger.vim' " Launch Ranger from Vim.
 Plug 'honza/vim-snippets' " vim.snippets
 Plug 'sakshamgupta05/vim-todo-highlight' " vim todo and fixme highlighting
 Plug 'ryanoasis/vim-devicons' " vim-devicons
@@ -228,7 +228,7 @@ set cursorline
 " let g:airline_inactive_collapse = 1    " Collapse status bar for inactive windows
 " let g:airline_powerline_fonts = 1      " Use Powerline font for special symbols
 " set noshowmode                         " Disable default status bar
-" set laststatus=2                       " Always show status bar
+set laststatus=2                       " Always show status bar
 " let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " Extensions used:
 "   Branch    - Show the current git branch
@@ -253,6 +253,13 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
+
+"================================================================================
+"                                    Lightline
+"================================================================================
+let g:lightline = {
+  \ 'colorscheme': 'seoul256',
+  \}
 
 " vim-javascript gliphs
 " https://github.com/pangloss/vim-javascript
@@ -353,7 +360,8 @@ let b:ale_fixers = {
  \ 'javascript': ['prettier'],
  \ 'css': ['prettier']
  \ }
-let b:ale_linters={'css': ['stylelint'], 'html': ['prettier','stylelint']}
+let b:ale_linters={'css': ['stylelint'], 'html': ['stylelint','htmlhint']}
+let g:ale_linter_aliases = {'html': ['html', 'javascript', 'css']}
 " Fix files automatically on save
 let g:ale_fix_on_save = 1
 nmap <silent> [c <Plug>(ale_previous_wrap)
@@ -546,7 +554,7 @@ let g:vimwiki_hl_headers = 1
 " Set textwidth for the vimwiki and markdown:
 " autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en,ru
-autocmd BufRead,BufNewFile *.ejs set ft=mason
+autocmd BufRead,BufNewFile *.ejs set syntax=mason
 
 
 " Vimwiki projects variables:
@@ -630,6 +638,15 @@ let g:netrw_list_hide .= ',\(^\|\s\s\)\zs\.\S\+'
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
 " ================================= Custom mappings =====================================
+" Open URL under cursor:
+" nnoremap <leader>w :silent !xdg-open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>:redraw<CR>
+function! Browser()
+  let line = getline (".")
+  let line = matchstr (line, "\%(http://\|www\.\)[^ ,;\t]*")
+  exec "!xdg-open ".line
+endfunction
+map <Leader>w :call Browser()<CR>
+
 " Source current file. Usefull for testing custom plugins
 nnoremap <Leader>sop :source %<CR>
 
