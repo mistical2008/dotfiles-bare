@@ -120,7 +120,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'sorin-ionescu/vim-htmlvalidator', {'for': ['html', 'javascript', 'mason']}
+Plug 'nikvdp/ejs-syntax'
+Plug 'sorin-ionescu/vim-htmlvalidator', {'for': ['html', 'javascript', 'ejs', 'mason']}
 Plug 'tpope/vim-fugitive'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
@@ -143,7 +144,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'reedes/vim-pencil', {'for': 'markdown'}
 " Plug 'nelstrom/vim-markdown-folding'
 Plug 'vimwiki/vimwiki'
-Plug 'suan/vim-instant-markdown'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'w0rp/ale' " Linting
 " Fuzzy search
 Plug '/usr/bin/fzf'
@@ -163,7 +164,7 @@ Plug 'chazy/dirsettings'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 Plug 'djoshea/vim-autoread' " Autoread files changed outside of vim
 Plug 'editorconfig/editorconfig-vim'
-Plug 'mattn/calendar-vim'
+Plug 'mattn/calendar-vim', {'for': 'vimwiki'}
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lyokha/vim-xkbswitch'
@@ -257,9 +258,21 @@ let g:airline_symbols.dirty='⚡'
 "================================================================================
 "                                    Lightline
 "================================================================================
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
 let g:lightline = {
-  \ 'colorscheme': 'seoul256',
-  \}
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
+      \ },
+      \ }
 
 " vim-javascript gliphs
 " https://github.com/pangloss/vim-javascript
@@ -357,10 +370,10 @@ let airline#extensions#ale#error_symbol = ''
 let airline#extensions#ale#warning_symbol = ''
 " Set Ale fixer (Eslint)
 let b:ale_fixers = {
- \ 'javascript': ['prettier'],
+ \ 'javascript': ['prettier_eslint'],
  \ 'css': ['prettier']
  \ }
-let b:ale_linters={'css': ['stylelint'], 'html': ['stylelint','htmlhint']}
+let b:ale_linters={'css': ['stylelint'], 'html': ['stylelint','htmlhint'], 'javascript': ['eslint']}
 let g:ale_linter_aliases = {'html': ['html', 'javascript', 'css']}
 " Fix files automatically on save
 let g:ale_fix_on_save = 1
@@ -554,7 +567,7 @@ let g:vimwiki_hl_headers = 1
 " Set textwidth for the vimwiki and markdown:
 " autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en,ru
-autocmd BufRead,BufNewFile *.ejs set syntax=mason
+autocmd BufRead,BufNewFile *.ejs set syntax=ejs
 
 
 " Vimwiki projects variables:
