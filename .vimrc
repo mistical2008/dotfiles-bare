@@ -5,7 +5,7 @@ set fileencoding=utf-8
 " Don't try to be vi compatible
 set nocompatible
 " set guifont=Source\ Code\ Pro\ 17
-set guifont=JetBrains\ Mono\ \Regular:h17
+set guifont=JetBrains\ Mono\ for\ Powerline\ Regular:h17
 set vb t_vb= " No horrible visual flash on bell
 
 " Search down into subfolders
@@ -266,7 +266,7 @@ let g:lightline = {
       \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified', 'bufnum' ] ]
       \ },
       \ 'component_function': {
       \   'cocstatus': 'coc#status',
