@@ -17,8 +17,7 @@ set wildmenu
 " au CursorHold * checktime       " check one time after 4s of inactivity in normal mode
 set shell=/usr/bin/zsh
 
-set clipboard=unnamed
-" set clipboard=unnamedplus       " Use system clipboard as default register
+set clipboard=unnamedplus       " Use system clipboard as default register
 
 " Helps force plugins to load correctly when it is turned back on below
 set fileformat=unix
@@ -218,11 +217,12 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 set t_Co=256
 colorscheme gruvbox
 set background=dark
+let base16colorspace=256  
 " let g:hybrid_termcolors=256
 " let g:hybrid_termtrans=1
 " Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
 let g:gruvbox_contrast_light='medium'
-set termguicolors
+" set termguicolors
 " hi Normal ctermbg=none
 set cursorline
 " hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
