@@ -30,7 +30,8 @@ xterm*metaSendsEscape: true
 !##### CHANGES DONE TO THIS FILE MANUALLY MAY AFFECT THE FUNCTIONALITY ######
 !##### PROCEED WITH CAUTION! #####
 
-URxvt*termName:         rxvt-unicode-256color
+URxvt*termName:         xterm-kitty
+!URxvt*termName:         rxvt-unicode-256color
 URxvt*scrollBar:         false
 URxvt.saveLines:        5000
 !URxvt*scrollBar_right:   true
