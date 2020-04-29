@@ -16,7 +16,7 @@ export W_PREFIXES=$HOME/.PlayOnLinux/wineprefix
 
 # Variables
 function _get_editor { echo $(which vim) || echo $(which vi) || echo $(which nano)}
-function _get_terminal { echo $(which alacritty) || echo $(which urxvt) || echo $(which tilix) || echo $(which gnome-terminal) || echo $(which xterm)}
+function _get_terminal {  echo $(which kitty) || echo $(which alacritty) || echo $(which tilix) || echo $(which urxvt) || echo $(which gnome-terminal) || echo $(which xterm)}
 export DEF_TERM="$(_get_terminal)"
 export SUDO_EDITOR="$(_get_editor)"
 export VISUAL="$(_get_editor)"
@@ -24,7 +24,7 @@ export EDITOR="$(_get_editor)"
 export GTK_IM_MODULE="xim"
 export MON_PRIMARY=$(xrandr | grep -w "connected primary" | awk '{print $1}')
 export MANPATH="/usr/local/man:$MANPATH"
-export TERMINAL="tilix"
+export TERMINAL="$DEF_TERM"
 export BROWSER="firefox"
 
 # You may need to manually set your language environment
