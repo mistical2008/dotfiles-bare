@@ -215,6 +215,7 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
 set t_Co=256
+let &t_ut='' " Kitty terminal workaround
 colorscheme gruvbox
 set background=dark
 let base16colorspace=256  
@@ -222,7 +223,7 @@ let base16colorspace=256
 " let g:hybrid_termtrans=1
 " Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
 let g:gruvbox_contrast_light='medium'
-" set termguicolors
+set termguicolors
 " hi Normal ctermbg=none
 set cursorline
 " hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
