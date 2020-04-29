@@ -1,3 +1,4 @@
+set lazyredraw
 scriptencoding utf-8
 " set encoding=utf-8
 set termencoding=utf-8
@@ -5,7 +6,7 @@ set fileencoding=utf-8
 " Don't try to be vi compatible
 set nocompatible
 " set guifont=Source\ Code\ Pro\ 17
-set guifont=JetBrains\ Mono\ for\ Powerline\ Regular:h17
+set guifont=JetBrains\ Mono\ Regular:h17
 set vb t_vb= " No horrible visual flash on bell
 
 " Search down into subfolders
@@ -16,7 +17,8 @@ set wildmenu
 " au CursorHold * checktime       " check one time after 4s of inactivity in normal mode
 set shell=/usr/bin/zsh
 
-set clipboard=unnamedplus       " Use system clipboard as default register
+set clipboard=unnamed
+" set clipboard=unnamedplus       " Use system clipboard as default register
 
 " Helps force plugins to load correctly when it is turned back on below
 set fileformat=unix
@@ -146,6 +148,7 @@ Plug 'reedes/vim-pencil', {'for': 'markdown'}
 Plug 'vimwiki/vimwiki'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'w0rp/ale' " Linting
+" Plug 'maximbaz/lightline-ale'
 " Fuzzy search
 Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
@@ -258,21 +261,139 @@ let g:airline_symbols.dirty='⚡'
 "================================================================================
 "                                    Lightline
 "================================================================================
+" For users who uses lots of plugins:
+	let g:lightline = {
+	      \ 'colorscheme': 'one',
+	      \ 'active': {
+	      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ],
+        \             [ 'cocstatus', 'currentfunction', 'readonly', 'modified', 'bufnum' ] ,
+        \             ['ctrlpmark'] ],
+	      \   'right': [ ['lineinfo' ], ['percent'],
+        \            [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
+        \            [ 'fileformat', 'fileencoding', 'filetype' ] ]
+	      \ },
+	      \ 'component_function': {
+	      \   'fugitive': 'LightlineFugitive',
+	      \   'filename': 'LightlineFilename',
+	      \   'fileformat': 'LightlineFileformat',
+	      \   'filetype': 'LightlineFiletype',
+	      \   'fileencoding': 'LightlineFileencoding',
+	      \   'mode': 'LightlineMode',
+	      \   'ctrlpmark': 'CtrlPMark',
+        \   'cocstatus': 'coc#status',
+        \   'currentfunction': 'CocCurrentFunction',
+        \  'linter_checking': 'lightline#ale#checking',
+        \  'linter_infos': 'lightline#ale#infos',
+        \  'linter_warnings': 'lightline#ale#warnings',
+        \  'linter_errors': 'lightline#ale#errors',
+        \  'linter_ok': 'lightline#ale#ok',
+	      \ },
+	      \ 'subseparator': { 'left': '|', 'right': '|' }
+	      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'right',
+      \     'linter_infos': 'right',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'right',
+      \ }
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified', 'bufnum' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction'
-      \ },
-      \ }
+	function! LightlineModified()
+	  return &ft ==# 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+	endfunction
+
+	function! LightlineReadonly()
+	  return &ft !~? 'help' && &readonly ? 'RO' : ''
+	endfunction
+
+	function! LightlineFilename()
+	  let fname = expand('%:t')
+	  return fname ==# 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
+	        \ fname =~# '^__Tagbar__\|__Gundo\|NERD_tree' ? '' :
+	        \ &ft ==# 'vimfiler' ? vimfiler#get_status_string() :
+	        \ &ft ==# 'unite' ? unite#get_status_string() :
+	        \ &ft ==# 'vimshell' ? vimshell#get_status_string() :
+	        \ (LightlineReadonly() !=# '' ? LightlineReadonly() . ' ' : '') .
+	        \ (fname !=# '' ? fname : '[No Name]') .
+	        \ (LightlineModified() !=# '' ? ' ' . LightlineModified() : '')
+	endfunction
+
+	function! LightlineFugitive()
+	  try
+	    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*FugitiveHead')
+	      let mark = ''  " edit here for cool mark
+	      let branch = FugitiveHead()
+	      return branch !=# '' ? mark.branch : ''
+	    endif
+	  catch
+	  endtry
+	  return ''
+	endfunction
+
+	function! LightlineFileformat()
+	  return winwidth(0) > 70 ? &fileformat : ''
+	endfunction
+
+	function! LightlineFiletype()
+	  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+	endfunction
+
+	function! LightlineFileencoding()
+	  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+	endfunction
+
+	function! LightlineMode()
+	  let fname = expand('%:t')
+	  return fname =~# '^__Tagbar__' ? 'Tagbar' :
+	        \ fname ==# 'ControlP' ? 'CtrlP' :
+	        \ fname ==# '__Gundo__' ? 'Gundo' :
+	        \ fname ==# '__Gundo_Preview__' ? 'Gundo Preview' :
+	        \ fname =~# 'NERD_tree' ? 'NERDTree' :
+	        \ &ft ==# 'unite' ? 'Unite' :
+	        \ &ft ==# 'vimfiler' ? 'VimFiler' :
+	        \ &ft ==# 'vimshell' ? 'VimShell' :
+	        \ winwidth(0) > 60 ? lightline#mode() : ''
+	endfunction
+
+	function! CtrlPMark()
+	  if expand('%:t') ==# 'ControlP' && has_key(g:lightline, 'ctrlp_item')
+	    call lightline#link('iR'[g:lightline.ctrlp_regex])
+	    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+	          \ , g:lightline.ctrlp_next], 0)
+	  else
+	    return ''
+	  endif
+	endfunction
+
+	let g:ctrlp_status_func = {
+	  \ 'main': 'CtrlPStatusFunc_1',
+	  \ 'prog': 'CtrlPStatusFunc_2',
+	  \ }
+
+	function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+	  let g:lightline.ctrlp_regex = a:regex
+	  let g:lightline.ctrlp_prev = a:prev
+	  let g:lightline.ctrlp_item = a:item
+	  let g:lightline.ctrlp_next = a:next
+	  return lightline#statusline(0)
+	endfunction
+
+	function! CtrlPStatusFunc_2(str)
+	  return lightline#statusline(0)
+	endfunction
+
+	let g:tagbar_status_func = 'TagbarStatusFunc'
+
+	function! TagbarStatusFunc(current, sort, fname, ...) abort
+	  return lightline#statusline(0)
+	endfunction
+
+	let g:unite_force_overwrite_statusline = 0
+	let g:vimfiler_force_overwrite_statusline = 0
+	let g:vimshell_force_overwrite_statusline = 0
 
 " vim-javascript gliphs
 " https://github.com/pangloss/vim-javascript
@@ -288,7 +409,7 @@ let g:lightline = {
 let g:javascript_conceal_arrow_function       = "⇒"
 "let g:javascript_conceal_noarg_arrow_function = "⭘"
 "let g:javascript_conceal_underscore_arrow_function = "⭘"
- 
+let g:gtk_nocache = [0x00000000, 0xfc00ffff, 0xf8000001, 0x78000001]
 
 " ============================== Tagbar =======================================
 let g:tagbar_compact = 1        " Disable help message
@@ -369,9 +490,10 @@ let g:ale_sign_warning = ''
 let airline#extensions#ale#error_symbol = ''
 let airline#extensions#ale#warning_symbol = ''
 " Set Ale fixer (Eslint)
-let b:ale_fixers = {
- \ 'javascript': ['prettier_eslint'],
- \ 'css': ['prettier']
+let g:ale_fixers = {
+ \ 'javascript': ['eslint'],
+ \ 'css': ['stylelint','prettier'],
+ \ 'html': ['fecs']
  \ }
 let b:ale_linters={'css': ['stylelint'], 'html': ['stylelint','htmlhint'], 'javascript': ['eslint']}
 let g:ale_linter_aliases = {'html': ['html', 'javascript', 'css']}
@@ -1056,21 +1178,24 @@ endfunction
 
 " Coc-nvim extensions list:
 let g:coc_global_extensions = [
+  \ 'coc-tsserver',
   \ 'coc-css',
   \ 'coc-emmet',
-  \ 'coc-highlight',
   \ 'coc-html',
+  \ 'coc-svg',
   \ 'coc-json',
+  \ 'coc-yaml',
+  \ 'coc-git',
   \ 'coc-lists',
   \ 'coc-pairs',
-  \ 'coc-snippets',
-  \ 'coc-svg',
-  \ 'coc-tsserver',
-  \ 'coc-yaml',
   \ 'coc-yank',
+  \ 'coc-snippets',
   \ 'coc-browser',
-  \ 'coc-git',
-  \ 'coc-diagnostic'
+  \ 'coc-diagnostic',
+  \ 'coc-highlight',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-stylelint',
   \]
 
 " vim-ledger settings:
