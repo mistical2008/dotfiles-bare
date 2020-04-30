@@ -6,7 +6,7 @@ set fileencoding=utf-8
 " Don't try to be vi compatible
 set nocompatible
 " set guifont=Source\ Code\ Pro\ 17
-set guifont=JetBrains\ Mono\ Regular:h17
+set guifont=JetBrains\ Mono\ 10
 set vb t_vb= " No horrible visual flash on bell
 
 " Search down into subfolders
@@ -140,6 +140,7 @@ Plug 'godlygeek/tabular'
   " \ 'do': 'yarn install',
   " \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'pangloss/vim-javascript'
 "Plug 'SirVer/ultisnips'
 " Markdown
 Plug 'reedes/vim-pencil', {'for': 'markdown'}
