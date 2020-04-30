@@ -149,6 +149,7 @@ conf() {
   xres) vim $HOME/.Xresources && xrdb $HOME/.Xresources && dfa $HOME/.Xresources && dfcm "Updated the .Xresources" && dfp && xrdb -merge ~/.Xresources ;;
   alac) vim $HOME/.config/alacritty/alacritty.yml && dfa $HOME/.config/alacritty/alacritty.yml && dfcm "Updated the alacritty.yaml" && dfp ;;
   kitty) vim $HOME/.config/kitty/kitty.conf && dfa $HOME/.config/kitty/kitty.conf && dfcm "Updated the kitty.conf" && dfp ;;
+  pulse) vim $HOME/.config/pulse/default.pa && dfa $HOME/.config/pulse/default.pa && dfcm "Updated the pulseaudio config" && dfp ;;
   sr) vim $HOME/.config/surfraw/conf && dfa $HOME/.config/surfraw/conf && dfcm "surfraw autocommt" && dfp ;;
   rg) vim $HOME/.config/ripgreprc && dfa $HOME/.config/ripgreprc && dfcm "ripgreprc autocommt" && dfp ;;
   fonts-u) vim $HOME/.config/fontconfig/70-emojione-color.conf && fc-cache -f -v ;;
