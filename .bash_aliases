@@ -138,6 +138,7 @@ conf() {
   todo) vim $HOME/.config/todo/config && dfa $HOME/.config/todo/config && dfcm "Updated the todo.txt config" && dfp ;;
   ranger) vim $HOME/.config/ranger/rc.conf && dfa $HOME/.config/ranger/rc.conf && dfcm "Updated the ranger config" && dfp ;;
   vifm) vim $HOME/.config/vifm/vifmrc && dfa $HOME/.config/vifm/vifmrc && dfcm "Updated the vifm config" && dfp ;;
+  broot) vim $HOME/.config/broot/conf.toml && dfa $HOME/.config/broot/conf.toml && dfcm "Updated the broot config" && dfp ;;
   compton) vim $HOME/.config/compton/compton.conf && dfa $HOME/.config/compton/compton.conf && dfcm "Updated the compton.conf" && dfp ;;
   polybar) vim $HOME/.config/polybar/polybar.conf && dfa $HOME/.config/polybar/polybar.conf && dfcm "Updated the polybar.conf" && dfp ;;
   dunst) vim $HOME/.config/dunst/dunstrc && dfa $HOME/.config/dunst/dunstrc && dfcm "Updated the dunstrc" && dfp ;;
