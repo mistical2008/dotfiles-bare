@@ -1,0 +1,15 @@
+.include /etc/pulse/default.pa
+
+# Set default audio output device
+#set-default-sink output alsa_output.pci-0000_00_03.0.hdmi-stereo
+
+# Automatically switch to newly-connected devices
+load-module module-switch-on-connect
+
+# audible bell
+load-sample-lazy x11-bell /usr/share/sounds/gnome/default/alerts/sonar.ogg
+load-module module-x11-bell sample=x11-bell
+
+# disable stream target device restore
+load-module module-stream-restore restore_device=false
+
