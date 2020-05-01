@@ -55,6 +55,12 @@ pgrep -u $USER nm-applet >/dev/null || \
 pgrep -u $USER qbittorrent >/dev/null || \
     qbittorrent &
 
+pgrep -u $USER unclutter >/dev/null || \
+  unclutter --timeout 3 &
+  
+pgrep -u $USER unclutter >/dev/null || \
+  udiskie &
+
 #================================================================================
 #                                launch everytime
 #================================================================================
@@ -76,7 +82,5 @@ amixer -q sset Master 30%
 dconf write /org/gnome/settings-daemon/plugins/cursor/active false &
 $HOME/.config/polybar/launch-polybar.sh
 setwac-run &
-udiskie &
-unclutter --timeout 3 &
 # /usr/lib/geoclue-2.0/demos/agent &
 killall dropdown_todo && /mnt/Data/Scripts/todo_today.sh &
