@@ -33,7 +33,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 export CYLONDEST="$HOME/tmp"
-# export TERM=screen-256color
+export TERM=xterm-256color
 
 # NNN settings:
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb;u:getplugs;i:-imgview;k:kdekonnect;d:-mediainfo'
