@@ -38,12 +38,16 @@ function! ToggleRelativeOn()
     set rnu!
     set nu
 endfunction
-autocmd FocusLost * call ToggleRelativeOn()
-autocmd FocusGained * call ToggleRelativeOn()
-autocmd InsertEnter * call ToggleRelativeOn()
-autocmd InsertLeave * call ToggleRelativeOn()
-autocmd CmdlineEnter * call ToggleRelativeOn()
-autocmd CmdlineLeave * call ToggleRelativeOn()
+
+augroup ToggleNumbers
+  autocmd!
+  autocmd FocusLost * call ToggleRelativeOn()
+  autocmd FocusGained * call ToggleRelativeOn()
+  autocmd InsertEnter * call ToggleRelativeOn()
+  autocmd InsertLeave * call ToggleRelativeOn()
+  autocmd CmdlineEnter * call ToggleRelativeOn()
+  autocmd CmdlineLeave * call ToggleRelativeOn()
+augroup END
 
 " Auto resize Vim splits to active split
 set winwidth=104
@@ -691,8 +695,6 @@ let g:vimwiki_hl_headers = 1
 " helppage -> :h vimwiki-syntax 
 " Set textwidth for the vimwiki and markdown:
 " autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-autocmd BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en,ru
-autocmd BufRead,BufNewFile *.ejs set syntax=ejs
 
 
 " Vimwiki projects variables:
@@ -767,10 +769,6 @@ let g:netrw_liststyle = 3    " tree view
 let g:netrw_winsize = 25     " windowsize
 let g:netrw_list_hide = netrw_gitignore#Hide()
 let g:netrw_list_hide .= ',\(^\|\s\s\)\zs\.\S\+'
-" augroup ProjectDrawer
-"   autocmd!
-"   autocmd VimEnter * :CocCommand explorer
-" augroup END
 
 " =============================== Editorconfig ============================
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
@@ -876,17 +874,18 @@ nnoremap <Leader>pd :call MakeDBPage()<CR>
 
 " ============================== AUTOCMDS: ======================================
 " JSON syntax highlight comments
-autocmd FileType json syntax match Comment +\/\/.\+$+
-" augroup SetTodoSyntax
-"   au!
-"   autocmd BufRead,BufNewFile ~/03_Drafts/01_tasks/*.txt set filetype todo
-" augroup END
-autocmd BufRead,BufNewFile,BufReadPost $HOME/03_Drafts/01_tasks/*.txt set filetype=todo
+augroup SetFileType
+  autocmd!
+  autocmd FileType json syntax match Comment +\/\/.\+$+
+  autocmd BufRead,BufNewFile,BufReadPost $HOME/03_Drafts/01_tasks/*.txt set filetype=todo
+  " Use todo#Complete as the omni complete function for todo files
+  autocmd filetype todo setlocal omnifunc=todo#Complete
+  autocmd BufRead,BufNewFile,BufReadPost $HOME/.config/sxhkd/sxhkdrc set filetype=sxhkd
+  autocmd BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en,ru
+  autocmd BufRead,BufNewFile *.ejs set syntax=ejs
+augroup END
 
-" Use todo#Complete as the omni complete function for todo files
-au filetype todo setlocal omnifunc=todo#Complete
 let g:Todo_txt_prefix_creation_date=1
-
 " ============================ Custom commands ==================================
 " Close all buffers but this one:
 " command AllBufClose :%bd|e
@@ -1207,7 +1206,9 @@ let g:coc_global_extensions = [
 " au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 
 " Fixes alacrity mouse issues:
-set ttymouse=sgr
+if !has('nvim')
+  set ttymouse=sgr
+endif
 
 " Safely change work dir to current file pwd:
 " let s:default_path = escape(&path, '\ ') " store default value of 'path'
