@@ -18,7 +18,7 @@ super + {_,control +,shift + }{h,j,k,l}
 	bspc node --{focus,swap,to-node} {west,south,north,east}
 
 # swap the current node and the biggest node
-super + { _, shift + }g
+super + {_,shift + }g
 	bspc node --{focus,swap} biggest.local
 
 # Move window to desktop by index:
