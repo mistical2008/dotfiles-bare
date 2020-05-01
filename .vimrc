@@ -134,7 +134,7 @@ Plug 'dyng/ctrlsf.vim' " An ack.vim alternative mimics Ctrl-Shift-F on Sublime T
 " Plug 'tpope/vim-sensible'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 Plug 'godlygeek/tabular'
 " Plug 'prettier/vim-prettier', {
   " \ 'do': 'yarn install',
@@ -173,6 +173,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lyokha/vim-xkbswitch'
 Plug 'dbeniamine/cheat.sh-vim'
 Plug 'vifm/vifm.vim'
+Plug 'kovetskiy/sxhkd-vim'
 " Plug 'kkoomen/vim-doge'  " https://vimawesome.com/plugin/doge#table-of-contents
 call plug#end()
 
@@ -1193,6 +1194,7 @@ let g:coc_global_extensions = [
   \ 'coc-yank',
   \ 'coc-snippets',
   \ 'coc-browser',
+  \ 'coc-explorer',
   \ 'coc-diagnostic',
   \ 'coc-highlight',
   \ 'coc-eslint',
@@ -1206,15 +1208,6 @@ let g:coc_global_extensions = [
 
 " Fixes alacrity mouse issues:
 set ttymouse=sgr
-
-" let reg_save = @@
-
-" let @@ = "Hello!"
-
-" exec "normal! p"
-
-" let @@ = reg_save
-
 
 " Safely change work dir to current file pwd:
 " let s:default_path = escape(&path, '\ ') " store default value of 'path'
