@@ -1,65 +1,53 @@
 #!/usr/bin/env bash
 
+$HOME/.config/polybar/launch-polybar.sh
 #================================================================================
 #                             Launch only at startup
 #================================================================================
 
 # TODO: add a function for operate on pgrep and run
+function run_process() {
+  pgrep -u $USER "$1" >/dev/null || "$2" &
+}
+
+function run_process_test() {
+  pgrep -u $USER "$1" >/dev/null || notify-send "$2"
+}
+
+# Add programm name and launch cmd to the associative array:
+declare -A PROCESSES
 # Launch composite manager:
-pgrep -u $USER compton >/dev/null || \
-    compton -b --config ~/.config/compton/compton.conf &
-
+PROCESSES[compton]="compton -b --config ~/.config/compton/compton.conf"
 # Night light:
-pgrep -u $USER redshift-gtk >/dev/null || \
-    redshift-gtk &
-
+PROCESSES[redshift-gtk]="redshift-gtk"
 # Keybindings daemon:
-pgrep -u $USER sxhkd >/dev/null || \
-    sxhkd &
-
+PROCESSES[sxhkd]="sxhkd"
 # Synthing:
-pgrep -u $USER syncthingtray >/dev/null || \
-    syncthingtray --wait &
-
+PROCESSES[syncthingtray]="syncthingtray --wait"
 # Clipboard:
-pgrep -u $USER copyq >/dev/null || \
-    copyq &
-
+PROCESSES[copyq]="copyq"
 # Launcher:
-pgrep -u $USER albert >/dev/null || \
-    albert &
-
+PROCESSES[albert]="albert"
 # Bluetooth manager:
-pgrep -u $USER blueman-applet >/dev/null || \
-    blueman-applet &
-
+PROCESSES[blueman-applet]="blueman-applet"
 # Clouds:
-pgrep -u $USER dropbox >/dev/null || \
-    dropbox start &
-
-pgrep -u $USER megasync >/dev/null || \
-    megasync &
-
-pgrep -u $USER pcloud >/dev/null || \
-    pcloud &
-
+PROCESSES[dropbox]="dropbox start"
+PROCESSES[megasync]="megasync"
+PROCESSES[pcloud]="pcloud"
 # Telegram:
-pgrep -u $USER telegram >/dev/null || \
-    telegram-desktop &
-
+PROCESSES[telegram]="telegram-desktop"
 # Networks manager:
-pgrep -u $USER nm-applet >/dev/null || \
-    nm-applet &
-
+PROCESSES[nm-applet]="nm-applet"
 # Torrent client:
-pgrep -u $USER qbittorrent >/dev/null || \
-    qbittorrent &
+PROCESSES[qbittorrent]="qbittorrent"
+# Hide mouse after 3s:
+PROCESSES[unclutter]="unclutter --timeout 3"
+# Mount disks daemon:
+PROCESSES[udiskie]="udiskie"
 
-pgrep -u $USER unclutter >/dev/null || \
-  unclutter --timeout 3 &
-  
-pgrep -u $USER unclutter >/dev/null || \
-  udiskie &
+for key in "${!PROCESSES[@]}" ; do
+  run_process "$key" "${PROCESSES[$key]}"
+done
 
 #================================================================================
 #                                launch everytime
@@ -71,7 +59,7 @@ xrdb --merge ~/.Xresoureces;
 sleep 1;
 wal -R -n;
 sleep 1;
-setxkbmap -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo' &
+setxkbmap -layout us,ru -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo' &
 
 # Set volume to 30%
 amixer -q sset Master 30%
@@ -80,7 +68,6 @@ amixer -q sset Master 30%
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 /usr/libexec/gnome-settings-daemon-localeexec &
 dconf write /org/gnome/settings-daemon/plugins/cursor/active false &
-$HOME/.config/polybar/launch-polybar.sh
 setwac-run &
 # /usr/lib/geoclue-2.0/demos/agent &
 killall dropdown_todo && /mnt/Data/Scripts/todo_today.sh &
