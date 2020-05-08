@@ -53,6 +53,8 @@ alias b='buku --suggest'
 # alias toutf8="find . -name '*.txt' -exec iconv --verbose -f cp1251 -t utf-8 -o {} {} \;"
 alias nnn_upd_plugs="curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh"
 alias vifm="vifmrun"
+alias vim="nvim"
+alias vi="vim"
 
 # Configs
 alias set_qt4="qtconfig-qt4"
