@@ -14,9 +14,9 @@ function run_process_test() {
   pgrep -u $USER "$1" >/dev/null || notify-send "$2"
 }
 # WORKAROUND: Commands with spaces hasnt passed as full string to function
-compton -b --config ~/.config/compton/compton.conf &
-syncthingtray --wait &
-dropbox start &
+pgrep -u $USER compton || compton -b --config ~/.config/compton/compton.conf &
+pgrep -u $USER syncthingtray || syncthingtray --wait &
+pgrep -u $USER dropbox || dropbox start &
 
 # Add programm name and launch cmd to the associative array:
 declare -A PROCESSES
