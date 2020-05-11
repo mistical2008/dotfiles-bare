@@ -55,6 +55,7 @@ alias nnn_upd_plugs="curl -Ls https://raw.githubusercontent.com/jarun/nnn/master
 alias vifm="vifmrun"
 alias vim="nvim"
 alias vi="vim"
+alias ssh_copy="cat ~/.ssh/id_rsa.pub | xclip -sel clip"
 
 # Configs
 alias set_qt4="qtconfig-qt4"
@@ -121,6 +122,7 @@ conf() {
   esp) vim $HOME/.config/espanso/default.yml && dfa $HOME/.config/espanso/default.yml && dfcm "Espanso autocommit" && dfp ;;
   intel) sudoedit /etc/X11/mhwd.d/intel.conf ;;
   vim) vim $HOME/.vimrc && dfa $HOME/.vimrc && dfcm "Updated .vimrc" && dfp ;;
+  vim) vim $HOME/.SpaceVim.d/init.toml && dfa $HOME/.SpaceVim.d/init.toml && dfcm "Updated SpaceVim config" && dfp ;;
   mutt) vim $HOME/.muttrc && dfa $HOME/.muttrc && dfcm "Updated .vimrc" && dfp ;;
   lightdm) sudoedit /etc/lightdm/lightdm.conf ;;
   nvidia) sudoedit /etc/bumblebee/xorg.conf.nvidia ;;
