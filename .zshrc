@@ -57,6 +57,7 @@ fi
 if [ -f $ZSH/oh-my-zsh.sh ]; then
 	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 #===========================================================================
 #=========================== WALL SETTINGS =================================
@@ -133,3 +134,5 @@ load-nvmrc
 
 # Time meter (uncomment last and firs lines)
 # zprof
+
+source /home/evgeniy/.config/broot/launcher/bash/br
