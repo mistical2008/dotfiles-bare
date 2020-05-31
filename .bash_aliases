@@ -56,6 +56,7 @@ alias vifm="vifmrun"
 alias vim="nvim"
 alias vi="vim"
 alias ssh_copy="cat ~/.ssh/id_rsa.pub | xclip -sel clip"
+alias M001="mongo 'mongodb+srv://cluster0-0uall.mongodb.net/test' --username m001-student --password m001-mongodb-basics"
 
 # Configs
 alias set_qt4="qtconfig-qt4"
