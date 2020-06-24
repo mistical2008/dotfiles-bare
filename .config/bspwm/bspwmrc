@@ -57,7 +57,7 @@ bspc rule -a TelegramDesktop desktop="chats"
 bspc rule -a tuijam state=floating layer=above rectangle=800x600
 bspc rule -a ktouch state=floating layer=above rectangle=1000x700
 bspc rule -a 'class==polkit-gnome-authentication-agent-1' rectangle=600x211
-bspc rule -a gnome-calculator state=floating border=off
+bspc rule -a Gnome-calculator state=floating border=off
 # bspc rule -a Zathura state=floating layer=above rectangle=1200x1400
 
 # Autostart
