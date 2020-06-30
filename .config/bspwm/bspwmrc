@@ -58,6 +58,7 @@ bspc rule -a tuijam state=floating layer=above rectangle=800x600
 bspc rule -a ktouch state=floating layer=above rectangle=1000x700
 bspc rule -a 'class==polkit-gnome-authentication-agent-1' rectangle=600x211
 bspc rule -a Gnome-calculator state=floating border=off
+bspc rule -a Anki state=floating rectangle=400x600
 # bspc rule -a Zathura state=floating layer=above rectangle=1200x1400
 
 # Autostart
