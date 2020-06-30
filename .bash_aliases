@@ -171,7 +171,8 @@ conf() {
   mux) vim $HOME/.config/tmuxinator/$2.yml && dfa $HOME/.config/tmuxinator/$2.yml && dfcm "Updated the tmuxinator $2" && dfp ;;
   psd) vim $HOME/.config/psd/psd.conf && dfa $HOME/.config/psd/psd.conf && dfcm "Updated the profile-sync-daemons config" && dfp ;;
   git) vim $HOME/.gitconfig && dfa $HOME/.gitconfig && dfcm "gitconfig autocommt" && dfp ;;
-  docker) sudoedit /etc/docker/daemon.json && dfa /etc/docker/daemon.json && dfcm "docker daemon config autocommit" && dfp ;;
+  docker-dem) sudoedit /etc/docker/daemon.json && dfa /etc/docker/daemon.json && dfcm "docker daemon config autocommit" && dfp ;;
+  docker) vim $HOME/.config/docker/config.json && dfa $HOME/.config/docker/config.json && dfcm "docker config autocommit" && dfp ;;
   *) echo "Unknown application: $1" ;;
   esac
 }
