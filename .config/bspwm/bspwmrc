@@ -44,10 +44,10 @@ bspc config window_gap 10
 bspc monitor --reset-desktops primary plan code conf media chats 7
 
 # Window rules:
-bspc rule -a albert state=floating layer=above border=off follow=on focus=on
+bspc rule -a albert state=floating layer=above border=off follow=on focus=on center=true
 bspc rule -a MEGAsync state=floating border=off
 bspc rule -a copyq state=floating layer=above follow=on focus=on
-bspc rule -a qBittorrent state=floating hidden=on
+bspc rule -a qBittorrent state=floating hidden=on center=true
 bspc rule -a "Tor Browser" state=floating layer=above
 bspc rule -a Nitrogen state=floating layer=above
 bspc rule -a Peek state=floating layer=above border=off rectangle=1200x860 follow=on focus=on
@@ -56,9 +56,12 @@ bspc rule -a dropdown_todo state=floating layer=above rectangle=1200x700
 bspc rule -a TelegramDesktop desktop="chats" 
 bspc rule -a tuijam state=floating layer=above rectangle=800x600
 bspc rule -a ktouch state=floating layer=above rectangle=1000x700
-bspc rule -a 'class==polkit-gnome-authentication-agent-1' rectangle=600x211
+bspc rule -a 'polkit-gnome-authentication-agent-1*:Polkit-gnome-authentication-agent-1*' rectangle=600x211 state=floating
 bspc rule -a Gnome-calculator state=floating border=off
-bspc rule -a Anki state=floating rectangle=400x600
+bspc rule -a Anki state=floating rectangle=400x600 center=true
+bspc rule -a Anki:* state=floating
+bspc rule -a Enpass state=floating center=true rectangle=600x400
+bspc rule -a Spotify state=floating center=true rectangle=600x400
 # bspc rule -a Zathura state=floating layer=above rectangle=1200x1400
 
 # Autostart
