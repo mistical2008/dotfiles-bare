@@ -59,9 +59,10 @@ bspc rule -a ktouch state=floating layer=above rectangle=1000x700
 bspc rule -a 'polkit-gnome-authentication-agent-1*:Polkit-gnome-authentication-agent-1*' rectangle=600x211 state=floating
 bspc rule -a Gnome-calculator state=floating border=off
 bspc rule -a Anki state=floating rectangle=400x600 center=true
-bspc rule -a Anki:* state=floating
+bspc rule -a Anki:* state=floating rectangle=800x400
 bspc rule -a Enpass state=floating center=true rectangle=600x400
-bspc rule -a spotify state=floating center=true rectangle=600x400
+bspc rule -a Spotify state=floating center=true rectangle=600x400
+bspc rule -a Youtube-dl-gui state=floating center=true rectangle=600x400
 # bspc rule -a Zathura state=floating layer=above rectangle=1200x1400
 
 # Autostart
