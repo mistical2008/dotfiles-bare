@@ -1,6 +1,40 @@
 #!/usr/bin/env bash
 
-$HOME/.config/polybar/launch-polybar.sh
+# run the xrandr command if an external monitor is connected to the
+# laptop.  This must be executed before the polybar command, so that
+# polybar can set the two separate bars properly.
+if [ -x /mnt/Data/bspwm_laptop_dual_monitor ];then
+    bspwm_laptop_dual_monitor
+fi
+
+if [[ -x /usr/bin/polybar ]]; then
+  bash $HOME/.config/polybar/launch-polybar.sh
+fi
+
+#================================================================================
+#                                launch everytime
+#================================================================================
+
+# Appearance and keyboard:
+nitrogen --restore &
+sleep 1; 
+xrdb --merge ~/.Xresoureces;
+sleep 1;
+wal -R -n;
+sleep 1;
+setxkbmap -layout us,ru -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo' &
+
+# Set volume to 30%
+amixer -q sset Master 30%
+
+# Gnome services:
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+/usr/libexec/gnome-settings-daemon-localeexec &
+dconf write /org/gnome/settings-daemon/plugins/cursor/active false &
+setwac-run &
+# /usr/lib/geoclue-2.0/demos/agent &
+killall dropdown_todo && /mnt/Data/Scripts/todo_today.sh &
+
 #================================================================================
 #                             Launch only at startup
 #================================================================================
@@ -45,33 +79,12 @@ PROCESSES[nm-applet]="nm-applet"
 # Torrent client:
 PROCESSES[qbittorrent]="qbittorrent"
 # Hide mouse after 3s:
-PROCESSES[unclutter]="unclutter --timeout 3"
+# PROCESSES[unclutter]="unclutter --timeout 3"
+pgrep -u $USER unclutter >/dev/null || unclutter --timeout 5 &  
 # Mount disks daemon:
 PROCESSES[udiskie]="udiskie"
 
 for key in "${!PROCESSES[@]}" ; do
-  run_process "$key" "${PROCESSES[$key]}"
+  pgrep -u $USER "$key" >/dev/null || "${PROCESSES[$key]}" &  
 done
 
-#================================================================================
-#                                launch everytime
-#================================================================================
-
-# Appearance and keyboard:
-nitrogen --restore; sleep 1; 
-xrdb --merge ~/.Xresoureces;
-sleep 1;
-wal -R -n;
-sleep 1;
-setxkbmap -layout us,ru -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo' &
-
-# Set volume to 30%
-amixer -q sset Master 30%
-
-# Gnome services:
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
-/usr/libexec/gnome-settings-daemon-localeexec &
-dconf write /org/gnome/settings-daemon/plugins/cursor/active false &
-setwac-run &
-# /usr/lib/geoclue-2.0/demos/agent &
-killall dropdown_todo && /mnt/Data/Scripts/todo_today.sh &
