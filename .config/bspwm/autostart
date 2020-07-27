@@ -51,6 +51,7 @@ function run_process_test() {
 pgrep -u $USER compton || compton -b --config ~/.config/compton/compton.conf &
 pgrep -u $USER syncthingtray || syncthingtray --wait &
 pgrep -u $USER dropbox || dropbox start &
+pgrep -u $USER rsibreak || rsibreak --autostart &
 
 # Add programm name and launch cmd to the associative array:
 declare -A PROCESSES
@@ -83,8 +84,6 @@ PROCESSES[qbittorrent]="qbittorrent"
 pgrep -u $USER unclutter >/dev/null || unclutter --timeout 5 &  
 # Mount disks daemon:
 PROCESSES[udiskie]="udiskie"
-# Run RSI break:
-PROCESSES[rsibreak]="rsibreak --autostart"
 
 for key in "${!PROCESSES[@]}" ; do
   pgrep -u $USER "$key" >/dev/null || "${PROCESSES[$key]}" &  
