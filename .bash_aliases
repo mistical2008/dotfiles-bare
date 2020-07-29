@@ -111,6 +111,7 @@ alias tinbox="todo.sh ls -(.)"
 alias tweek="todo.sh listpri c"
 alias tlater="todo.sh listpri d"
 alias cltmp="ls -ca $HOME/tmp; rm -r $HOME/tmp/*"
+alias serve="browser-sync start --sever --files . --no-notify --host $SERVER_IP --port 9000"
 
 ## FUNCTIONS
 # Configurations
