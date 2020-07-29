@@ -26,6 +26,7 @@ export MON_PRIMARY=$(xrandr | grep -w "connected primary" | awk '{print $1}')
 export MANPATH="/usr/local/man:$MANPATH"
 export TERMINAL="$DEF_TERM"
 export BROWSER="firefox"
+export SERVER_IP="$(hostname -i | awk '{print $1}')"
 
 # You may need to manually set your language environment
 #export LANG=ru_RU.UTF-8
