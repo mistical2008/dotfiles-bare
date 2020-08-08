@@ -49,28 +49,27 @@ function run_process_test() {
 }
 # WORKAROUND: Commands with spaces hasnt passed as full string to function
 pgrep -u $USER compton || compton -b --config ~/.config/compton/compton.conf &
-pgrep -u $USER syncthingtray || syncthingtray --wait &
-pgrep -u $USER dropbox || dropbox start &
-pgrep -u $USER rsibreak || rsibreak --autostart &
 
 # Add programm name and launch cmd to the associative array:
 declare -A PROCESSES
 # Launch composite manager:
 PROCESSES[compton]="compton -b --config ~/.config/compton/compton.conf"
+# Mount disks daemon:
+PROCESSES[udiskie]="udiskie"
+# Bluetooth manager:
+PROCESSES[blueman-applet]="blueman-applet"
 # Night light:
 PROCESSES[redshift-gtk]="redshift-gtk"
 # Keybindings daemon:
 PROCESSES[sxhkd]="sxhkd"
 # Synthing:
-PROCESSES[syncthingtray]="syncthingtray --wait"
+#PROCESSES[syncthingtray]="syncthingtray --wait"
 # Clipboard:
 PROCESSES[copyq]="copyq"
 # Launcher:
 PROCESSES[albert]="albert"
-# Bluetooth manager:
-PROCESSES[blueman-applet]="blueman-applet"
 # Clouds:
-PROCESSES[dropbox]="dropbox start"
+#PROCESSES[dropbox]="dropbox start"
 PROCESSES[megasync]="megasync"
 PROCESSES[pcloud]="pcloud"
 # Telegram:
@@ -82,10 +81,12 @@ PROCESSES[qbittorrent]="qbittorrent"
 # Hide mouse after 3s:
 # PROCESSES[unclutter]="unclutter --timeout 3"
 pgrep -u $USER unclutter >/dev/null || unclutter --timeout 5 &  
-# Mount disks daemon:
-PROCESSES[udiskie]="udiskie"
 # Update-checker:
 PROCESSES[update-checker]="update-checker"
+
+pgrep -u $USER syncthingtray || syncthingtray --wait &
+pgrep -u $USER dropbox || dropbox start &
+pgrep -u $USER mindfulness-at-the-computer || mindfulness-at-the-computer &
 
 for key in "${!PROCESSES[@]}" ; do
   pgrep -u $USER "$key" >/dev/null || "${PROCESSES[$key]}" &  
