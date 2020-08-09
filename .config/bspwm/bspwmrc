@@ -64,6 +64,7 @@ bspc rule -a Enpass state=floating center=true rectangle=600x400 follow=on
 bspc rule -a spotify state=floating center=true rectangle=600x400 follow=on 
 bspc rule -a Youtube-dl-gui state=floating center=true rectangle=600x400 follow=on
 bspc rule -a Zathura:* state=floating layer=above rectangle=1200x1400
+bspc rule -a mindfulness-at-the-computer.py state=floating
 
 # Autostart
 "$BSPWM_CONFIG/autostart" &
