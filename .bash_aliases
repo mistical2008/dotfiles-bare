@@ -80,6 +80,7 @@ alias tw_week="watch -c todo.sh listpri C"
 alias tw_later="watch -c todo.sh listpri D"
 alias tw_inbox="watch -c todo.sh ls '-\(.\)' '-x'"
 alias tw_tstat="watch -c todo.sh spts stat"
+alias tw_theavy="watch -c 'todo.sh listpri a-b | rg spt:\(13\|21\)'"
 alias tasks='git grep -EI "TODO|FIXME"'
 alias mux='tmuxinator'
 alias wpg='wpg && bl-set-wal.sh'
