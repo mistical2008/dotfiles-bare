@@ -29,8 +29,8 @@ folders = {
   images: "~/Изображения",
   video: "~/Видео",
   music: "~/Музыка",
-  books: "~/Документы/Mega/Книги/Книг/00_inbox",
-  projects: "~/Документы/Mega/00_projects",
+  books: "~/01_Library/09_books/books/00_inbox",
+  projects: "~/03_Drafts/02_projects",
   records: "~/01_Library/06_audio-records",
 }
 
