@@ -122,10 +122,11 @@ alias serve="browser-sync start --server --files . --no-notify --host $SERVER_IP
 # Configurations
 conf() {
   case $1 in
+  zathura) vim $HOME/.config/zathura/zathurarc && dfa $HOME/.config/zathura/zathurarc && dfcm "zathura autocommit" && dfp ;;
   ffadb) vi $HOME/.mozilla/firefox/f4nkcylv.default/storage/permanent/chrome/userContent.css && dfa $HOME/.mozilla/firefox/f4nkcylv.default/storage/permanent/chrome/userContent.css && dfcm "Firefox userContent.css autocommit" && dfp ;;
   ctags) vim $HOME/.ctags.d/cfg.2.ctags && dfa $HOME/.ctags.d/cfg.2.ctags && dfcm "ctags autocommit" && dfp ;;
   wacom) sudoedit $HOME/.config/xsetwacom-gnome-symbiotic/setup.sh && setwac-run ;;
-  tuijam) vim $HOME/.config/tuijam/config.yaml && dfa $HOME/.config/tuijam/config.yaml && dfcm "tuijam autocommit" && dfp;;
+  tuijam) vim $HOME/.config/tuijam/config.yaml && dfa $HOME/.config/tuijam/config.yaml && dfcm "tuijam autocommit" && dfp ;;
   esp) vim $HOME/.config/espanso/default.yml && dfa $HOME/.config/espanso/default.yml && dfcm "Espanso autocommit" && dfp ;;
   intel) sudoedit /etc/X11/mhwd.d/intel.conf ;;
   vim) vim $HOME/.vimrc && dfa $HOME/.vimrc && dfcm "Updated .vimrc" && dfp ;;
