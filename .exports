@@ -44,6 +44,7 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 
 # Qt:
 export QT_STYLE_OVERIDE="GTK+"
+export QT_QPA_PLATFORMTHEME='gnome'
 
 # Todo.txt pom action log path:
 
