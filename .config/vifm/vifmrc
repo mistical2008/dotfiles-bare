@@ -1,4 +1,5 @@
 " vim: filetype=vifm :
+"
 " Sample configuration file for vifm (last updated: 2 June, 2019)
 " You can edit this file by hand.
 " The " character at the beginning of a line comments out the line.
@@ -113,7 +114,7 @@ endif
 
 " Set custom status line look
 
-set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+set statusline="  Hint: %z%= %A %10u:%-7g Sel:%10E %15s %20d  "
 
 " ------------------------------------------------------------------------------
 
@@ -176,7 +177,7 @@ command! reload :write | restart
 " fileviewer *.pdf pdftotext -nopgbrk %c -
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
 fileviewer *.pdf
-        \ vifmimg pdf %px %py %pw %ph %c
+        \ vifmimg pdfpreview %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
         " \ pdftotext -nopgbrk %c -
@@ -184,12 +185,12 @@ fileviewer *.pdf
 filextype *.epub,*.mobi,*.fb2 okular %c %i
 " filextype *.epub,mobi,fb2 epr %c
 fileviewer *.epub,*.mobi,*.fb2
-        \ vifmimg epub %px %py %pw %ph %c
+        \ vifmimg epubpreview %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
 
 " Fonts
-fileviewer *.otf,*.ttf,*.woff
+fileviewer <font/*>
         \ vifmimg font %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
@@ -232,7 +233,7 @@ filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
           \*.as[fx]
-        \ vifmimg video %px %py %pw %ph %c 
+        \ vifmimg videopreview %px %py %pw %ph %c 
         \ %pc 
         \ vifmimg clear
         " \ ffprobe -pretty %c 2>&1
@@ -270,8 +271,8 @@ fileviewer *.gif
         \ vifmimg gifpreview %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
-fileviewer *.svg
-        \ vifmimg svg %px %py %pw %ph %c
+fileviewer *.svg,*.ico
+        \ vifmimg magickpreview %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
 
@@ -460,7 +461,7 @@ vnoremap w :view<cr>gv
 " Open file in existing instance of gvim
 nnoremap o :!gvim --remote-tab-silent %f<cr>
 " Open file in new instance of gvim
-nnoremap O :!gvim %f<cr>
+nnoremap O :!nvim %f<cr>
 
 " Open file in the background using its default program
 nnoremap gb :file &<cr>l
@@ -493,7 +494,7 @@ nnoremap cc cw<c-u>
 nnoremap A cw
 
 " Open console in current directory
-nnoremap ,t :!alacritty &<cr>
+nnoremap ,t :!$DEF_TERM %i &<cr>
 
 " Open editor to edit vifmrc and apply settings after returning to vifm
 nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
@@ -540,13 +541,26 @@ nnoremap <f8> :delete<cr>
 "                                  User section:
 "================================================================================
 
-" Custom coomands:
+" FZF integrate: create commands
+command! FZFlocate :set noquickview | :execute 'goto' fnameescape(term('locate $HOME | fzf --height 10 2>/dev/tty'))
+command! FZFfind :set noquickview | :execute 'goto' fnameescape(term('find | fzf --height 10 2>/dev/tty'))
+" FZF integrate: create mappings
+nnoremap <c-g> :FZFlocate<cr>
+nnoremap <c-f> :FZFfind<cr>
 
-" Custom mappings:
+" Change cmd key for faster actions:
 nnoremap ; :
 vnoremap ; :
 
-
+" Run vifm-compare.sh for files and directories:
+command! cmpinternal vifm-compare.sh %a %S
+   command! cmp : if expand('%%c') == expand('%%f')
+              \ |     echo expand('Comparing %%"c and %%"C:t ...')
+              \ |     cmpinternal %c %C
+              \ | else
+              \ |     echo expand('Comparing files: %%"f ...')
+              \ |     cmpinternal %f
+              \ | endif
 
 " Custom variables:
 " let $VIFM_SERVER_NAME = v:servername
@@ -558,8 +572,11 @@ filetype *.7z,*.bz2,*.cab,*.cpio,*.deb,*.gz,
        \ als %f | less
 
 " silently extract selected archives in background
-command extract aunpack -e %f &>/dev/null &
+command extract :!aunpack -e %f &>/dev/null &
 
 " map extraction command
 nnoremap ex :extract<CR>
 
+"Scrolling PDF previews:
+map > :!vifmimg inc<CR>
+map < :!vifmimg dec<CR>

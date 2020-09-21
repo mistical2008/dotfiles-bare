@@ -24,14 +24,14 @@
 
 # folders
 folders = {
-  downloads: "~/Загрузки",
-  tg: "Telegram Desktop",
-  images: "~/Изображения",
-  video: "~/Видео",
-  music: "~/Музыка",
-  books: "~/01_Library/09_books/books/00_inbox",
-  projects: "~/03_Drafts/02_projects",
-  records: "~/01_Library/06_audio-records",
+  downloads: '~/Загрузки',
+  tg: 'Telegram Desktop',
+  images: '~/Изображения',
+  video: '~/Видео',
+  music: '~/Музыка',
+  books: '~/01_Library/09_books/books/00_inbox',
+  projects: '~/03_Drafts/02_projects',
+  records: '~/01_Library/06_audio-records'
 }
 
 # FILETLYPES
