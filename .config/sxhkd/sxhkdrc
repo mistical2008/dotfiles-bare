@@ -152,7 +152,7 @@ XF86Audio{Play,Next,Prev}
 # XF86AudioPrev
 # 			playerctl previous
 
-control + tilde
+control + 49
   kill -s USR1 $(pidof deadd-notification-center)
 
 
