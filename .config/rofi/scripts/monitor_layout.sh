@@ -1,4 +1,6 @@
 #!/bin/bash
+# PRE_CMD=$(echo '')
+# POST_CMD=$(cmd "$HOME/.config/polybar/launch-polybar.sh")
 
 XRANDR=$(which xrandr)
 
@@ -15,7 +17,7 @@ function gen_xrandr_only()
 {
     selected=$1
 
-    cmd="xrandr --output ${MONITORS[$selected]} --auto "
+    cmd="xrandr --output ${MONITORS[$selected]} --auto"
 
     for entry in $(seq 0 $((${NUM_MONITORS}-1)))
     do
@@ -93,7 +95,7 @@ function gen_entries()
 }
 
 # Call menu
-SEL=$( gen_entries | rofi -dmenu -p "Monitor Setup:" -a 0 -no-custom  | awk '{print $1}' )
+SEL=$( gen_entries | rofi -dmenu -p "Monitor Setup:" -a 0 -no-custom drun -theme themes/appsmenu.rasi | awk '{print $1}' )
 
 # Call xrandr
-$( ${COMMANDS[$SEL]} )
+$( ${COMMANDS[$SEL]}; bspc wm --restart; nitrogen --restore & )

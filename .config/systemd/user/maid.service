@@ -2,7 +2,7 @@
 Description=Maid daemon service
 
 [Service]
-ExecStart=/usr/bin/ruby /home/evgeniy/.gem/ruby/2.6.0/bin/maid daemon
+ExecStart=/usr/bin/ruby /home/evgeniy/.gem/ruby/2.7.0/bin/maid daemon
 
 [Install]
 WantedBy=default.target

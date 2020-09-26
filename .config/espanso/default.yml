@@ -4,14 +4,19 @@
 # You can refer to the official documentation:
 # https://espanso.org/docs/
 
+# Toggle key:
+toggle_key: "META"
 # Matches are the substitution rules, when you type the "trigger" string
 # it gets replaced by the "replace" string.
 matches:
   # Simple text replacement
   - trigger: ":espanso"
     replace: "Hi there!"
+
   - trigger: "дд"
-    replace: "Добрый день"
+    replace: "добрый день"
+    propagate_case: true
+    word: true
 
   # Dates
   - trigger: ":date"
@@ -20,7 +25,26 @@ matches:
       - name: mydate
         type: date
         params:
+          format: "%d.%m.%Y"
+
+  - trigger: ":sym-rub"
+    replace: "₽"
+
+  - trigger: ":usdate"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
           format: "%m/%d/%Y"
+
+  - trigger: ":isodate"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
 
   # Shell commands
   - trigger: ":shell"
