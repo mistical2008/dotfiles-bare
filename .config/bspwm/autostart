@@ -86,7 +86,6 @@ PROCESSES[update-checker]="update-checker"
 
 pgrep -u $USER syncthingtray || syncthingtray --wait &
 pgrep -u $USER dropbox || dropbox start &
-pgrep -u $USER mindfulness-at-the-computer || mindfulness-at-the-computer &
 
 for key in "${!PROCESSES[@]}" ; do
   pgrep -u $USER "$key" >/dev/null || "${PROCESSES[$key]}" &  
