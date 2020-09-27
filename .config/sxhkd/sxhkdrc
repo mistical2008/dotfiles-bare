@@ -5,7 +5,7 @@ super + c;{r,d,l}
    bspc wm -{r,d > $HOME/.config/bspwm/saved_session,l $HOME/.config/bspwm/saved_session}
 
 # Navigate layouts
-super + {_,shift + }space
+super + {_,shift + }slash
 	bspc desktop --layout {next,prev}
 
 # Preselect window direction:
@@ -29,13 +29,21 @@ super + shift + {1-9,0}
 super + control + {1-9,0}
    bspc node --to-desktop ^{1-9,10} --focus && bspunhide.sh
 
-# Expand tiled space
+# Expand left/right/top/bottom side size:
 super + alt + {h,j,k,l}
-	bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+    bspc node --resize {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# Shrink left/right/top/bottom side size:
+super + alt + shift + {h,j,k,l}
+    bspc node --resize {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# Expand tiled space
+# super + alt + {h,j,k,l}
+	# bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
 
 # Contract tiled space
-super + alt + shift + {h,j,k,l}
-	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10};
+# super + alt + shift + {h,j,k,l}
+	# bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10};
 
 # Focus desktop by index:
 super + {1-9,0}
@@ -84,9 +92,9 @@ super + t
   bspc query --nodes -n focused.tiled && state=floating || state=tiled; \
 	bspc node --state \~$state
 
-# Focus floating window:
-super + control +  space
-  bspc node last.floating --focus
+# Focus last floating window:
+super + {_, shift +}space
+  bspc node --focus {last.local,last}.floating
 
 # Focus last desktop:
 # super + {bracketleft,bracketright}
