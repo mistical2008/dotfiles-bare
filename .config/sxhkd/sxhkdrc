@@ -94,7 +94,11 @@ super + t
 
 # Focus last floating window:
 super + {_, shift +}space
-  bspc node --focus {last.local,last}.floating
+  bspc node --focus {newest.local,newest}.floating
+
+# Focus next/prev local floating window:
+super + {_, shift +}y
+  bspc node --focus {next, prev}.local.floating
 
 # Focus last desktop:
 # super + {bracketleft,bracketright}
@@ -127,7 +131,10 @@ super + control + p
         copyq show
 
 Print
-        gnome-screenshot -i
+        flameshot gui
+
+Print + shift
+        flameshot full
 
 super + m
         polybar-msg cmd toggle
