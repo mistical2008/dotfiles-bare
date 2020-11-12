@@ -52,6 +52,7 @@ pgrep -u $USER compton || compton -b --config ~/.config/compton/compton.conf &
 
 # Add programm name and launch cmd to the associative array:
 declare -A PROCESSES
+PROCESSES[gnome-screensaver]="gnome-screensaver"
 # Launch composite manager:
 PROCESSES[compton]="compton -b --config ~/.config/compton/compton.conf"
 # Mount disks daemon:
