@@ -140,7 +140,8 @@ super + m
         polybar-msg cmd toggle
 
 super + shift + x
-        light-locker-command -l
+        gnome-screensaver-command -l
+        # light-locker-command -l
 
 XF86AudioRaiseVolume
 			"/mnt/Data/Scripts/util-set-vol.sh" +5%
