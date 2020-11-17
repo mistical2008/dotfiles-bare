@@ -98,7 +98,12 @@ super + {_, shift +}space
 
 # Focus next/prev local floating window:
 super + {_, shift +}y
-  bspc node --focus {next, prev}.local.floating
+  /mnt/Data/Scripts/bspc-floating-cycle-{next-,prev-}hidden.sh
+  # bspc node --focus {next, prev}.local.floating || bspc node --focus any.local.floating
+
+super + {_, shift +}d
+  /mnt/Data/Scripts/bspc-floating-cycle-{next,prev}.sh
+  
 
 # Focus last desktop:
 # super + {bracketleft,bracketright}
@@ -131,10 +136,10 @@ control + shift + slash
         copyq show
 
 Print
-        flameshot gui
+        ( flameshot &; ) && ( sleep 0.5s && flameshot gui)
 
 Print + shift
-        flameshot full
+        ( flameshot &; ) && ( sleep 0.5s && flameshot full)
 
 super + m
         polybar-msg cmd toggle
