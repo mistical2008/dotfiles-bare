@@ -1,0 +1,42 @@
+{
+  "suggest.enablePreview": true,
+  "prettier.eslintIntegration": true,
+  "prettier.tslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  "html.enable": true,
+  "html.validate.html": true,
+  "html.validate.scripts": true,
+  "html.validate.styles": true,
+  "explorer.icon.enableNerdfont": true,
+  "html.filetypes": ["html", "handlebars", "htmldjango", "ejs"],
+  "css.validate": false,
+  "git.enableGutters": true,
+  "coc.preferences.previewAutoClose": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "scss",
+    "css",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "typescript",
+    "typescript.tsx",
+    "json",
+    "vim",
+    "tex",
+    "html",
+    "Markdown",
+    "python"
+  ],
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact",
+    "ejs": "html"
+  },
+  "importCost.javascriptExtensions": ["\\.jsx?$"]
+}
