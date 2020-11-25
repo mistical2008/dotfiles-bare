@@ -4,7 +4,7 @@
 /mnt/Data/Scripts/polybar-clean-log.sh
 
 # Launch some things on startx:
-autorandr external
+# autorandr external
 xset r rate 500 33 &
 light-locker &
 # setxkbmap -layout us,ru 
