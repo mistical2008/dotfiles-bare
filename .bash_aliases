@@ -59,7 +59,7 @@ alias ssh_copy="cat ~/.ssh/id_rsa.pub | xclip -sel clip"
 alias M001="mongo 'mongodb+srv://cluster0-0uall.mongodb.net/test' --username m001-student --password m001-mongodb-basics"
 alias dnd_prompt='notify-send "DUNST_COMMAND_PAUSE" && at "now + 1 hour"'
 alias prep=". prep"
-alias dconf_bak="dconf dump / > evgeniy-desktop-$(date "+%F_%H%M")"
+alias dconf_bak="dconf dump / > $HOME/01_Library/_backups/evgeniy-dconf-dump-$(date "+%F_%H%M")"
 
 # Configs
 alias set_qt4="qtconfig-qt4"
