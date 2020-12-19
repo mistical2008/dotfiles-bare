@@ -14,6 +14,7 @@ let g:zettelkasten = '~/03_Drafts'
   " Coc: Some servers have issues with backup files
   set nobackup
   set nowritebackup
+  set hidden
 
   " set omnifunc=syntaxcomplete#Complete
 
@@ -76,6 +77,13 @@ let g:zettelkasten = '~/03_Drafts'
   " Use <leader>x for convert visual selected code to snippet
   xmap <leader>x  <Plug>(coc-convert-snippet)
 
+  "Do codeaction for selected range
+  xmap <leader>a  <Plug>(coc-codeaction-selected)
+  nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+  "Do codeaction for current line
+  nmap <leader>A  <Plug>(coc-codeaction-line)
+
 
   " Coc: Use `:Format` to format current buffer
   command! -nargs=0 Format :call CocActionAsync('format')
@@ -88,9 +96,9 @@ let g:zettelkasten = '~/03_Drafts'
 
   command! -nargs=0 RenameSym :call CocActionAsync('rename')
 
-  command! -nargs=0 ShowDoc :call CocActionAsync('doHover')
+  command! -nargs=0 ShowDoc :call CocAction('doHover')
 
-  command! -nargs=0 CodeAction :call CocActionAsync('codeActions')
+  command! -nargs=0 CodeAction :call CocAction('codeAction')
 
   " Custom: backup current file to:
   command! -nargs=0 CurFileBackup :call BackupCurrentFile()
@@ -106,8 +114,10 @@ let g:zettelkasten = '~/03_Drafts'
   call SpaceVim#custom#SPC('nore', ['C', 'y'], 'CocList -A --normal yank', 'Open yank fuzzy search', 1)
   call SpaceVim#custom#SPC('nore', ['C', 'n'], 'RenameSym', 'Rename cword symbol', 1)
   call SpaceVim#custom#SPC('nore', ['C', 'h'], 'ShowDoc', 'Show current symbol help', 1)
-  call SpaceVim#custom#SPC('nore', ['C', 'a'], '<Plug>(coc-codeaction)', 'Do default actions for language', 1)
-  " call SpaceVim#custom#SPC('nore', ['C', 'd'], 'call CocActionAsync("showSignatureHelp")', 'Open yank fuzzy search', 1)
+  " call SpaceVim#custom#SPC('nore', ['C', 'a'], 'CodeAction', 'Do default actions for language', 1)
+  " call SpaceVim#custom#SPC('nmap', ['C', 'A'], '<Plug>(coc-codeaction-selected)', 'Codeaction for selected range', 1)
+  " call SpaceVim#custom#SPC('xmap', ['C', 'A'], '<Plug>(coc-codeaction-selected)', 'Codeaction for selected range', 1)
+  " call SpaceVim#custom#SPC('nore', ['C', 'a'], '<Plug>(coc-codeaction)', 'Do default actions for language', 1)
 
   " Projects plugin: mappings"
   call SpaceVim#custom#SPCGroupName(['P'], '+VWProjects')
@@ -179,7 +189,7 @@ let g:zettelkasten = '~/03_Drafts'
   let wiki_proj.name = "Projects"
   let wiki_proj.path = '~/03_Drafts/02_projects'
   let wiki_proj.path_html = '~/03_Drafts/02_projects/public_html'
-  let wiki_proj.index = '090_Projects_MOC'
+  let wiki_proj.index = '../090_Projects_MOC'
   let wiki_proj.diary_rel_path = './../03_journal/'
   let wiki_proj.diary_index = g:vw_common_diary_index
   let wiki_proj.syntax = g:vw_common_syntax
@@ -217,7 +227,7 @@ let g:zettelkasten = '~/03_Drafts'
   let g:vimwiki_hl_cb_checked = 1
 
 
-  " Vimwiki projects variables:
+  " Vimwiki 8projects variables:
   let g:vwp_todotxt_root = $HOME . '/03_Drafts/01_tasks'
 
 
@@ -507,11 +517,13 @@ function! myspacevim#after() abort
   " Use K to show documentation in preview window
   nnoremap <silent> F :call <SID>ShowDocumentation()<CR>
   
-  function! ShowDocumentation()
+  function! s:ShowDocumentation()
     if (index(['vim','help'], &filetype) >= 0)
       execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+      call CocActionAsync('doHover')
     else
-      call CocActionSync('doHover')
+      execute '!' . &keywordprg . " " . expand('<cword>')
     endif
   endfunction
 
