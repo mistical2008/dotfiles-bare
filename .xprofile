@@ -6,6 +6,6 @@
 # Launch some things on startx:
 # autorandr external
 xset r rate 500 33 &
-light-locker &
+# light-locker &
 # setxkbmap -layout us,ru 
 setxkbmap -layout us,ru -option 'grp:shifts_toggle,lv3:ralt_switch,misc:typo'
