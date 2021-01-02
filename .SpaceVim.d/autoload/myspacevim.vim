@@ -35,6 +35,10 @@ let g:zettelkasten = '~/03_Drafts'
     \ 'coc-explorer',
     \ 'coc-highlight',
     \ 'coc-stylelintplus',
+    \ 'coc-prettier',
+    \ 'coc-eslint',
+    \ 'coc-react-refactor',
+    \ 'coc-import-cost',
     \ 'coc-marketplace',
     \]
 
@@ -114,6 +118,7 @@ let g:zettelkasten = '~/03_Drafts'
   call SpaceVim#custom#SPC('nore', ['C', 'y'], 'CocList -A --normal yank', 'Open yank fuzzy search', 1)
   call SpaceVim#custom#SPC('nore', ['C', 'n'], 'RenameSym', 'Rename cword symbol', 1)
   call SpaceVim#custom#SPC('nore', ['C', 'h'], 'ShowDoc', 'Show current symbol help', 1)
+  call SpaceVim#custom#SPC('nore', ['C', 'l'], 'CocList', 'Show CocList', 1)
   " call SpaceVim#custom#SPC('nore', ['C', 'a'], 'CodeAction', 'Do default actions for language', 1)
   " call SpaceVim#custom#SPC('nmap', ['C', 'A'], '<Plug>(coc-codeaction-selected)', 'Codeaction for selected range', 1)
   " call SpaceVim#custom#SPC('xmap', ['C', 'A'], '<Plug>(coc-codeaction-selected)', 'Codeaction for selected range', 1)
@@ -137,6 +142,7 @@ let g:zettelkasten = '~/03_Drafts'
 
 
   nmap ]g <Plug>(coc-diagnostic-next)
+  nmap [g <Plug>(coc-diagnostic-prev)
 
   " Set Ale fixer (Eslint)
   let g:ale_fixers = {

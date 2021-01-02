@@ -60,6 +60,7 @@ alias M001="mongo 'mongodb+srv://cluster0-0uall.mongodb.net/test' --username m00
 alias dnd_prompt='notify-send "DUNST_COMMAND_PAUSE" && at "now + 1 hour"'
 alias prep=". prep"
 alias dconf_bak="dconf dump / > $HOME/01_Library/_backups/evgeniy-dconf-dump-$(date "+%F_%H%M")"
+alias dconf_bak_gnome="dconf dump /org/gnome > $HOME/01_Library/_backups/evgeniy-dconf-gnome-dump-$(date "+%F_%H%M")"
 
 # Configs
 alias set_qt4="qtconfig-qt4"

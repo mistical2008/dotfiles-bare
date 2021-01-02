@@ -8,8 +8,24 @@
   "html.validate.scripts": true,
   "html.validate.styles": true,
   "explorer.icon.enableNerdfont": true,
-  "html.filetypes": ["html", "handlebars", "htmldjango", "ejs"],
+  "html.filetypes": [
+    "html",
+    "handlebars",
+    "htmldjango",
+    "ejs"
+  ],
   "css.validate": false,
+  "snippets.extends": {
+    "javascriptreact": [
+      "javascript"
+    ],
+    "typescript": [
+      "javascript"
+    ],
+    "typescriptreact": [
+      "javascript"
+    ]
+  },
   "git.enableGutters": true,
   "coc.preferences.previewAutoClose": true,
   "coc.preferences.formatOnSaveFiletypes": [
@@ -38,5 +54,7 @@
     "javascript": "javascriptreact",
     "ejs": "html"
   },
-  "importCost.javascriptExtensions": ["\\.jsx?$"]
+  "importCost.javascriptExtensions": [
+    "\\.jsx?$"
+  ]
 }

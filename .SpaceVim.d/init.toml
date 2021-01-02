@@ -74,6 +74,10 @@ name = "fzf"
   git-plugin = "fugitive"
 
 [[layers]]
+  name = "VersionControl"
+  enable-gtm-status = true
+
+[[layers]]
   name = "github"
 
 [[layers]]
@@ -110,6 +114,8 @@ name = "fzf"
 [[layers]]
   name = "unite"
 
+[[layers]]
+  name = "lang#extra"
 
 [[custom_plugins]]
   repo = "https://gitlab.com/dbeniamine/todo.txt-vim"
@@ -131,4 +137,7 @@ name = "fzf"
   merged = false
 [[custom_plugins]]
   repo = "aarleks/zettel.vim"
+  merged = false
+[[custom_plugins]]
+  repo = "dbeniamine/cheat.sh-vim"
   merged = false
