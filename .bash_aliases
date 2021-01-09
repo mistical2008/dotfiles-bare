@@ -14,13 +14,14 @@ alias gr='git remote'
 alias hist='log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias rmgl="rm -rf .git/index.lock"
 alias repo_init="rm -rf .git && git init && pnpm i"
-# alias ll="ls -lhA"
+alias ls='ls --color=auto'
+alias ll="ls -lhA"
 alias pfind="ps aux | grep"
 alias apache-droot="grep -R 'DocumentRoot' /etc/apache2/sites-enabled"
 alias mkfat32="sudo mkdosfs -F 32 -I"
 alias rmf='rm -rf'
-## alias ls1='ls -1'
-## alias lsa='ls -1a'
+alias ls1='ls -1'
+alias lsa='ls -1a'
 alias err1="journalctl -b -p err"
 alias err2="journalctl -p 3 -xb"
 alias err3="systemctl --failed"
