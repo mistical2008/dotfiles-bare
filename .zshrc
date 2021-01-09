@@ -56,8 +56,9 @@ COMPLETION_WAITING_DOTS="true"
 # [ -f $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh
 # [ -f $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep ] && source $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep
 # [ -f ~/.purepower ] && source ~/.purepower # Points to the oh-my-zsh purepower theme
-[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#
+# [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
@@ -92,16 +93,15 @@ setopt MAGIC_EQUAL_SUBST
 
 # Aliases from bash
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
-
-# Point out to z.sh
-# [ -f /media/Scripts/z.sh ] && source /media/Scripts/z.sh
+[ -f ~/.exports ] && source ~/.exports # If exists ~/.exports source this file:
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh;
 [ -f /home/evgeniy/.config/cani/completions/_cani.zsh ] && source /home/evgeniy/.config/cani/completions/_cani.zsh
 
+[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 source ~/03_Drafts/05_finance/myfinance/.bashrc
-# If exists ~/.exports source this file:
-[ -f ~/.exports ] && source ~/.exports
 
 # place this after nvm initialization!
 autoload -U add-zsh-hook
