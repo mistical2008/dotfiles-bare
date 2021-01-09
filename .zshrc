@@ -1,4 +1,11 @@
 # Created by newuser for 5.8
+eval "$(starship init zsh)"
+
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/evgeniy/.zshrc'
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 
 export TERM="xterm-256color"
 # export TERM="rxvt-unicode-256color"
@@ -45,20 +52,11 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Source to oh-my-zsh plugins
-# if [ -f $ZSH/oh-my-zsh.sh ]; then
-	# source $ZSH/oh-my-zsh.sh &&
-	# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh &&
-	# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# fi
 # [ -f $HOME/.oh-my-zsh/plugins/gitignore/gitignore.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/gitignore/gitignore.plugin.zsh
 # [ -f $HOME/.oh-my-zsh/plugins/node/node.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/node/node.plugin.zsh
 # [ -f $HOME/.oh-my-zsh/plugins/rsync/rsync.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/rsync/rsync.plugin.zsh
 # [ -f $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh
 # [ -f $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep ] && source $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep
-# [ -f ~/.purepower ] && source ~/.purepower # Points to the oh-my-zsh purepower theme
-#
-# [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
@@ -66,8 +64,8 @@ COMPLETION_WAITING_DOTS="true"
 #===========================================================================
 #=========================== WALL SETTINGS =================================
 #===========================================================================
-# (cat $HOME/.cache/wal/sequences &)
-(cat $HOME/.config/wpg/sequences &)
+(cat $HOME/.cache/wal/sequences &)
+#- (cat $HOME/.config/wpg/sequences &)
 # Alternative (blocks terminal for 0-3ms)
 # cat $HOME/.cache/wal/sequences
 
@@ -98,10 +96,10 @@ setopt MAGIC_EQUAL_SUBST
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh;
 [ -f /home/evgeniy/.config/cani/completions/_cani.zsh ] && source /home/evgeniy/.config/cani/completions/_cani.zsh
 
-[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/03_Drafts/05_finance/myfinance/.bashrc
+source /home/evgeniy/.config/broot/launcher/bash/br
 
 # place this after nvm initialization!
 autoload -U add-zsh-hook
@@ -129,12 +127,4 @@ load-nvmrc
 # Time meter (uncomment last and firs lines)
 # zprof
 
-source /home/evgeniy/.config/broot/launcher/bash/br
 
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/evgeniy/.zshrc'
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-
-eval "$(starship init zsh)"
