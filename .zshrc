@@ -3,7 +3,7 @@
 export TERM="xterm-256color"
 # export TERM="rxvt-unicode-256color"
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 
 bindkey -v
 
@@ -25,8 +25,7 @@ MODE_INDICATOR_VLINE='%F{12}<%F{4}V-LINE<%f'
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_THEME="spaceship"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 bindkey ';5D' backward-word
@@ -46,18 +45,20 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Source to ...
-if [ -f $ZSH/oh-my-zsh.sh ]; then
-	source $ZSH/oh-my-zsh.sh
-fi
+# Source to oh-my-zsh plugins
+# if [ -f $ZSH/oh-my-zsh.sh ]; then
+	# source $ZSH/oh-my-zsh.sh &&
+	# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh &&
+	# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# fi
+# [ -f $HOME/.oh-my-zsh/plugins/gitignore/gitignore.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/gitignore/gitignore.plugin.zsh
+# [ -f $HOME/.oh-my-zsh/plugins/node/node.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/node/node.plugin.zsh
+# [ -f $HOME/.oh-my-zsh/plugins/rsync/rsync.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/rsync/rsync.plugin.zsh
+# [ -f $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh
+# [ -f $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep ] && source $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep
+# [ -f ~/.purepower ] && source ~/.purepower # Points to the oh-my-zsh purepower theme
 
-if [ -f $ZSH/oh-my-zsh.sh ]; then
-	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
 
-if [ -f $ZSH/oh-my-zsh.sh ]; then
-	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 #===========================================================================
@@ -91,18 +92,8 @@ setopt MAGIC_EQUAL_SUBST
 # Aliases from bash
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 
-
-[ -f $HOME/.oh-my-zsh/plugins/gitignore/gitignore.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/gitignore/gitignore.plugin.zsh
-[ -f $HOME/.oh-my-zsh/plugins/node/node.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/node/node.plugin.zsh
-[ -f $HOME/.oh-my-zsh/plugins/rsync/rsync.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/rsync/rsync.plugin.zsh
-[ -f $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh
-# [ -f $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep ] && source $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep
-
 # Point out to z.sh
 # [ -f /media/Scripts/z.sh ] && source /media/Scripts/z.sh
-
-# Points out to the purepower oh-my-zsh theme
-[ -f ~/.purepower ] && source ~/.purepower
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /home/evgeniy/.config/cani/completions/_cani.zsh ] && source /home/evgeniy/.config/cani/completions/_cani.zsh
