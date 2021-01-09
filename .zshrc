@@ -95,7 +95,7 @@ setopt MAGIC_EQUAL_SUBST
 # Point out to z.sh
 # [ -f /media/Scripts/z.sh ] && source /media/Scripts/z.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh;
 [ -f /home/evgeniy/.config/cani/completions/_cani.zsh ] && source /home/evgeniy/.config/cani/completions/_cani.zsh
 
 source ~/03_Drafts/05_finance/myfinance/.bashrc
