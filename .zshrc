@@ -7,7 +7,6 @@ export TERM="xterm-256color"
 
 bindkey -v
 
-
 HIST_STAMPS="mm/dd/yyyy" # variable used in oh-my-zsh/lib/history.zsh
 
 # zplug "softmoth/zsh-vim-mode", lazy:true
@@ -25,7 +24,7 @@ MODE_INDICATOR_VLINE='%F{12}<%F{4}V-LINE<%f'
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 bindkey ';5D' backward-word
@@ -43,7 +42,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Source to oh-my-zsh plugins
 # if [ -f $ZSH/oh-my-zsh.sh ]; then
@@ -57,6 +56,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # [ -f $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh
 # [ -f $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep ] && source $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep
 # [ -f ~/.purepower ] && source ~/.purepower # Points to the oh-my-zsh purepower theme
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
@@ -104,6 +105,8 @@ source ~/03_Drafts/05_finance/myfinance/.bashrc
 
 # place this after nvm initialization!
 autoload -U add-zsh-hook
+autoload -Uz compinstall && compinstall
+
 load-nvmrc() {
   local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
@@ -128,4 +131,11 @@ load-nvmrc
 # zprof
 
 source /home/evgeniy/.config/broot/launcher/bash/br
+# eval "$(starship init zsh)"
 eval "$(starship init zsh)"
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/evgeniy/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
