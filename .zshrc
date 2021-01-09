@@ -128,3 +128,4 @@ load-nvmrc
 # zprof
 
 source /home/evgeniy/.config/broot/launcher/bash/br
+eval "$(starship init zsh)"
