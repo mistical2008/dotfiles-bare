@@ -105,7 +105,6 @@ source ~/03_Drafts/05_finance/myfinance/.bashrc
 
 # place this after nvm initialization!
 autoload -U add-zsh-hook
-autoload -Uz compinstall && compinstall
 
 load-nvmrc() {
   local node_version="$(nvm version)"
@@ -131,11 +130,11 @@ load-nvmrc
 # zprof
 
 source /home/evgeniy/.config/broot/launcher/bash/br
-# eval "$(starship init zsh)"
-eval "$(starship init zsh)"
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/evgeniy/.zshrc'
-
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+eval "$(starship init zsh)"
