@@ -14,7 +14,6 @@ SAVEHIST=1000
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 export HISTTIMEFORMAT="[%F %T] "
-bindkey -v
 # End of lines configured by zsh-newuser-install
 
 export TERM="xterm-256color"
@@ -98,6 +97,7 @@ setopt MAGIC_EQUAL_SUBST
 
 [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f $HOME/.local/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh ] && source $HOME/.local/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ~/03_Drafts/05_finance/myfinance/.bashrc
 source /home/evgeniy/.config/broot/launcher/bash/br
 
