@@ -34,8 +34,8 @@ MODE_INDICATOR_VLINE='%F{12}<%F{4}V-LINE<%f'
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
-bindkey ';5D' backward-word
-bindkey ';5C' forward-word
+# bindkey ';5D' backward-word
+# bindkey ';5C' forward-word
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=7
