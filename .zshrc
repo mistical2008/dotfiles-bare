@@ -12,7 +12,12 @@ export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 # export ZSH="$HOME/.oh-my-zsh"
 
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+unsetopt beep
 bindkey -v
+# End of lines configured by zsh-newuser-install
 
 HIST_STAMPS="mm/dd/yyyy" # variable used in oh-my-zsh/lib/history.zsh
 
@@ -126,5 +131,3 @@ load-nvmrc
 
 # Time meter (uncomment last and firs lines)
 # zprof
-
-
