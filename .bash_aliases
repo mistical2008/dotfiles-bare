@@ -299,9 +299,10 @@ vicd()
 }
 
 zshexit() {
-        if [[ -n $VIFM_SERVER_NAME ]] {
-                vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd \"$PWD\""
-        }
+  if [[ -n $VIFM_SERVER_NAME ]];then
+    vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd \"$PWD\""
+  fi
+
 }
 
 mkcd() {
