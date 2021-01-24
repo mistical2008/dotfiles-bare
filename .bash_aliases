@@ -305,9 +305,9 @@ zshexit() {
 
 }
 
-mkcd() {
-  mkdir $1;
-  cd $1;
+mkcd () {
+  mkdir "$1";
+  cd "$1" || return;
 }
 
 
