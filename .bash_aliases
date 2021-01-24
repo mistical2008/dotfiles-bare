@@ -121,7 +121,6 @@ alias tweek="todo.sh listpri c"
 alias tlater="todo.sh listpri d"
 alias cltmp="ls -ca $HOME/tmp; rm -r $HOME/tmp/*"
 alias serve="browser-sync start --server --files . --no-notify --host $SERVER_IP --port 9000"
-alias mkcd="mkdir $1 && cd $1"
 
 ## FUNCTIONS
 # Configurations
@@ -303,6 +302,11 @@ zshexit() {
         if [[ -n $VIFM_SERVER_NAME ]] {
                 vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd \"$PWD\""
         }
+}
+
+mkcd() {
+  mkdir $1;
+  cd $1;
 }
 
 
