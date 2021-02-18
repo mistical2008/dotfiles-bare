@@ -136,6 +136,7 @@ conf() {
   vim) vim $HOME/.vimrc && dfa $HOME/.vimrc && dfcm "Updated .vimrc" && dfp ;;
   vim) vim $HOME/.SpaceVim.d/init.toml && dfa $HOME/.SpaceVim.d/init.toml && dfcm "Updated SpaceVim config" && dfp ;;
   mutt) vim $HOME/.muttrc && dfa $HOME/.muttrc && dfcm "Updated .vimrc" && dfp ;;
+  grub) sudoedit /etc/default/grub ;;
   lightdm) sudoedit /etc/lightdm/lightdm.conf ;;
   nvidia) sudoedit /etc/bumblebee/xorg.conf.nvidia ;;
   aliases) vim $HOME/.bash_aliases && source $HOME/.zshrc && dfa $HOME/.bash_aliases && dfcm "Updated aliases" && dfp ;;
