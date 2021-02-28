@@ -121,6 +121,7 @@ alias tweek="todo.sh listpri c"
 alias tlater="todo.sh listpri d"
 alias cltmp="ls -ca $HOME/tmp; rm -r $HOME/tmp/*"
 alias serve="browser-sync start --server --files . --no-notify --host $SERVER_IP --port 9000"
+alias mtpmnt="gio mount -li | awk -F= '{if(index($2,"mtp") == 1)system("gio mount "$2)}'"
 
 ## FUNCTIONS
 # Configurations
