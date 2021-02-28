@@ -62,4 +62,4 @@ export LIBVA_DRIVER_NAME="nvidia"
 export LIBVA_DRIVER_NAME="MOZ_X11_EGL=1"
 
 # Open Neovim-Qt in 'remote' mode
-NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim
+NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
