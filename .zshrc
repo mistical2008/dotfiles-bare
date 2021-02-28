@@ -6,6 +6,8 @@ zstyle :compinstall filename '/home/evgeniy/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
 #
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
