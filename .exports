@@ -63,3 +63,6 @@ export LIBVA_DRIVER_NAME="MOZ_X11_EGL=1"
 
 # Open Neovim-Qt in 'remote' mode
 NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+
+# GTK portal for the file chooser
+GTK_USE_PORTAL=1
