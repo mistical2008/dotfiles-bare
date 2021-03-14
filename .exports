@@ -54,6 +54,7 @@ export POMODORO_LOG_FILE="/home/evgeniy/03_Drafts/01_tasks/pomodoro_log.txt"
 # GPG
 export GNUPGHOME="$HOME/.local/share/gnupg"
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CURRENT_DESKTOP="gnome"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export CLUTTER_PAINT=disable-clipped-redraws:disable-culling
 
