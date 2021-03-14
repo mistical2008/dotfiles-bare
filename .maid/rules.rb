@@ -13,7 +13,8 @@
 #       # ...
 #     end
 #
-# If you come up with some cool tools of your own, please send me a pull request on GitHub!  Also, please consider sharing your rules with others via [the wiki](https://github.com/benjaminoakes/maid/wiki).
+# If you come up with some cool tools of your own, please send me a pull request on GitHub!
+# Also, please consider sharing your rules with others via [the wiki](https://github.com/benjaminoakes/maid/wiki).
 #
 # For more help on Maid:
 #
@@ -24,23 +25,18 @@
 
 # folders
 folders = {
-  downloads: '~/Загрузки',
+  downloads: '~/Downloads',
   tg: 'Telegram Desktop',
-  images: '~/Изображения',
-  video: '~/Видео',
-  music: '~/Музыка',
+  images: '~/Pictures',
+  video: '~/Video',
+  music: '~/Musi',
   books: '~/01_Library/09_books/books/00_inbox',
   projects: '~/03_Drafts/02_projects',
   records: '~/01_Library/06_audio-records'
 }
 
 # FILETLYPES
-BOOKS = [
-  'epub',
-  'fb2',
-  'pdf',
-  'mobi'
-]
+BOOKS = %w(epub fb2 pdf mobi).freeze
 
 AUDIO = [
   'mp4',
@@ -156,30 +152,24 @@ Maid.rules do
   #   end
   # end
   watch "#{folders[:downloads]}/#{folders[:tg]}" do
-    rule "Move books from Telegram folder" do
+    rule 'Move books from Telegram folder' do
       BOOKS.each do |ext|
-        if 5.minute.since?(last_accessed(ext))
-          move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir("#{folders[:books]}"))
-        end
+        5.minute.since?(last_accessed(ext)) && move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir(folders[:books].to_s))
       end
     end
-    rule "Move music from Telegram folder" do
+    rule 'Move music from Telegram folder' do
       AUDIO.each do |ext|
-        if 5.minute.since?(last_accessed(ext))
-          move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir("#{folders[:music]}/telegram"))
-        end
+        5.minute.since?(last_accessed(ext)) && move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir("#{folders[:music]}/telegram"))
       end
     end
     rule 'Trash an old TG files' do
       dir("#{folders[:downloads]}/#{folders[:tg]}/*").each do |path|
-        if 1.week.since?(last_accessed(path))
-          trash(path)
-        end
+        1.week.since?(last_accessed(path)) && trash(path)
       end
     end
   end
 
-  watch "#{folders[:images]}" do
+  watch folders[:images].to_s do
     rule "Move screenshots to the \'Screenshots\' folder" do
       IMAGES.each do |ext|
         ["Снимок экрана","Screenshot", "screenshot"].each do |screenshot|
@@ -197,18 +187,16 @@ Maid.rules do
   end
 
   watch "#{folders[:images]}/screenshots" do
-    rule "Trash screenshots older than 90 days" do
+    rule 'Trash screenshots older than 90 days' do
       dir("#{folders[:images]}/screen*s/*").each do |path|
-        if 90.days.since?(created_at(path))
-          trash(path)
-        end
+        90.days.since?(created_at(path)) && trash(path)
       end
     end
   end
 
-  watch "#{folders[:downloads]}" do
+  watch folders[:downloads].to_s do
     rule "Move *.torrent files to torrent folder" do
-        move(dir("#{folders[:downloads]}/*.torrent"), mkdir("#{folders[:downloads]}/torrents"))
+      move(dir("#{folders[:downloads]}/*.torrent"), mkdir("#{folders[:downloads]}/torrents"))
     end
     rule "Move *.iso img to img_iso folder" do
       IMG.each do |ext|
@@ -226,20 +214,16 @@ Maid.rules do
     end
   end
 
-  watch "#{folders[:records]}" do
+  watch folders[:records].to_s do
     rule 'Trash an old calls' do
       dir("#{folders[:records]}/**/calls/*").each do |path|
-        if 3.week.since?(created_at(path))
-          trash(path)
-        end
+        3.week.since?(created_at(path)) && trash(path)
       end
     end
 
     rule 'Trash an old voice records' do
       dir("#{folders[:records]}/**/voice/*").each do |path|
-        if 3.month.since?(created_at(path))
-          trash(path)
-        end
+        3.month.since?(created_at(path)) && trash(path)
       end
     end
   end
