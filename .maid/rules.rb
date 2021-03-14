@@ -172,7 +172,7 @@ Maid.rules do
   watch folders[:images].to_s do
     rule "Move screenshots to the \'Screenshots\' folder" do
       IMAGES.each do |ext|
-        ["Снимок экрана","Screenshot", "screenshot"].each do |screenshot|
+        ["Снимок экрана","Screenshot", "screenshot", "Screen shot"].each do |screenshot|
           move(dir("#{folders[:images]}/#{screenshot}*.#{ext}"), mkdir("#{folders[:images]}/screenshots"))
         end
       end
