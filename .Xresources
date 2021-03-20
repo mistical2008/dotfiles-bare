@@ -1,8 +1,3 @@
-!#if __has_include(".extend.Xresources")
-!#include ".extend.Xresources"
-!#include ".cache/wal/colors.Xresources"
-!#endif
-
 ! ^ The above lines are no comments!
 ! Leave them as they are if a file ~/.extend.Xresources is being used on your system.
 ! config can be added there or also here below.
