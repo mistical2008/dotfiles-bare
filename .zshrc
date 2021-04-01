@@ -69,10 +69,10 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 #===========================================================================
 #=========================== WALL SETTINGS =================================
 #===========================================================================
-(cat $HOME/.cache/wal/sequences &) # Alternative (blocks terminal for 0-3ms)
+(cat $HOME/.config/wpg/sequences &) # Alternative (blocks terminal for 0-3ms)
 # To add support for TTYs this line can be optionally added.
-source $HOME/.cache/wal/colors-tty.sh
-source $HOME/.cache/wal/colors.sh
+# source $HOME/.cache/wal/colors-tty.sh
+# source $HOME/.cache/wal/colors.sh
 
 #===========================================================================
 #=========================== wall settings end =============================
