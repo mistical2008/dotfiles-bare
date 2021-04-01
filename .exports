@@ -67,3 +67,6 @@ NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
 # GTK portal for the file chooser
 GTK_USE_PORTAL=1
+
+# Dotbare
+export DOTBARE_PREVIEW="bat --color=always --style=numbers {}"
