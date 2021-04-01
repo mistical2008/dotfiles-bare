@@ -1,8 +1,20 @@
 {
+"suggest.enablePreview": true,
+"suggest.detailField": "preview",
+"html.enable": true,
 "html.validate.html": true,
 "html.validate.scripts": true,
 "html.validate.styles": true,
+"html.filetypes": [
+  "html",
+  "handlebars",
+  "htmldjango",
+  "ejs"
+],
+"css.validate": false,
 "git.enableGutters": true,
+"html.format.extraLiners": "head, body, /html",
+"coc.preferences.previewAutoClose": true,
 "coc.preferences.formatOnSaveFiletypes": [
   "scss",
   "css",
@@ -13,6 +25,5 @@
   "Markdown",
   "python"
 ],
-"prettier.eslintIntegration": true,
-"prettier.stylelintIntegration": true
+"emmet.includeLanguages": {"vue-htm": "html", "javascript": "javascriptreact", "ejs": "html"}
 }

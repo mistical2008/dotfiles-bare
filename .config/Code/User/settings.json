@@ -38,7 +38,7 @@
   "html-css-class-completion.includeGlobPattern": "**/*.{css,scss,sass,html}",
   "css_peek.searchFileExtensions": [".css", ".scss", "sass", ".less"],
   "terminal.external.linuxExec": "tilix",
-  "terminal.integrated.fontFamily": "TerminessTTF Nerd Font",
+  "terminal.integrated.fontFamily": "'JetBrains Mono', 'TerminessTTF Nerd Font'",
   "terminal.integrated.fontSize": 16,
   "editor.tabSize": 2,
   "material-icon-theme.showUpdateMessage": false,
@@ -48,7 +48,7 @@
   "scss.lint.argumentsInColorFunction": "error",
   "terminal.explorerKind": "external",
   "editor.snippetSuggestions": "inline",
-  "editor.fontFamily": "'Fira Code','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
   "debug.toolBarLocation": "docked",
   "gitlens.keymap": "chorded",
   "explorer.confirmDragAndDrop": false,
@@ -130,5 +130,9 @@
   "python.linting.pylintEnabled": true,
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   }
 }

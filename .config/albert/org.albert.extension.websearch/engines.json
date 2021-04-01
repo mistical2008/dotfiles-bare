@@ -96,9 +96,15 @@
         "url": "https://forum.manjaro.org/search?q=%s"
     },
     {
-        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{0208ce0e-2ceb-484d-aadb-91688c2b32ba}.png",
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{b4107d22-6f39-40a5-961c-8b6198672b5a}.",
+        "name": "Vimawesome.com",
+        "trigger": "via ",
+        "url": "https://vimawesome.com/?q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{1e55b8f9-48c6-4806-9f7b-2111ed0baa05}.png",
         "name": "Npm",
-        "trigger": "npm ",
+        "trigger": "npmw ",
         "url": "https://www.npmjs.com/search?q=%s"
     },
     {
@@ -120,9 +126,9 @@
         "url": "https://caniuse.com/#search=%s"
     },
     {
-        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{15555bf3-79e7-4c19-89a9-bc7e1e26fc4e}.png",
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{1f5e8437-dc2b-48d9-86f7-57359f681420}.png",
         "name": "Apple developers search",
-        "trigger": "apple ",
+        "trigger": "apple_dev ",
         "url": "https://developer.apple.com/search/?q=%s"
     },
     {
@@ -150,8 +156,8 @@
         "url": "https://developer.mozilla.org/ru/search?q=%s"
     },
     {
-        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{04177250-65bc-41f5-a997-f26f5b47e29d}.",
-        "name": "Cabridge dictionary",
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{b0c98409-dba3-4bbe-9968-0e3ba5a5d1c6}.",
+        "name": "Cambridge dictionary",
         "trigger": "cambr ",
         "url": "https://dictionary.cambridge.org/ru/%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%s"
     },
@@ -160,5 +166,17 @@
         "name": "Oxford dictionary",
         "trigger": "oxf ",
         "url": "https://en.oxforddictionaries.com/search?utf8=%E2%9C%93&filter=dictionary&query=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{3a64d342-f541-42f5-99e7-23a283879cb7}.",
+        "name": "Can I email",
+        "trigger": "cie ",
+        "url": "https://www.caniemail.com/search/?s=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{31af86cb-0bf8-4173-b6d2-9f03afb21425}.png",
+        "name": "PostgreSQL Docs",
+        "trigger": "pg ",
+        "url": "https://www.postgresql.org/search/?u=%2Fdocs%2F12%2F&q=%s"
     }
 ]

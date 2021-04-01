@@ -39,16 +39,6 @@ function! ToggleRelativeOn()
     set nu
 endfunction
 
-augroup ToggleNumbers
-  autocmd!
-  autocmd FocusLost * call ToggleRelativeOn()
-  autocmd FocusGained * call ToggleRelativeOn()
-  autocmd InsertEnter * call ToggleRelativeOn()
-  autocmd InsertLeave * call ToggleRelativeOn()
-  autocmd CmdlineEnter * call ToggleRelativeOn()
-  autocmd CmdlineLeave * call ToggleRelativeOn()
-augroup END
-
 " Auto resize Vim splits to active split
 set winwidth=104
 set winheight=5

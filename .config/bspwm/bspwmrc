@@ -76,3 +76,4 @@ bspc rule -a flameshot state=floating center=true
 # Autostart
 "$BSPWM_CONFIG/autostart" &
 
+bash /home/evgeniy/.config/bspwm/bspwm_colors.sh &

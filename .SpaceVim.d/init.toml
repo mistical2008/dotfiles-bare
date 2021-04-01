@@ -41,9 +41,13 @@
   auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
+  name = 'core#statusline'
+  enable_statusline_bfpath = true
+
+[[layers]]
   name = 'shell'
   default_position = 'bottom'
-  default_height = 25
+  default_height = 21
 
 [[layers]]
   name = "lang#toml"
@@ -104,18 +108,25 @@ name = "fzf"
 [[layers]]
   name = "lang#python"
 
-# [[layers]]
-  # name = "lang#markdown"
-
-[[layers]]
-  name = "lang#html"
-  user_emmet_leader_key = "<C-I>"
-
 [[layers]]
   name = "unite"
 
 [[layers]]
   name = "lang#extra"
+
+[[layers]]
+  name = "lang#csharp"
+
+[[layers]]
+  name = "lang#rust"
+
+[[layers]]
+  name = "lang#html"
+  [user_emmet_settings]
+  leader_key = "<C-Y>"
+  [user_emmet_settings."javascript.jsx"]
+  extends = "jsx"
+
 
 [[custom_plugins]]
   repo = "https://gitlab.com/dbeniamine/todo.txt-vim"
@@ -140,4 +151,7 @@ name = "fzf"
   merged = false
 [[custom_plugins]]
   repo = "dbeniamine/cheat.sh-vim"
+  merged = false
+[[custom_plugins]]
+  repo = "wlemuel/vim-tldr"
   merged = false

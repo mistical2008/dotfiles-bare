@@ -8,26 +8,18 @@
   "html.validate.scripts": true,
   "html.validate.styles": true,
   "explorer.icon.enableNerdfont": true,
-  "html.filetypes": [
-    "html",
-    "handlebars",
-    "htmldjango",
-    "ejs"
-  ],
+  "html.filetypes": ["html", "handlebars", "htmldjango", "ejs"],
   "css.validate": false,
+  "scss.validate": false,
   "snippets.extends": {
-    "javascriptreact": [
-      "javascript"
-    ],
-    "typescript": [
-      "javascript"
-    ],
-    "typescriptreact": [
-      "javascript"
-    ]
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"],
+    "typescriptreact": ["javascript"]
   },
   "git.enableGutters": true,
   "coc.preferences.previewAutoClose": true,
+  "stylelintplus.autoFixOnSave": true,
+  "stylelintplus.autoFixOnFormat": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "scss",
     "css",
@@ -51,10 +43,9 @@
   ],
   "emmet.includeLanguages": {
     "vue-html": "html",
-    "javascript": "javascriptreact",
-    "ejs": "html"
+    "javascript": ["javascriptreact", "typescriptreact"],
+    "ejs": "html",
+    "pug": "jade"
   },
-  "importCost.javascriptExtensions": [
-    "\\.jsx?$"
-  ]
+  "importCost.javascriptExtensions": ["\\.jsx?$"]
 }

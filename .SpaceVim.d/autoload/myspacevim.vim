@@ -16,8 +16,7 @@ let g:zettelkasten = '~/03_Drafts'
   set nowritebackup
   set hidden
 
-  " set omnifunc=syntaxcomplete#Complete
-
+  let g:vim_markdown_no_default_key_mappings = 1
 
   " Coc: extensions list:
   let g:coc_global_extensions = [
@@ -39,6 +38,8 @@ let g:zettelkasten = '~/03_Drafts'
     \ 'coc-eslint',
     \ 'coc-react-refactor',
     \ 'coc-import-cost',
+    \ 'https://github.com/xabikos/vscode-javascript',
+    \ 'https://github.com/dsznajder/vscode-es7-javascript-react-snippets',
     \ 'coc-marketplace',
     \]
 
@@ -236,6 +237,8 @@ let g:zettelkasten = '~/03_Drafts'
   " Vimwiki 8projects variables:
   let g:vwp_todotxt_root = $HOME . '/03_Drafts/01_tasks'
 
+  " CtrlP working directory mode
+  let g:ctrlp_working_path_mode = 'rca'
 
   " Goyo enter mapping:
   nnoremap <Leader>GG :Goyo<CR>

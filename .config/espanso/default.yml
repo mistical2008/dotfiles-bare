@@ -27,9 +27,6 @@ matches:
         params:
           format: "%d.%m.%Y"
 
-  - trigger: ":sym-rub"
-    replace: "₽"
-
   - trigger: ":usdate"
     replace: "{{mydate}}"
     vars:
@@ -46,6 +43,17 @@ matches:
         params:
           format: "%Y-%m-%d"
 
+  - trigger: "\\time"
+    replace: "{{mytime}}"
+    vars:
+      - name: mytime
+        type: date
+        params:
+          format: "%R"
+
+  - trigger: ":sym-rub"
+    replace: "₽"
+
   # Shell commands
   - trigger: ":shell"
     replace: "{{output}}"
@@ -54,3 +62,11 @@ matches:
         type: shell
         params:
           cmd: "echo Hello from your shell"
+
+  - trigger: ":ls"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "ls"

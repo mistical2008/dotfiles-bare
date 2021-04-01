@@ -5,7 +5,7 @@
 # In case of one connected display, activate that one
 # In case of no active display: Activate everything
 
-xStatus=`xrandr`
+xStatus=$(xrandr)
 connectedOutputs=$(echo "$xStatus" | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
 activeOutput=$(echo "$xStatus" | grep -e " connected [^(]" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/" | head -n1)
 connectionCount=$(echo $connectedOutputs | wc -w)

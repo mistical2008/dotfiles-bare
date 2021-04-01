@@ -67,12 +67,12 @@ alias dconf_bak_gnome="dconf dump /org/gnome > $HOME/01_Library/_backups/evgeniy
 alias set_qt4="qtconfig-qt4"
 alias set_qt5="qt5ct"
 alias sudolist='sudo /usr/sbin/visudo'
-alias dotfiles='/usr/bin/git --git-dir=/home/evgeniy/.dotfiles/ --work-tree=/home/evgeniy'
-alias dfa="dotfiles add"
-alias dfcm="dotfiles commit -m"
-alias dfs="dotfiles status"
-alias dfp="dotfiles push"
-alias dfch="dotfiles checkout"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
+alias dfa="config add"
+alias dfcm="config commit -m"
+alias dfs="config status"
+alias dfp="config push"
+alias dfch="config checkout"
 alias get_keys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keyvim /s/^.*keyvim \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'"
 alias sys_sounds="cd /usr/share/sounds/"
 alias pip_upg="pip install --user --upgrade"
