@@ -238,7 +238,8 @@ let g:zettelkasten = '~/03_Drafts'
   let g:vwp_todotxt_root = $HOME . '/03_Drafts/01_tasks'
 
   " CtrlP working directory mode
-  let g:ctrlp_working_path_mode = 'rca'
+  let g:ctrlp_working_path_mode = 'rc'
+  " let g:ctrlp_custom_ignore = { 'dir':  '\v[\/]\.(cfg)$' }
 
   " Goyo enter mapping:
   nnoremap <Leader>GG :Goyo<CR>

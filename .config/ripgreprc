@@ -11,6 +11,7 @@ doc:*.{pdf,txt,md,rst}*
 
 # Using glob patterns to include/exclude files or folders
 --glob=!git/*
+--glob=!$HOME/.cfg/*
 
 # Because who cares about case!?
 --smart-case
