@@ -6,7 +6,7 @@ function! myspacevim#before() abort
   set noswapfile "noswap files
 
   " Vim-zettel:
-  let g:zettel_fzf_command = "rg --column --line-number --ignore-case --no-heading --color=always "
+  let g:zettel_fzf_command = 'rg --column --line-number --ignore-case --no-heading --color=always '
 
   " zettel.vim
 let g:zettelkasten = '~/03_Drafts'
@@ -17,6 +17,16 @@ let g:zettelkasten = '~/03_Drafts'
   set hidden
 
   let g:vim_markdown_no_default_key_mappings = 1
+
+  let g:user_emmet_settings = {
+  \    'variables' : {
+  \        'lang' : 'ru',
+  \    },
+  \    'typescriptreact' : 'javascriptreact',
+  \    'typescript' : {
+  \       'extends': 'jsx'
+  \        }
+  \}
 
   " Coc: extensions list:
   let g:coc_global_extensions = [
@@ -38,6 +48,11 @@ let g:zettelkasten = '~/03_Drafts'
     \ 'coc-eslint',
     \ 'coc-react-refactor',
     \ 'coc-import-cost',
+    \ 'coc-styled-components',
+    \ 'coc-cssmodules',
+    \ 'coc-sh',
+    \ 'coc-webpack',
+    \ 'coc-jest',
     \ 'https://github.com/xabikos/vscode-javascript',
     \ 'https://github.com/dsznajder/vscode-es7-javascript-react-snippets',
     \ 'coc-marketplace',
@@ -75,8 +90,8 @@ let g:zettelkasten = '~/03_Drafts'
 
   " TODO: write function for backup current file
   function! BackupCurrentFile() abort
-    let l:current_file = expand("%:t")
-    execute(":w $HOME/01_Library/_backups/" . l:current_file)
+    let l:current_file = expand('%:t')
+    execute(':w $HOME/01_Library/_backups/' . l:current_file)
   endfunction
 
   " Use <leader>x for convert visual selected code to snippet
@@ -134,6 +149,12 @@ let g:zettelkasten = '~/03_Drafts'
   call SpaceVim#custom#SPCGroupName(['@'], 'Backup current file')
   call SpaceVim#custom#SPC('nore', ['@', 'd'], 'call BackupCurrentFile()', 'to the default directory', 1)
 
+  " VimZettel
+  call SpaceVim#custom#SPCGroupName(['z'], 'VimZettel')
+  call SpaceVim#custom#SPC('nore', ['z', 'o'], 'ZettelOpen', 'FZF search vimwiki notes', 1)
+  call SpaceVim#custom#SPC('nore', ['z', 'b'], 'VimwikiBacklinks', 'display files that link to the current page', 1)
+  call SpaceVim#custom#SPC('nore', ['z', 'c'], 'VimwikiCheckLinks', 'display files that no other file links to', 1)
+
   " Store undo history in a file for persistent undo
   if has('persistent_undo')
       silent !mkdir ~/.vim/backups > /dev/null 2>&1
@@ -146,6 +167,7 @@ let g:zettelkasten = '~/03_Drafts'
   nmap [g <Plug>(coc-diagnostic-prev)
 
   " Set Ale fixer (Eslint)
+  let g:ale_disable_lsp = 1
   let g:ale_fixers = {
    \ 'javascript': ['eslint'],
    \ 'typescript': ['prettier', 'tslint'],
@@ -179,7 +201,7 @@ let g:zettelkasten = '~/03_Drafts'
   " Wikies:
   " Main:
   let wiki_main = {}
-  let wiki_main.name = "Global wiki"
+  let wiki_main.name = 'Global wiki'
   let wiki_main.path = '~/03_Drafts'
   let wiki_main.path_html = '~/03_Drafts/public_html'
   let wiki_main.index = '000_Home'
@@ -193,7 +215,7 @@ let g:zettelkasten = '~/03_Drafts'
   let wiki_main.custom_wiki2html = '$HOME/.vim/plugged/vimwiki/autoload/vimwiki/customwiki2html.sh'
   " Projects:
   let wiki_proj = {}
-  let wiki_proj.name = "Projects"
+  let wiki_proj.name = 'Projects'
   let wiki_proj.path = '~/03_Drafts/02_projects'
   let wiki_proj.path_html = '~/03_Drafts/02_projects/public_html'
   let wiki_proj.index = '../090_Projects_MOC'
@@ -504,7 +526,7 @@ autocmd FileType defx call s:defx_my_settings()
 	  \ defx#do_action('new_multiple_files')
 	  nnoremap <silent><buffer><expr> C
 	  \ defx#do_action('toggle_columns',
-	  \                'mark:indent:icon:filename:type:size:time')
+	  \                'git:mark:indent:icon:filename:type:size:time')
 	  nnoremap <silent><buffer><expr> S
 	  \ defx#do_action('toggle_sort', 'time')
 	  nnoremap <silent><buffer><expr> ;
@@ -552,5 +574,11 @@ function! myspacevim#after() abort
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 
-  let g:neosnippet#snippets_directory = ["~/.SpaceVim/bundle/vim-snippets/snippets", "~/.SpaceVim/bundle/neosnippet-snippets/neosnippets", "~/.SpaceVim/bundle/vim-snippets/snippets/javascript"]
+  let g:neosnippet#snippets_directory = ['~/.SpaceVim/bundle/vim-snippets/snippets',
+    \'~/.SpaceVim/bundle/neosnippet-snippets/neosnippets'
+  \]
+  " let g:neosnippet#snippets_directory = ['~/.SpaceVim/bundle/vim-snippets/snippets',
+    " \'~/.SpaceVim/bundle/neosnippet-snippets/neosnippets',
+    " \'/home/evgeniy/.config/coc/ultisnips/javascript.snippets'
+  " \]
 endfunction

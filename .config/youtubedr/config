@@ -1,0 +1,1 @@
+output: /mnt/Downloads/02_yt-video/%(title)%(width)s.%(ext)s

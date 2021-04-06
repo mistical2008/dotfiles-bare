@@ -178,5 +178,11 @@
         "name": "PostgreSQL Docs",
         "trigger": "pg ",
         "url": "https://www.postgresql.org/search/?u=%2Fdocs%2F12%2F&q=%s"
+    },
+    {
+        "iconPath": "/home/evgeniy/.config/albert/org.albert.extension.websearch/{28993ff6-88f6-4513-a62d-494957bb364c}.svg",
+        "name": "Github profile",
+        "trigger": "ghp ",
+        "url": "https://github.com/%s"
     }
 ]

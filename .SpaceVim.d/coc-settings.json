@@ -61,39 +61,8 @@
     "ejs": "html",
     "pug": "jade"
   },
-  "importCost.javascriptExtensions": [
-    "\\.jsx?$",
-    "\\.js?$"
-  ],
-  "importCost.typescriptExtensions": [
-    "\\.tsx?$",
-    "\\.ts?$"
-  ],
-  "importCost.showCalculatingDecoration": true,
-  "importCost.debug": true,
   "diagnostic.enable": true,
-  "diagnostic-languageserver.filetypes": {
-    "vim": "vint",
-    "email": "languagetool",
-    "markdown": [
-      "write-good",
-      "markdownlint"
-    ],
-    "sh": "shellcheck",
-    "javascript": "eslint",
-    "javascriptreact": "eslint",
-    "typescript": "eslint",
-    "typescriptreact": "eslint",
-    "css": "stylelint"
-  },
-  "diagnostic-languageserver.formatFiletypes": {
-    "javascript": "prettier-eslint",
-    "javascriptreact": "prettier-eslint",
-    "typescript": "prettier-eslint",
-    "typescriptreact": "prettier-eslint",
-    "css": [
-      "prettier",
-      "stylelint"
-    ]
-  }
+  "diagnostic.displayByAle": false,
+  "cssmodules.camelCase": true,
+  "browser.priority": 10
 }
