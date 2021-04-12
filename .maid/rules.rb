@@ -36,7 +36,7 @@ folders = {
 }
 
 # FILETLYPES
-BOOKS = %w(epub fb2 pdf mobi).freeze
+BOOKS = ['epub', 'fb2', 'pdf', 'mobi']
 
 AUDIO = [
   'mp4',
