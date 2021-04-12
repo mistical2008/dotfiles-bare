@@ -152,6 +152,7 @@ let g:zettelkasten = '~/03_Drafts'
   " VimZettel
   call SpaceVim#custom#SPCGroupName(['z'], 'VimZettel')
   call SpaceVim#custom#SPC('nore', ['z', 'o'], 'ZettelOpen', 'FZF search vimwiki notes', 1)
+  call SpaceVim#custom#SPC('nore', ['z', 'n'], 'ZettelNew', 'create new zettel note', 1)
   call SpaceVim#custom#SPC('nore', ['z', 'b'], 'VimwikiBacklinks', 'display files that link to the current page', 1)
   call SpaceVim#custom#SPC('nore', ['z', 'c'], 'VimwikiCheckLinks', 'display files that no other file links to', 1)
 
@@ -170,7 +171,7 @@ let g:zettelkasten = '~/03_Drafts'
   let g:ale_disable_lsp = 1
   let g:ale_fixers = {
    \ 'javascript': ['eslint'],
-   \ 'typescript': ['prettier', 'tslint'],
+   \ 'typescript': ['prettier', 'eslint'],
    \ 'python': ['yapf'],
    \ 'css': ['stylelint','prettier'],
    \ 'scss': ['stylelint','prettier'],
@@ -180,6 +181,7 @@ let g:zettelkasten = '~/03_Drafts'
         \ 'css': ['stylelint'],
         \ 'html': ['stylelint','htmlhint'],
         \ 'javascript': ['eslint'],
+        \ 'typescript': ['eslint'],
         \ 'python': ['flake8', 'pylint'],
         \ 'ruby': ['standardrb', 'rubocop'],
   \}
@@ -258,6 +260,9 @@ let g:zettelkasten = '~/03_Drafts'
 
   " Vimwiki 8projects variables:
   let g:vwp_todotxt_root = $HOME . '/03_Drafts/01_tasks'
+
+  " Vimwiki Fixes:
+  let g:indentLine_fileTypeExclude = ['vimwiki']
 
   " CtrlP working directory mode
   let g:ctrlp_working_path_mode = 'rc'
@@ -353,7 +358,7 @@ endfunction
 
 function! GetProjectDirs()
   call SetDefPojectsDir()
-  if has("nvim")
+  if has('nvim')
     let l:dirs = systemlist("ls -d " . g:vwp_projects_path . "[0-9][0-9][0-9]*/" . "| cut -d'/' -f6")
   else
     let l:dirs = readdir(g:vwp_projects_path)
@@ -436,25 +441,21 @@ function! MakeProjectPage() abort
   
   let l:current_file_path = expand('%:p')
   let l:proj_dir_name = SetProjectDirName()
+  let l:proj_index_stripped = camelsnek#kebab(l:proj_dir_name)
+  let g:vwp_project_index = '0_' . substitute(l:proj_index_stripped, "^\\d\\+-\\d\\+-", "", "")
   let l:proj_main_index_path = g:vwp_drafts_path . g:vwp_project_main_index
   let l:proj_dir_path = g:vwp_projects_path . l:proj_dir_name . '/'
   let l:proj_full_path = l:proj_dir_path . g:vwp_project_index
   let l:proj_lnk = LinkConstructor(l:proj_dir_name)
   if l:current_file_path =~ l:proj_main_index_path
      let l:current_line_content = getline(line('.'))
-     " if match(l:current_line, '^[\s\t]*$') == 0
-     "  call setline( line('.'), getline(line('.')) . l:proj_lnk )
-     " else
-     "  call append( line('.'), l:proj_lnk ) 
-     " endif
-     " One line append/insert:
      call append( nextnonblank( line('.') ), l:proj_lnk )
     " TODO:
     " - (?) check for blank line
     " - If not blank add write with append(line('.'))
     " - Else code below:
   else
-    let l:append_command = "sed -i '/" . g:vwp_new_project_section . "/a " . l:proj_lnk . "' " . l:proj_main_index_path . ".md"
+    let l:append_command = "sed -i '/" . g:vwp_new_project_section . '/a ' . l:proj_lnk . "' " . l:proj_main_index_path . '.md'
     call system(l:append_command)
   endif
   call mkdir(l:proj_dir_path)
@@ -493,7 +494,7 @@ function! LinkConstructor(proj_dir_name, ...)
     redraw
   else
     call SetProjectIndexFile()
-    return "- " . l:dob. input('Enter the project link description: ')  . l:dcb . l:lob .  a:proj_dir_name . "/" . g:vwp_project_index . l:lcb
+    return "- " . l:dob. input('Enter the project link description: ')  . l:dcb . l:lob . '02_projects/' .  a:proj_dir_name . '/' . g:vwp_project_index . l:lcb
     redraw
   endif
 endfunction
@@ -515,7 +516,7 @@ let g:vwp_list = {
 let g:coc_config_home = '~/.SpaceVim.d/'
 
 " Vim-vista:
-let g:vista_sidebar_position = "vertical topleft"
+let g:vista_sidebar_position = 'vertical topleft'
 
 autocmd FileType defx call s:defx_my_settings()
 	function! s:defx_my_settings() abort

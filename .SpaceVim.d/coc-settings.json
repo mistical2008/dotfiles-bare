@@ -1,5 +1,6 @@
 {
   "suggest.enablePreview": true,
+  "codeLens.enable": true,
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
@@ -52,6 +53,7 @@
     "typescript",
     "typescriptreact"
   ],
+  "eslint.format.enable": true,
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": [

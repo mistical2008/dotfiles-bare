@@ -169,3 +169,6 @@ name = "fzf"
 [[custom_plugins]]
   repo = "dense-analysis/ale"
   merged = false
+[[custom_plugins]]
+  repo = "nicwest/vim-camelsnek"
+  merged = false
