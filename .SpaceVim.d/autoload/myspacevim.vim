@@ -522,40 +522,6 @@ let g:vwp_list = {
 " Vim-vista:
 let g:vista_sidebar_position = 'vertical topleft'
 
-" augroup Defx
-" autocmd FileType defx call s:defx_my_settings()
-	" function! s:defx_my_settings() abort
-    " " Define mappings
-		" nnoremap <silent><buffer><expr> E
-		" \ defx#do_action('open', 'vsplit')
-		" nnoremap <silent><buffer><expr> M
-		" \ defx#do_action('new_multiple_files')
-		" nnoremap <silent><buffer><expr> C
-		" \ defx#do_action('toggle_columns',
-		" \                'git:mark:indent:icon:filename:type:size:time')
-		" nnoremap <silent><buffer><expr> S
-		" \ defx#do_action('toggle_sort', 'time')
-		" nnoremap <silent><buffer><expr> ;
-		" \ defx#do_action('repeat')
-		" nnoremap <silent><buffer><expr> t
-		" \ defx#do_action('toggle_select')
-		" nnoremap <silent><buffer><expr> *
-		" \ defx#do_action('toggle_select_all')
-		" nnoremap <silent><buffer><expr> <C-l>
-		" \ defx#do_action('redraw')
-		" nnoremap <silent><buffer><expr> <C-g>
-		" \ defx#do_action('print')
-		" nnoremap <silent><buffer><expr> cd
-		" \ defx#do_action('change_vim_cwd')
-	" endfunction
-" augroup END
-  autocmd FileType defx call s:defx_my_settings()
-    function! s:defx_my_settings() abort
-    silent! nunmap <buffer> p
-      " Define mappings
-	  nnoremap <silent><buffer><expr> p
-	  \ defx#do_action('paste')
-    endfunction
   augroup test
     autocmd!
     autocmd BufWrite * if test#exists() |
@@ -565,6 +531,8 @@ let g:vista_sidebar_position = 'vertical topleft'
 
   let g:spacevim_enable_vimfiler_filetypeicon = 1
   let g:spacevim_enable_vimfiler_gitstatus = 1
+
+  " END of myspacevim#before
 endfunction
 
 function! myspacevim#after() abort

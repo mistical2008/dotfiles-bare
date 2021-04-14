@@ -43,7 +43,7 @@ matches:
         params:
           format: "%Y-%m-%d"
 
-  - trigger: "\\time"
+  - trigger: ":time"
     replace: "{{mytime}}"
     vars:
       - name: mytime
@@ -51,7 +51,7 @@ matches:
         params:
           format: "%R"
 
-  - trigger: ":sym-rub"
+  - trigger: ":rub"
     replace: "₽"
 
   # Shell commands

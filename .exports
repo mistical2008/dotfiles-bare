@@ -3,6 +3,8 @@ export PATH="$PATH:/mnt/Data/Scripts"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 export PATH="$PATH:/usr/sbin/xclip-copyfile"
+export PATH="$PATH:/usr/sbin/xclip-pastefile"
+export PATH="$PATH:/usr/sbin/xclip-cutfile"
 # export PATH="$PATH:$HOME/.local/lib/python_common_modules" # hasn't working
 
 # npm to $PATH
