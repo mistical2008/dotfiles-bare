@@ -28,6 +28,13 @@ let g:zettelkasten = '~/03_Drafts'
   \        }
   \}
 
+
+  let g:python3_host_prog = '/usr/bin/python3'
+  let g:python_host_prog = '/usr/bin/python2'
+
+" Coc settings:
+let g:coc_config_home = '~/.SpaceVim.d/'
+
   " Coc: extensions list:
   let g:coc_global_extensions = [
     \ 'coc-tsserver',
@@ -512,42 +519,57 @@ let g:vwp_list = {
       \},
 \}
 
-" Coc settings:
-let g:coc_config_home = '~/.SpaceVim.d/'
-
 " Vim-vista:
 let g:vista_sidebar_position = 'vertical topleft'
 
-autocmd FileType defx call s:defx_my_settings()
-	function! s:defx_my_settings() abort
-	  " Define mappings
-	  nnoremap <silent><buffer><expr> E
-	  \ defx#do_action('open', 'vsplit')
-	  nnoremap <silent><buffer><expr> M
-	  \ defx#do_action('new_multiple_files')
-	  nnoremap <silent><buffer><expr> C
-	  \ defx#do_action('toggle_columns',
-	  \                'git:mark:indent:icon:filename:type:size:time')
-	  nnoremap <silent><buffer><expr> S
-	  \ defx#do_action('toggle_sort', 'time')
-	  nnoremap <silent><buffer><expr> ;
-	  \ defx#do_action('repeat')
-	  nnoremap <silent><buffer><expr> t
-	  \ defx#do_action('toggle_select')
-	  nnoremap <silent><buffer><expr> *
-	  \ defx#do_action('toggle_select_all')
-	  nnoremap <silent><buffer><expr> <C-l>
-	  \ defx#do_action('redraw')
-	  nnoremap <silent><buffer><expr> <C-g>
-	  \ defx#do_action('print')
-	  nnoremap <silent><buffer><expr> cd
-	  \ defx#do_action('change_vim_cwd')
-	endfunction
+" augroup Defx
+" autocmd FileType defx call s:defx_my_settings()
+	" function! s:defx_my_settings() abort
+    " " Define mappings
+		" nnoremap <silent><buffer><expr> E
+		" \ defx#do_action('open', 'vsplit')
+		" nnoremap <silent><buffer><expr> M
+		" \ defx#do_action('new_multiple_files')
+		" nnoremap <silent><buffer><expr> C
+		" \ defx#do_action('toggle_columns',
+		" \                'git:mark:indent:icon:filename:type:size:time')
+		" nnoremap <silent><buffer><expr> S
+		" \ defx#do_action('toggle_sort', 'time')
+		" nnoremap <silent><buffer><expr> ;
+		" \ defx#do_action('repeat')
+		" nnoremap <silent><buffer><expr> t
+		" \ defx#do_action('toggle_select')
+		" nnoremap <silent><buffer><expr> *
+		" \ defx#do_action('toggle_select_all')
+		" nnoremap <silent><buffer><expr> <C-l>
+		" \ defx#do_action('redraw')
+		" nnoremap <silent><buffer><expr> <C-g>
+		" \ defx#do_action('print')
+		" nnoremap <silent><buffer><expr> cd
+		" \ defx#do_action('change_vim_cwd')
+	" endfunction
+" augroup END
+  autocmd FileType defx call s:defx_my_settings()
+    function! s:defx_my_settings() abort
+    silent! nunmap <buffer> p
+      " Define mappings
+	  nnoremap <silent><buffer><expr> p
+	  \ defx#do_action('paste')
+    endfunction
+  augroup test
+    autocmd!
+    autocmd BufWrite * if test#exists() |
+      \   TestLast |
+      \ endif
+  augroup END
 
+  let g:spacevim_enable_vimfiler_filetypeicon = 1
+  let g:spacevim_enable_vimfiler_gitstatus = 1
 endfunction
 
 function! myspacevim#after() abort
-  " Use K to show documentation in preview window
+
+  " Use F to show documentation in preview window
   nnoremap <silent> F :call <SID>ShowDocumentation()<CR>
   
   function! s:ShowDocumentation()
@@ -573,7 +595,27 @@ function! myspacevim#after() abort
   " Coc: jump diagnostics
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
+  " Map function and class text objects
 
+  " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+  xmap if <Plug>(coc-funcobj-i)
+  omap if <Plug>(coc-funcobj-i)
+  xmap af <Plug>(coc-funcobj-a)
+  omap af <Plug>(coc-funcobj-a)
+  xmap ic <Plug>(coc-classobj-i)
+  omap ic <Plug>(coc-classobj-i)
+  xmap ac <Plug>(coc-classobj-a)
+  omap ac <Plug>(coc-classobj-a)
+
+  " Remap <C-f> and <C-b> for scroll float windows/popups.
+  if has('nvim-0.4.0') || has('patch-8.2.0750')
+    nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+    vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  endif
 
   let g:neosnippet#snippets_directory = ['~/.SpaceVim/bundle/vim-snippets/snippets',
     \'~/.SpaceVim/bundle/neosnippet-snippets/neosnippets'

@@ -1,5 +1,5 @@
 [Default Applications]
-text/html=obsidian.desktop
+text/html=figma-linux.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/about=google-chrome.desktop
@@ -179,7 +179,7 @@ x-scheme-handler/trash=exo-file-manager.desktop;
 message/rfc822=userapp-Thunderbird-04S4Q0.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-EL6FU0.desktop;
 application/x-xpinstall=thunderbird.desktop;
-text/markdown=visual-studio-code.desktop;
+text/markdown=okularApplication_md.desktop;visual-studio-code.desktop;
 video/mpeg=mpv.desktop;
 video/x-mpeg2=mpv.desktop;
 video/x-mpeg3=mpv.desktop;
@@ -215,3 +215,4 @@ video/3gp=mpv.desktop;
 video/3gpp=mpv.desktop;
 video/3gpp2=mpv.desktop;
 video/dv=mpv.desktop;
+application/vnd.sqlite3=anki.desktop;

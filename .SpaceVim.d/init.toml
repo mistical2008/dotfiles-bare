@@ -26,12 +26,9 @@
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
     autocomplete_method = "coc"
-    # Disable neomake:
-    enable_neomake = false
-    # Enable ale for checking:
-    enable_ale = true
     filemanager = 'defx'
     disabled_plugins = ["vnote"]
+    lint_engine = "ale"
 
 
 # Enable autocomplete layer
@@ -60,7 +57,6 @@
 
 [[layers]]
   name = "checkers"
-  lint_engine = "ale"
 
 [[layers]]
   name = "ctrlp"
@@ -163,12 +159,12 @@ name = "fzf"
 [[custom_plugins]]
   repo = "kristijanhusak/vim-js-file-import"
   merged = false
-[[custom_plugins]]
-  repo = "kristijanhusak/defx-git"
-  merged = false
-[[custom_plugins]]
-  repo = "dense-analysis/ale"
-  merged = false
+# [[custom_plugins]]
+  # repo = "dense-analysis/ale"
+  # merged = false
 [[custom_plugins]]
   repo = "nicwest/vim-camelsnek"
+  merged = false
+[[custom_plugins]]
+  repo = "rbong/vim-flog"
   merged = false

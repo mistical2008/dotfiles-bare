@@ -1,9 +1,10 @@
 {
-  "suggest.enablePreview": true,
+  "suggest.enablePreview": false,
   "codeLens.enable": true,
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
+  "typescript.validate.enable": true,
   "html.enable": true,
   "html.validate.html": true,
   "html.validate.scripts": true,
