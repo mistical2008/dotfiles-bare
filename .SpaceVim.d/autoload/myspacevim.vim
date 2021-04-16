@@ -177,8 +177,10 @@ let g:coc_config_home = '~/.SpaceVim.d/'
   " Set Ale fixer (Eslint)
   let g:ale_disable_lsp = 1
   let g:ale_fixers = {
-   \ 'javascript': ['eslint'],
+   \ 'javascript': ['prettier', 'eslint'],
    \ 'typescript': ['prettier', 'eslint'],
+   \ 'javascriptreact': ['prettier', 'eslint'],
+   \ 'typescriptreact': ['prettier', 'eslint'],
    \ 'python': ['yapf'],
    \ 'css': ['stylelint','prettier'],
    \ 'scss': ['stylelint','prettier'],
@@ -278,21 +280,43 @@ let g:coc_config_home = '~/.SpaceVim.d/'
   " Goyo enter mapping:
   nnoremap <Leader>GG :Goyo<CR>
 
-
   " Remap ;:
   nnoremap ; :
   nnoremap : ;
 
-
-  augroup SetFileType
+  " AUTOCMD's:
+  augroup ft_todo
     autocmd!
-    autocmd FileType json syntax match Comment +\/\/.\+$+
     " Use todo#Complete as the omni complete function for todo files
     autocmd filetype todo setlocal omnifunc=todo#Complete
+  augroup END
+
+  augroup ft_sxhkd
+    autocmd!
     autocmd BufRead,BufNewFile,BufReadPost $HOME/.config/sxhkd/sxhkdrc set filetype=sxhkd
+  augroup END
+
+  augroup ft_markdown
+    autocmd!
     autocmd BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en,ru
   augroup END
 
+  augroup ft_json
+    autocmd!
+    autocmd FileType json syntax match Comment +\/\/.\+$+
+  augroup END
+
+  augroup ft_typescriptreact
+    autocmd!
+    autocmd FileType typescriptreact :EmmetInstall
+  augroup END
+
+  augroup vim_test
+    autocmd!
+    autocmd BufWrite * if test#exists() |
+      \   TestLast |
+      \ endif
+  augroup END
 
 " 
 " Vimwiki: Project link creator
@@ -309,49 +333,65 @@ let g:vwp_todotxt_file = exists('g:vwp_todotxt_file') ? g:vwp_todotxt_file : 'to
 let g:vwp_todotxt_root = exists('g:vwp_todotxt_root') ? g:vwp_todotxt_root : $HOME . '/todo'
 let g:vwp_todotxt_path = g:vwp_todotxt_root . '/' . g:vwp_todotxt_file
 
+map <silent><buffer><expr> <leader>gp ToClipboard(GetProjectsFromTask())
+map <silent><buffer><expr> <leader>gt ToClipboard(GetTagsFromTask())
+
+function! GetTagsFromTask() abort
+  return matchstr(getline(line('.')), '\v(\@\a+\s+)+')
+endfunction
+
+function! GetProjectsFromTask() abort
+  return matchstr(getline(line('.')), '\v(\+\d{3}-\a+\s*)+')
+endfunction
+
+function! ToClipboard(arg) abort
+  let l:arg_string = string(a:arg)
+  execute '!echo ' . l:arg_string . ' | xclip -sel clip'
+endfunction
+
 " TODO: rewrite path to main project index in case with my new PKM
-function! SetDraftsDir()
+function! SetDraftsDir() abort
   if !exists('g:vwp_drafts_path')
     let g:vwp_drafts_path = $HOME . '/03_Drafts/'
   endif
 endfunction
 call SetDraftsDir()
 
-function! SetDefPojectsDir()
+function! SetDefPojectsDir() abort
   if !exists('g:vwp_projects_path')
     let g:vwp_projects_path = $HOME . '/03_Drafts/02_projects/'
   endif
 endfunction
 " call SetDefPojectsDir()
 
-function! SetProjectIndexFile()
+function! SetProjectIndexFile() abort
   if !exists('g:vwp_project_index')
     let g:vwp_project_index = '0_project-index'
   endif
 endfunction
 
-function! SetProjectsMainIndexFile()
+function! SetProjectsMainIndexFile() abort
   if !exists('g:vwp_project_main_index')
     let g:vwp_project_main_index = '090_Projects_MOC'
   endif
 endfunction
 
 
-function! SetNewProjectsSection()
+function! SetNewProjectsSection() abort
   if !exists('g:vwp_new_project_section')
     let g:vwp_new_project_section = '## Inbox'
   endif
 endfunction
 
 " Available syntaxes: wiki, markdown, media
-function! SetDefSyntax()
+function! SetDefSyntax() abort
   if !exists('g:vwp_syntax')
     let g:vwp_syntax = 'wiki'
   endif
 endfunction
 let g:vwp_syntax = 'markdown'
 
-function! SetDefTagsHint()
+function! SetDefTagsHint() abort
   if !exists('g:vwp_tags_hint')
     let g:vwp_tags_hint = $HOME . '/03_Drafts/02_projects/readme.txt'
   endif
@@ -363,7 +403,7 @@ function! ReadTagsHints() abort
   return l:readme
 endfunction
 
-function! GetProjectDirs()
+function! GetProjectDirs() abort
   call SetDefPojectsDir()
   if has('nvim')
     let l:dirs = systemlist("ls -d " . g:vwp_projects_path . "[0-9][0-9][0-9]*/" . "| cut -d'/' -f6")
@@ -374,11 +414,11 @@ function! GetProjectDirs()
   return l:dirs
 endfunction
 
-function! GetLastProjectDir()
+function! GetLastProjectDir() abort
   return GetProjectDirs()[-1]
 endfunction
 
-function! ConstructNewProjectID()
+function! ConstructNewProjectID() abort
   let l:last_proj_dir = GetLastProjectDir()
   " TODO: rewrite regex for matching id with various length
   " let l:last_proj_id = matchstr(l:last_proj_dir, '^[0-9]\{3}')
@@ -387,7 +427,7 @@ function! ConstructNewProjectID()
   return AddLeadingZeroes(l:new_id, len(l:last_proj_id))
 endfunction
 
-function! AddLeadingZeroes(string, ...) 
+function! AddLeadingZeroes(string, ...) abort
   let l:string = a:string 
   let l:size = get(a:, 1, 3)
   while len(l:string) < l:size 
@@ -396,7 +436,7 @@ function! AddLeadingZeroes(string, ...)
   return l:string
 endfunction
 
-function! GetTodayDate()
+function! GetTodayDate() abort
   return strftime("%Y%m%d",localtime())
 endfunction
 
@@ -407,7 +447,7 @@ function! IsProject(id, dirname)
 endfunction
 
 " TODO: unify with the SetDBPageName() with an if condition
-function! SetProjectDirName()
+function! SetProjectDirName() abort
   let l:id = ConstructNewProjectID()
   let l:date = GetTodayDate()
   " let l:tags_hint = ReadTagsHints()
@@ -490,7 +530,7 @@ endfunction
   " OR Paste to default section for a new pages
 " endfunction
 
-function! LinkConstructor(proj_dir_name, ...)
+function! LinkConstructor(proj_dir_name, ...) abort
   let l:type = get(a:,1,"proj") " TODO: come up with a more elegant approach
   let l:dob = g:vwp_list.markdown.descr[0]
   let l:dcb = g:vwp_list.markdown.descr[1]
@@ -522,13 +562,6 @@ let g:vwp_list = {
 " Vim-vista:
 let g:vista_sidebar_position = 'vertical topleft'
 
-  augroup test
-    autocmd!
-    autocmd BufWrite * if test#exists() |
-      \   TestLast |
-      \ endif
-  augroup END
-
   let g:spacevim_enable_vimfiler_filetypeicon = 1
   let g:spacevim_enable_vimfiler_gitstatus = 1
 
@@ -540,7 +573,7 @@ function! myspacevim#after() abort
   " Use F to show documentation in preview window
   nnoremap <silent> F :call <SID>ShowDocumentation()<CR>
   
-  function! s:ShowDocumentation()
+  function! s:ShowDocumentation() abort
     if (index(['vim','help'], &filetype) >= 0)
       execute 'h '.expand('<cword>')
     elseif (coc#rpc#ready())

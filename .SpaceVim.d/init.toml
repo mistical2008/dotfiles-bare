@@ -168,3 +168,6 @@ name = "fzf"
 [[custom_plugins]]
   repo = "rbong/vim-flog"
   merged = false
+[[custom_plugins]]
+  repo = "pantharshit00/vim-prisma"
+  merged = false

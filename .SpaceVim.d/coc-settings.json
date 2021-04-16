@@ -5,6 +5,7 @@
   "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
   "typescript.validate.enable": true,
+  "typescript.format.enabled": true,
   "html.enable": true,
   "html.validate.html": true,
   "html.validate.scripts": true,
@@ -39,8 +40,8 @@
     "javascript",
     "javascriptreact",
     "typescriptreact",
+    "tsx",
     "typescript",
-    "typescript.tsx",
     "json",
     "vim",
     "tex",
@@ -55,6 +56,7 @@
     "typescriptreact"
   ],
   "eslint.format.enable": true,
+  "eslint.autoFixOnSave": true,
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": [

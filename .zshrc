@@ -126,5 +126,8 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+# Blitz.js autocompletion
+eval 
+BLITZ_AC_ZSH_SETUP_PATH="$HOME/.cache/@blitzjs/cli/autocomplete/zsh_setup" && test -f $BLITZ_AC_ZSH_SETUP_PATH && source $BLITZ_AC_ZSH_SETUP_PATH; # blitz autocomplete setup
 # Time meter (uncomment last and firs lines)
 # zprof

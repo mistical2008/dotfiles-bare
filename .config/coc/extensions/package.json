@@ -17,6 +17,7 @@
     "coc-marketplace": ">=1.8.1",
     "coc-omnisharp": ">=0.0.28",
     "coc-prettier": ">=1.1.23",
+    "coc-prisma": ">=0.8.0",
     "coc-react-refactor": ">=0.3.0",
     "coc-sh": ">=0.6.0",
     "coc-snippets": ">=2.4.1",
