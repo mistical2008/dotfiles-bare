@@ -81,4 +81,4 @@ export DOTBARE_PREVIEW="bat --color=always --style=numbers {}"
 # Nvim
 export PYTHON_HOST_PROG="/usr/bin/python2"
 export PYTHON3_HOST_PROG="/usr/bin/python3"
-export NODE_HOST_PROG="$(_get_node)"
+# export NODE_HOST_PROG="$(_get_node)"
