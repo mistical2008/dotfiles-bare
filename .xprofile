@@ -3,6 +3,7 @@
 # Remove polybar-reload-log if strings > 60:
 /mnt/Data/Scripts/polybar-clean-log.sh
 
+export TERM="xterm-256color"
 # Launch some things on startx:
 # autorandr external
 xset r rate 300 30 &
