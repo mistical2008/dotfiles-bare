@@ -19,8 +19,8 @@ export OCIO=$HOME/.config/blender/2.79/datafiles/colormanagement/config.ocio
 export W_PREFIXES=$HOME/.PlayOnLinux/wineprefix
 
 # Variables
-function _get_editor { echo $(which neovide) || echo $(which nvim) || echo $(which vim) || echo $(which vi) || echo $(which nano)}
-function _get_node { echo $(which node) }
+function _get_editor { echo $(which nvim) || echo $(which vim) || echo $(which vi) || echo $(which nano)}
+function _get_node { echo /home/evgeniy/.nvm/versions/node/$(node -v)/lib/node_modules/neovim/bin/cli.js }
 function _get_terminal { echo $(which kitty) || echo $(which alacritty) || echo $(which tilix) || echo $(which urxvt) || echo $(which gnome-terminal) || echo $(which xterm)}
 export DEF_TERM="$(_get_terminal)"
 export SUDO_EDITOR="$(_get_editor)"
@@ -80,4 +80,4 @@ export DOTBARE_PREVIEW="bat --color=always --style=numbers {}"
 # Nvim
 export PYTHON_HOST_PROG="/usr/bin/python2"
 export PYTHON3_HOST_PROG="/usr/bin/python3"
-# export NODE_HOST_PROG="$(_get_node)"
+export NODE_HOST_PROG="$(_get_node)"
