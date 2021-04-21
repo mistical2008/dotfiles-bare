@@ -29,7 +29,7 @@ folders = {
   tg: 'Telegram Desktop',
   images: '~/Pictures',
   video: '~/Video',
-  music: '~/Musi',
+  music: '~/Music',
   books: '~/01_Library/09_books/books/00_inbox',
   projects: '~/03_Drafts/02_projects',
   records: '~/01_Library/06_audio-records'
@@ -100,7 +100,6 @@ IMG = [
   'ups'
 ]
 
-
 Maid.rules do
   # **NOTE:** It's recommended you just use this as a template; if you run these rules on your machine without knowing
   # what they do, you might run into unwanted results!
@@ -154,17 +153,23 @@ Maid.rules do
   watch "#{folders[:downloads]}/#{folders[:tg]}" do
     rule 'Move books from Telegram folder' do
       BOOKS.each do |ext|
-        5.minute.since?(last_accessed(ext)) && move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir(folders[:books].to_s))
+        if 2.minute.since?(last_accessed(ext))
+          move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir(folders[:books].to_s))
+        end
       end
     end
     rule 'Move music from Telegram folder' do
       AUDIO.each do |ext|
-        5.minute.since?(last_accessed(ext)) && move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir("#{folders[:music]}/telegram"))
+        if 5.minute.since?(last_accessed(ext))
+          move(dir("#{folders[:downloads]}/#{folders[:tg]}/*.#{ext}"), mkdir("#{folders[:music]}/telegram"))
+        end
       end
     end
     rule 'Trash an old TG files' do
       dir("#{folders[:downloads]}/#{folders[:tg]}/*").each do |path|
-        1.week.since?(last_accessed(path)) && trash(path)
+        if 1.week.since?(last_accessed(path))
+          trash(path)
+        end
       end
     end
   end
@@ -172,14 +177,14 @@ Maid.rules do
   watch folders[:images].to_s do
     rule "Move screenshots to the \'Screenshots\' folder" do
       IMAGES.each do |ext|
-        ["Снимок экрана","Screenshot", "screenshot", "Screen shot"].each do |screenshot|
+        ['Снимок экрана', 'Screenshot', 'screenshot', 'Screen shot'].each do |screenshot|
           move(dir("#{folders[:images]}/#{screenshot}*.#{ext}"), mkdir("#{folders[:images]}/screenshots"))
         end
       end
     end
     rule "Move screencasts to the \'Screenshots\' folder" do
       VIDEO.each do |ext|
-        ["Peek", "Screencast", "screencast"].each do |screencast|
+        ['Peek', 'Screencast', 'screencast'].each do |screencast|
           move(dir("#{folders[:images]}/#{screencast}*.#{ext}"), mkdir("#{folders[:images]}/screencasts"))
         end
       end
@@ -195,15 +200,15 @@ Maid.rules do
   end
 
   watch folders[:downloads].to_s do
-    rule "Move *.torrent files to torrent folder" do
+    rule 'Move *.torrent files to torrent folder' do
       move(dir("#{folders[:downloads]}/*.torrent"), mkdir("#{folders[:downloads]}/torrents"))
     end
-    rule "Move *.iso img to img_iso folder" do
+    rule 'Move *.iso img to img_iso folder' do
       IMG.each do |ext|
         move(dir("#{folders[:downloads]}/*.#{ext}"), mkdir("#{folders[:downloads]}/img_iso"))
       end
     end
-    rule "Move .pkg.tar.xz into app_inux folder"  do
+    rule 'Move .pkg.tar.xz into app_inux folder'  do
       dir("#{folders[:downloads]}/*.pkg.tar.xz").each do |path|
         # filename = File.basename(path).to_s
         move(path, mkdir("#{folders[:downloads]}/app_linux"))
@@ -227,6 +232,4 @@ Maid.rules do
       end
     end
   end
-
 end
-

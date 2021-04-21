@@ -1,5 +1,11 @@
 function! myspacevim#before() abort
 
+  " Neovide setup
+  set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h17
+  let g:neovide_cursor_vfx_mode = 'torpedo'
+  " set linespace = 20
+
+  " Basic setup
   set splitright " split to the right
   set splitbelow " vsplit to the bottom
   
@@ -31,6 +37,17 @@ let g:zettelkasten = '~/03_Drafts'
 
   let g:python3_host_prog = '/usr/bin/python3'
   let g:python_host_prog = '/usr/bin/python2'
+  " CAUSES ERROR WITH NODE-NEOVIM
+  " let g:node_host_prog = '$HOME/.nvm/versions/node/v14.16.0/lib/node_modules/neovim/bin/cli.js'
+
+  " if exists(g:neovide)
+    " let g:node_host_prog = '$NVM_BIN/node'
+  " endif
+
+  let test#javascript#jest#options = {
+  \ 'file':    '--watch',
+  \ 'suite':   '--watch',
+\}
 
 " Coc settings:
 let g:coc_config_home = '~/.SpaceVim.d/'
@@ -60,7 +77,6 @@ let g:coc_config_home = '~/.SpaceVim.d/'
     \ 'coc-sh',
     \ 'coc-webpack',
     \ 'coc-jest',
-    \ 'https://github.com/xabikos/vscode-javascript',
     \ 'https://github.com/dsznajder/vscode-es7-javascript-react-snippets',
     \ 'coc-marketplace',
     \]
@@ -285,6 +301,12 @@ let g:coc_config_home = '~/.SpaceVim.d/'
   nnoremap : ;
 
   " AUTOCMD's:
+  augroup GUI
+    autocmd!
+    " neovide workaround
+    autocmd UIEnter * call setenv('$TERM', 'xterm-256color')
+  augroup END
+
   augroup ft_todo
     autocmd!
     " Use todo#Complete as the omni complete function for todo files
@@ -333,8 +355,8 @@ let g:vwp_todotxt_file = exists('g:vwp_todotxt_file') ? g:vwp_todotxt_file : 'to
 let g:vwp_todotxt_root = exists('g:vwp_todotxt_root') ? g:vwp_todotxt_root : $HOME . '/todo'
 let g:vwp_todotxt_path = g:vwp_todotxt_root . '/' . g:vwp_todotxt_file
 
-map <silent><buffer><expr> <leader>gp ToClipboard(GetProjectsFromTask())
-map <silent><buffer><expr> <leader>gt ToClipboard(GetTagsFromTask())
+nnoremap <silent><buffer><expr> <leader>gp ToClipboard(GetProjectsFromTask())
+nnoremap <silent><buffer><expr> <leader>gt ToClipboard(GetTagsFromTask())
 
 function! GetTagsFromTask() abort
   return matchstr(getline(line('.')), '\v(\@\a+\s+)+')
@@ -618,11 +640,6 @@ function! myspacevim#after() abort
     vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
   endif
 
-  let g:neosnippet#snippets_directory = ['~/.SpaceVim/bundle/vim-snippets/snippets',
-    \'~/.SpaceVim/bundle/neosnippet-snippets/neosnippets'
-  \]
-  " let g:neosnippet#snippets_directory = ['~/.SpaceVim/bundle/vim-snippets/snippets',
-    " \'~/.SpaceVim/bundle/neosnippet-snippets/neosnippets',
-    " \'/home/evgeniy/.config/coc/ultisnips/javascript.snippets'
-  " \]
+  let g:neosnippet#snippets_directory = ['~/.SpaceVim/bundle/vim-snippets/snippets']
+
 endfunction

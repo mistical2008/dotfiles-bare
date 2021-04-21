@@ -38,10 +38,12 @@
     "scss",
     "css",
     "javascript",
+    "javascript.jsx",
     "javascriptreact",
     "typescriptreact",
     "tsx",
     "typescript",
+    "typescript.tsx",
     "json",
     "vim",
     "tex",
@@ -61,7 +63,9 @@
     "vue-html": "html",
     "javascript": [
       "javascriptreact",
-      "typescriptreact"
+      "javascript.jsx",
+      "typescriptreact",
+      "typescript.tsx"
     ],
     "ejs": "html",
     "pug": "jade"
