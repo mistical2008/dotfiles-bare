@@ -1,0 +1,58 @@
+# A valid snippet should starts with:
+priority -50
+
+############
+#  COMMON  #
+############
+
+# The smart snippets use a global options called
+# "g:ultisnips_javascript.{option}" which can control the format
+# of trailing semicolon, space before function paren, etc.
+#
+# e.g.
+# let g:ultisnips_javascript = {
+#      \ 'keyword-spacing': 'always',
+#      \ 'semi': 'never',
+#      \ 'space-before-function-paren': 'always',
+#      \ }
+
+snippet fibm "Recursive fibonacci with memoisation" b
+// Get fibonacci number by serial number
+function ${1}(num, memo) {
+	memo = memo || {};
+
+	if (memo[num]) return memo[num];
+	if (num <= 1) return 1;
+
+	return memo[num] = ${1}(num - 1, memo) + ${1}(num - 2, memo);
+}
+endsnippet
+
+snippet fn-memo "Memoized function with new Map() cache" b
+
+const memoize = fn => new Proxy(fn, {
+	cache: new Map(),
+	apply (target, thisArg, argsList) {
+		let cacheKey = argsList.toString();
+		if(!this.cache.has(cacheKey))
+			this.cache.set(cacheKey, target.apply(thisArg, argsList));
+		return this.cache.get(cacheKey);
+	}
+});
+endsnippet
+
+snippet rand "Func: returns a random number from min to max." b
+function random(min, max) {
+	const num = Math.floor(Math.random() * (max - min + 1)) + min;
+	return num;
+}
+endsnippet
+
+snippet canvas_bp "Boilerplate: canvas start code. Set ctx, width, height" b
+const canvas = document.querySelector('canvas');
+
+const ctx = canvas.getContext('${1}');
+
+const width = canvas.width = window.innerWidth;
+const height = canvas.height = window.innerHeight;
+endsnippet

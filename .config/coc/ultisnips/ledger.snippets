@@ -1,0 +1,11 @@
+priority -50
+
+snippet l-t "Transaction" b
+${1:`!v strftime("%Y")`}-${2:`!v strftime("%m")`}-${3:`!v strftime("%d")`} ${4:*} ${5:Payee}
+	${6:Expenses}          		${7:₽ }${8:0}.${9:00}
+	${10:Assets:Cash}$0
+endsnippet
+
+snippet l-l "Add line to transaction" b
+${1:Expenses}  	        	${2:₽ }${3:0}.${4:00}
+endsnippet

@@ -1,0 +1,165 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+snippet ln "link" b
+[${1}](${2})
+endsnippet
+
+
+snippet lnp "link to projects" b
+[${1}](00_projects/${2})
+endsnippet
+
+snippet lnj "link to journal" b
+[${1}](02_journal/${2})
+endsnippet
+
+snippet lnd "link to db" b
+[${1}](03_db/${2})
+endsnippet
+
+snippet prtp "Project page boilerplate" b
+---
+created: ${0:`date "+%F %H:%M"`}
+---
+
+# ${1}
+
+## Чтобы что?
+	Какая цель?
+- ${3}
+
+### Что еще?
+	Какие еще проекты нужны для «чтобы что»?
+- ${4}
+
+### А то?
+	Что будет если этого не делать?
+- ${5}
+
+#### И чо?
+	Все ли так страшно?
+- ${6}
+
+### Ну и что?
+	С чего вы решили, что оно вам надо?
+- ${7}
+
+### Как еще?
+	Какие еще есть альтернативные методы чтобы достичь «чтобы что»?
+- ${8}
+
+## Как?
+### Идеи, планы, информация
+- ${9}
+
+### Какой первый выхлоп?
+- ${10}
+
+### Какой следующий шаг?
+- ${11}
+
+## А теперь подумайте как сделать …
+### …быстро:
+- ${12}
+
+### …дешево:
+- ${13}
+
+### …эффективно:
+- ${14}
+
+---
+## Tasks
+- ${15}
+
+## Notes
+- ${16}
+
+## Web
+- ${17}
+
+---
+tags: #project #${2:projectStatus} </br>
+associations: [Home](../../000_Home.md), [Projects](../../090_Projects_MOC.md), ${18:association}
+
+endsnippet
+
+# Diary:
+snippet dsr "Diary sprint retrospective" b
+---
+created: ${1:`date "+%F %H:%M"`}
+---
+
+# ${1}
+:${2}:
+
+## What went well in the Sprint
+${3}
+
+## What could be improved
+${4}
+
+## What will we commit to improve in the next Sprint
+${5}
+endsnippet
+
+
+snippet dyr "Year retrospective" b
+---
+created: ${1:`date "+%F %H:%M"`}
+---
+
+# Year retrospective:
+
+## What went well in the Year:
+${2}
+
+## What could be improved:
+${3}
+
+## What will we commit to improve in the next Year:
+${4}
+endsnippet
+
+snippet daily-note "Daily note template" b
+---
+created: ${1:`date "+%F %H:%M"`}
+---
+
+![[005_Active_MOC]]
+
+## My big thing for today
+If nothing else, today I am going to **$2**
+I am going to do this by **$3** then **$4** then **$5**
+If I do this and only this, today will be a good day.
+
+## Notes:
+- ${6:}
+
+---
+tags: #notes #dailies #${7} </br>
+assosiations: [[060_dailies_`date "+%Y"`]] [[${8}]]
+endsnippet
