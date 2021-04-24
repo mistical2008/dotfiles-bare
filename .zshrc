@@ -103,6 +103,9 @@ setopt MAGIC_EQUAL_SUBST
 source ~/03_Drafts/05_finance/myfinance/.bashrc
 source /home/evgeniy/.config/broot/launcher/bash/br
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 # place this after nvm initialization!
 autoload -U add-zsh-hook
 
@@ -125,6 +128,8 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+
 
 # Blitz.js autocompletion
 eval 
