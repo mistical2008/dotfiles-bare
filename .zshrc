@@ -107,4 +107,6 @@ source /home/evgeniy/.config/broot/launcher/bash/br
 eval 
 BLITZ_AC_ZSH_SETUP_PATH="$HOME/.cache/@blitzjs/cli/autocomplete/zsh_setup" && test -f $BLITZ_AC_ZSH_SETUP_PATH && source $BLITZ_AC_ZSH_SETUP_PATH; # blitz autocomplete setup
 # Time meter (uncomment last and firs lines)
-# zprof
+#export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion zprof
