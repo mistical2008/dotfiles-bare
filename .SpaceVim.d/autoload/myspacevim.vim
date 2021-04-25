@@ -34,11 +34,23 @@ let g:zettelkasten = '~/03_Drafts'
   \        }
   \}
 
+  function! GetNodeHostPath() abort
+    let l:node_version = trim(system('node -v'))
+    " return '$HOME/.nvm/versions/node/v14.16.1/lib/node_modules/neovim/bin/cli.js'
+    return '$HOME/.nvm/versions/node/' . l:node_version . '/lib/node_modules/neovim/bin/cli.js'
+  endfunction
+
+  function! SetNodeHostPath() abort
+    if executable('node')
+      let g:node_host_prog = GetNodeHostPath()
+    endif
+  endfunction
 
   let g:python3_host_prog = '/usr/bin/python3'
   let g:python_host_prog = '/usr/bin/python2'
   " CAUSES ERROR WITH NODE-NEOVIM
-  " let g:node_host_prog = '$HOME/.nvm/versions/node/v14.16.0/lib/node_modules/neovim/bin/cli.js'
+  " autocmd before the end #before function
+
 
   " if exists(g:neovide)
     " let g:node_host_prog = '$NVM_BIN/node'
@@ -301,6 +313,16 @@ let g:coc_config_home = '~/.SpaceVim.d/'
   nnoremap : ;
 
   " AUTOCMD's:
+  
+  augroup Enter_vim
+    autocmd!
+    if v:vim_did_enter
+      call SetNodeHostPath()
+    else
+      autocmd VimEnter * call SetNodeHostPath()
+    endif
+  augroup END
+
   augroup GUI
     autocmd!
     " neovide workaround
@@ -587,6 +609,7 @@ let g:vista_sidebar_position = 'vertical topleft'
   let g:spacevim_enable_vimfiler_filetypeicon = 1
   let g:spacevim_enable_vimfiler_gitstatus = 1
 
+  let g:pim#taskfile = '$HOME/tmp/test-todo.txt'
   " END of myspacevim#before
 endfunction
 

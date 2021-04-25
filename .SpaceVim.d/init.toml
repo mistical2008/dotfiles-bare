@@ -172,3 +172,6 @@ name = "fzf"
 [[custom_plugins]]
   repo = "pantharshit00/vim-prisma"
   merged = false
+[[custom_plugins]]
+  repo = "rbong/pimodoro"
+  merged = false

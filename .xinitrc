@@ -49,6 +49,10 @@ fi
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export TERM=xterm-256color
+[ -f ~/.exports ] && . ~/.exports
+
+xset r rate 501 30
 
 get_session() {
 	local dbus_args=(--sh-syntax --exit-with-session)
@@ -75,4 +79,3 @@ get_session() {
 }
 
 exec $(get_session)
-xset r rate 501 30

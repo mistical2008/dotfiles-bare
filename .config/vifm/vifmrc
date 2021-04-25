@@ -257,7 +257,7 @@ filetype *.[1-8] man ./%c
 fileviewer *.[1-8] man ./%c | col -b
 
 " Images
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.svg,*.ico
         \ {View in sxiv}
         \ sxiv %d,
         \ {View in gpicview}
@@ -462,9 +462,9 @@ vnoremap w :view<cr>gv
 " Open file in existing instance of gvim
 " nnoremap o :!gvim --remote-tab-silent %f<cr>
 "
-" Open file in existing instance of gvim
+" Open file in existing instance of neovim
 nnoremap o :!nvr --remote %f<cr>
-" Open file in new instance of gvim
+" Open file in new instance of neovim
 nnoremap O :!nvim %f<cr>
 
 " drag-and-drop support
