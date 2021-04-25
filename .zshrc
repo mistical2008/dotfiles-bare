@@ -93,6 +93,7 @@ setopt MAGIC_EQUAL_SUBST
 # Aliases from bash
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 [ -f ~/.exports ] && source ~/.exports # If exists ~/.exports source this file:
+[ -f ~/.shell_functions ] && source ~/.shell_functions # If exists ~/.shell_functions source this file:
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh;
 [ -f /home/evgeniy/.config/cani/completions/_cani.zsh ] && source /home/evgeniy/.config/cani/completions/_cani.zsh
@@ -111,6 +112,7 @@ BLITZ_AC_ZSH_SETUP_PATH="$HOME/.cache/@blitzjs/cli/autocomplete/zsh_setup" && te
 #export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion zprof
+
 # place this after nvm initialization!
 autoload -U add-zsh-hook
 load-nvmrc() {
