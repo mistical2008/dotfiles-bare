@@ -93,7 +93,7 @@ setopt MAGIC_EQUAL_SUBST
 # Aliases from bash
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 [ -f ~/.exports ] && source ~/.exports # If exists ~/.exports source this file:
-[ -f ~/.shell_functions ] && source ~/.shell_functions # If exists ~/.shell_functions source this file:
+# [ -f ~/.shell_functions ] && source ~/.shell_functions # If exists ~/.shell_functions source this file:
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh;
 [ -f /home/evgeniy/.config/cani/completions/_cani.zsh ] && source /home/evgeniy/.config/cani/completions/_cani.zsh
@@ -105,8 +105,7 @@ source ~/03_Drafts/05_finance/myfinance/.bashrc
 source /home/evgeniy/.config/broot/launcher/bash/br
 
 # Blitz.js autocompletion
-eval 
-BLITZ_AC_ZSH_SETUP_PATH="$HOME/.cache/@blitzjs/cli/autocomplete/zsh_setup" && test -f $BLITZ_AC_ZSH_SETUP_PATH && source $BLITZ_AC_ZSH_SETUP_PATH; # blitz autocomplete setup
+eval BLITZ_AC_ZSH_SETUP_PATH="$HOME/.cache/@blitzjs/cli/autocomplete/zsh_setup" && test -f $BLITZ_AC_ZSH_SETUP_PATH && source $BLITZ_AC_ZSH_SETUP_PATH; # blitz autocomplete setup
 # Time meter (uncomment last and firs lines)
 
 #export NVM_DIR="$HOME/.nvm"
