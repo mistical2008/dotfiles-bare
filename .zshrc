@@ -1,4 +1,3 @@
-eval "$(starship init zsh)"
  
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
@@ -32,12 +31,6 @@ MODE_INDICATOR_SEARCH='%F{13}<%F{5}SEARCH<%f'
 MODE_INDICATOR_VISUAL='%F{12}<%F{4}VISUAL<%f'
 MODE_INDICATOR_VLINE='%F{12}<%F{4}V-LINE<%f'
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-
 export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 # bindkey ';5D' backward-word
 # bindkey ';5C' forward-word
@@ -56,23 +49,12 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Source to oh-my-zsh plugins
-# [ -f $HOME/.oh-my-zsh/plugins/gitignore/gitignore.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/gitignore/gitignore.plugin.zsh
-# [ -f $HOME/.oh-my-zsh/plugins/node/node.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/node/node.plugin.zsh
-# [ -f $HOME/.oh-my-zsh/plugins/rsync/rsync.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/rsync/rsync.plugin.zsh
-# [ -f $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh ] && source $HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh
-# [ -f $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep ] && source $HOME/.oh-my-zsh/plugins/ripgrep/_ripgrep
-
-
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 #===========================================================================
 #=========================== WALL SETTINGS =================================
 #===========================================================================
 (cat $HOME/.config/wpg/sequences &) # Alternative (blocks terminal for 0-3ms)
-# To add support for TTYs this line can be optionally added.
-# source $HOME/.cache/wal/colors-tty.sh
-# source $HOME/.cache/wal/colors.sh
 
 #===========================================================================
 #=========================== wall settings end =============================
@@ -129,3 +111,8 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+eval 
+BLITZ_AC_ZSH_SETUP_PATH=/home/evgeniy/.cache/@blitzjs/cli/autocomplete/zsh_setup && test -f $BLITZ_AC_ZSH_SETUP_PATH && source $BLITZ_AC_ZSH_SETUP_PATH; # blitz autocomplete setup
+
+eval "$(starship init zsh)"
