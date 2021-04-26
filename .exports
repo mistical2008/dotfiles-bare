@@ -5,12 +5,9 @@ export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 export PATH="$PATH:/usr/sbin/xclip-copyfile"
 export PATH="$PATH:/usr/sbin/xclip-pastefile"
 export PATH="$PATH:/usr/sbin/xclip-cutfile"
-# export PATH="$PATH:$HOME/.local/lib/python_common_modules" # hasn't working
 
 # npm to $PATH
 export PATH="$PATH:$HOME/.npm/bin"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Filmic blender path
 export OCIO=$HOME/.config/blender/2.79/datafiles/colormanagement/config.ocio
