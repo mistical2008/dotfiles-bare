@@ -8,6 +8,8 @@ export PATH="$PATH:/usr/sbin/xclip-cutfile"
 
 # npm to $PATH
 export PATH="$PATH:$HOME/.npm/bin"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Filmic blender path
 export OCIO=$HOME/.config/blender/2.79/datafiles/colormanagement/config.ocio
