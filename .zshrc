@@ -104,13 +104,9 @@ setopt MAGIC_EQUAL_SUBST
 source ~/03_Drafts/05_finance/myfinance/.bashrc
 source /home/evgeniy/.config/broot/launcher/bash/br
 
-# Blitz.js autocompletion
-eval BLITZ_AC_ZSH_SETUP_PATH="$HOME/.cache/@blitzjs/cli/autocomplete/zsh_setup" && test -f $BLITZ_AC_ZSH_SETUP_PATH && source $BLITZ_AC_ZSH_SETUP_PATH; # blitz autocomplete setup
-# Time meter (uncomment last and firs lines)
-
 #export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion zprof
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion zprof
 
 # place this after nvm initialization!
 autoload -U add-zsh-hook
