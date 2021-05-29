@@ -36,8 +36,8 @@ let g:zettelkasten = '~/03_Drafts'
 
   function! GetNodeHostPath() abort
     let l:node_version = trim(system('node -v'))
-    " return '$HOME/.nvm/versions/node/v14.16.1/lib/node_modules/neovim/bin/cli.js'
-    return '$HOME/.nvm/versions/node/' . l:node_version . '/lib/node_modules/neovim/bin/cli.js'
+    return '$HOME/.nvm/versions/node/v14.16.1/lib/node_modules/neovim/bin/cli.js'
+    " return '$HOME/.nvm/versions/node/' . l:node_version . '/lib/node_modules/neovim/bin/cli.js'
   endfunction
 
   function! SetNodeHostPath() abort
@@ -170,6 +170,7 @@ let g:coc_config_home = '~/.SpaceVim.d/'
   call SpaceVim#custom#SPC('nore', ['C', 'n'], 'RenameSym', 'Rename cword symbol', 1)
   call SpaceVim#custom#SPC('nore', ['C', 'h'], 'ShowDoc', 'Show current symbol help', 1)
   call SpaceVim#custom#SPC('nore', ['C', 'l'], 'CocList', 'Show CocList', 1)
+  call SpaceVim#custom#SPC('nore', ['C', 'R'], 'CocCommand workspace.renameCurrentFile', 'Rename current file ,update imports', 1)
   " call SpaceVim#custom#SPC('nore', ['C', 'a'], 'CodeAction', 'Do default actions for language', 1)
   " call SpaceVim#custom#SPC('nmap', ['C', 'A'], '<Plug>(coc-codeaction-selected)', 'Codeaction for selected range', 1)
   " call SpaceVim#custom#SPC('xmap', ['C', 'A'], '<Plug>(coc-codeaction-selected)', 'Codeaction for selected range', 1)
