@@ -26,11 +26,24 @@
     enable_tabline_filetype_icon = true
     enable_statusline_mode = true
     statusline_unicode_symbols = false
+    statusline_left_sections = [
+       'winnr',
+       'major mode',
+       'parent_section',
+       'filename',
+       'fileformat',
+       'minor mode lighters',
+       'version control info',
+       'search status'
+    ]
     autocomplete_method = "coc"
     filemanager = 'defx'
     disabled_plugins = ["vnote"]
     lint_engine = "ale"
     # guifont = "JetBrainsMono Nerd Font Mono:h18"
+
+[[layers]]
+  name = 'incsearch'
 
 # Enable autocomplete layer
 [[layers]]
@@ -86,6 +99,9 @@ name = "fzf"
   name = "tools"
 
 [[layers]]
+  name = "tools#zeal"
+
+[[layers]]
   name = "tmux"
 
 [[layers]]
@@ -122,6 +138,9 @@ name = "fzf"
   name = "lang#html"
   [user_emmet_settings."typescriptreact"]
   extends = "javascriptreact"
+
+[[layers]]
+  name = "lang#php"
 
 
 [[custom_plugins]]
@@ -174,4 +193,7 @@ name = "fzf"
   merged = false
 [[custom_plugins]]
   repo = "rbong/pimodoro"
+  merged = false
+[[custom_plugins]]
+  repo = "wakatime/vim-wakatime"
   merged = false

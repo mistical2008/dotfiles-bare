@@ -1,12 +1,8 @@
 {
   "window.zoomLevel": 0,
-  "window.menuBarVisibility": "default",
+  "window.menuBarVisibility": "hidden",
   "workbench.iconTheme": "material-icon-theme",
-  "gitlens.advanced.messages": {
-    "suppressShowKeyBindingsNotice": true,
-    "suppressWelcomeNotice": true
-  },
-  "files.associations": {
+    "files.associations": {
     "*.pug": "jade",
     "*.css": "postcss"
   },
@@ -117,12 +113,6 @@
   "[javascriptreact]": {
     "editor.formatOnSave": false
   },
-  //tell the ESlint plugin to run on save
-  "eslint.autoFixOnSave": true,
-  "prettier.disableLanguages": [
-    "javascript",
-    "javascriptreact"
-  ],
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
@@ -134,5 +124,36 @@
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.normalModeKeyBindings": [
+        {
+            "before": [":"],
+            "commands": [
+                "workbench.action.showCommands",
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ]
 }

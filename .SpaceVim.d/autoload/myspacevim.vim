@@ -34,6 +34,12 @@ let g:zettelkasten = '~/03_Drafts'
   \        }
   \}
 
+  function! s:parent_section() abort
+    let parent = expand('%:h:t')
+    return parent . '/'
+  endfunction
+  call SpaceVim#layers#core#statusline#register_sections('parent_section', function('s:parent_section'))
+
   function! GetNodeHostPath() abort
     let l:node_version = trim(system('node -v'))
     return '$HOME/.nvm/versions/node/v14.16.1/lib/node_modules/neovim/bin/cli.js'
@@ -611,6 +617,7 @@ let g:vista_sidebar_position = 'vertical topleft'
   let g:spacevim_enable_vimfiler_gitstatus = 1
 
   let g:pim#taskfile = '$HOME/tmp/test-todo.txt'
+
   " END of myspacevim#before
 endfunction
 

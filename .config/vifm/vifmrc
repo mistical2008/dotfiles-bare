@@ -15,7 +15,7 @@ set milleroptions=lsize:1,csize:2
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
 
-set vicmd=vim
+set vicmd=nvim
 " set vicmd=elvis\ -G\ termcap
 " set vicmd=vile
 
@@ -468,7 +468,7 @@ nnoremap o :!nvr --remote %f<cr>
 nnoremap O :!nvim %f<cr>
 
 " drag-and-drop support
-nmap <C-d> :dragon<CR>
+nmap \d :dragon<CR>
 
 " Open file using its default program
 nnoremap go :file<cr>l
