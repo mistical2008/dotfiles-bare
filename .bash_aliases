@@ -139,7 +139,8 @@ conf() {
   esp) vim $HOME/.config/espanso/default.yml && dfa $HOME/.config/espanso/default.yml && dfcm "Espanso autocommit" && dfp ;;
   intel) sudoedit /etc/X11/mhwd.d/intel.conf ;;
   vim) vim $HOME/.vimrc && dfa $HOME/.vimrc && dfcm "Updated .vimrc" && dfp ;;
-  vim) vim $HOME/.SpaceVim.d/init.toml && dfa $HOME/.SpaceVim.d/init.toml && dfcm "Updated SpaceVim config" && dfp ;;
+  spvim) vim $HOME/.SpaceVim.d/init.toml && dfa $HOME/.SpaceVim.d/init.toml && dfcm "Updated SpaceVim config" && dfp ;;
+  smb) vim /etc/samba/smb.conf && dfa /etc/samba/smb.conf && dfcm "Updated smb config" && dfp ;;
   mutt) vim $HOME/.muttrc && dfa $HOME/.muttrc && dfcm "Updated .vimrc" && dfp ;;
   grub) sudoedit /etc/default/grub ;;
   lightdm) sudoedit /etc/lightdm/lightdm.conf ;;
