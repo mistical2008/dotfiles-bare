@@ -34,11 +34,11 @@ let g:zettelkasten = '~/03_Drafts'
   \        }
   \}
 
-  function! s:parent_section() abort
-    let parent = expand('%:h:t')
-    return parent . '/'
-  endfunction
-  call SpaceVim#layers#core#statusline#register_sections('parent_section', function('s:parent_section'))
+  " function! s:parent_section() abort
+    " let parent = expand('%:h:t')
+    " return parent . '/'
+  " endfunction
+  " call SpaceVim#layers#core#statusline#register_sections('parent_section', function('s:parent_section'))
 
   function! GetNodeHostPath() abort
     let l:node_version = trim(system('node -v'))
@@ -74,6 +74,7 @@ let g:coc_config_home = '~/.SpaceVim.d/'
   let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-css',
+    \ 'coc-stylelintplus',
     \ 'coc-emmet',
     \ 'coc-html',
     \ 'coc-svg',
@@ -85,16 +86,17 @@ let g:coc_config_home = '~/.SpaceVim.d/'
     \ 'coc-snippets',
     \ 'coc-explorer',
     \ 'coc-highlight',
-    \ 'coc-stylelintplus',
     \ 'coc-prettier',
     \ 'coc-eslint',
     \ 'coc-react-refactor',
+    \ 'coc-jsref',
     \ 'coc-import-cost',
     \ 'coc-styled-components',
     \ 'coc-cssmodules',
     \ 'coc-sh',
     \ 'coc-webpack',
     \ 'coc-jest',
+    \ 'coc-inline-jest',
     \ 'https://github.com/dsznajder/vscode-es7-javascript-react-snippets',
     \ 'coc-marketplace',
     \]
