@@ -126,6 +126,7 @@ alias cltmp="ls -ca $HOME/tmp; rm -r $HOME/tmp/*"
 alias serve="browser-sync start --server --files . --no-notify --host $SERVER_IP --port 9000"
 alias mtpmnt="gio mount -li | awk -F= '{if(index($2,"mtp") == 1)system("gio mount "$2)}'"
 alias ytdr="youtubedr -d "$HOME/Downloads/02_yt-video/" --config $XDG_CONFIG_HOME/youtubedr/config"
+alias remount_hdd1tb="sudo mount -t ntfs /dev/sdc1 /mnt/HDD1TB"
 
 ## FUNCTIONS
 # Configurations
